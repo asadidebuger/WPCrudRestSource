@@ -1,0 +1,1558 @@
+[comment encoding = Cp1256 /]
+[module adminMenuPage('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service/]
+[template public adminMenuPage(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+
+[file (directory+'/admin/'+ prefix +'_admin_menu_page.php', false, 'UTF-8')]
+<?php
+
+/**
+ * The admin-menu-pages functionality of the plugin.
+ *
+[getCopyrightComment()/]
+ */
+class [prefix/]_admin_menu_page {
+
+  private $slug;
+
+  public function __construct($slug)
+  {
+	$this->slug = $slug;
+  }
+  public function render(){
+
+	include 'partials/[prefix/]-admin-page-menu.php';
+  }
+}
+
+	
+[/file]
+
+[if(plg.hasAccessControl)]
+	[file (directory+'/admin/'+ prefix +'_admin_options_page.php', false, 'UTF-8')]
+<?php
+
+/**
+ * The options page functionality of the plugin.
+ *
+[getCopyrightComment()/]
+ */
+class [prefix/]_admin_options_page {
+
+  private $slug;
+  private $title;
+
+  public function __construct($slug,$title) {
+	$this->slug = $slug;
+	$this->title = $title;
+  }
+
+  public function render(){
+
+	include 'partials/[prefix/]-admin-options-page.php';
+  }
+}
+
+	
+	[/file]
+	[file (directory+'/admin/partials/'+ prefix +'-admin-options-page.php', false, 'UTF-8')]
+<?php
+
+/**
+ * Provide a admin area view for the plugin settings
+ *
+ * This file is used to markup the admin-facing aspects of the plugin.
+ *
+[getCopyrightComment(plg)/]
+ */
+
+?>
+
+<style type="text/css">
+	input, input:focus , select, textarea,textarea:focus{
+		border-radius: unset !important;
+		border:none !important;
+		box-shadow: none !important;
+		background: none !important;
+	}
+	.v-tabs--vertical .v-tab{
+		 border-bottom: 2px solid #ffffff;
+	 }
+
+</style>
+
+<div id="app" data-app class="v-application <?php echo is_rtl()?'rtl':'ltr'; ?>">
+  <v-snackbar centered multi-line :color="notifyColor"
+		  v-model="notify"
+		  :timeout="2000"
+  >
+	{{ notifyText }}
+	<template v-slot:action="{ attrs }">
+	  <v-btn text
+			  v-bind="attrs"
+			  @click="notify = false"
+	  >
+		<v-icon>
+		  mdi-close
+		</v-icon>
+	  </v-btn>
+	</template>
+  </v-snackbar>
+  <v-main>
+
+	<v-container fluid>
+	  <v-card v-if="loaded">
+		<v-card-title>
+
+		  <h2 class="pr-4 pl-4"><?php echo $this->title ?></h2>
+
+			  <v-btn
+				class="mt-4 mb-4 mr-4 ml-4"
+				color="success"
+				@click="save"
+				:disabled="!valid"
+			  >
+
+				<v-icon >
+				  mdi-content-save-all
+				</v-icon>
+				<span><?php echo __('Save Options', '[td/]') ?></span>
+			  </v-btn>
+		  <v-btn
+				  class="mt-4 mb-4 mr-4 ml-4"
+				  color="primary"
+				  @click="checkAll"
+		  >
+
+			<v-icon >
+			  mdi-check-all
+			</v-icon>
+			<span><?php echo __('(Un)Check All', '[td/]') ?></span>
+		  </v-btn>
+		</v-card-title>
+		<v-form
+			ref="form"
+			v-model="valid"
+			lazy-validation
+		>
+		  <v-tabs vertical background-color="grey lighten-5">
+			<v-tab v-for="(entity,e) in entities" v-id="e">
+			  <span >{{entity.plural}} <small>({{txt.ws}})</small></span>
+			</v-tab>
+			<v-tab v-for="(page,p) in pages" v-id="p">
+			  <span >{{page.title}} <small>({{txt.page}})</small></span>
+			</v-tab>
+			<v-tab v-if="extendeds&&extendeds.length" >
+			  <span ><?php echo __('Extended Web-Services','[td/]') ?></span>
+			</v-tab>
+			<v-tab-item v-for="(entity,e) in entities" v-id="e">
+			  <v-container >
+				<v-row v-for="(role,r) in roles" v-id="r">
+				  <v-col cols="12" sm="2" >
+					<label style="line-height: 3">{{role.name}}:</label>
+				  </v-col>
+
+				  <v-col cols="12" sm="1" v-for="(cap,c) in capsWS" v-id="c">
+					<v-checkbox
+							['v-model="caps[r][\''+prefix+'_ws_\'+e+\'_\'+c]"'/]
+							:label="cap"
+							color="primary"
+							hide-details
+					></v-checkbox>
+				  </v-col>
+
+				</v-row>
+
+			  </v-container>
+			</v-tab-item>
+
+			<v-tab-item v-for="(page,p) in pages" v-id="'page-'+p">
+			  <v-container>
+				<v-row v-for="(role,r) in roles" v-id="r">
+				  <v-col cols="12" sm="2" >
+					<label style="line-height: 3">{{role.name}}:</label>
+				  </v-col>
+
+				  <v-col cols="12" sm="1" v-for="(cap,c) in capsWS" v-id="c">
+					<v-checkbox
+							['v-model="caps[r][\''+prefix+'_page_\'+p+\'_\'+c]"'/]
+							:label="cap"
+							color="primary"
+							hide-details
+					></v-checkbox>
+				  </v-col>
+
+				  <v-col cols="12" sm="1" v-for="(bulk,b) in page.listView.bulk" v-id="'bulk-'+b">
+					<v-checkbox
+							['v-model="caps[r][\''+prefix+'_bulk_\'+p+\'_\'+b]"'/]
+							:label="bulk.title"
+							color="primary"
+							hide-details
+					></v-checkbox>
+				  </v-col>
+
+				</v-row>
+
+			  </v-container>
+			</v-tab-item>
+			<v-tab-item v-if="extendeds&&extendeds.length" >
+			  <v-container>
+				<v-row v-for="(role,r) in roles" v-id="r">
+				  <v-col cols="12" sm="2" >
+					<label style="line-height: 3">{{role.name}}:</label>
+				  </v-col>
+
+				  <v-col cols="12" sm="1" v-for="(extend,ex) in extendeds" v-id="ex">
+					<v-checkbox
+							['v-model="caps[r][\''+prefix+'_ws_\'+extend]"'/]
+							:label="extend"
+							color="primary"
+							hide-details
+					></v-checkbox>
+				  </v-col>
+				</v-row>
+			  </v-container>
+			</v-tab-item>
+		  </v-tabs>
+		</v-form>
+	  </v-card>
+	  <div v-else style="text-align: center;">
+		<v-progress-circular
+			style="margin-top:30vh;"
+			:size="70"
+			:width="7"
+			color="primary"
+			indeterminate
+		></v-progress-circular>
+	  </div>
+
+	</v-container>
+  </v-main>
+</div>
+
+<script>
+	const app = new Vue({
+		el: '#app',
+		vuetify: new Vuetify({rtl: <?php echo is_rtl() ? 'true' : 'false'; ?>}),
+
+		data() {
+			return {
+				rtl:<?php echo is_rtl() ? 'true' : 'false'; ?>,
+				txt: {<?php echo "page:'" . __('Page') . "',ws:'" . __('Web-Service', '[td/]') . "', create:'" . __('Create') . "',update:'" . __('Update') . "',edit:'" . __('Edit') . "',back:'" . __('Back') . "',delete:'" . __('Remove') . "'" ?>},
+				nonce: '<?php echo wp_create_nonce('wp_rest'); ?>',
+				item: JSON.parse(`<?php echo get_option('[prefix/]_options', '{}') ?>`),
+				caps: {},
+				capsWS: {},
+				api: '<?php echo get_site_url()?>/wp-json/[prefix/]/v1/',
+				singleSelect: false,
+				pages: null,
+				entities: null,
+				roles: null,
+				extendeds: null,
+				valid: false,
+				loaded: false,
+				notify: false,
+				notifyText: '',
+				notifyColor: '',
+				checkedAll:false
+			}
+		},
+		mounted() {
+			this.init();
+		},
+		methods: {
+			init() {
+				jQuery.ajax({
+					url: this.urlMeta,
+					method: 'GET',
+					beforeSend: (xhr) => {
+						xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+					},
+					error: (err) => {
+						this.showNotify(err.responseJSON.message);
+					},
+					success: (data) => {
+						this.pages = data.pages;
+						this.entities = data.entities;
+						this.roles = data.roles;
+						this.capsWS = data.caps;
+						this.extendeds = data.extends;
+						for (const k of Object.keys(data.roles)) {
+							['this.caps[k] = data.roles[k].capabilities;'/]
+						}
+						this.loaded = true;
+					}
+				});
+
+			},
+			checkAll(){
+				this.loaded=false;
+				this.checkedAll=!this.checkedAll;
+				const caps=this.caps;
+				const entities=this.entities;
+				const roles=this.roles;
+				const capsWS=this.capsWS;
+				const pages=this.pages;
+				const extendeds=this.extendeds||['[]'/];
+				for(const e in entities){
+					for(const r in roles){
+						for(const c in capsWS){
+
+							['caps[r][\''+prefix+'_ws_\'+e+\'_\'+c]=this.checkedAll;'/]
+						}
+					}
+				}
+				for(const p in pages){
+					const page=pages['[p]'/];
+					for(const r in roles){
+						for(const c in capsWS){
+							['caps[r][\''+prefix+'_page_\'+p+\'_\'+c]=this.checkedAll;'/]
+						}
+						for(const b in page.listView.bulk) {
+							['caps[r][\''+prefix+'_bulk_\' + p + \'_\' + b] = this.checkedAll;'/]
+						}
+					}
+				}
+
+				for(const ex in extendeds){
+					const extend=extendeds['[ex];'/]
+					for(const r in roles){
+							['caps[r][\''+prefix+'_ws_\'+extend]=this.checkedAll;'/]
+					}
+				}
+				
+				this.$nextTick(() => {
+					this.loaded = true;
+				});
+			},
+
+			resolveScript(script, _item, param) {
+				if (!script) return "";
+				"use strict"
+				let value = {};
+				let result = null;
+				const that = this;
+				const params = param;
+				const item = _item;
+				eval("result =(() => {\n" + (script) + "\n})(value,that,item,params)");
+				return result || value;
+			},
+
+			validate() {
+				this.$refs.form.validate();
+			},
+			reset() {
+				this.$refs.form.reset();
+			},
+			resetValidation() {
+				this.$refs.form.resetValidation();
+			},
+			showNotify(txt, color) {
+				this.notifyColor = color||'error';
+				this.notifyText = txt;
+				this.notify = true;
+
+			},
+			save() {
+				this.validate();
+				Vue.nextTick(() => {
+					if (!this.valid) return;
+					this.loaded=false;
+					jQuery.ajax({
+						type: "POST",
+						url: this.urlSave,
+						data: JSON.stringify(this.caps),
+						contentType: 'application/json',
+						beforeSend: (xhr) => {
+							xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+						},
+						success: (data) => {
+							this.loaded=true;
+							this.showNotify('<?php echo __('Successfully saved!','[td/]');?>','success');
+						},
+						error: (err) => {
+							this.loaded=true;
+							this.showNotify(err.responseJSON.message);
+						},
+						dataType: 'json'
+					});
+				})
+			},
+		},
+		computed: {
+			urlMeta() {
+				return this.api + 'options';
+			},
+			urlSave() {
+				return this.api + 'options';
+			},
+		}
+	});
+</script>
+
+
+	
+	[/file]
+[/if]
+[file (directory+'/admin/partials/'+ prefix +'-admin-page-menu.php', false, 'UTF-8')]
+<?php
+
+/**
+ * Provide a admin area view for the plugin main page
+ *
+ * This file is used to markup the admin-facing aspects of the plugin.
+ *
+[getCopyrightComment(plg)/]
+ */
+/** @var [prefix/]_Page $this */
+?>
+<div id="app" data-app class="v-application <?php echo is_rtl()?'rtl':'ltr'; ?>">
+  <v-snackbar centered multi-line color="error"
+			  v-model="notify"
+			  :timeout="2000"
+  >
+	{{ notifyText }}
+	<template v-slot:action="{ attrs }">
+	  <v-btn text
+			 v-bind="attrs"
+			 @click="notify = false"
+	  >
+		<v-icon>
+		  mdi-close
+		</v-icon>
+	  </v-btn>
+	</template>
+  </v-snackbar>
+    <v-main v-if="menu">
+	<h1>{{title}} <span :class="'dashicons-before '+menu.icon"></span>
+	  <v-btn v-if="canConfigOptions" depressed @click="goToOptions"> <?php echo __('Options','[td/]') ?> </v-btn>
+	</h1>
+	<v-container fluid>
+	  <v-row>
+		<v-col v-for="(item,slug) in menu.sub" v-id="slug" cols="12" sm="6" md="4" lg="3" xl="2">
+		  <v-card class="mx-auto"  outlined>
+			<v-list-item three-line>
+			  <v-list-item-content>
+				<v-list-item-title class="text-h5 mb-1">
+				  {{item.title}}
+				</v-list-item-title>
+			  </v-list-item-content>
+			</v-list-item>
+
+			<v-card-actions>
+			  <v-btn  outlined
+					  rounded
+					  text
+					  @click="goToPage(slug)">
+				<?php echo __('Page','[td/]')?>
+			  </v-btn>
+			</v-card-actions>
+		  </v-card>
+		</v-col>
+	  </v-row>
+	</v-container>
+  </v-main>
+<script>
+	var app = new Vue({
+		el: '#app',
+		vuetify: new Vuetify({rtl: <?php echo is_rtl() ? 'true' : 'false'; ?>}),
+
+		data() {
+			return {
+				slug: '<?php echo $this->slug ?>',
+				api: '<?php echo get_site_url()?>/wp-json/[prefix/]/v1/',
+				nonce: '<?php echo wp_create_nonce('wp_rest'); ?>',
+				menu: null,
+				notify: false,
+				notifyText: '',
+				canConfigOptions:[if(plg.hasAccessControl)]<?php $user = wp_get_current_user(); $allowed_roles = array('administrator');
+			  echo (count(array_intersect($allowed_roles, $user->roles ))>0?'true':'false'); ?>,
+[else]false,[/if]
+			}
+
+		},
+		mounted() {
+			this.getMenus();
+		},
+
+		methods: {
+			showNotify(txt) {
+				this.notifyText = txt;
+				this.notify = true;
+			},
+			get(url, clbk) {
+				jQuery.ajax({
+						url: url,
+						method: 'GET',
+						beforeSend: (xhr) => {
+							xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+						},
+						error: (err) => {
+							this.showNotify(err.responseJSON.message);
+						},
+						success: (data) => {
+							clbk(data);
+						}
+					}
+				);
+			},
+			post(url, clbk) {
+				jQuery.ajax({
+					url: url,
+					method: 'POST',
+					beforeSend: (xhr) => {
+						xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+					},
+					error: (err) => {
+						this.showNotify(err.responseJSON.message);
+					},
+					success: (data) => {
+						clbk(data);
+					}
+				});
+			},
+			getMenus() {
+				this.get(this.urlMenus, (data) => {
+					['this.menu = data[this.slug];'/]
+				});
+			},
+			goToPage(slug) {
+				var url = window.location.href;
+				window.location.href = url + '-' + slug;
+			},
+			goToOptions(){
+				window.location.href ='<?php echo get_site_url();?>/wp-admin/options-general.php?page=options_[prefix/]';
+			}
+		},
+		computed: {
+			urlMenus() {
+				return this.api + 'admin-menu/' + this.slug
+			},
+			title() {
+				return this.menu.title
+
+			}
+		}
+
+	});
+</script>
+
+
+[/file]
+
+[file (directory+'/admin/partials/'+ prefix +'-admin-page-list.php', false, 'UTF-8')]
+<?php
+
+/**
+ * Provide a admin area view for entities list
+ *
+ * This file is used to markup the admin-facing aspects of the plugin.
+ *
+[getCopyrightComment(plg)/]
+ */
+/** @var [prefix/]_Page $this */
+?>
+<style type="text/css">
+	.bulkactions .v-text-field__details{display: none !important;}
+	.action-icon:before{font-size: 40px; margin-right: 12px; margin-left: 12px;}
+	input, input:focus , select, textarea,textarea:focus{
+		border-radius: unset !important;
+		border:none !important;
+		box-shadow: none !important;
+	}
+</style>
+<div id="[prefix/]-app" data-app class="v-application <?php echo is_rtl()?'rtl':'ltr'; ?>">
+  <v-snackbar centered multi-line color="error"
+			  v-model="notify"
+			  :timeout="2000"
+  >
+	{{ notifyText }}
+	<template v-slot:action="{ attrs }">
+	  <v-btn text
+			 v-bind="attrs"
+			 @click="notify = false"
+	  >
+		<v-icon>
+		  mdi-close
+		</v-icon>
+	  </v-btn>
+	</template>
+  </v-snackbar>
+  <v-main>
+	<v-container fluid>
+
+	  <v-dialog ref="bulkconfirm"
+				transition="dialog-bottom-transition"
+				max-width="500"
+				:value="showBulkConfirm"
+				@click:outside="clearBulk"
+	  >
+		<template v-slot:default="dialog">
+		  <v-card>
+			<v-toolbar
+					color="error"
+					dark
+			><?php echo __('Confirm Action','[td/]') ?></v-toolbar>
+			<v-card-text color="error">
+			  <div class="text-h5 pa-5"><?php echo __('Are you confirm this action?','[td/]') ?></div>
+			  <div class="text-center text-h4 pa-5" style="text-decoration: underline; color: #ff3737"><span v-if="selectedBulk&&selectedBulk.icon" :class="'action-icon dashicons-before dashicons-'+selectedBulk.icon"></span> {{selectedBulk&&selectedBulk.title}}</div>
+			</v-card-text>
+			<v-card-actions class="justify-end">
+			  <v-btn  depressed color="success"
+					  text
+					  @click="clearBulk"
+			  ><?php echo __('Cancel') ?>
+			  </v-btn>
+			  <v-btn depressed
+					 color="error"
+					 text
+					 @click="doBulk"
+			  ><?php echo __('Yes') ?>
+			  </v-btn>
+			</v-card-actions>
+		  </v-card>
+		</template>
+	  </v-dialog>
+	  <v-dialog ref="deleteconfirm"
+				transition="dialog-bottom-transition"
+				max-width="500"
+				:value="selectedToDelete"
+				@click:outside="selectedToDelete=null"
+	  >
+		<template v-slot:default="dialog">
+		  <v-card>
+			<v-toolbar
+					color="error"
+					dark
+			><?php echo __('Confirm Action','[td/]') ?></v-toolbar>
+			<v-card-text color="error">
+			  <div class="text-h5 pa-5"><?php echo __('Are you sure to delete this item?','[td/]') ?></div>
+			  <div class="text-center text-h4 pa-5" style="text-decoration: underline; color: #ff3737"> {{getItemTitle(selectedToDelete)}}</div>
+			</v-card-text>
+			<v-card-actions class="justify-end">
+			  <v-btn  depressed color="success"
+					  text
+					  @click="selectedToDelete=null"
+			  ><?php echo __('Cancel') ?>
+			  </v-btn>
+			  <v-btn depressed
+					 color="error"
+					 text
+					 @click="remove(selectedToDelete)"
+			  ><?php echo __('Yes') ?>
+			  </v-btn>
+			</v-card-actions>
+		  </v-card>
+		</template>
+	  </v-dialog>
+	  <v-card>
+		<v-card-title>
+		  {{title}}
+		  <v-spacer></v-spacer>
+		  <v-text-field
+			  v-if="<?php echo ['$this->get_list_view()->props["searchBox"]'/]?'true':'false'; ?>"
+			  v-model="search"
+			  append-icon="mdi-magnify"
+			  label="<?php echo __('Search')?>"
+			  single-line
+			  hide-details
+			  @keydown.enter.prevent="handleSearch"
+		  ></v-text-field>
+		</v-card-title>
+		<v-container>
+		  <v-row  >
+			<v-col md="4">
+			  <v-btn v-if="access.create"
+					  color="success"
+					  class="mr-4"
+					  @click="create"
+			  >
+				<?php echo __('Add New','[td/]');?> <v-icon>mdi-file-plus </v-icon>
+			  </v-btn>
+			</v-col>
+			<v-col md="5"></v-col>
+			<v-col md="3" >
+			  <v-overflow-btn
+				  ref="bulks"
+				  class="bulkactions"
+				  v-if="showBulk"
+				  style="margin:0"
+				  v-model="selectedBulk"
+				  :items="bulks"
+				  label="<?php echo __('Select an action','[td/]') ?>"
+				  menu-props="top"
+				  filled
+				  dense >
+				<template v-slot:append>
+				  <v-icon >
+					mdi-gesture-tap
+				  </v-icon>
+				</template>
+				<template v-slot:item="{item,on,attrs}">
+				  <div v-bind="attrs"
+					   v-on="on">
+				  	<span v-if="item.icon" :class="'dashicons-before dashicons-'+item.icon"></span><span>{{ item.title }}</span>
+				  </div>
+				</template>
+				<template v-slot:selection="{item}">
+				  <div >
+					<span v-if="item.icon" :class="'dashicons-before dashicons-'+item.icon"></span><span>{{ item.title }}</span>
+				  </div>
+				</template>
+			  </v-overflow-btn>
+			</v-col>
+		  </v-row>
+		</v-container>
+
+		<v-data-table
+			ref="list"
+			:headers="headers"
+			:items="items"
+			:loading="loading"
+			loading-text="<?php echo __('Loading...','[td/]')?>"
+			v-model="selected"
+			:single-select="singleSelect"
+			item-key="id"
+			no-data-text="<?php echo __('Data not exist!','[td/]')?>"
+			no-results-text="<?php echo __('No data found!','[td/]')?>"
+			show-select
+			class="elevation-1"
+			:items-per-page="itemsPerPage"
+			@pagination="handlePagination"
+			:server-items-length="total"
+			:page="currentPage"
+			:options="pagination"
+			@update:sort-by="handleSortBy"
+			@update:sort-desc="handleSortDesc"
+		>
+		  ['<template v-for="header in headers.filter((header) => header.hasOwnProperty(\'formatter\'))" v-slot:[`item.${header.value}`]="{ header, value }">'/]
+			{{ header.formatter(header, value) }}
+		  </template>
+		  <?php
+[if(plg.hasAccessControl)]
+		   $can_view=['$this->get_list_view()->props["detailButton"]'/] && current_user_can("[prefix/]_page_{$this->key}_view");
+		   $can_edit=['$this->get_list_view()->props["editButton"]'/] && current_user_can("[prefix/]_page_{$this->key}_edit");
+		   $can_delete=['$this->get_list_view()->props["deleteButton"]'/] && current_user_can("[prefix/]_page_{$this->key}_delete");
+		   $can_create=['$this->get_list_view()->props["createButton"]'/] && current_user_can("[prefix/]_page_{$this->key}_create");
+		   $can_list=current_user_can("[prefix/]_page_{$this->key}_list");
+[else]
+		   $can_view=true;
+		   $can_edit=true;
+		   $can_delete=true;
+		   $can_create=true;
+		   $can_list=true;
+[/if]
+		   if($can_view||$can_edit||$can_delete){
+		  ?>
+		  <template v-slot:item.__action="{ item }">
+			<v-icon v-if="access.view"
+					small
+					class="mr-2"
+					@click="viewItem(item)"
+			>
+			  mdi-eye-outline
+			</v-icon>
+			<v-icon
+					v-if="access.edit"
+					small
+					class="mr-2"
+					@click="editItem(item)"
+			>
+			  mdi-pencil
+			</v-icon>
+			<v-icon
+					v-if="access.delete"
+					small
+					@click="selectedToDelete=item"
+			>
+			  mdi-delete
+			</v-icon>
+		  </template>
+		  <?php } ?>
+
+		</v-data-table>
+	  </v-card>
+  </v-main>
+  </v-container>
+</div>
+
+<script>
+	var app = new Vue({
+		el: '#[prefix/]-app',
+		vuetify: new Vuetify({rtl: <?php echo is_rtl() ? 'true' : 'false'; ?>}),
+		data() {
+			return {
+				api: '<?php echo get_site_url()?>/wp-json/[prefix/]/v1/',
+				nonce: '<?php echo wp_create_nonce('wp_rest'); ?>',
+				pageKey: '<?php echo $this->key ?>',
+				title: '<?php echo $this->title ?>',
+				singleSelect: false,
+				search: '',
+				['selected: [],'/]
+				page: null,
+				['items: [],'/]
+				loading: true,
+				selectedBulk: null,
+				showBulkConfirm: false,
+				selectedToDelete:null,
+				notify: false,
+				notifyText: '',
+				header:null,
+				access:{
+					view:<?php echo $can_view?'true':'false';?>,
+					edit:<?php echo $can_edit?'true':'false';?>,
+					delete:<?php echo $can_delete?'true':'false';?>,
+					create:<?php echo $can_create?'true':'false';?>,
+					list:<?php echo $can_list?'true':'false';?>,
+					bulk:{<?php foreach ($this->get_list_view()->bulk as $key=>$bulk) echo "$key:".(current_user_can("[prefix/]_bulk_{$this->key}_{$key}")?'true':'false'); ?>}
+				},
+				itemsPerPage:1,
+				currentPage:1,
+				pagination:{},
+				total:0,
+				sort: {by:'',desc:''},
+				lastPaginationOptions:{},
+				lastUrl:null
+
+			}
+		},
+		mounted() {
+			this.getMeta();
+			// console.log(this);
+		},
+		methods: {
+			handlePagination(e){
+
+				this.lastPaginationOptions=e;
+				if (!this.page) return;
+				this.getData(e.page,e.itemsPerPage,this.sort,this.search);
+			},
+			handleSearch(){
+				this.handlePagination(this.lastPaginationOptions)
+			},
+			handleSortDesc(e){
+				this.sort.desc=e;
+				this.handlePagination(this.lastPaginationOptions)
+			},
+			handleSortBy(e){
+				this.sort.by=e;
+			},
+			showNotify(txt) {
+				this.notifyText = txt;
+				this.notify = true;
+			},
+			get(url, clbk) {
+				jQuery.ajax({
+						url: url,
+						method: 'GET',
+						beforeSend: (xhr) => {
+							xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+						},
+						error: (err) => {
+							this.showNotify(err.responseJSON.message);
+						},
+						success: (data) => {
+							clbk(data);
+						}
+					}
+				);
+			},
+			post(url, clbk) {
+				jQuery.ajax({
+					url: url,
+					method: 'POST',
+					beforeSend: (xhr) => {
+						xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+					},
+					error: (err) => {
+						this.showNotify(err.responseJSON.message);
+					},
+					success: (data) => {
+						clbk(data);
+					}
+				});
+			},
+			getMeta() {
+				this.get(this.urlMeta, (data) => {
+					['var page = data[this.pageKey];'/]
+					page.entity.allfields = {...page.entity.fields, ...page.entity.relations};
+					this.itemsPerPage=page.listView.props.itemsPerPage;
+					this.page = page;
+				});
+			},
+
+			getData(currentPage,itemsPerPage,sort,search) {
+				let url=this.api + 'page_' + this.page.key+'?page='+currentPage+'&per_page='+itemsPerPage+'&search='+encodeURIComponent(search);
+				if (sort.by) url+='&sort='+encodeURIComponent(sort.by+' '+(sort.desc?'DESC':''));
+				if(this.lastUrl===url) return;
+				this.lastUrl=url;
+				this.loading = true;
+				this.get(url, (data) => {
+					this.total = data.total;
+					this.items = data.items;
+					this.loading = false;
+				});
+			},
+			getItemTitle(item){
+				return this.resolveScript('return ' + this.page.entity.title_script, item);
+			},
+			resolveScript(script, _item, param) {
+				if (!script || !_item) return "";
+				"use strict"
+				let value = {};
+				let result = null;
+				const that = this;
+				const params = param;
+				const item = _item;
+				eval("result =(() => {\n" + (script.value || script) + "\n})(value,that,item,params)");
+				return result || value;
+			},
+			editItem(item, meta) {
+				window.location.href = window.location.href + "&id=" + item.id+"&mode=edit";;
+			},
+			viewItem(item, meta) {
+				window.location.href = window.location.href + "&id=" + item.id+"&mode=view";
+			},
+			create() {
+				window.location.href = window.location.href + "&id=new";
+			},
+			remove(item) {
+				['if (!item || !item.id || !/[0-9]+/.test(item.id)) return;'/]
+				jQuery.ajax({
+					type: "DELETE",
+					url: this.urlData + '/' + item.id,
+					data: JSON.stringify(item.id),
+					contentType: 'application/json',
+					beforeSend: (xhr) => {
+						xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+					},
+					success: (data) => {
+						location.reload();
+					},
+					error: (err) => {
+						this.showNotify(err.responseJSON.message);
+					},
+					dataType: 'json'
+				});
+
+				this.selectedToDelete=null;
+			},
+			clearBulk() {
+				this.selectedBulk = null;
+				this.showBulkConfirm = false;
+			},
+			doBulk() {
+				const bulk = this.selectedBulk;
+				this.clearBulk();
+				jQuery.ajax({
+					type: "POST",
+					url: this.urlData + '/bulk/' + bulk.key,
+					data: JSON.stringify(this.selection),
+					contentType: 'application/json',
+					beforeSend: (xhr) => {
+						xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+					},
+					success: (data) => {
+						location.reload();
+					},
+					error: (err) => {
+						this.showNotify(err.responseJSON.message);
+					},
+					dataType: 'json'
+				});
+			}
+		},
+		watch: {
+			selectedBulk(bulk) {
+				if (!bulk) return;
+				this.showBulkConfirm = true;
+			},
+		},
+		computed: {
+			urlMeta() {
+				return this.api + 'page/' + this.pageKey;
+			},
+			urlData() {
+				return this.api + 'page_' + this.page.key;
+			},
+			bulks() {
+				const bulk = this.page && this.page.listView.bulk || null;
+				if (!bulk) return null;
+				['const bulks = [];'/]
+				for (const key of Object.keys(bulk)) {
+					['const b = bulk[key];'/]
+					b.key = key;
+					bulks.push(b);
+				}
+				return bulks;
+			},
+			showBulk() {
+				return this.page && Object.keys(this.selection).length && this.bulks.length;
+			},
+			selection() {
+				return this.page && this.$refs.list.selection || {};
+			},
+			headers() {
+				['if (!this.page) return [];'/]
+				var page = this.page;
+				var header = page.listView.columns.map((key) => {
+					var h = {
+						['text: page.entity.allfields[key].label,'/]
+						align: 'start',//  'start' | 'center' | 'end',
+						sortable: page.listView.sortable.indexOf(key) > -1,
+						filterable: page.listView.searchable.indexOf(key) > -1,
+						value: key,
+					}
+					['if (page.entity.relations[key]) {'/]
+						['h.title_script = page.entity.relations[key].title_script;'/]
+						h.formatter = (header, value) => {
+							if(!value) return '';
+							if(Array.isArray(value)) return value.map(v=>{
+									return this.resolveScript('return ' + header.title_script, v)
+								}).join('-');
+							return this.resolveScript('return ' + header.title_script, value)
+						};
+					}
+					return h;
+				});
+				if(this.access.view||this.access.delete||this.access.edit) {
+					const action = {
+						text: 'Action',
+						align: 'center',//  'start' | 'center' | 'end',
+						sortable: false,
+						filterable: false,
+						value: '__action',
+					};
+					header.push(action);
+				}
+				this.header=header;
+				return header;
+			}
+		}
+	});
+</script>
+
+
+
+[/file]
+
+[file (directory+'/admin/partials/'+ prefix +'-admin-page-form.php', false, 'UTF-8')]
+<?php
+
+/**
+ * Provide a admin area view for the entities detail view and edit
+ *
+ * This file is used to markup the admin-facing aspects of the plugin.
+ *
+[getCopyrightComment(plg)/]
+ */
+ /** @var [prefix/]_Page $this */
+require_once [prefix/]_PATH.'includes/[prefix/]_field_type.php';
+/** @var [prefix/]_Page $this */
+
+$entity=[prefix/]_Models::get_entity($this->entity_key);
+$fieldsLayouts=$this->formView->fieldsLayouts;
+$js_to_load=array();
+$css_to_load=array();
+$component_to_load=array();
+foreach ($fieldsLayouts as $key=>$layout ){
+  $field = $entity->get_field($key);
+  $fieldType = [prefix/]_field_type::get($field->type);
+  if ($fieldType->url_js){
+	foreach (explode(',',$fieldType->url_js) as $i=>$js){
+	  $js=trim($js);
+	  ['if (strlen($js)) $js_to_load[$js]=$js;'/]
+	}
+  }
+  if ($fieldType->url_css){
+	foreach (explode(',',$fieldType->url_css) as $i=>$css){
+	  $css=trim($css);
+	  ['if (strlen($css)) $css_to_load[$css]=$css;'/]
+	}
+  }
+  if ($fieldType->component){
+	  [' $component_to_load[$fieldType->component]=$fieldType->component;'/]
+  }
+}
+[if(plg.hasAccessControl)]
+$can_view = current_user_can("[prefix/]_page_{$this->key}_view");
+$can_edit = current_user_can("[prefix/]_page_{$this->key}_edit");
+$can_delete = current_user_can("[prefix/]_page_{$this->key}_delete");
+$can_create = current_user_can("[prefix/]_page_{$this->key}_create");
+$can_list = current_user_can("[prefix/]_page_{$this->key}_list");
+[else]
+$can_view = true;
+$can_edit = true;
+$can_delete = true;
+$can_create = true;
+$can_list = true;
+[/if]
+foreach ($js_to_load as $js) echo "<script src=\"$js\"></script>\r\n";
+foreach ($css_to_load as $css) echo "<link rel=\"stylesheet\" type=\"text/css\"  href=\"$css\"/>\r\n";
+?>
+
+<style type="text/css">
+	.v-menu{display:block}
+	input, input:focus , select, textarea,textarea:focus{
+		border-radius: unset !important;
+		border:none !important;
+		box-shadow: none !important;
+		background: none !important;
+	}
+</style>
+
+<div id="app" data-app class="v-application <?php echo is_rtl()?'rtl':'ltr'; ?>">
+  <v-dialog ref="deleteconfirm"
+			transition="dialog-bottom-transition"
+			max-width="500"
+			:value="selectedToDelete"
+			@click:outside="selectedToDelete=null"
+  >
+	<template v-slot:default="dialog">
+	  <v-card>
+		<v-toolbar
+				color="error"
+				dark
+		><?php echo __('Confirm Action','[td/]') ?></v-toolbar>
+		<v-card-text color="error">
+		  <div class="text-h5 pa-5"><?php echo __('Are you sure to delete this item?','[td/]') ?></div>
+		  <div class="text-center text-h4 pa-5" style="text-decoration: underline; color: #ff3737"> {{title}}</div>
+		</v-card-text>
+		<v-card-actions class="justify-end">
+		  <v-btn  depressed color="success"
+				  text
+				  @click="selectedToDelete=null"
+		  ><?php echo __('Cancel') ?>
+		  </v-btn>
+		  <v-btn depressed
+				 color="error"
+				 text
+				 @click="remove"
+		  ><?php echo __('Yes') ?>
+		  </v-btn>
+		</v-card-actions>
+	  </v-card>
+	</template>
+  </v-dialog>
+
+  <v-snackbar centered multi-line :color="notifyColor"
+			  v-model="notify"
+			  :timeout="2000"
+  >
+	{{ notifyText }}
+	<template v-slot:action="{ attrs }">
+	  <v-btn text
+			 v-bind="attrs"
+			 @click="notify = false"
+	  >
+		<v-icon>
+		  mdi-close
+		</v-icon>
+	  </v-btn>
+	</template>
+  </v-snackbar>
+  <v-main>
+	<v-container fluid>
+	  <v-card v-if="item">
+		<v-card-title>
+		  <v-tooltip bottom>
+			<template v-slot:activator="{ on, attrs }">
+			  <v-btn
+					  icon
+					  color="blue"
+					  @click="back"
+					  v-bind="attrs"
+					  v-on="on"
+			  >
+				<v-icon left>
+				  {{rtl?"mdi-arrow-right-thick":"mdi-arrow-left-thick"}}
+				</v-icon>
+			  </v-btn>
+			</template>
+			<span>{{txt.back}}</span>
+		  </v-tooltip>
+
+		  <small>{{modeTitle}}  <?php echo __($this->get_entity()->label,'[td/]'); ?></small> <h2 class="pr-4 pl-4">{{title}}</h2>
+
+		</v-card-title>
+		<v-form
+				ref="form"
+				v-model="valid"
+				lazy-validation
+		>
+		  <v-container>
+			<v-row>
+			  <?php
+			  foreach ($fieldsLayouts as $key=>$layout ){
+				$field = $entity->get_field($key);
+				$fieldType = [prefix/]_field_type::get($field->type); ?>
+
+			  <v-col
+				cols="12"
+				['<?php foreach ($layout["col"] as $colKey=>$colVal) {'/]
+				  if ($colVal>0) echo "$colKey=\"$colVal\" ";
+				}
+				?>>
+				<<?php echo  $fieldType->tag ?>
+
+				  <?php echo $fieldType->get_params($this,$field,$key);?>
+
+				 ></<?php echo  $fieldType->tag ?>>
+			  </v-col>
+			  <?php } ?>
+			</v-row>
+			<v-row class="mb-4" >
+
+			  <v-btn
+					  v-if="access.list"
+					  color=""
+					  class="mr-4"
+					  @click="back"
+			  >
+				{{txt.back}}
+				<v-icon left>
+				  {{rtl?"mdi-arrow-right-thick":"mdi-arrow-left-thick"}}
+				</v-icon>
+			  </v-btn>
+
+			  <v-btn
+					  v-if="access.edit&&mode==='view'"
+					  class="mr-4"
+					  color="primary"
+					  @click="mode='edit'"
+					  :disabled="!valid"
+			  >
+				{{txt.edit}}
+				<v-icon >
+				  mdi-pencil
+				</v-icon>
+			  </v-btn>
+
+			  <v-btn
+				v-if="access.create&&mode==='new'"
+				:disabled="!valid"
+				color="success"
+				class="mr-4"
+				@click="create"
+			  >
+				{{txt.create}}
+			  </v-btn>
+
+			  <v-btn
+				v-if="access.edit&&mode==='edit'"
+				class="mr-4"
+				color="warning"
+				@click="update"
+				:disabled="!valid"
+			  >
+				{{txt.update}}
+				<v-icon >
+				  mdi-check
+				</v-icon>
+			  </v-btn>
+
+			  <v-btn v-if="access.delete"
+					  v-if="mode!=='new'"
+					  color="error"
+					  class="mr-4"
+					  @click="selectedToDelete=true"
+			  >
+				{{txt.delete}}
+				<v-icon >
+				  mdi-delete
+				</v-icon>
+			  </v-btn>
+
+
+
+		  </v-row>
+		  </v-container>
+		</v-form>
+
+	  </v-card>
+	  <div v-else style="text-align: center;">
+		<v-progress-circular
+				style="margin-top:30vh;"
+				:size="70"
+				:width="7"
+				color="primary"
+				indeterminate
+		></v-progress-circular>
+	  </div>
+
+  	</v-container>
+  </v-main>
+</div>
+
+<script>
+const app = new Vue({
+	el: '#app',
+	vuetify: new Vuetify({rtl: <?php echo is_rtl() ? 'true' : 'false'; ?>}),
+	components: {
+      <?php foreach($component_to_load as $c) echo $c.", \r\n"; ?>
+    },
+	data() {
+		return {
+			rtl:<?php echo is_rtl() ? 'true' : 'false'; ?>,
+			txt: {<?php echo "create:'" . __('Create') . "',view:'" . __('View') . "',update:'" . __('Update') . "',edit:'" . __('Edit') . "',back:'" . __('Back') . "',delete:'" . __('Remove') . "'" ?>},
+			item: null,
+			nonce: '<?php echo wp_create_nonce('wp_rest'); ?>',
+			api: '<?php echo get_site_url()?>/wp-json/[prefix/]/v1/',
+			id: null,
+			pageKey: '<?php echo $this->key ?>',
+			selectedToDelete: null,
+			page: null,
+			valid: false,
+			rData: {},
+			notify: false,
+			notifyText: '',
+			notifyColor:'',
+			mode:null,
+			access:{
+				view:<?php echo $can_view?'true':'false';?>,
+				edit:<?php echo $can_edit?'true':'false';?>,
+				delete:<?php echo $can_delete?'true':'false';?>,
+				create:<?php echo $can_create?'true':'false';?>,
+				list:<?php echo $can_list?'true':'false';?>,
+			}
+		}
+	},
+	mounted() {
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		var mode=urlParams.get('mode');
+		var id=urlParams.get('id');
+		if (id === 'new') mode= 'new';
+		if (id&&!mode) mode= 'view';
+		this.id=id;
+		this.mode=mode;
+		this.getMeta();
+		// console.log(this);
+	},
+	methods: {
+		showNotify(txt, color) {
+			this.notifyColor = color||'error';
+			this.notifyText = txt;
+			this.notify = true;
+		},
+		get(url, clbk) {
+			jQuery.ajax({
+					url: url,
+					method: 'GET',
+					beforeSend: (xhr) => {
+						xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+					},
+					error: (err) => {
+						this.showNotify(err.responseJSON.message);
+					},
+					success: (data) => {
+						clbk(data);
+					}
+				}
+			);
+		},
+		post(url, clbk) {
+			jQuery.ajax({
+				url: url,
+				method: 'POST',
+				beforeSend: (xhr) => {
+					xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+				},
+				error: (err) => {
+					this.showNotify(err.responseJSON.message);
+				},
+				success: (data) => {
+					clbk(data);
+				}
+			});
+		},
+		getMeta() {
+			this.get(this.urlMeta, (data) => {
+				['const page = data[this.pageKey];'/]
+				page.entity.allfields = {...page.entity.fields, ...page.entity.relations};
+				this.page = page;
+				this.getData();
+			});
+		},
+
+		getData() {
+			if (this.mode === 'new') {
+				const item = {};
+				for (const key in this.page.entity.relations) {
+					['const relation=this.page.entity.relations[key];'/]
+					['item[key] = (relation.many)?[]'/]:'';
+				}
+				for (const key in this.page.entity.fields) {
+					['item[key]'/] = '';
+				}
+				this.item = item;
+
+				return this.getRelationsData();
+			}
+			this.get(this.urlData, (data) => {
+				this.item = data;
+				for (const key in this.page.entity.relations) {
+					['if (data[key]) continue;'/]
+					['const relation=this.page.entity.relations[key];'/]
+					['this.item[key] = (relation.many)?[]:{};'/]
+				}
+				this.getRelationsData();
+			});
+		},
+		resolveScript(script, _item, param) {
+			if (!script) return "";
+			"use strict"
+			let value = {};
+			let result = null;
+			const that = this;
+			const params = param;
+			const item = _item;
+			eval("result =(() => {\n" + (script) + "\n})(value,that,item,params)");
+			return result || value;
+		},
+		resolveRelationTitle(entityKey, item) {
+			['const script = this.page.entity.relations[entityKey].title_script;'/]
+			return script? this.resolveScript('return ' + script, item): item.id;
+
+		},
+		getRelationsData() {
+			const relations = this.page.entity.relations;
+			for (const key in relations) {
+				['if (!this.page.formView.fieldsLayouts[key]) continue;'/]
+				['// console.log(relations[key].entity, key);'/]
+				['this.getRelationData(relations[key].entity, key);'/]
+			}
+		},
+		getRelationData(entityKey, key, id = "") {
+			var url = this.api +'mini/'+ entityKey + '/' + id;
+
+			this.get(url, (data) => {
+				// console.log(data);
+				['this.rData[key] = data.items;'/]
+				this.$forceUpdate();
+			});
+		},
+		validate() {
+			this.$refs.form.validate();
+		},
+		reset() {
+			this.$refs.form.reset();
+		},
+		resetValidation() {
+			this.$refs.form.resetValidation();
+		},
+		create() {
+			this.validate();
+			Vue.nextTick(() => {
+				if (!this.valid) return;
+				jQuery.ajax({
+					type: "POST",
+					url: this.urlCreate,
+					data: JSON.stringify(this.item),
+					contentType: 'application/json',
+					beforeSend: (xhr) => {
+						xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+					},
+					success: (data) => {
+						['if (/[0-9]+/.test(data.id))return this.goToItem(data.id);'/]
+						this.showNotify(data.id);
+					},
+					error: (err) => {
+						this.showNotify(err.responseJSON.message);
+					},
+					dataType: 'json'
+				});
+
+			})
+		},
+
+		update() {
+			this.validate();
+			Vue.nextTick(() => {
+				if (!this.valid) return;
+				jQuery.ajax({
+					type: "POST",
+					url: this.urlData,
+					data: JSON.stringify(this.item),
+					contentType: 'application/json',
+					beforeSend: (xhr) => {
+						xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+					},
+					success: (data) => {
+						this.showNotify('<?php echo __('Successfully saved!','[td/]');?>','success');
+					},
+
+					error: (err) => {
+						this.showNotify(err.responseJSON.message);
+					},
+					dataType: 'json'
+				});
+
+			})
+		},
+		remove() {
+			['if (!this.id || !/[0-9]+/.test(this.id)) return;'/]
+			jQuery.ajax({
+				type: "DELETE",
+				url: this.urlData,
+				data: JSON.stringify(this.id),
+				contentType: 'application/json',
+				beforeSend: (xhr) => {
+					xhr.setRequestHeader('X-WP-Nonce', this.nonce);
+				},
+				success: (data) => {
+					this.back();
+				},
+				error: (err) => {
+					this.showNotify(err.responseJSON.message);
+				},
+				dataType: 'json'
+			});
+			this.selectedToDelete=null;
+
+			// })
+		},
+		back() {
+			var url = window.location.href;
+			var i = url.lastIndexOf('&id');
+			window.location.href = url.substring(0, i);
+		},
+		goToItem(id) {
+			var url = window.location.href;
+			var i = url.lastIndexOf('&id');
+			window.location.href = url.substring(0, i) + '&id=' + id;
+		},
+
+	},
+	computed: {
+		modeTitle() {
+			const mode = this.mode;
+			switch (mode) {
+				case 'edit':
+					return this.txt.edit;
+				case 'new':
+					return this.txt.create;
+			}
+			return this.txt.view;
+		},
+		title() {
+			if (!this.item) return '';
+			if (!this.page.entity.title_script) return this.item.id;
+			const title = this.resolveScript("return " + this.page.entity.title_script, this.item);
+			return title;
+		},
+		urlMeta() {
+			return this.api + 'page/' + this.pageKey;
+		},
+		urlData() {
+			return this.api + 'page_' + this.page.key + '/' + this.id;
+		},
+		urlCreate() {
+			return this.api + 'page_' + this.page.key;
+		},
+	}
+});
+</script>
+
+[/file]
+[/template]

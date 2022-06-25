@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @not generated crudrest -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="crudrest.presentation.crudrestModelWizardID"
+            name="%_UI_crudrestModelWizard_label"
+            class="crudrest.presentation.crudrestModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/plugin.png">
+         <description>%_UI_crudrestModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @not generated  crudrest -->
+      <editor
+            id="crudrest.presentation.crudrestEditorID"
+            name="%_UI_crudrestEditor_label"
+            icon="icons/full/obj16/plugin.png"
+            extensions="crudrest"
+            class="crudrest.presentation.crudrestEditor"
+            contributorClass="crudrest.presentation.crudrestActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

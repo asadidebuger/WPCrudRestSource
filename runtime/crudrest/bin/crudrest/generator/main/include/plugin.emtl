@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="Cp1256"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="plugin" nsURI="crudrest::generator::main::include::plugin" startHeaderPosition="30" endHeaderPosition="77">
+    <input>
+      <takesTypesFrom href="http://crudrest.msde.ui.ac.ir#/"/>
+    </input>
+    <imports href="../service.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="plugin" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?php // Silence is golden&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="directory" referredVariable="/0/plugin/directory">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/includes/index.php">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?php&#xA;&#xA;/**&#xA; * The file that defines the core plugin class&#xA; *&#xA; * A class definition that includes attributes and functions used across both the&#xA; * public-facing side of the site and the admin area.&#xA; *&#xA;**/&#xA;/**&#xA; * The core plugin class.&#xA; *&#xA; * This is used to define internationalization, admin-specific hooks, and&#xA; * public-facing site hooks.&#xA; *&#xA; * Also maintains the unique identifier of this plugin as well as the current&#xA; * version of the plugin.&#xA; *&#xA;"/>
+        <body xsi:type="mtl:QueryInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="../service.emtl#/0/getCopyrightComment"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/10">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA; */&#xA;require '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models.php';&#xA;require '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db.php';&#xA;require "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_PATH.'ws/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_ws.php';&#xA;class "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" {&#xA;&#xA;&#x9;/**&#xA;&#x9; * The loader that's responsible for maintaining and registering all hooks that power&#xA;&#x9; * the plugin.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; * @access   protected&#xA;&#x9; * @var      Plugin_Name_Loader    $loader    Maintains and registers all hooks for the plugin.&#xA;&#x9; */&#xA;&#x9;protected $loader;&#xA;&#xA;&#x9;/**&#xA;&#x9; * The unique identifier of this plugin.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; * @access   protected&#xA;&#x9; * @var      string    $plugin_name    The string used to uniquely identify this plugin.&#xA;&#x9; */&#xA;&#x9;protected $plugin_name;&#xA;&#xA;&#x9;/**&#xA;&#x9; * The current version of the plugin.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; * @access   protected&#xA;&#x9; * @var      string    $version    The current version of the plugin.&#xA;&#x9; */&#xA;&#x9;protected $version;&#xA;&#xA;&#x9;/**&#xA;&#x9; * Define the core functionality of the plugin.&#xA;&#x9; *&#xA;&#x9; * Set the plugin name and the plugin version that can be used throughout the plugin.&#xA;&#x9; * Load the dependencies, define the locale, and set the hooks for the admin area and&#xA;&#x9; * the public-facing side of the site.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; */&#xA;&#x9;public function __construct() {&#xA;&#x9;&#x9;if ( defined( '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_VERSION' ) ) {&#xA;&#x9;&#x9;&#x9;$this->version = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_VERSION;&#xA;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;$this->version = '1.0.0';&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;$this->plugin_name = '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="';&#xA;&#x9;&#x9;$this->load_dependencies();&#xA;&#x9;&#x9;$this->set_locale();&#xA;&#x9;&#x9;$this->define_admin_hooks();&#xA;&#x9;&#x9;$this->define_public_hooks();&#xA;&#x9;&#x9;new "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_ws();&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * Load the required dependencies for this plugin.&#xA;&#x9; *&#xA;&#x9; * Include the following files that make up the plugin:&#xA;&#x9; *&#xA;&#x9; * - Plugin_Name_Loader. Orchestrates the hooks of the plugin.&#xA;&#x9; * - Plugin_Name_i18n. Defines internationalization functionality.&#xA;&#x9; * - Plugin_Name_Admin. Defines all hooks for the admin area.&#xA;&#x9; * - Plugin_Name_Public. Defines all hooks for the public side of the site.&#xA;&#x9; *&#xA;&#x9; * Create an instance of the loader which will be used to register the hooks&#xA;&#x9; * with WordPress.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; * @access   private&#xA;&#x9; */&#xA;&#x9;private function load_dependencies() {&#xA;&#xA;&#x9;&#x9;/**&#xA;&#x9;&#x9; * The class responsible for orchestrating the actions and filters of the&#xA;&#x9;&#x9; * core plugin.&#xA;&#x9;&#x9; */&#xA;&#x9;&#x9;require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_loader.php';&#xA;&#xA;&#x9;&#x9;/**&#xA;&#x9;&#x9; * The class responsible for defining internationalization functionality&#xA;&#x9;&#x9; * of the plugin.&#xA;&#x9;&#x9; */&#xA;&#x9;&#x9;require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_i18n.php';&#xA;&#xA;&#x9;&#x9;/**&#xA;&#x9;&#x9; * The class responsible for defining all actions that occur in the admin area.&#xA;&#x9;&#x9; */&#xA;&#x9;&#x9;require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_admin.php';&#xA;&#xA;&#x9;&#x9;/**&#xA;&#x9;&#x9; * The class responsible for defining all actions that occur in the public-facing&#xA;&#x9;&#x9; * side of the site.&#xA;&#x9;&#x9; */&#xA;&#x9;&#x9;require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_public.php';&#xA;&#xA;&#x9;&#x9;$this->loader = new "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Loader();&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * Define the locale for this plugin for internationalization.&#xA;&#x9; *&#xA;&#x9; * Uses the Plugin_Name_i18n class in order to set the domain and to register the hook&#xA;&#x9; * with WordPress.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; * @access   private&#xA;&#x9; */&#xA;&#x9;private function set_locale() {&#xA;&#xA;&#x9;&#x9;$plugin_i18n = new "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_i18n();&#xA;&#xA;&#x9;&#x9;$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * Register all of the hooks related to the admin area functionality&#xA;&#x9; * of the plugin.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; * @access   private&#xA;&#x9; */&#xA;&#x9;private function define_admin_hooks() {&#xA;&#xA;&#x9;&#x9;$plugin_admin = new "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Admin($this, $this->get_plugin_name(), $this->get_version() );&#xA;&#x9;&#x9;$db= "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db::get_db();&#xA;&#xA;&#x9;&#x9;$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );&#xA;&#x9;&#x9;$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );&#xA;&#x9;&#x9;$this->loader->add_action('admin_menu', $plugin_admin,'add_menu');&#xA;&#x9;&#x9;$this->loader->add_action('plugins_loaded', $db,'init');&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * Register all of the hooks related to the public-facing functionality&#xA;&#x9; * of the plugin.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; * @access   private&#xA;&#x9; */&#xA;&#x9;private function define_public_hooks() {&#xA;&#xA;&#x9;&#x9;$plugin_public = new "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Public($this, $this->get_plugin_name(), $this->get_version() );&#xA;&#xA;&#x9;&#x9;$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );&#xA;&#x9;&#x9;$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * Run the loader to execute all of the hooks with WordPress.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; */&#xA;&#x9;public function run() {&#xA;&#x9;&#x9;$this->loader->run();&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * The name of the plugin used to uniquely identify it within the context of&#xA;&#x9; * WordPress and to define internationalization functionality.&#xA;&#x9; *&#xA;&#x9; * @since     1.0.0&#xA;&#x9; * @return    string    The name of the plugin.&#xA;&#x9; */&#xA;&#x9;public function get_plugin_name() {&#xA;&#x9;&#x9;return $this->plugin_name;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * The reference to the class that orchestrates the hooks with the plugin.&#xA;&#x9; *&#xA;&#x9; * @since     1.0.0&#xA;&#x9; * @return    Plugin_Name_Loader    Orchestrates the hooks of the plugin.&#xA;&#x9; */&#xA;&#x9;public function get_loader() {&#xA;&#x9;&#x9;return $this->loader;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * Retrieve the version number of the plugin.&#xA;&#x9; *&#xA;&#x9; * @since     1.0.0&#xA;&#x9; * @return    string    The version number of the plugin.&#xA;&#x9; */&#xA;&#x9;public function get_version() {&#xA;&#x9;&#x9;return $this->version;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="directory" referredVariable="/0/plugin/directory">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/includes/">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/plugin/prefix">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".php">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="plg">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </parameter>
+      <parameter name="directory">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="prefix">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="td">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="plugin">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/plugin"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+        <eParameters name="directory">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="td">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getCopyrightComment">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../service.emtl#/0/getCopyrightComment"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_CrudRestPlugin_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_MenuItem_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_UIPage_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_List_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//List"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_Layout_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_PluginWebService_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_Relation_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/plugin">
+      <details key="start" value="125"/>
+      <details key="end" value="6125"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/plugin/%">
+      <details key="start" value="215"/>
+      <details key="end" value="216"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/plugin/%.1">
+      <details key="start" value="216"/>
+      <details key="end" value="307"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/plugin/%.1/%">
+      <details key="start" value="273"/>
+      <details key="end" value="300"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/plugin/%.1/%.1">
+      <details key="start" value="223"/>
+      <details key="end" value="254"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/plugin/%.1/%.1/directory">
+      <details key="start" value="223"/>
+      <details key="end" value="232"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/plugin/%.1/%.1/%">
+      <details key="start" value="233"/>
+      <details key="end" value="254"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/plugin/%.1/%.2">
+      <details key="start" value="263"/>
+      <details key="end" value="270"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/plugin/%.2">
+      <details key="start" value="308"/>
+      <details key="end" value="309"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/plugin/%.3">
+      <details key="start" value="309"/>
+      <details key="end" value="6113"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/plugin/%.3/%">
+      <details key="start" value="373"/>
+      <details key="end" value="823"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/plugin/%.3/%.1">
+      <details key="start" value="824"/>
+      <details key="end" value="845"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/plugin/%.3/%.1/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/plugin/%.3/%.2">
+      <details key="start" value="847"/>
+      <details key="end" value="861"/>
+      <details key="line" value="30"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/plugin/%.3/prefix">
+      <details key="start" value="862"/>
+      <details key="end" value="868"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/plugin/%.3/%.3">
+      <details key="start" value="870"/>
+      <details key="end" value="893"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/plugin/%.3/prefix.1">
+      <details key="start" value="894"/>
+      <details key="end" value="900"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/plugin/%.3/%.4">
+      <details key="start" value="902"/>
+      <details key="end" value="920"/>
+      <details key="line" value="32"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/plugin/%.3/prefix.2">
+      <details key="start" value="921"/>
+      <details key="end" value="927"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/plugin/%.3/%.5">
+      <details key="start" value="929"/>
+      <details key="end" value="939"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/plugin/%.3/prefix.3">
+      <details key="start" value="940"/>
+      <details key="end" value="946"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/plugin/%.3/%.6">
+      <details key="start" value="948"/>
+      <details key="end" value="964"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/plugin/%.3/prefix.4">
+      <details key="start" value="965"/>
+      <details key="end" value="971"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/plugin/%.3/%.7">
+      <details key="start" value="973"/>
+      <details key="end" value="2013"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/plugin/%.3/prefix.5">
+      <details key="start" value="2014"/>
+      <details key="end" value="2020"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/plugin/%.3/%.8">
+      <details key="start" value="2022"/>
+      <details key="end" value="2058"/>
+      <details key="line" value="74"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/plugin/%.3/prefix.6">
+      <details key="start" value="2059"/>
+      <details key="end" value="2065"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/plugin/%.3/%.9">
+      <details key="start" value="2067"/>
+      <details key="end" value="2145"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/plugin/%.3/prefix.7">
+      <details key="start" value="2146"/>
+      <details key="end" value="2152"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/plugin/%.3/%.10">
+      <details key="start" value="2154"/>
+      <details key="end" value="2279"/>
+      <details key="line" value="79"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/plugin/%.3/prefix.8">
+      <details key="start" value="2280"/>
+      <details key="end" value="2286"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/plugin/%.3/%.11">
+      <details key="start" value="2288"/>
+      <details key="end" value="3059"/>
+      <details key="line" value="84"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/plugin/%.3/prefix.9">
+      <details key="start" value="3060"/>
+      <details key="end" value="3066"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/plugin/%.3/%.12">
+      <details key="start" value="3068"/>
+      <details key="end" value="3256"/>
+      <details key="line" value="109"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/plugin/%.3/prefix.10">
+      <details key="start" value="3257"/>
+      <details key="end" value="3263"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/plugin/%.3/%.13">
+      <details key="start" value="3265"/>
+      <details key="end" value="3435"/>
+      <details key="line" value="115"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/plugin/%.3/prefix.11">
+      <details key="start" value="3436"/>
+      <details key="end" value="3442"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/plugin/%.3/%.14">
+      <details key="start" value="3444"/>
+      <details key="end" value="3641"/>
+      <details key="line" value="120"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/plugin/%.3/prefix.12">
+      <details key="start" value="3642"/>
+      <details key="end" value="3648"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/plugin/%.3/%.15">
+      <details key="start" value="3650"/>
+      <details key="end" value="3687"/>
+      <details key="line" value="126"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/plugin/%.3/prefix.13">
+      <details key="start" value="3688"/>
+      <details key="end" value="3694"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/plugin/%.3/%.16">
+      <details key="start" value="3696"/>
+      <details key="end" value="3999"/>
+      <details key="line" value="128"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/plugin/%.3/prefix.14">
+      <details key="start" value="4000"/>
+      <details key="end" value="4006"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/plugin/%.3/%.17">
+      <details key="start" value="4008"/>
+      <details key="end" value="4321"/>
+      <details key="line" value="143"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/plugin/%.3/prefix.15">
+      <details key="start" value="4322"/>
+      <details key="end" value="4328"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/plugin/%.3/%.18">
+      <details key="start" value="4330"/>
+      <details key="end" value="4401"/>
+      <details key="line" value="158"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/plugin/%.3/prefix.16">
+      <details key="start" value="4402"/>
+      <details key="end" value="4408"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/plugin/%.3/%.19">
+      <details key="start" value="4410"/>
+      <details key="end" value="4952"/>
+      <details key="line" value="159"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/plugin/%.3/prefix.17">
+      <details key="start" value="4953"/>
+      <details key="end" value="4959"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/plugin/%.3/%.20">
+      <details key="start" value="4961"/>
+      <details key="end" value="6106"/>
+      <details key="line" value="177"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/plugin/%.3/%.21">
+      <details key="start" value="316"/>
+      <details key="end" value="354"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/plugin/%.3/%.21/%">
+      <details key="start" value="316"/>
+      <details key="end" value="346"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/plugin/%.3/%.21/%/%">
+      <details key="start" value="316"/>
+      <details key="end" value="338"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/plugin/%.3/%.21/%/%/directory">
+      <details key="start" value="316"/>
+      <details key="end" value="325"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/plugin/%.3/%.21/%/%/%">
+      <details key="start" value="326"/>
+      <details key="end" value="338"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/plugin/%.3/%.21/%/prefix">
+      <details key="start" value="340"/>
+      <details key="end" value="346"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/plugin/%.3/%.21/%.1">
+      <details key="start" value="348"/>
+      <details key="end" value="354"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/plugin/%.3/%.22">
+      <details key="start" value="363"/>
+      <details key="end" value="370"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/plugin/plg">
+      <details key="start" value="149"/>
+      <details key="end" value="169"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/plugin/directory">
+      <details key="start" value="170"/>
+      <details key="end" value="186"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/plugin/prefix">
+      <details key="start" value="188"/>
+      <details key="end" value="201"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/plugin/td">
+      <details key="start" value="203"/>
+      <details key="end" value="212"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

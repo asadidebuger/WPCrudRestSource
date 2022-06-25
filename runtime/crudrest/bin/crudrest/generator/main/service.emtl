@@ -1,0 +1,1679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="service" nsURI="crudrest::generator::main::service" startHeaderPosition="29" endHeaderPosition="77">
+    <input>
+      <takesTypesFrom href="http://crudrest.msde.ui.ac.ir#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="89" endPosition="147" value="[module service('http://www.eclipse.org/uml2/5.0.0/UML')/]"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getPrefix" visibility="Public">
+      <parameter name="plg">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/5">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getPrefix(org.eclipse.emf.ecore.EObject)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(CrudRestPlugin)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/getPrefix/plg">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getDirectory" visibility="Public">
+      <parameter name="plg">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/8">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getDirectory(org.eclipse.emf.ecore.EObject)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(CrudRestPlugin)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/getDirectory/plg">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="isNotEmpty" visibility="Public">
+      <parameter name="o">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/11">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="notEmpty(java.lang.Object)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(OclAny)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="o" referredVariable="/0/isNotEmpty/o">
+              <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getCopyrightComment" visibility="Public">
+      <parameter name="plg">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/14">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getCopyrightComment(org.eclipse.emf.ecore.EObject)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(CrudRestPlugin)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/getCopyrightComment/plg">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getCopyrightComment" visibility="Public">
+      <parameter name="plg">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </parameter>
+      <parameter name="since">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/17">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getCopyrightComment(org.eclipse.emf.ecore.EObject,java.lang.String)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(OclAny)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/getCopyrightComment.1/plg">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            </item>
+          </part>
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="since" referredVariable="/0/getCopyrightComment.1/since">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getLanguagesDirectory" visibility="Public">
+      <parameter name="plg">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/20">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getLanguagesDirectory(org.eclipse.emf.ecore.EObject)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(CrudRestPlugin)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/getLanguagesDirectory/plg">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getMenuItemTitle" visibility="Public">
+      <parameter name="item">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/23">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getMenuTitle(org.eclipse.emf.ecore.EObject)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(MenuItem)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="item" referredVariable="/0/getMenuItemTitle/item">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getPageTitle" visibility="Public">
+      <parameter name="page">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/26">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getPageTitle(org.eclipse.emf.ecore.EObject)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(UIPage)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="page" referredVariable="/0/getPageTitle/page">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getSortableFields" visibility="Public">
+      <parameter name="list">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//List"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/29">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//List"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getSortableFields(org.eclipse.emf.ecore.EObject)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(List)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//List"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="list" referredVariable="/0/getSortableFields/list">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//List"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//FieldBase"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getLayoutCalss" visibility="Public">
+      <parameter name="l">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/32">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getLayoutCalss(org.eclipse.emf.ecore.EObject)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(Layout)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="l" referredVariable="/0/getLayoutCalss/l">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getInt" visibility="Public">
+      <parameter name="l">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </parameter>
+      <parameter name="k">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/35">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getInt(org.eclipse.emf.ecore.EObject,java.lang.String)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(OclAny)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="l" referredVariable="/0/getInt/l">
+              <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+            </item>
+          </part>
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="k" referredVariable="/0/getInt/k">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getString" visibility="Public">
+      <parameter name="l">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </parameter>
+      <parameter name="k">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/38">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getString(org.eclipse.emf.ecore.EObject,java.lang.String)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(OclAny)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="l" referredVariable="/0/getString/l">
+              <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+            </item>
+          </part>
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="k" referredVariable="/0/getString/k">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getCreateTableList" visibility="Public" type="/3/Sequence(String)">
+      <parameter name="ws">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+      </parameter>
+      <parameter name="prefix">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="indent">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/41">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getCreateTableList(crudrest.PluginWebService,java.lang.String,java.lang.String)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(OclAny)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="ws" referredVariable="/0/getCreateTableList/ws">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+            </item>
+          </part>
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/getCreateTableList/prefix">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </item>
+          </part>
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="indent" referredVariable="/0/getCreateTableList/indent">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getRelationJoinTabel" visibility="Public">
+      <parameter name="r">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/44">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getRelationJoinTabel(crudrest.Relation)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(Relation)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="r" referredVariable="/0/getRelationJoinTabel/r">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getRelationJoinTargetKey" visibility="Public">
+      <parameter name="r">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/47">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getRelationJoinTargetKey(crudrest.Relation)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(Relation)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="r" referredVariable="/0/getRelationJoinTargetKey/r">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getRelationJoinSourceKey" visibility="Public">
+      <parameter name="r">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/50">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getRelationJoinSourceKey(crudrest.Relation)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(Relation)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="r" referredVariable="/0/getRelationJoinSourceKey/r">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getAllTables" visibility="Public" type="/3/Sequence(String)">
+      <parameter name="ws">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/53">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="crudrest.Services">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getAllTables()">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Sequence(OclVoid)" kind="Sequence"/>
+      </expression>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="getPrefix">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getPrefix"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getDirectory">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getDirectory"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="isNotEmpty">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/isNotEmpty"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="o">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getCopyrightComment">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getCopyrightComment"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getCopyrightComment">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getCopyrightComment.1"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+        <eParameters name="since">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getLanguagesDirectory">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getLanguagesDirectory"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getMenuItemTitle">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getMenuItemTitle"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="item">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getPageTitle">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getPageTitle"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="page">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getSortableFields">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getSortableFields"/>
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//FieldBase"/>
+        <eParameters name="list">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//List"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getLayoutCalss">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getLayoutCalss"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="l">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getInt">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getInt"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <eParameters name="l">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+        <eParameters name="k">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getString">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getString"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="l">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+        <eParameters name="k">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getCreateTableList" eType="/3/Sequence(String)">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getCreateTableList"/>
+        <eParameters name="ws">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+        </eParameters>
+        <eParameters name="prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="indent">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getRelationJoinTabel">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getRelationJoinTabel"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="r">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getRelationJoinTargetKey">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getRelationJoinTargetKey"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="r">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getRelationJoinSourceKey">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getRelationJoinSourceKey"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="r">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getAllTables" eType="/3/Sequence(String)">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getAllTables"/>
+        <eParameters name="ws">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+      <eOperations name="invoke">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <eParameters name="class">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="method">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="arguments">
+          <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_CrudRestPlugin_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_MenuItem_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_UIPage_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_List_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//List"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_Layout_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_PluginWebService_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_Relation_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(String)" instanceClassName="java.util.List">
+      <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(CrudRestPlugin)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(OclAny)" instanceClassName="java.util.List">
+      <elementType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(MenuItem)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(UIPage)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(List)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//List"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Layout)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Relation)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(OclVoid)" instanceClassName="java.util.List">
+      <elementType xsi:type="ocl.ecore:VoidType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclVoid"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//List"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//List"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/%">
+      <details key="start" value="80"/>
+      <details key="end" value="157"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/getPrefix">
+      <details key="start" value="158"/>
+      <details key="end" value="304"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/getPrefix/plg">
+      <details key="start" value="182"/>
+      <details key="end" value="202"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/getPrefix/%">
+      <details key="start" value="215"/>
+      <details key="end" value="300"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/getPrefix/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/getPrefix/%/%">
+      <details key="start" value="222"/>
+      <details key="end" value="241"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/getPrefix/%/%.1">
+      <details key="start" value="243"/>
+      <details key="end" value="285"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/getPrefix/%/%.2">
+      <details key="start" value="286"/>
+      <details key="end" value="299"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/getPrefix/%/%.2/%/plg">
+      <details key="start" value="295"/>
+      <details key="end" value="298"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/getDirectory">
+      <details key="start" value="305"/>
+      <details key="end" value="458"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/getDirectory/plg">
+      <details key="start" value="332"/>
+      <details key="end" value="352"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/getDirectory/%">
+      <details key="start" value="365"/>
+      <details key="end" value="453"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/getDirectory/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/getDirectory/%/%">
+      <details key="start" value="372"/>
+      <details key="end" value="391"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/getDirectory/%/%.1">
+      <details key="start" value="393"/>
+      <details key="end" value="438"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/getDirectory/%/%.2">
+      <details key="start" value="439"/>
+      <details key="end" value="452"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/getDirectory/%/%.2/%/plg">
+      <details key="start" value="448"/>
+      <details key="end" value="451"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/isNotEmpty">
+      <details key="start" value="459"/>
+      <details key="end" value="603"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/isNotEmpty/o">
+      <details key="start" value="484"/>
+      <details key="end" value="505"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/isNotEmpty/%">
+      <details key="start" value="530"/>
+      <details key="end" value="599"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/isNotEmpty/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/isNotEmpty/%/%">
+      <details key="start" value="537"/>
+      <details key="end" value="556"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/isNotEmpty/%/%.1">
+      <details key="start" value="558"/>
+      <details key="end" value="586"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/isNotEmpty/%/%.2">
+      <details key="start" value="587"/>
+      <details key="end" value="598"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/isNotEmpty/%/%.2/%/o">
+      <details key="start" value="596"/>
+      <details key="end" value="597"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/getCopyrightComment">
+      <details key="start" value="604"/>
+      <details key="end" value="770"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/getCopyrightComment/plg">
+      <details key="start" value="638"/>
+      <details key="end" value="658"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/getCopyrightComment/%">
+      <details key="start" value="671"/>
+      <details key="end" value="766"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/getCopyrightComment/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/getCopyrightComment/%/%">
+      <details key="start" value="678"/>
+      <details key="end" value="697"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/getCopyrightComment/%/%.1">
+      <details key="start" value="699"/>
+      <details key="end" value="751"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/getCopyrightComment/%/%.2">
+      <details key="start" value="752"/>
+      <details key="end" value="765"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/getCopyrightComment/%/%.2/%/plg">
+      <details key="start" value="761"/>
+      <details key="end" value="764"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/getCopyrightComment.1">
+      <details key="start" value="771"/>
+      <details key="end" value="975"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/getCopyrightComment.1/plg">
+      <details key="start" value="805"/>
+      <details key="end" value="825"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/getCopyrightComment.1/since">
+      <details key="start" value="827"/>
+      <details key="end" value="840"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/getCopyrightComment.1/%">
+      <details key="start" value="853"/>
+      <details key="end" value="971"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/getCopyrightComment.1/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/getCopyrightComment.1/%/%">
+      <details key="start" value="860"/>
+      <details key="end" value="879"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/getCopyrightComment.1/%/%.1">
+      <details key="start" value="881"/>
+      <details key="end" value="950"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/getCopyrightComment.1/%/%.2">
+      <details key="start" value="951"/>
+      <details key="end" value="970"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/getCopyrightComment.1/%/%.2/%/plg">
+      <details key="start" value="960"/>
+      <details key="end" value="963"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/getCopyrightComment.1/%/%.2/%.1/since">
+      <details key="start" value="964"/>
+      <details key="end" value="969"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/getLanguagesDirectory">
+      <details key="start" value="976"/>
+      <details key="end" value="1146"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/getLanguagesDirectory/plg">
+      <details key="start" value="1012"/>
+      <details key="end" value="1032"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/getLanguagesDirectory/%">
+      <details key="start" value="1045"/>
+      <details key="end" value="1142"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/getLanguagesDirectory/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/getLanguagesDirectory/%/%">
+      <details key="start" value="1052"/>
+      <details key="end" value="1071"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/getLanguagesDirectory/%/%.1">
+      <details key="start" value="1073"/>
+      <details key="end" value="1127"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/getLanguagesDirectory/%/%.2">
+      <details key="start" value="1128"/>
+      <details key="end" value="1141"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/getLanguagesDirectory/%/%.2/%/plg">
+      <details key="start" value="1137"/>
+      <details key="end" value="1140"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/getMenuItemTitle">
+      <details key="start" value="1147"/>
+      <details key="end" value="1299"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/getMenuItemTitle/item">
+      <details key="start" value="1178"/>
+      <details key="end" value="1193"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/getMenuItemTitle/%">
+      <details key="start" value="1206"/>
+      <details key="end" value="1295"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/getMenuItemTitle/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/getMenuItemTitle/%/%">
+      <details key="start" value="1213"/>
+      <details key="end" value="1232"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/getMenuItemTitle/%/%.1">
+      <details key="start" value="1234"/>
+      <details key="end" value="1279"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/getMenuItemTitle/%/%.2">
+      <details key="start" value="1280"/>
+      <details key="end" value="1294"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/getMenuItemTitle/%/%.2/%/item">
+      <details key="start" value="1289"/>
+      <details key="end" value="1293"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/getPageTitle">
+      <details key="start" value="1300"/>
+      <details key="end" value="1446"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/getPageTitle/page">
+      <details key="start" value="1327"/>
+      <details key="end" value="1340"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/getPageTitle/%">
+      <details key="start" value="1353"/>
+      <details key="end" value="1442"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/getPageTitle/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/getPageTitle/%/%">
+      <details key="start" value="1360"/>
+      <details key="end" value="1379"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/getPageTitle/%/%.1">
+      <details key="start" value="1381"/>
+      <details key="end" value="1426"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/getPageTitle/%/%.2">
+      <details key="start" value="1427"/>
+      <details key="end" value="1441"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/getPageTitle/%/%.2/%/page">
+      <details key="start" value="1436"/>
+      <details key="end" value="1440"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/getSortableFields">
+      <details key="start" value="1447"/>
+      <details key="end" value="1604"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/getSortableFields/list">
+      <details key="start" value="1479"/>
+      <details key="end" value="1490"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/getSortableFields/%">
+      <details key="start" value="1506"/>
+      <details key="end" value="1600"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/getSortableFields/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/getSortableFields/%/%">
+      <details key="start" value="1513"/>
+      <details key="end" value="1532"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/getSortableFields/%/%.1">
+      <details key="start" value="1534"/>
+      <details key="end" value="1584"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/getSortableFields/%/%.2">
+      <details key="start" value="1585"/>
+      <details key="end" value="1599"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/getSortableFields/%/%.2/%/list">
+      <details key="start" value="1594"/>
+      <details key="end" value="1598"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/getLayoutCalss">
+      <details key="start" value="1605"/>
+      <details key="end" value="1749"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/getLayoutCalss/l">
+      <details key="start" value="1634"/>
+      <details key="end" value="1644"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/getLayoutCalss/%">
+      <details key="start" value="1657"/>
+      <details key="end" value="1745"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/getLayoutCalss/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/getLayoutCalss/%/%">
+      <details key="start" value="1664"/>
+      <details key="end" value="1683"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/getLayoutCalss/%/%.1">
+      <details key="start" value="1685"/>
+      <details key="end" value="1732"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/getLayoutCalss/%/%.2">
+      <details key="start" value="1733"/>
+      <details key="end" value="1744"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/getLayoutCalss/%/%.2/%/l">
+      <details key="start" value="1742"/>
+      <details key="end" value="1743"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/getInt">
+      <details key="start" value="1750"/>
+      <details key="end" value="1910"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/getInt/l">
+      <details key="start" value="1771"/>
+      <details key="end" value="1781"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/getInt/k">
+      <details key="start" value="1784"/>
+      <details key="end" value="1793"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/getInt/%">
+      <details key="start" value="1807"/>
+      <details key="end" value="1906"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/getInt/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/getInt/%/%">
+      <details key="start" value="1814"/>
+      <details key="end" value="1833"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/getInt/%/%.1">
+      <details key="start" value="1835"/>
+      <details key="end" value="1891"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/getInt/%/%.2">
+      <details key="start" value="1892"/>
+      <details key="end" value="1905"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/getInt/%/%.2/%/l">
+      <details key="start" value="1901"/>
+      <details key="end" value="1902"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/getInt/%/%.2/%.1/k">
+      <details key="start" value="1903"/>
+      <details key="end" value="1904"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/getString">
+      <details key="start" value="1911"/>
+      <details key="end" value="2076"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/getString/l">
+      <details key="start" value="1935"/>
+      <details key="end" value="1945"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/getString/k">
+      <details key="start" value="1948"/>
+      <details key="end" value="1957"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/getString/%">
+      <details key="start" value="1970"/>
+      <details key="end" value="2072"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/getString/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/getString/%/%">
+      <details key="start" value="1977"/>
+      <details key="end" value="1996"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/getString/%/%.1">
+      <details key="start" value="1998"/>
+      <details key="end" value="2057"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/getString/%/%.2">
+      <details key="start" value="2058"/>
+      <details key="end" value="2071"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/getString/%/%.2/%/l">
+      <details key="start" value="2067"/>
+      <details key="end" value="2068"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/getString/%/%.2/%.1/k">
+      <details key="start" value="2069"/>
+      <details key="end" value="2070"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/getCreateTableList">
+      <details key="start" value="2077"/>
+      <details key="end" value="2327"/>
+      <details key="line" value="40"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/getCreateTableList/ws">
+      <details key="start" value="2110"/>
+      <details key="end" value="2131"/>
+      <details key="line" value="40"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/getCreateTableList/prefix">
+      <details key="start" value="2133"/>
+      <details key="end" value="2147"/>
+      <details key="line" value="40"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/getCreateTableList/indent">
+      <details key="start" value="2149"/>
+      <details key="end" value="2163"/>
+      <details key="line" value="40"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/getCreateTableList/%">
+      <details key="start" value="2186"/>
+      <details key="end" value="2323"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/getCreateTableList/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/getCreateTableList/%/%">
+      <details key="start" value="2193"/>
+      <details key="end" value="2212"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/getCreateTableList/%/%.1">
+      <details key="start" value="2214"/>
+      <details key="end" value="2295"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/getCreateTableList/%/%.2">
+      <details key="start" value="2296"/>
+      <details key="end" value="2322"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/getCreateTableList/%/%.2/%/ws">
+      <details key="start" value="2305"/>
+      <details key="end" value="2307"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/getCreateTableList/%/%.2/%.1/prefix">
+      <details key="start" value="2308"/>
+      <details key="end" value="2314"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/getCreateTableList/%/%.2/%.2/indent">
+      <details key="start" value="2315"/>
+      <details key="end" value="2321"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/getRelationJoinTabel">
+      <details key="start" value="2328"/>
+      <details key="end" value="2474"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/getRelationJoinTabel/r">
+      <details key="start" value="2363"/>
+      <details key="end" value="2375"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/getRelationJoinTabel/%">
+      <details key="start" value="2388"/>
+      <details key="end" value="2470"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/getRelationJoinTabel/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/getRelationJoinTabel/%/%">
+      <details key="start" value="2395"/>
+      <details key="end" value="2414"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/getRelationJoinTabel/%/%.1">
+      <details key="start" value="2416"/>
+      <details key="end" value="2457"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/getRelationJoinTabel/%/%.2">
+      <details key="start" value="2458"/>
+      <details key="end" value="2469"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/getRelationJoinTabel/%/%.2/%/r">
+      <details key="start" value="2467"/>
+      <details key="end" value="2468"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/getRelationJoinTargetKey">
+      <details key="start" value="2475"/>
+      <details key="end" value="2629"/>
+      <details key="line" value="46"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/getRelationJoinTargetKey/r">
+      <details key="start" value="2514"/>
+      <details key="end" value="2526"/>
+      <details key="line" value="46"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/getRelationJoinTargetKey/%">
+      <details key="start" value="2539"/>
+      <details key="end" value="2625"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/getRelationJoinTargetKey/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/getRelationJoinTargetKey/%/%">
+      <details key="start" value="2546"/>
+      <details key="end" value="2565"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/getRelationJoinTargetKey/%/%.1">
+      <details key="start" value="2567"/>
+      <details key="end" value="2612"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/getRelationJoinTargetKey/%/%.2">
+      <details key="start" value="2613"/>
+      <details key="end" value="2624"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/getRelationJoinTargetKey/%/%.2/%/r">
+      <details key="start" value="2622"/>
+      <details key="end" value="2623"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/getRelationJoinSourceKey">
+      <details key="start" value="2630"/>
+      <details key="end" value="2784"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/getRelationJoinSourceKey/r">
+      <details key="start" value="2669"/>
+      <details key="end" value="2681"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/getRelationJoinSourceKey/%">
+      <details key="start" value="2694"/>
+      <details key="end" value="2780"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/getRelationJoinSourceKey/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/getRelationJoinSourceKey/%/%">
+      <details key="start" value="2701"/>
+      <details key="end" value="2720"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/getRelationJoinSourceKey/%/%.1">
+      <details key="start" value="2722"/>
+      <details key="end" value="2767"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/getRelationJoinSourceKey/%/%.2">
+      <details key="start" value="2768"/>
+      <details key="end" value="2779"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/getRelationJoinSourceKey/%/%.2/%/r">
+      <details key="start" value="2777"/>
+      <details key="end" value="2778"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/getAllTables">
+      <details key="start" value="2785"/>
+      <details key="end" value="2916"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/getAllTables/ws">
+      <details key="start" value="2812"/>
+      <details key="end" value="2833"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/getAllTables/%">
+      <details key="start" value="2856"/>
+      <details key="end" value="2912"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/getAllTables/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/getAllTables/%/%">
+      <details key="start" value="2863"/>
+      <details key="end" value="2882"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/getAllTables/%/%.1">
+      <details key="start" value="2884"/>
+      <details key="end" value="2900"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/getAllTables/%/%.2">
+      <details key="start" value="2901"/>
+      <details key="end" value="2911"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

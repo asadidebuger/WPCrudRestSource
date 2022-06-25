@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crudrest:PluginCreator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:crudrest="http://crudrest.msde.ui.ac.ir">
+  <plugin name="HRMp" hasAccessControl="true">
+    <detail prefix="crwpp" description="My first plugin after test " dbVersion="2" pluginURI="http://microsign.ir" author="Mohammadreza Asadi" authorURI="http://microsign.ir" license="MIT" textDomain="crwpp" directory="crwpp"/>
+    <gui>
+      <menu title="HRMp" slug="crwpp" icon="groups">
+        <items page="people"/>
+        <items page="bloods"/>
+        <items page="degrees"/>
+        <items page="jobs"/>
+        <items page="ostanpage"/>
+      </menu>
+      <page key="people" entity="person">
+        <form>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@fields.0" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@fields.1" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@fields.2" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@fields.3" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@relations.0" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@relations.1" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@relations.2" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@relations.3" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@relations.4" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@fields.4" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@fields.5" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@fields.6" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@fields.7" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@relations.6" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@fields.8" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.0/@fields.9" layout="Fill"/>
+        </form>
+        <list listColumns="//@plugin/@serviceProvider/@entityModel.0/@fields.0 //@plugin/@serviceProvider/@entityModel.0/@fields.1 //@plugin/@serviceProvider/@entityModel.0/@fields.2 //@plugin/@serviceProvider/@entityModel.0/@fields.3 //@plugin/@serviceProvider/@entityModel.0/@relations.0 //@plugin/@serviceProvider/@entityModel.0/@relations.1 //@plugin/@serviceProvider/@entityModel.0/@relations.2 //@plugin/@serviceProvider/@entityModel.0/@relations.3 //@plugin/@serviceProvider/@entityModel.0/@relations.4 //@plugin/@serviceProvider/@entityModel.0/@fields.4 //@plugin/@serviceProvider/@entityModel.0/@fields.5 //@plugin/@serviceProvider/@entityModel.0/@fields.6 //@plugin/@serviceProvider/@entityModel.0/@fields.7 //@plugin/@serviceProvider/@entityModel.0/@fields.8 //@plugin/@serviceProvider/@entityModel.0/@fields.9" sortableColumns="//@plugin/@serviceProvider/@entityModel.0/@fields.0 //@plugin/@serviceProvider/@entityModel.0/@fields.1 //@plugin/@serviceProvider/@entityModel.0/@fields.2 //@plugin/@serviceProvider/@entityModel.0/@fields.3 //@plugin/@serviceProvider/@entityModel.0/@relations.0 //@plugin/@serviceProvider/@entityModel.0/@relations.1 //@plugin/@serviceProvider/@entityModel.0/@relations.2 //@plugin/@serviceProvider/@entityModel.0/@relations.3 //@plugin/@serviceProvider/@entityModel.0/@relations.4 //@plugin/@serviceProvider/@entityModel.0/@fields.5 //@plugin/@serviceProvider/@entityModel.0/@fields.4"/>
+      </page>
+      <page key="bloods" entity="blood">
+        <form>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.1/@fields.0" layout="Fill"/>
+        </form>
+        <list listColumns="//@plugin/@serviceProvider/@entityModel.1/@fields.0" sortableColumns="//@plugin/@serviceProvider/@entityModel.1/@fields.0"/>
+      </page>
+      <page key="degrees" entity="education">
+        <form>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.2/@fields.0" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.2/@relations.0" layout="Fill"/>
+        </form>
+        <list listColumns="//@plugin/@serviceProvider/@entityModel.2/@fields.0 //@plugin/@serviceProvider/@entityModel.2/@relations.0" sortableColumns="//@plugin/@serviceProvider/@entityModel.2/@fields.0 //@plugin/@serviceProvider/@entityModel.2/@relations.0"/>
+      </page>
+      <page key="jobs" entity="job">
+        <form>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.3/@fields.0" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.3/@relations.0" layout="Fill"/>
+        </form>
+        <list listColumns="//@plugin/@serviceProvider/@entityModel.3/@fields.0 //@plugin/@serviceProvider/@entityModel.3/@relations.0" sortableColumns="//@plugin/@serviceProvider/@entityModel.3/@fields.0 //@plugin/@serviceProvider/@entityModel.3/@relations.0"/>
+      </page>
+      <page key="ostanpage" entity="building">
+        <form>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.4/@fields.0" layout="Fill"/>
+          <fieldLayout field="//@plugin/@serviceProvider/@entityModel.4/@relations.0"/>
+        </form>
+        <list listColumns="//@plugin/@serviceProvider/@entityModel.4/@fields.0 //@plugin/@serviceProvider/@entityModel.4/@relations.0" sortableColumns="//@plugin/@serviceProvider/@entityModel.4/@fields.0"/>
+      </page>
+      <reusableLayout name="Fill" col_lg="12"/>
+      <reusableLayout name="Half"/>
+      <reusableLayout name="Quarter"/>
+    </gui>
+    <serviceProvider>
+      <extend name="example" checkAccessControl="true"/>
+      <entityModel key="person" label="Person" labelPlural="People" titleScript="item.name+' '+item.family">
+        <fields key="name" label="First name" index="true" required="true">
+          <type href="FieldTypeRepo.crudrest#title"/>
+        </fields>
+        <fields key="family" label="Last name" index="true" unique="true" required="true">
+          <type href="FieldTypeRepo.crudrest#title"/>
+        </fields>
+        <fields key="code" label="National code" index="true" unique="true" required="true">
+          <type href="FieldTypeRepo.crudrest#nationalCode"/>
+        </fields>
+        <fields key="address" label="Adress">
+          <type href="FieldTypeRepo.crudrest#text"/>
+        </fields>
+        <fields key="sex" label="Sex" required="true">
+          <type href="FieldTypeRepo.crudrest#gender"/>
+        </fields>
+        <fields key="age" label="Age">
+          <type href="FieldTypeRepo.crudrest#int"/>
+        </fields>
+        <fields key="active" label="Is Active">
+          <type href="FieldTypeRepo.crudrest#checkBox"/>
+        </fields>
+        <fields key="birth" label="Birthday">
+          <type href="FieldTypeRepo.crudrest#date"/>
+        </fields>
+        <fields key="lastenter" label="Last Enter">
+          <type href="FieldTypeRepo.crudrest#datetime"/>
+        </fields>
+        <fields key="start" label="Start Work Time">
+          <type href="FieldTypeRepo.crudrest#time"/>
+        </fields>
+        <relations key="blood" label="Blood Group" index="true" entity="blood"/>
+        <relations key="degree" label="Degrees" entity="education" many="true" opposite="//@plugin/@serviceProvider/@entityModel.2/@relations.0"/>
+        <relations key="job" label="Job" unique="true" entity="job" opposite="//@plugin/@serviceProvider/@entityModel.3/@relations.0"/>
+        <relations key="father" label="Father" entity="person" opposite="//@plugin/@serviceProvider/@entityModel.0/@relations.4"/>
+        <relations key="child" label="Children" entity="person" many="true" opposite="//@plugin/@serviceProvider/@entityModel.0/@relations.3"/>
+        <relations key="jobcat" label="Job Category" entity="jobcat" opposite="//@plugin/@serviceProvider/@entityModel.5/@relations.0"/>
+        <relations key="place" label="Workplace" entity="building" opposite="//@plugin/@serviceProvider/@entityModel.4/@relations.0"/>
+      </entityModel>
+      <entityModel key="blood" label="Blood group" labelPlural="Blood groups" titleScript="item.title">
+        <fields key="title" label="Title" index="true" unique="true" required="true">
+          <type href="FieldTypeRepo.crudrest#text"/>
+        </fields>
+      </entityModel>
+      <entityModel key="education" label="Education degree" labelPlural="Education degrees" titleScript="item.title">
+        <fields key="title" label="Title" index="true" unique="true" required="true">
+          <type href="FieldTypeRepo.crudrest#text"/>
+        </fields>
+        <relations key="person" label="People" entity="person" many="true" opposite="//@plugin/@serviceProvider/@entityModel.0/@relations.1"/>
+      </entityModel>
+      <entityModel key="job" label="Job" labelPlural="Jobs" titleScript="item.title">
+        <fields key="title" label="Title" index="true" unique="true" required="true">
+          <type href="FieldTypeRepo.crudrest#text"/>
+        </fields>
+        <relations key="person" label="People" entity="person" many="true" opposite="//@plugin/@serviceProvider/@entityModel.0/@relations.2"/>
+      </entityModel>
+      <entityModel key="building" label="Building" labelPlural="Buildings" titleScript="">
+        <fields key="title" label="Title">
+          <type href="FieldTypeRepo.crudrest#text"/>
+        </fields>
+        <relations key="person" label="People" entity="person" many="true" opposite="//@plugin/@serviceProvider/@entityModel.0/@relations.6"/>
+      </entityModel>
+      <entityModel key="jobcat" label="Job Category" labelPlural="Job Categories" titleScript="item.title">
+        <fields key="title" label="Ttitle" index="true" unique="true">
+          <type href="FieldTypeRepo.crudrest#text"/>
+        </fields>
+        <relations key="person" label="Employees" entity="person" many="true" opposite="//@plugin/@serviceProvider/@entityModel.0/@relations.5"/>
+      </entityModel>
+    </serviceProvider>
+  </plugin>
+  <repository href="FieldTypeRepo.crudrest#/"/>
+</crudrest:PluginCreator>

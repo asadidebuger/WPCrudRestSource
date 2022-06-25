@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:crudrest="http://crudrest.msde.ui.ac.ir" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_w1TNgNuJEey2lYvBmwR13A" selectedViews="_7955oNuJEey2lYvBmwR13A" version="14.5.1.202106111100">
+    <semanticResources>model/example.crudrest</semanticResources>
+    <semanticResources>model/FieldTypeRepo.crudrest</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_7955oNuJEey2lYvBmwR13A">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_7-AAQNuJEey2lYvBmwR13A" name="CrudRestWPP" repPath="#_79888NuJEey2lYvBmwR13A" changeId="c2e0cb4a-8d67-4206-a16f-5c06a0553e18">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']"/>
+        <target xmi:type="crudrest:PluginCreator" href="model/example.crudrest#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_9AIysNuJEey2lYvBmwR13A" name="exam" repPath="#_9AG9gNuJEey2lYvBmwR13A" changeId="df7f53b8-bf18-4175-b014-87beadbe51e1">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']"/>
+        <target xmi:type="crudrest:PluginCreator" href="model/example.crudrest#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_79888NuJEey2lYvBmwR13A">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_7-NboNuJEey2lYvBmwR13A" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_7-NboduJEey2lYvBmwR13A" type="Sirius" element="_79888NuJEey2lYvBmwR13A" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_7-NbotuJEey2lYvBmwR13A"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_7-S7MNuJEey2lYvBmwR13A" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_7-S7MduJEey2lYvBmwR13A"/>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_799kANuJEey2lYvBmwR13A"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer"/>
+    <target xmi:type="crudrest:PluginCreator" href="model/example.crudrest#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_9AG9gNuJEey2lYvBmwR13A">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_9AJZwNuJEey2lYvBmwR13A" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_9AKA0NuJEey2lYvBmwR13A" type="Sirius" element="_9AG9gNuJEey2lYvBmwR13A" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_QjcEgNvdEeyz0ro_l--8ug" type="2002" element="_QjWk8NvdEeyz0ro_l--8ug">
+          <children xmi:type="notation:Node" xmi:id="_QjcrkNvdEeyz0ro_l--8ug" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_QjcrkdvdEeyz0ro_l--8ug" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_QjcrktvdEeyz0ro_l--8ug"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_Qjcrk9vdEeyz0ro_l--8ug"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_QjcrlNvdEeyz0ro_l--8ug" type="3012" element="_QjXMAdvdEeyz0ro_l--8ug">
+            <children xmi:type="notation:Node" xmi:id="_QjdSoNvdEeyz0ro_l--8ug" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_QjdSodvdEeyz0ro_l--8ug" y="-18"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Qjd5sNvdEeyz0ro_l--8ug" type="3005" element="_QjXzENvdEeyz0ro_l--8ug">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_Qjd5sdvdEeyz0ro_l--8ug" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qjd5stvdEeyz0ro_l--8ug"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_QjcrldvdEeyz0ro_l--8ug" fontName="Segoe UI" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QjcrltvdEeyz0ro_l--8ug" x="-24" y="1" width="32" height="32"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_QjcEgdvdEeyz0ro_l--8ug" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QjcEgtvdEeyz0ro_l--8ug" x="144" y="24" width="800" height="400"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_9AKA0duJEey2lYvBmwR13A"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_9AOSQNuJEey2lYvBmwR13A" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_9AOSQduJEey2lYvBmwR13A"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_QjWk8NvdEeyz0ro_l--8ug" name="SamplePlugin" width="80" height="40">
+      <target xmi:type="crudrest:CrudRestPlugin" href="model/example.crudrest#//@plugin"/>
+      <semanticElements xmi:type="crudrest:CrudRestPlugin" href="model/example.crudrest#//@plugin"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_QjXMAdvdEeyz0ro_l--8ug" name="Detail" tooltipText="Double click to edit" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="crudrest:PluginDetail" href="model/example.crudrest#//@plugin/@detail"/>
+        <semanticElements xmi:type="crudrest:PluginDetail" href="model/example.crudrest#//@plugin/@detail"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_QjXzENvdEeyz0ro_l--8ug" labelSize="10" showIcon="false" workspacePath="/crudrest/icons/advance-32.png">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@borderedNodeMappings[name='detail']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@borderedNodeMappings[name='detail']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_QjWk8dvdEeyz0ro_l--8ug" labelSize="12" iconPath="/crudrest/icons/plugin.png" borderSize="1" borderSizeComputationExpression="1" borderLineStyle="dash" backgroundStyle="Liquid" backgroundColor="217,196,215" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_9AHkkNuJEey2lYvBmwR13A"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/crudrest/description/crudrest.odesign#//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer"/>
+    <target xmi:type="crudrest:PluginCreator" href="model/example.crudrest#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

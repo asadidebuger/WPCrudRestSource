@@ -1,0 +1,1462 @@
+<?xml version="1.0" encoding="Cp1256"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="db" nsURI="crudrest::generator::main::include::db" startHeaderPosition="30" endHeaderPosition="73">
+    <input>
+      <takesTypesFrom href="http://crudrest.msde.ui.ac.ir#/"/>
+    </input>
+    <imports href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="db" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?php&#xA;/**&#xA; * Database functionality&#xA; *&#xA; *&#xA;"/>
+        <body xsi:type="mtl:QueryInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/0/getCopyrightComment.1"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/8">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+          </argument>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="1.5.0">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA; */&#xA;include_once '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models.php';&#xA;&#xA;class "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db {&#xA;&#x9;private $version="/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginDetail"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/db/plg">
+                <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin/detail"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//PluginDetail/dbVersion"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+          <ifExpr xsi:type="mtl:QueryInvocation">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <definition href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/0/isNotEmpty"/>
+            <argument xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginDetail"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/db/plg">
+                  <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin/detail"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//PluginDetail/dbVersion"/>
+            </argument>
+          </ifExpr>
+          <else>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" 1 "/>
+          </else>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#x9; &#xA;&#x9;//Models instance static field&#xA;&#x9;private static $db=null;&#xA;&#xA;&#x9;//static function to access db as singletone&#xA;&#x9;public static function get_db():"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db {&#xA;&#x9;  if (self::$db==null) self::$db = new "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db();&#xA;&#x9;  return self::$db;&#xA;&#x9;}&#xA;&#xA;&#x9;public function init(){&#xA;&#x9;&#x9;$version=get_site_option('"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db_version');&#xA;&#x9;&#x9;if(!$version) {&#xA;&#x9;&#x9;&#x9;$this->install();&#xA;&#x9;&#x9;&#x9;return; &#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;if ($version != $this->version) $this->update();&#xA;&#x9;}&#xA;&#xA;&#x9;private function install(){&#xA;&#x9;&#x9;global $wpdb;&#xA;&#x9;&#x9;require_once(ABSPATH . 'wp-admin/includes/upgrade.php');&#xA;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;$wpdb->query(&quot;"/>
+          <body xsi:type="ocl.ecore:VariableExp" name="q" referredVariable="/0/db/%.1/%.10/q.1">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;);&#xA;"/>
+          <loopVariable name="q">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </loopVariable>
+          <iterSet xsi:type="mtl:QueryInvocation" eType="/16/Sequence(String)">
+            <definition href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/0/getCreateTableList"/>
+            <argument xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/db/plg">
+                <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin/serviceProvider"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;add_option('"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db_version', $this->version);&#x9;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * update function for manipulate db when version changed&#xA;&#x9; * customize this function to handle db changes manually!&#xA;&#x9; *&#xA;&#x9; */&#xA;&#x9;private function update(){&#xA;&#x9;&#x9;$this->uninstall();&#xA;&#x9;&#x9;$this->install();&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * uninstall function to clear db tables&#xA;&#x9; * this function will be called in plugin unistall event&#xA;&#x9; *&#xA;&#x9; */&#xA;&#x9;public function uninstall(){&#xA;&#x9;&#x9;global $wpdb;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;$wpdb->query(&quot;DROP TABLE IF EXISTS {$wpdb->prefix}"/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:VariableExp" name="table" referredVariable="/0/db/%.1/%.13/table">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;);&#xA;"/>
+          <loopVariable name="table">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </loopVariable>
+          <iterSet xsi:type="mtl:QueryInvocation" eType="/16/Sequence(String)">
+            <definition href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/0/getAllTables"/>
+            <argument xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/db/plg">
+                <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin/serviceProvider"/>
+            </argument>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;delete_option('"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db_version');&#xA;&#x9;}&#xA;   /** @var SplQueue $aliases_q */&#xA;  private $aliases_q = null;&#xA;  private $aliases=array();&#xA;&#xA;  private function push_alias($key,$tail=0):string&#xA;  {&#xA;//&#x9;  if($this->aliases==null)$this->aliases_q=new SplQueue();&#xA;&#x9;$suffix=!!$tail?$tail:'';&#xA;&#x9;$alias=$key.$suffix;&#xA;&#x9;if(!in_array($alias,$this->aliases)) {&#xA;&#x9;  $this->aliases_q->enqueue($alias);&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$this->aliases[]=$alias;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;  return $alias;&#xA;&#x9;}&#xA;&#x9;return $this->push_alias($key,$tail+1);&#xA;  }&#xA;  private function deque_alias():string&#xA;  {&#xA;&#x9;return $this->aliases_q->dequeue();&#xA;  }&#xA;  private function reset_alias()&#xA;  {&#xA;&#x9;$this->aliases = array();&#xA;&#x9;$this->aliases_q = new SplQueue();&#xA;  }&#xA;  public function fetch_data($entity_key, $fields, $search=null, $where = null, $order_by = null, $limit = -1, $offset = -1) : array&#xA;  {&#xA;&#x9;global $wpdb;&#xA;&#x9;$prefix = $wpdb->prefix . '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_';&#xA;&#x9;$entity = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($entity_key);&#xA;&#x9;$e_fields = array();&#xA;&#x9;/** @var "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Relation"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" $e_relations */&#xA;&#x9;$e_relations = array();&#xA;&#x9;$this->reset_alias();&#xA;&#x9;$expanded_fields = array();&#xA;&#xA;&#x9;//separate fields and relations&#xA;&#x9;foreach ($fields as $key) {&#xA;&#x9;  $field = $entity->get_field($key);&#xA;&#x9;  if ($field->type != 'relation') "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$e_fields[$key] = $field;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="else $e_relations[$key] = $field;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;}&#xA;&#x9;$alias = $this->push_alias($entity_key);&#xA;&#xA;&#x9;$q = &quot;SELECT $alias.id, &quot;;&#xA;&#xA;&#x9;$targets = array();&#xA;&#xA;&#x9;// select non relation fields&#xA;&#x9;foreach ($e_fields as $field) {&#xA;&#x9;  $q .= &quot;$alias.$field->key, &quot;;&#xA;&#x9;}&#xA;&#xA;&#x9;// select relation fields&#xA;&#x9;foreach ($e_relations as $relation) {&#xA;&#xA;&#x9;  $target = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($relation->entity);&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$targets[$target->key] = $target;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;  if ($relation->join_s_key === 'id') continue;&#xA;&#x9;  if ($relation->many) {&#xA;&#x9;&#x9;$q .= &quot;$entity_key.$relation->key, &quot;;&#xA;&#x9;&#x9;continue;&#xA;&#x9;  }&#xA;&#x9;  $alias = $this->push_alias($relation->join_table);&#xA;&#x9;  $t_q = &quot;$alias.id AS {$relation->key}_id, &quot;;&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$expanded_fields[$relation->key] = [&quot;id&quot;];">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;&#x9;  // get fields that used in title script&#xA;&#x9;  foreach ($target->fields as $field) {&#xA;&#x9;&#x9;if (strpos($target->title_script, $field->key) != false) {&#xA;&#x9;&#x9;  $t_q .= &quot;$alias.$field->key AS {$relation->key}_$field->key, &quot;;&#xA;&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$expanded_fields[$relation->key][] = &quot;$field->key&quot;;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;}&#xA;&#x9;  }&#xA;&#x9;  $q .= $t_q;&#xA;&#xA;&#x9;}&#xA;&#x9;// escape last comma&#xA;&#x9;if (substr($q, -2) == ', ') $q = substr($q, 0, -2);&#xA;&#xA;&#x9;$primary_alias=$alias = $this->deque_alias();&#xA;&#xA;&#xA;&#x9;$q .= &quot; FROM $prefix$entity_key AS $alias&quot;;&#xA;&#x9;$total_query=&quot;SELECT COUNT(*) FROM $prefix$entity_key AS $alias&quot;;&#xA;&#xA;&#x9;// add JOIN clause&#xA;&#x9;foreach ($e_relations as $relation) {&#xA;&#x9;  if (!$relation->many) {&#xA;&#x9;&#x9;$alias = $this->deque_alias();&#xA;&#x9;&#x9;$q_from = &quot; LEFT JOIN $prefix$relation->join_table AS $alias ON $entity->key.$relation->join_s_key=$alias.$relation->join_t_key &quot;;&#xA;&#x9;&#x9;$q .= $q_from;&#xA;&#x9;&#x9;continue;&#xA;&#x9;  }&#xA;&#x9;}&#xA;&#xA;&#x9;$searchWhere=array();&#xA;&#x9;if ($search){&#xA;&#x9;  foreach ($fields as $key) {&#xA;&#x9;&#x9;$field = $entity->get_field($key);&#xA;&#x9;&#x9;if ($field->type != 'text' &amp;&amp; $field->type != 'nationalCode') continue;&#xA;&#x9;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$searchWhere[]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = &quot;$primary_alias.$key LIKE '%$search%'&quot;;&#xA;&#x9;  }&#xA;&#x9;  $searchWhere=implode(' OR ',$searchWhere);&#xA;&#x9;  if($searchWhere){&#xA;&#x9;&#x9;if ($where) $where.=' AND ('.$searchWhere.')';&#xA;&#x9;&#x9;else $where=$searchWhere;&#xA;&#x9;  }&#xA;&#x9;}&#xA;&#xA;&#x9;if ($where) {&#xA;&#x9;  $q .= &quot; WHERE &quot; . $where;&#xA;&#x9;  $total_query .= &quot; WHERE &quot; . $where;&#xA;&#x9;}&#xA;&#x9;if ($order_by) $q .= &quot; ORDER BY $primary_alias.$order_by&quot;;&#xA;&#x9;if ($limit > -1) $q .= &quot; LIMIT &quot; . $limit;&#xA;&#x9;if ($offset > -1) $q .= &quot; OFFSET  &quot; . $offset;&#xA;&#x9;$total=0;&#xA;&#x9;$rows = $wpdb->get_results($q);&#xA;&#x9;if(!count($rows)) return array('items'=>$rows,'total'=>$total);&#xA;&#x9;$total = $wpdb->get_var($total_query);&#xA;&#x9;foreach ($e_relations as $relation) {&#xA;&#x9;  if (!$relation->many) continue;&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$target = $targets[$relation->entity];">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;&#x9;  /** @var "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Relation $opposite */&#xA;&#x9;  $opposite = $relation->opposite ? $target->get_field($relation->opposite) : null;&#xA;&#xA;&#x9;  if ($opposite &amp;&amp; $opposite->many) {&#xA;&#x9;&#x9;$sub_query = &quot;SELECT $entity_key.$relation->join_s_key AS {$entity_key}_id, $relation->entity.id, &quot;;&#xA;&#x9;&#x9;foreach ($target->fields as $field) {&#xA;&#x9;&#x9;  if (strpos($target->title_script, $field->key) != false) {&#xA;&#x9;&#x9;&#x9;$sub_query .= &quot;$relation->entity.$field->key AS $field->key, &quot;;&#xA;&#x9;&#x9;  }&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (substr($sub_query, -2) == ', ') $sub_query = substr($sub_query, 0, -2);&#xA;&#xA;&#x9;&#x9;$sub_query.=&quot; FROM $prefix$entity_key as $entity_key &quot;;&#xA;&#x9;&#x9;$sub_query.=&quot; RIGHT JOIN $prefix$relation->join_table AS $relation->join_table ON $entity->key.$relation->join_s_key=$relation->join_table.$relation->join_t_key &quot;;&#xA;&#x9;&#x9;$sub_query.=&quot; RIGHT JOIN $prefix$relation->entity AS $relation->entity ON $target->key.$opposite->join_s_key=$relation->join_table.$opposite->join_t_key &quot;;&#xA;&#x9;&#x9;$ids = array();&#xA;&#x9;&#x9;foreach ($rows as $row) {&#xA;&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$ids[] = $row->id;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;$ids = implode(',', $ids);&#xA;&#x9;&#x9;$sub_query.=&quot; WHERE $entity_key.$relation->join_s_key IN ($ids)&quot;;&#xA;&#x9;  }&#xA;&#x9;  else  {&#xA;&#x9;&#x9;$sub_query = &quot;SELECT id, $relation->join_t_key, &quot;;&#xA;&#x9;&#x9;foreach ($target->fields as $field) {&#xA;&#x9;&#x9;  if (strpos($target->title_script, $field->key) != false) {&#xA;&#x9;&#x9;&#x9;$sub_query .= &quot;$field->key , &quot;;&#xA;&#x9;&#x9;  }&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (substr($sub_query, -2) == ', ') $sub_query = substr($sub_query, 0, -2);&#xA;&#xA;&#x9;&#x9;$ids = array();&#xA;&#x9;&#x9;foreach ($rows as $row) {&#xA;&#x9;&#x9;  $k = $relation->join_s_key;&#xA;&#x9;&#x9;  $id = $row->$k;&#xA;&#x9;&#x9;  if ($id == null) continue;&#xA;&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="if (!in_array($id, $ids)) $ids[] = $id;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;$ids = implode(',', $ids);&#xA;&#x9;&#x9;$sub_query .= &quot; FROM $prefix$relation->join_table WHERE $relation->join_t_key IN ($ids)&quot;;&#xA;&#x9;  }&#xA;//&#x9;else  {&#xA;////&#x9;&#x9;$alias = $this->push_alias($relation->join_table);&#xA;//&#x9;&#x9;$sub_query = &quot;SELECT id, &quot;;&#xA;//&#xA;//&#x9;&#x9;foreach ($target->fields as $field) {&#xA;//&#x9;&#x9;  if (strpos($target->title_script, $field->key) != false) {&#xA;//&#x9;&#x9;&#x9;$sub_query .= &quot;$field->key , &quot;;&#xA;//&#x9;&#x9;  }&#xA;//&#x9;&#x9;}&#xA;//&#x9;&#x9;if (substr($sub_query, -2) == ', ') $sub_query = substr($sub_query, 0, -2);&#xA;//&#xA;//&#x9;&#x9;$ids = array();&#xA;//&#x9;&#x9;foreach ($rows as $row) {&#xA;//&#x9;&#x9;  $k = $relation->join_s_key;&#xA;//&#x9;&#x9;  $id = $row->$k;&#xA;//&#x9;&#x9;  if ($id == null) continue;&#xA;//&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="if (!in_array($id, $ids)) $ids[] = $id;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;//&#x9;&#x9;}&#xA;//&#x9;&#x9;$ids = implode(',', $ids);&#xA;//&#x9;&#x9;$sub_query .= &quot; FROM $prefix$relation->join_table WHERE $relation->join_t_key IN ($ids)&quot;;&#xA;//&#x9;  }&#xA;&#x9;  $sub_rows = $wpdb->get_results($sub_query);&#xA;&#xA;&#xA;&#x9;  if ($opposite &amp;&amp; $opposite->many) {&#xA;&#x9;&#x9;foreach ($rows as $row) {&#xA;&#xA;&#x9;&#x9;  $k = &quot;{$entity_key}_id&quot;;&#xA;&#x9;&#x9;  $id = $row->id;&#xA;&#x9;&#x9;  $filters=array();&#xA;&#x9;&#x9;  $reminds=array();&#xA;&#x9;&#x9;  foreach ($sub_rows as $key=>$data){&#xA;&#x9;&#x9;&#x9;if ($data->$k == $id){&#xA;&#x9;&#x9;&#x9;  unset($data->$k);&#xA;&#x9;&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$filters[]= $data;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="}else $reminds[]=$data;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;  }&#xA;&#x9;&#x9;  $row->{$relation->key} = $filters;&#xA;&#x9;&#x9;  $sub_rows=$reminds;&#xA;&#xA;&#x9;&#x9;}&#xA;&#x9;  }else {&#xA;&#x9;&#x9;foreach ($rows as $row) {&#xA;&#xA;&#x9;&#x9;  $k = $relation->join_s_key;&#xA;&#x9;&#x9;  $id = $row->$k;&#xA;&#x9;&#x9;  if ($id == null) {&#xA;&#x9;&#x9;&#x9;$row->{$relation->key} = array();&#xA;&#x9;&#x9;&#x9;continue;&#xA;&#x9;&#x9;  }&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;  $row->{$relation->key} = array_values(array_filter($sub_rows, function ($data) use ($id,$relation) {&#xA;&#x9;&#x9;&#x9;return $data->{$relation->join_t_key} == $id;&#xA;&#x9;&#x9;  }));&#xA;&#x9;&#x9;}&#xA;&#x9;  }&#xA;&#xA;&#x9;}&#xA;&#x9;if (!count($expanded_fields)) return array('items'=>$rows,'total'=>$total);&#xA;&#xA;&#x9;foreach ($rows as $row) {&#xA;&#x9;  foreach ($expanded_fields as $key=>$fields){&#xA;&#x9;&#x9;$row->$key=null;&#xA;&#x9;&#x9;foreach ($fields as $field)&#xA;&#x9;&#x9;{&#xA;&#x9;&#x9;  $k=$key.'_'.$field;&#xA;&#x9;&#x9;  $value=$row->$k;&#xA;&#x9;&#x9;  unset($row->$k);&#xA;&#x9;&#x9;  if (!$value) continue;&#xA;&#x9;&#x9;  if($row->$key==null)$row->$key=new stdClass();&#xA;&#x9;&#x9;  $row->$key->$field=$value;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;  }&#xA;&#xA;&#xA;&#x9;}&#xA;&#x9;return array('items'=>$rows,'total'=>$total);&#xA;&#xA;  }&#xA;&#xA;&#xA;  public function mutation_item( $item,$entity_key)&#xA;  {&#xA;&#x9;global $wpdb;&#xA;&#x9;$prefix = $wpdb->prefix . '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_';&#xA;&#x9;$entity = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($entity_key);&#xA;&#x9;$removed_keys = array();&#xA;&#x9;// many-many bi-direct&#xA;&#x9;$m_m_b = new stdClass();&#xA;&#x9;// many-one bi-direct&#xA;&#x9;$m_o_b = new stdClass();&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$id = array_key_exists(&quot;id&quot;, $item) ? $item[&quot;id&quot;] : 0;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;$current = $id ? $wpdb->get_row(&quot;SELECT * FROM $prefix$entity_key WHERE id=$id&quot;) : null;&#xA;&#x9;foreach ($item as $key => $value) {&#xA;&#x9;  $relation = $entity->get_relation($key);&#xA;&#x9;  if (!$relation) {&#xA;&#x9;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="if ($current &amp;&amp; $current->$key == $value) $removed_keys[] = $key;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;continue;&#xA;&#x9;  }&#xA;&#x9;  $opposite = $relation->opposite;&#xA;&#x9;  if (!$opposite) {&#xA;&#x9;&#x9;//many-one direct&#xA;&#x9;&#x9;if (!$relation->many) {&#xA;&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="if ($current &amp;&amp; $current->$key == $value) $removed_keys[] = $key;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;  continue;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;// many-one direct&#xA;&#x9;&#x9;$ids=implode(',',$value);&#xA;&#x9;&#x9;$wpdb->query(&quot;UPDATE $prefix$relation->entity SET $relation->join_t_key=NULL WHERE $relation->join_t_key = $id&quot;);&#xA;&#x9;&#x9;$wpdb->query(&quot;UPDATE $prefix$relation->entity SET $relation->join_t_key=$id WHERE id IN ($ids)&quot;);&#xA;&#x9;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$removed_keys[] = $key;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;continue;&#xA;&#x9;  }&#xA;&#x9;  $target = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($relation->entity);&#xA;&#x9;  $opposite = $target->get_relation($relation->opposite);&#xA;//&#x9;  if ($relation->entity==$entity_key)&#xA;//&#x9;  {&#xA;//&#xA;//&#x9;    continue;&#xA;//&#x9;  }&#xA;&#x9;  if ($opposite->many) {&#xA;&#x9;&#x9;//many-many bi-direct&#xA;&#x9;&#x9;if ($relation->many) {&#xA;&#x9;&#x9;  $tmp = new stdClass();&#xA;&#x9;&#x9;  $tmp->value = $value;&#xA;&#x9;&#x9;  $tmp->relation = $relation;&#xA;&#x9;&#x9;  $tmp->opposite = $opposite;&#xA;&#x9;&#x9;  $tmp->target = $target;&#xA;&#x9;&#x9;  $m_m_b->$key = $tmp;&#xA;&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$removed_keys[] = $key;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;  continue;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;//many-one bi-direct&#xA;&#x9;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="if ($current &amp;&amp; $current->$key == $value) $removed_keys[] = $key;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;continue;&#xA;&#xA;&#x9;&#x9;continue;&#xA;&#x9;  }&#xA;&#x9;  $tmp = new stdClass();&#xA;&#x9;  $tmp->value = $value;&#xA;&#x9;  $tmp->relation = $relation;&#xA;&#x9;  $tmp->opposite = $opposite;&#xA;&#x9;  $tmp->target = $target;&#xA;&#x9;  $m_o_b->$key = $tmp;&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$removed_keys[] = $key;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;foreach ($removed_keys as $key) {&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="unset($item[$key]);">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;}&#xA;&#x9;if (count($item)) {&#xA;&#x9;  if ($current) {&#xA;&#x9;&#x9;$result = $wpdb->update(&quot;$prefix$entity_key&quot;, $item, array('id' => $id));&#xA;&#x9;  } else {&#xA;&#x9;&#x9;$result = $wpdb->insert(&quot;$prefix$entity_key&quot;, $item);&#xA;&#x9;&#x9;$id = $wpdb->insert_id;&#xA;&#x9;  }&#xA;&#x9;  if ($result===false) return $wpdb->last_error;&#xA;&#x9;}&#xA;&#x9;foreach ($m_m_b as $key => $mmb) {&#xA;&#x9;  $relation = $mmb->relation;&#xA;&#x9;  $values = $mmb->value;&#xA;&#x9;  $opposite = $mmb->opposite;&#xA;&#x9;  $target = $mmb->target;&#xA;&#x9;  $table = $relation->join_table;&#xA;&#xA;&#x9;  if ($current) {&#xA;&#xA;&#x9;&#x9;$items = $wpdb->get_results(&quot;SELECT * FROM $prefix$relation->join_table WHERE $relation->join_t_key=$id&quot;);&#xA;&#x9;&#x9;$ids_to_remove = array();&#xA;&#x9;&#x9;foreach ($items as $item) {&#xA;&#x9;&#x9;  $search=array_search($item->{$relation->entity}, $values);&#xA;&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="if ($search=== false)$ids_to_remove[] = $item->id;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="else unset($values[$search]);">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (count($ids_to_remove)) {&#xA;&#x9;&#x9;  $ids_to_remove=implode(',',$ids_to_remove);&#xA;&#x9;&#x9;  $wpdb->query(&quot;DELETE FROM $prefix$relation->join_table WHERE id IN ($ids_to_remove)&quot;);&#xA;&#x9;&#x9;}&#xA;&#x9;  }&#xA;&#x9;  if ($id &amp;&amp; count($values)) {&#xA;&#x9;&#x9;$insert_query = &quot;INSERT INTO $prefix$relation->join_table ($relation->join_t_key,$opposite->join_t_key) VALUES &quot;;&#xA;&#x9;&#x9;$insert_query_values = array();&#xA;&#x9;&#x9;foreach ($values as $value) {&#xA;&#xA;&#x9;&#x9;  array_push($insert_query_values, &quot;($id,$value)&quot;);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;$insert_query .= implode(&quot;,&quot;, $insert_query_values);&#xA;&#x9;&#x9;$wpdb->query($insert_query);&#xA;&#x9;  }&#xA;&#xA;&#x9;}&#xA;&#x9;foreach ($m_o_b as $key => $mmb) {&#xA;&#x9;  $relation = $mmb->relation;&#xA;&#x9;  $values = $mmb->value;&#xA;&#x9;  $opposite = $mmb->opposite;&#xA;&#x9;  $target = $mmb->target;&#xA;&#x9;  $table = $relation->join_table;&#xA;&#xA;&#x9;  if ($current) {&#xA;&#xA;&#x9;&#x9;$items = $wpdb->get_results(&quot;SELECT id,$opposite->join_s_key FROM $prefix$relation->join_table WHERE $opposite->join_s_key=$id&quot;);&#xA;&#x9;&#x9;$ids_to_remove = array();&#xA;&#x9;&#x9;foreach ($items as $item) {&#xA;//&#x9;&#x9;  if ( !$values|| !count($values) || in_array($item->{$relation->join_s_key},$values)) continue;&#xA;//&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$ids_to_remove[] = $item->id;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;  $search=array_search($item->{$relation->join_s_key}, $values);&#xA;&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="if ($search=== false)$ids_to_remove[] = $item->id;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="else unset($values[$search]);">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (count($ids_to_remove)) {&#xA;&#x9;&#x9;  $ids_to_remove=implode(',',$ids_to_remove);&#xA;&#x9;&#x9;  $wpdb->query(&quot;UPDATE $prefix$relation->join_table SET $opposite->join_s_key = NULL WHERE id IN ($ids_to_remove)&quot;);&#xA;&#x9;&#x9;}&#xA;&#x9;  }&#xA;&#x9;  if ($values &amp;&amp; count($values)) {&#xA;&#x9;&#x9;$ids = implode(&quot;,&quot;, $values);&#xA;&#x9;&#x9;$wpdb->query(&quot;UPDATE $prefix$relation->join_table SET $opposite->join_s_key=$id WHERE id IN ($ids)&quot;);&#xA;&#x9;  }&#xA;&#x9;}&#xA;&#x9;return $id;&#xA;  }&#xA;  public function delete_item( $item,$entity_key):int&#xA;  {&#xA;&#x9;global $wpdb;&#xA;&#x9;$prefix = $wpdb->prefix . '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_';&#xA;&#x9;$entity = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($entity_key);&#xA;&#x9;$id =is_array($item)?(array_key_exists('id', $item) ? "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$item[&quot;id&quot;] : 0):$item">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#x9;$current = $id ? $wpdb->get_row(&quot;SELECT * FROM $prefix$entity_key WHERE id=$id&quot;) : null;&#xA;&#x9;if (!$current) return 0;&#xA;&#x9;foreach ($current as $key => $value) {&#xA;&#x9;  $relation = $entity->get_relation($key);&#xA;&#x9;  if (!$relation) continue;&#xA;&#x9;  $opposite = $relation->opposite;&#xA;&#x9;  if (!$opposite) {&#xA;&#x9;&#x9;//many-one direct&#xA;&#x9;&#x9;if (!$relation->many) continue;&#xA;&#x9;&#x9;$wpdb->query(&quot;UPDATE $prefix$relation->entity SET $relation->join_t_key=NULL WHERE $relation->join_t_key = $id&quot;);&#xA;&#x9;&#x9;continue;&#xA;&#x9;  }&#xA;&#x9;  $target = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($relation->entity);&#xA;&#x9;  $opposite = $target->get_relation($relation->opposite);&#xA;&#xA;&#x9;  if ($opposite->many) {&#xA;&#x9;&#x9;//many-many bi-direct&#xA;&#x9;&#x9;if ($relation->many) {&#xA;&#x9;&#x9;  $wpdb->query(&quot;DELETE FROM $prefix$relation->join_table WHERE $entity_key = $id&quot;);&#xA;&#x9;&#x9;  continue;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;//many-one bi-direct&#xA;&#x9;&#x9;if ($relation->join_table==$entity_key)&#xA;&#x9;&#x9;  $wpdb->query(&quot;UPDATE $prefix$relation->join_table SET $opposite->join_t_key=NULL WHERE $opposite->join_t_key = $id&quot;);&#xA;&#x9;&#x9;continue;&#xA;&#x9;  }&#xA;&#x9;}&#xA;&#x9;$wpdb->query(&quot;DELETE FROM $prefix$entity_key  WHERE id = $id&quot;);&#xA;&#x9;return $id;&#xA;  }&#xA;&#xA;&#xA;}&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="directory" referredVariable="/0/db/directory">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/includes/">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/db/prefix">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db.php">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <parameter name="plg">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </parameter>
+      <parameter name="directory">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="prefix">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="td">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="db">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/db"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+        <eParameters name="directory">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="td">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="isNotEmpty">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/0/isNotEmpty"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="o">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getCopyrightComment">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/0/getCopyrightComment.1"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+        <eParameters name="since">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getCreateTableList">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/0/getCreateTableList"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:SequenceType" href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/3/Sequence(String)"/>
+        <eParameters name="ws">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+        </eParameters>
+        <eParameters name="prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="indent">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getAllTables">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/0/getAllTables"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:SequenceType" href="platform:/resource/crudrest.generator/bin/crudrest/generator/main/service.emtl#/3/Sequence(String)"/>
+        <eParameters name="ws">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_CrudRestPlugin_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_MenuItem_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_UIPage_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_List_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//List"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_Layout_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_PluginWebService_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_Relation_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(String)" instanceClassName="java.util.List">
+      <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/db">
+      <details key="start" value="122"/>
+      <details key="end" value="14950"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/db/%">
+      <details key="start" value="208"/>
+      <details key="end" value="209"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/db/%.1">
+      <details key="start" value="209"/>
+      <details key="end" value="14937"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/db/%.1/%">
+      <details key="start" value="276"/>
+      <details key="end" value="318"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/db/%.1/%.1">
+      <details key="start" value="319"/>
+      <details key="end" value="347"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/db/%.1/%.1/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/db/%.1/%.1/%">
+      <details key="start" value="339"/>
+      <details key="end" value="346"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/db/%.1/%.2">
+      <details key="start" value="349"/>
+      <details key="end" value="368"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/db/%.1/prefix">
+      <details key="start" value="369"/>
+      <details key="end" value="375"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/db/%.1/%.3">
+      <details key="start" value="377"/>
+      <details key="end" value="398"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/db/%.1/prefix.1">
+      <details key="start" value="399"/>
+      <details key="end" value="405"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/db/%.1/%.4">
+      <details key="start" value="407"/>
+      <details key="end" value="431"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/db/%.1/%.5">
+      <details key="start" value="431"/>
+      <details key="end" value="509"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/db/%.1/%.5/%">
+      <details key="start" value="470"/>
+      <details key="end" value="471"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/db/%.1/%.5/%.1">
+      <details key="start" value="472"/>
+      <details key="end" value="492"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/db/%.1/%.5/%.1/%">
+      <details key="start" value="472"/>
+      <details key="end" value="482"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/db/%.1/%.5/%.1/%/plg">
+      <details key="start" value="472"/>
+      <details key="end" value="475"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/db/%.1/%.5/%.2">
+      <details key="start" value="494"/>
+      <details key="end" value="495"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/db/%.1/%.5/%.3">
+      <details key="start" value="434"/>
+      <details key="end" value="469"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/db/%.1/%.5/%.3/%">
+      <details key="start" value="435"/>
+      <details key="end" value="455"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/db/%.1/%.5/%.3/%/%">
+      <details key="start" value="435"/>
+      <details key="end" value="445"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/db/%.1/%.5/%.3/%/%/plg">
+      <details key="start" value="435"/>
+      <details key="end" value="438"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/db/%.1/%.5/%.4">
+      <details key="start" value="495"/>
+      <details key="end" value="504"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/db/%.1/%.5/%.4/%">
+      <details key="start" value="501"/>
+      <details key="end" value="504"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/db/%.1/%.6">
+      <details key="start" value="509"/>
+      <details key="end" value="652"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/db/%.1/prefix.2">
+      <details key="start" value="653"/>
+      <details key="end" value="659"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/db/%.1/%.7">
+      <details key="start" value="661"/>
+      <details key="end" value="707"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/db/%.1/prefix.3">
+      <details key="start" value="708"/>
+      <details key="end" value="714"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/db/%.1/%.8">
+      <details key="start" value="716"/>
+      <details key="end" value="801"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/db/%.1/prefix.4">
+      <details key="start" value="802"/>
+      <details key="end" value="808"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/db/%.1/%.9">
+      <details key="start" value="810"/>
+      <details key="end" value="1041"/>
+      <details key="line" value="29"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/db/%.1/%.10">
+      <details key="start" value="1041"/>
+      <details key="end" value="1142"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/db/%.1/%.10/%">
+      <details key="start" value="1112"/>
+      <details key="end" value="1128"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/db/%.1/%.10/q">
+      <details key="start" value="1129"/>
+      <details key="end" value="1130"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/db/%.1/%.10/%.1">
+      <details key="start" value="1132"/>
+      <details key="end" value="1136"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/db/%.1/%.10/q.1">
+      <details key="start" value="1047"/>
+      <details key="end" value="1057"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/db/%.1/%.10/%.2">
+      <details key="start" value="1058"/>
+      <details key="end" value="1109"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/db/%.1/%.10/%.2/%">
+      <details key="start" value="1058"/>
+      <details key="end" value="1077"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/db/%.1/%.10/%.2/%/plg">
+      <details key="start" value="1058"/>
+      <details key="end" value="1061"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/db/%.1/%.10/%.2/prefix">
+      <details key="start" value="1097"/>
+      <details key="end" value="1103"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/db/%.1/%.10/%.2/%.1">
+      <details key="start" value="1104"/>
+      <details key="end" value="1108"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/db/%.1/%.11">
+      <details key="start" value="1143"/>
+      <details key="end" value="1157"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/db/%.1/prefix.5">
+      <details key="start" value="1158"/>
+      <details key="end" value="1164"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/db/%.1/%.12">
+      <details key="start" value="1166"/>
+      <details key="end" value="1568"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/db/%.1/%.13">
+      <details key="start" value="1568"/>
+      <details key="end" value="1709"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/db/%.1/%.13/%">
+      <details key="start" value="1626"/>
+      <details key="end" value="1678"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/db/%.1/%.13/%.1">
+      <details key="start" value="1679"/>
+      <details key="end" value="1697"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/db/%.1/%.13/%.1/%">
+      <details key="start" value="1679"/>
+      <details key="end" value="1690"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/db/%.1/%.13/%.1/%/prefix">
+      <details key="start" value="1679"/>
+      <details key="end" value="1685"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/db/%.1/%.13/%.1/%/%">
+      <details key="start" value="1687"/>
+      <details key="end" value="1690"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/db/%.1/%.13/%.1/table">
+      <details key="start" value="1692"/>
+      <details key="end" value="1697"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/db/%.1/%.13/%.2">
+      <details key="start" value="1699"/>
+      <details key="end" value="1703"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/db/%.1/%.13/table">
+      <details key="start" value="1574"/>
+      <details key="end" value="1588"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/db/%.1/%.13/%.3">
+      <details key="start" value="1589"/>
+      <details key="end" value="1623"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/db/%.1/%.13/%.3/%">
+      <details key="start" value="1589"/>
+      <details key="end" value="1608"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/db/%.1/%.13/%.3/%/plg">
+      <details key="start" value="1589"/>
+      <details key="end" value="1592"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/db/%.1/%.14">
+      <details key="start" value="1710"/>
+      <details key="end" value="1727"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/db/%.1/prefix.6">
+      <details key="start" value="1728"/>
+      <details key="end" value="1734"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/db/%.1/%.15">
+      <details key="start" value="1736"/>
+      <details key="end" value="2094"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/db/%.1/%.16">
+      <details key="start" value="2095"/>
+      <details key="end" value="2121"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/db/%.1/%.17">
+      <details key="start" value="2123"/>
+      <details key="end" value="2559"/>
+      <details key="line" value="82"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/db/%.1/prefix.7">
+      <details key="start" value="2560"/>
+      <details key="end" value="2566"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/db/%.1/%.18">
+      <details key="start" value="2568"/>
+      <details key="end" value="2583"/>
+      <details key="line" value="98"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/db/%.1/prefix.8">
+      <details key="start" value="2584"/>
+      <details key="end" value="2590"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/db/%.1/%.19">
+      <details key="start" value="2592"/>
+      <details key="end" value="2658"/>
+      <details key="line" value="99"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/db/%.1/prefix.9">
+      <details key="start" value="2659"/>
+      <details key="end" value="2665"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/db/%.1/%.20">
+      <details key="start" value="2667"/>
+      <details key="end" value="2676"/>
+      <details key="line" value="101"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/db/%.1/%.21">
+      <details key="start" value="2677"/>
+      <details key="end" value="2681"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/db/%.1/%.22">
+      <details key="start" value="2683"/>
+      <details key="end" value="2913"/>
+      <details key="line" value="101"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/db/%.1/%.23">
+      <details key="start" value="2914"/>
+      <details key="end" value="2941"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/db/%.1/%.24">
+      <details key="start" value="2943"/>
+      <details key="end" value="2947"/>
+      <details key="line" value="110"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/db/%.1/%.25">
+      <details key="start" value="2948"/>
+      <details key="end" value="2983"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/db/%.1/%.26">
+      <details key="start" value="2985"/>
+      <details key="end" value="3264"/>
+      <details key="line" value="111"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/db/%.1/prefix.10">
+      <details key="start" value="3265"/>
+      <details key="end" value="3271"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/db/%.1/%.27">
+      <details key="start" value="3273"/>
+      <details key="end" value="3316"/>
+      <details key="line" value="126"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/db/%.1/%.28">
+      <details key="start" value="3317"/>
+      <details key="end" value="3352"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/db/%.1/%.29">
+      <details key="start" value="3354"/>
+      <details key="end" value="3592"/>
+      <details key="line" value="128"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/db/%.1/%.30">
+      <details key="start" value="3593"/>
+      <details key="end" value="3637"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/db/%.1/%.31">
+      <details key="start" value="3639"/>
+      <details key="end" value="3858"/>
+      <details key="line" value="136"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/db/%.1/%.32">
+      <details key="start" value="3859"/>
+      <details key="end" value="3912"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/db/%.1/%.33">
+      <details key="start" value="3914"/>
+      <details key="end" value="4653"/>
+      <details key="line" value="142"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/db/%.1/%.34">
+      <details key="start" value="4654"/>
+      <details key="end" value="4670"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/db/%.1/%.35">
+      <details key="start" value="4672"/>
+      <details key="end" value="5337"/>
+      <details key="line" value="171"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/db/%.1/%.36">
+      <details key="start" value="5338"/>
+      <details key="end" value="5378"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/db/%.1/%.37">
+      <details key="start" value="5380"/>
+      <details key="end" value="5394"/>
+      <details key="line" value="194"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/db/%.1/prefix.11">
+      <details key="start" value="5395"/>
+      <details key="end" value="5401"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/db/%.1/%.38">
+      <details key="start" value="5403"/>
+      <details key="end" value="6345"/>
+      <details key="line" value="195"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/db/%.1/%.39">
+      <details key="start" value="6346"/>
+      <details key="end" value="6366"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/db/%.1/%.40">
+      <details key="start" value="6368"/>
+      <details key="end" value="6899"/>
+      <details key="line" value="213"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/db/%.1/%.41">
+      <details key="start" value="6900"/>
+      <details key="end" value="6941"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/db/%.1/%.42">
+      <details key="start" value="6943"/>
+      <details key="end" value="7563"/>
+      <details key="line" value="232"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/db/%.1/%.43">
+      <details key="start" value="7564"/>
+      <details key="end" value="7605"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/db/%.1/%.44">
+      <details key="start" value="7607"/>
+      <details key="end" value="8050"/>
+      <details key="line" value="253"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/db/%.1/%.45">
+      <details key="start" value="8051"/>
+      <details key="end" value="8071"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/db/%.1/%.46">
+      <details key="start" value="8073"/>
+      <details key="end" value="8077"/>
+      <details key="line" value="271"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/db/%.1/%.47">
+      <details key="start" value="8078"/>
+      <details key="end" value="8103"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/db/%.1/%.48">
+      <details key="start" value="8105"/>
+      <details key="end" value="8351"/>
+      <details key="line" value="272"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/db/%.1/%.49">
+      <details key="start" value="8488"/>
+      <details key="end" value="9213"/>
+      <details key="line" value="289"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/db/%.1/prefix.12">
+      <details key="start" value="9214"/>
+      <details key="end" value="9220"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/db/%.1/%.50">
+      <details key="start" value="9222"/>
+      <details key="end" value="9237"/>
+      <details key="line" value="323"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/db/%.1/prefix.13">
+      <details key="start" value="9238"/>
+      <details key="end" value="9244"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/db/%.1/%.51">
+      <details key="start" value="9246"/>
+      <details key="end" value="9406"/>
+      <details key="line" value="324"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/db/%.1/%.52">
+      <details key="start" value="9407"/>
+      <details key="end" value="9463"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/db/%.1/%.53">
+      <details key="start" value="9465"/>
+      <details key="end" value="9660"/>
+      <details key="line" value="331"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/db/%.1/%.54">
+      <details key="start" value="9661"/>
+      <details key="end" value="9728"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/db/%.1/%.55">
+      <details key="start" value="9730"/>
+      <details key="end" value="9855"/>
+      <details key="line" value="336"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/db/%.1/%.56">
+      <details key="start" value="9856"/>
+      <details key="end" value="9923"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/db/%.1/%.57">
+      <details key="start" value="9925"/>
+      <details key="end" value="10212"/>
+      <details key="line" value="343"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/db/%.1/%.58">
+      <details key="start" value="10213"/>
+      <details key="end" value="10238"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/db/%.1/%.59">
+      <details key="start" value="10240"/>
+      <details key="end" value="10271"/>
+      <details key="line" value="351"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/db/%.1/prefix.14">
+      <details key="start" value="10272"/>
+      <details key="end" value="10278"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/db/%.1/%.60">
+      <details key="start" value="10280"/>
+      <details key="end" value="10703"/>
+      <details key="line" value="353"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/db/%.1/%.61">
+      <details key="start" value="10704"/>
+      <details key="end" value="10729"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/db/%.1/%.62">
+      <details key="start" value="10731"/>
+      <details key="end" value="10775"/>
+      <details key="line" value="370"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/db/%.1/%.63">
+      <details key="start" value="10776"/>
+      <details key="end" value="10843"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/db/%.1/%.64">
+      <details key="start" value="10845"/>
+      <details key="end" value="11043"/>
+      <details key="line" value="374"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/db/%.1/%.65">
+      <details key="start" value="11044"/>
+      <details key="end" value="11069"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/db/%.1/%.66">
+      <details key="start" value="11071"/>
+      <details key="end" value="11115"/>
+      <details key="line" value="385"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/db/%.1/%.67">
+      <details key="start" value="11116"/>
+      <details key="end" value="11137"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/db/%.1/%.68">
+      <details key="start" value="11139"/>
+      <details key="end" value="11852"/>
+      <details key="line" value="390"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/db/%.1/%.69">
+      <details key="start" value="11853"/>
+      <details key="end" value="11905"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/db/%.1/%.70">
+      <details key="start" value="11907"/>
+      <details key="end" value="11912"/>
+      <details key="line" value="414"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/db/%.1/%.71">
+      <details key="start" value="11913"/>
+      <details key="end" value="11944"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/db/%.1/%.72">
+      <details key="start" value="11946"/>
+      <details key="end" value="13002"/>
+      <details key="line" value="415"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/db/%.1/%.73">
+      <details key="start" value="13003"/>
+      <details key="end" value="13034"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/db/%.1/%.74">
+      <details key="start" value="13036"/>
+      <details key="end" value="13108"/>
+      <details key="line" value="447"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/db/%.1/%.75">
+      <details key="start" value="13109"/>
+      <details key="end" value="13161"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/db/%.1/%.76">
+      <details key="start" value="13163"/>
+      <details key="end" value="13168"/>
+      <details key="line" value="449"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/db/%.1/%.77">
+      <details key="start" value="13169"/>
+      <details key="end" value="13200"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/db/%.1/%.78">
+      <details key="start" value="13202"/>
+      <details key="end" value="13712"/>
+      <details key="line" value="450"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/db/%.1/prefix.15">
+      <details key="start" value="13713"/>
+      <details key="end" value="13719"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/db/%.1/%.79">
+      <details key="start" value="13721"/>
+      <details key="end" value="13736"/>
+      <details key="line" value="466"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/db/%.1/prefix.16">
+      <details key="start" value="13737"/>
+      <details key="end" value="13743"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/db/%.1/%.80">
+      <details key="start" value="13745"/>
+      <details key="end" value="13834"/>
+      <details key="line" value="467"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/db/%.1/%.81">
+      <details key="start" value="13835"/>
+      <details key="end" value="13859"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/db/%.1/%.82">
+      <details key="start" value="13861"/>
+      <details key="end" value="14349"/>
+      <details key="line" value="468"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/db/%.1/prefix.17">
+      <details key="start" value="14350"/>
+      <details key="end" value="14356"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/db/%.1/%.83">
+      <details key="start" value="14358"/>
+      <details key="end" value="14930"/>
+      <details key="line" value="481"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/db/%.1/%.84">
+      <details key="start" value="216"/>
+      <details key="end" value="257"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/db/%.1/%.84/%">
+      <details key="start" value="216"/>
+      <details key="end" value="246"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/db/%.1/%.84/%/%">
+      <details key="start" value="216"/>
+      <details key="end" value="238"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/db/%.1/%.84/%/%/directory">
+      <details key="start" value="216"/>
+      <details key="end" value="225"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/db/%.1/%.84/%/%/%">
+      <details key="start" value="226"/>
+      <details key="end" value="238"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/db/%.1/%.84/%/prefix">
+      <details key="start" value="240"/>
+      <details key="end" value="246"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/db/%.1/%.84/%.1">
+      <details key="start" value="248"/>
+      <details key="end" value="257"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/db/%.1/%.85">
+      <details key="start" value="266"/>
+      <details key="end" value="273"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/db/%.2">
+      <details key="start" value="14938"/>
+      <details key="end" value="14939"/>
+      <details key="line" value="503"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/db/plg">
+      <details key="start" value="142"/>
+      <details key="end" value="162"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/db/directory">
+      <details key="start" value="163"/>
+      <details key="end" value="179"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/db/prefix">
+      <details key="start" value="181"/>
+      <details key="end" value="194"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/db/td">
+      <details key="start" value="196"/>
+      <details key="end" value="205"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

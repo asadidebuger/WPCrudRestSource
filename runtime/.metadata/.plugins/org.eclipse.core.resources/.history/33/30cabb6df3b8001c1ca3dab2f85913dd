@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="CrudRestWPP" version="12.0.0.2017041100">
+  <ownedViewpoints name="CrudRestWPPViewpoint" label="CrudRestWPP" modelFileExtension="crudrest" icon="/crudrest/icons/plugin.png">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="CrudRestWPP" initialisation="true" showOnStartup="true" domainClass="crudrest::PluginCreator" enablePopupBars="true">
+      <metamodel href="http://crudrest.msde.ui.ac.ir#/"/>
+      <defaultLayer name="Plugin" icon="/crudrest/icons/plugin.png">
+        <containerMappings name="wpp" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.0/@ownedTools[name='plgDbClicked']" domainClass="crudrest::CrudRestPlugin">
+          <borderedNodeMappings name="detail" label="Config Details" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.0/@ownedTools[name='onDetailDbClicked']" domainClass="crudrest::PluginDetail">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="Detail" tooltipExpression="Double click to edit" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/crudrest/icons/advance-32.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <subContainerMappings name="ws" label="WebService" semanticCandidatesExpression="feature:eAllContents" domainClass="crudrest::PluginWebService">
+            <subNodeMappings name="extendWS" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.1/@ownedTools[name='extWSDbClicked']" domainClass="crudrest::WebserviceFunction">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="service:getExtendedWebServiceLabel()" sizeComputationExpression="-1" workspacePath="/crudrest/icons/gear-16.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>italic</labelFormat>
+                <labelFormat>underline</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="entity" label="Entity" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.1/@ownedTools[name='entityDbClicked']" domainClass="crudrest::Entity" childrenPresentation="List">
+              <subNodeMappings name="field" label="Field" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.1/@ownedTools[name='fieldDbClick']" domainClass="crudrest::Field">
+                <style xsi:type="style:BundledImageDescription" labelSize="10" labelExpression="service:getFieldLabelAndType()" iconPath="/crudrest/icons/puzzel1-16.png" labelAlignment="LEFT" tooltipExpression="Double click to change type" sizeComputationExpression="-1" labelPosition="node">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="relation" label="Relation" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.1/@ownedTools[name='relationDbClicked']" domainClass="crudrest::Relation">
+                <style xsi:type="style:BundledImageDescription" labelSize="10" labelExpression="service:getRelationLabel()" iconPath="/crudrest/icons/link-16.png" labelAlignment="LEFT" sizeComputationExpression="-1">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="service:getEntityLabel()" iconPath="/crudrest/icons/puzzel-16.png" widthComputationExpression="18" heightComputationExpression="10" backgroundStyle="Liquid">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelSize="10" labelExpression="REST WebService Provider" iconPath="/crudrest/icons/ws-16.png" widthComputationExpression="35" heightComputationExpression="30" backgroundStyle="Liquid">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+              <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="gui" label="GUI" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='uiDbClick']" domainClass="crudrest::PluginGUI">
+            <subContainerMappings name="menus" label="Menu" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='MenuDbClicked']" domainClass="crudrest::Menu" childrenPresentation="List">
+              <subNodeMappings name="menuItem" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='menuItemDbClick']" domainClass="crudrest::MenuItem">
+                <style xsi:type="style:BundledImageDescription" borderSizeComputationExpression="1" borderLineStyle="dot" labelSize="11" labelExpression="service:getMenuTitle()" iconPath="/crudrest/icons/menu-16.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>italic</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="feature:title" iconPath="/crudrest/icons/menu-16.png" widthComputationExpression="10" heightComputationExpression="25" backgroundStyle="Liquid">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="pages" label="Pages" semanticCandidatesExpression="aql:self" domainClass="crudrest::PluginGUI">
+              <subContainerMappings name="pageContainer" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pageDbClick']" domainClass="crudrest::UIPage" childrenPresentation="List">
+                <subNodeMappings name="listNode" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']" domainClass="crudrest::List">
+                  <style xsi:type="style:BundledImageDescription" labelSize="10" labelExpression="List view" iconPath="/crudrest/icons/list-16.png" labelAlignment="LEFT" tooltipExpression="Double click to config" labelPosition="node" resizeKind="NSEW">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelFormat>italic</labelFormat>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <subNodeMappings name="FormNode" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pageFormDbClick']" domainClass="crudrest::Form">
+                  <style xsi:type="style:BundledImageDescription" labelSize="10" labelExpression="Form view" iconPath="/crudrest/icons/form-16.png" labelAlignment="LEFT" tooltipExpression="Double click to config" labelPosition="node" resizeKind="NSEW">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelFormat>italic</labelFormat>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  </style>
+                </subNodeMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelSize="10" labelExpression="service:getPageTitle()" iconPath="/crudrest/icons/page-16.png" roundedCorner="true" backgroundStyle="Liquid">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                  <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+                </style>
+              </subContainerMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="Pages" iconPath="/crudrest/icons/page-16.png" widthComputationExpression="10" heightComputationExpression="25" backgroundStyle="Liquid">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="reuseableLayout" label="Layout" semanticCandidatesExpression="aql:self" domainClass="crudrest::PluginGUI" childrenPresentation="List">
+              <subNodeMappings name="layout" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='layoutDbClick']" domainClass="crudrest::Layout">
+                <style xsi:type="style:BundledImageDescription" borderSizeComputationExpression="1" borderLineStyle="dot" labelSize="11" labelExpression="service:getReusableLayoutTitle()" iconPath="/crudrest/icons/layout-16.png" labelAlignment="LEFT" tooltipExpression="Double click to edit" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>italic</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="Form Layouts" iconPath="/crudrest/icons/layout-16.png" widthComputationExpression="10" heightComputationExpression="25" backgroundStyle="Liquid">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelSize="11" labelExpression="Graphical User Interface" iconPath="/crudrest/icons/theme-16.png" widthComputationExpression="40" heightComputationExpression="30" backgroundStyle="Liquid">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelSize="12" labelExpression="aql:self.name" iconPath="/crudrest/icons/plugin.png" widthComputationExpression="80" heightComputationExpression="40" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Plugin" icon="/crudrest/icons/plugin.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="wppcontainer" label="New Plugin" containerMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']" iconPath="/crudrest/icons/plugin.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:Let" variableName="root" valueExpression="var:self"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:repositoryAttached(root)">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::CrudRestPlugin" referenceName="plugin" variableName="plgInstance">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:plgInstance">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::PluginDetail" referenceName="detail" variableName="detilInstance"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="service:repositoryNotAttached(root)">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Attach Field-Type Repository">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:If" conditionExpression="service:repositoryAttached(root)">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::CrudRestPlugin" referenceName="plugin" variableName="plgInstance">
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:plgInstance">
+                              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::PluginDetail" referenceName="detail" variableName="detilInstance"/>
+                            </subModelOperations>
+                          </subModelOperations>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </buttons>
+                    <page name="attachRepo" labelExpression="Attach a field type repository model" domainClass="crudrest::PluginCreator" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.0/@ownedTools[name='wppcontainer']/@initialOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.0/@groups.0"/>
+                    <groups name="attachRepoGroup" domainClass="crudrest::PluginCreator" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="repo" labelExpression="Repository" helpExpression="A field type repository is necessary to continue..." referenceNameExpression="repository" referenceOwnerExpression="var:self"/>
+                      <style barStyle="NO_TITLE" toggleStyle="NONE"/>
+                    </groups>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="pluginDetails" label="Plugin Details" nodeMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@borderedNodeMappings[name='detail']" iconPath="/crudrest/icons/advance-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::PluginDetail" referenceName="detail"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="onDetailDbClicked" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@borderedNodeMappings[name='detail']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Set Advance Plugin Features">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation/>
+                </buttons>
+                <page name="DetailsPage" labelExpression="Set Plugin Details" domainClass="crudrest::PluginDetail" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.0/@ownedTools[name='onDetailDbClicked']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="DetailsGroup" labelExpression="Group" domainClass="crudrest::PluginDetail" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail prefix" labelExpression="Prefix" helpExpression="Prefix for variables, funcations and classes" valueExpression="aql:self.prefix">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="prefix" valueExpression="var:newValue"/>
+                    </initialOperation>
+                    <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('prefix').lowerBound = 1">
+                      <style>
+                        <labelFontFormat>bold</labelFontFormat>
+                      </style>
+                    </conditionalStyles>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail directory" labelExpression="Directory" helpExpression="Plugin folder name" isEnabledExpression="aql:self.eClass().getEStructuralFeature('directory').changeable" valueExpression="aql:self.directory">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="directory" valueExpression="var:newValue"/>
+                    </initialOperation>
+                    <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('directory').lowerBound = 1">
+                      <style>
+                        <labelFontFormat>bold</labelFontFormat>
+                      </style>
+                    </conditionalStyles>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail description" labelExpression="Description" helpExpression=" A short description of the plugin, as displayed in the Plugins section in the WordPress Admin. Keep this description to fewer than 140 characters." isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail pluginURI" labelExpression="URL" helpExpression="The home page of the plugin, which should be a unique URL, preferably on your own website. This must be unique to your plugin. You cannot use a WordPress.org URL here" isEnabledExpression="aql:self.eClass().getEStructuralFeature('pluginURI').changeable" valueExpression="aql:self.pluginURI">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="pluginURI" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail updateURI" labelExpression="Update URI" helpExpression="Allows third-party plugins to avoid accidentally being overwritten with an update of a plugin of a similar name from the WordPress.org Plugin Directory" isEnabledExpression="aql:self.eClass().getEStructuralFeature('updateURI').changeable" valueExpression="aql:self.updateURI">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="updateURI" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail author" labelExpression="Author" helpExpression="The name of the plugin author. Multiple authors may be listed using commas." isEnabledExpression="aql:self.eClass().getEStructuralFeature('author').changeable" valueExpression="aql:self.author">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="author" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail authorURI" labelExpression="Author URL" helpExpression="The author’s website or profile on another website, such as WordPress.org." isEnabledExpression="aql:self.eClass().getEStructuralFeature('authorURI').changeable" valueExpression="aql:self.authorURI">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="authorURI" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail textDomain" labelExpression="Text Domain" helpExpression="The gettext text domain of the plugin" isEnabledExpression="aql:self.eClass().getEStructuralFeature('textDomain').changeable" valueExpression="aql:self.textDomain">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="textDomain" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail domainPath" labelExpression="Domain Path" helpExpression="The domain path lets WordPress know where to find the translations" isEnabledExpression="aql:self.eClass().getEStructuralFeature('domainPath').changeable" valueExpression="aql:self.domainPath">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="domainPath" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail version" labelExpression="Version" helpExpression="The current version number of the plugin, such as 1.0 or 1.0.3. " isEnabledExpression="aql:self.eClass().getEStructuralFeature('version').changeable" valueExpression="aql:self.version">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="version" valueExpression="var:newValue"/>
+                    </initialOperation>
+                    <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('version').lowerBound = 1">
+                      <style>
+                        <labelFontFormat>bold</labelFontFormat>
+                      </style>
+                    </conditionalStyles>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail minVersionPHP" labelExpression="Requires PHP" helpExpression="The minimum required PHP version" isEnabledExpression="aql:self.eClass().getEStructuralFeature('minVersionPHP').changeable" valueExpression="aql:self.minVersionPHP">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="minVersionPHP" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail minVersionWP" labelExpression="Requires at least" helpExpression="The lowest WordPress version that the plugin will work on" isEnabledExpression="aql:self.eClass().getEStructuralFeature('minVersionWP').changeable" valueExpression="aql:self.minVersionWP">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="minVersionWP" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail dbVersion" labelExpression="DB Version" helpExpression="Version of database" isEnabledExpression="aql:self.eClass().getEStructuralFeature('dbVersion').changeable" valueExpression="aql:self.dbVersion">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="dbVersion" valueExpression="var:newValue"/>
+                    </initialOperation>
+                    <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('dbVersion').lowerBound = 1">
+                      <style>
+                        <labelFontFormat>bold</labelFontFormat>
+                      </style>
+                    </conditionalStyles>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail license" labelExpression="License" helpExpression="A link to the full text of the license (e.g. https://www.gnu.org/licenses/gpl-2.0.html)" isEnabledExpression="aql:self.eClass().getEStructuralFeature('license').changeable" valueExpression="aql:self.license">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="license" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginDetail licenseURI" labelExpression="License URI" helpExpression="A link to the full text of the license (e.g. https://www.gnu.org/licenses/gpl-2.0.html)." isEnabledExpression="aql:self.eClass().getEStructuralFeature('licenseURI').changeable" valueExpression="aql:self.licenseURI">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="licenseURI" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="crudrest::PluginDetail network" labelExpression="Network" helpExpression="Whether the plugin can only be activated network-wide. Can only be set to true, and should be left out when not needed" isEnabledExpression="aql:self.eClass().getEStructuralFeature('network').changeable" valueExpression="aql:self.network">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="network" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:HyperlinkDescription" name="moreHelp" labelExpression="More Information" helpExpression="Visit this page for more information" valueExpression="https://developer.wordpress.org/plugins/plugin-basics/header-requirements/" displayExpression="https://developer.wordpress.org/plugins/plugin-basics/header-requirements/">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                    </initialOperation>
+                  </controls>
+                  <style barStyle="NO_TITLE" toggleStyle="NONE" expandedByDefault="true"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="plgDbClicked" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="aql:self.name">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation/>
+                </buttons>
+                <page name="Default Page" domainClass="crudrest::CrudRestPlugin" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.0/@ownedTools[name='plgDbClicked']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="plgGroup" labelExpression="Group" domainClass="crudrest::CrudRestPlugin" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:TextDescription" name="crudrest::CrudRestPlugin name" labelExpression="Plugin Name" helpExpression="Name of your plugin" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+                    </initialOperation>
+                    <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('name').lowerBound = 1">
+                      <style>
+                        <labelFontFormat>bold</labelFontFormat>
+                      </style>
+                    </conditionalStyles>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="crudrest::CrudRestPlugin hasAccessControl" labelExpression="Has Dynamic Access Controller?" helpExpression="If cheked an AC panel willbe created for this plugin" isEnabledExpression="aql:self.eClass().getEStructuralFeature('hasAccessControl').changeable" valueExpression="aql:self.hasAccessControl">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="hasAccessControl" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <style barStyle="NO_TITLE" toggleStyle="NONE" expandedByDefault="true"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="WebService" label="WebService Provider">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="extendWSCreation" label="Custom API method" nodeMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='ws']/@subNodeMappings[name='extendWS']" iconPath="/crudrest/icons/gear-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::WebserviceFunction" referenceName="extend"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="wsCreation" label="WebService" containerMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='ws']" iconPath="/crudrest/icons/ws-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::PluginWebService" referenceName="serviceProvider"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="entityCreation" label="New Entity" containerMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='ws']/@subContainerMappings[name='entity']" iconPath="/crudrest/icons/puzzel-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::Entity" referenceName="entityModel">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="selcect_a_unique_key"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="Select a label"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="labelPlural" valueExpression="Select plural label"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="fieldCreation" label="Entity Field" nodeMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='ws']/@subContainerMappings[name='entity']/@subNodeMappings[name='field']" iconPath="/crudrest/icons/puzzel1-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::Field" referenceName="fields">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="Select_a_unique_key"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="Select a label"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:self.ancestors(crudrest::PluginCreator).repository.fieldType->first()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="relationCreation" label="Relation" nodeMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='ws']/@subContainerMappings[name='entity']/@subNodeMappings[name='relation']" iconPath="/crudrest/icons/link-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::Relation" referenceName="relations">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Config Relationship">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                      </initialOperation>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                      </initialOperation>
+                    </buttons>
+                    <page name="Default Page" domainClass="crudrest::Relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.1/@ownedTools[name='relationCreation']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                    <groups name="RelationProperties" labelExpression="Please select type and obtain other properties for this field" domainClass="crudrest::Relation" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties:SelectDescription" name="selectFieldType" label="Select Field Type" labelExpression="Target Entity" helpExpression="Select target entity for relationship" valueExpression="aql:self.entity" candidatesExpression="aql:self.ancestors(crudrest::PluginWebService).eContents(crudrest::Entity)" candidateDisplayExpression="service:candidate.getEntityLabel()">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="entity" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:SelectDescription" name="selectOpposite" label="Select Opposite" labelExpression="Opposite" helpExpression="Select opposite relation if this relation is bidirectional" valueExpression="aql:self.opposite" candidatesExpression="aql:self.entity.eContents(crudrest::FieldBase)->filter(crudrest::Relation)->select(relation : crudrest::Relation | relation&lt;>self)" candidateDisplayExpression="service:candidate.getFieldLabel()">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="opposite" valueExpression="var:newValue"/>
+                            <subModelOperations xsi:type="tool_1:Let" variableName="thisRelation" valueExpression="var:self"/>
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:opposite">
+                              <subModelOperations xsi:type="tool_1:SetValue" featureName="opposite" valueExpression="var:thisRelation"/>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:TextDescription" name="crudrest::Field key" labelExpression="Key" helpExpression="Unique key for this field" isEnabledExpression="aql:self.eClass().getEStructuralFeature('key').changeable" valueExpression="aql:self.key">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:TextDescription" name="crudrest::Field label" labelExpression="Label" helpExpression="Label or title of this filed" isEnabledExpression="aql:self.eClass().getEStructuralFeature('label').changeable" valueExpression="aql:self.label">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:CheckboxDescription" name="crudrest::Field index" labelExpression="Is Indexed" helpExpression="If cheked this field in db willbe indexed!" isEnabledExpression="aql:self.eClass().getEStructuralFeature('index').changeable" valueExpression="aql:self.index">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:SetValue" featureName="index" valueExpression="var:newValue"/>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:CheckboxDescription" name="crudrest::Field unique" labelExpression="Is Unique" helpExpression="If cheked this field in db willbe defined as unique!" isEnabledExpression="aql:self.eClass().getEStructuralFeature('unique').changeable" valueExpression="aql:self.unique">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:SetValue" featureName="unique" valueExpression="var:newValue"/>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:CheckboxDescription" name="crudrest::Relation many" labelExpression="Many" helpExpression="Relation target has more than one tuple" valueExpression="aql:self.many">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:SetValue" featureName="many" valueExpression="var:newValue"/>
+                        </initialOperation>
+                      </controls>
+                      <style toggleStyle="NONE"/>
+                    </groups>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="fieldDbClick" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='ws']/@subContainerMappings[name='entity']/@subNodeMappings[name='field']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Config field">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                  </initialOperation>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                  </initialOperation>
+                </buttons>
+                <page name="Default Page" domainClass="crudrest::Field" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.1/@ownedTools[name='fieldDbClick']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="FieldProperties" labelExpression="Please select type and obtain other properties for this field" domainClass="crudrest::Field" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:SelectDescription" name="selectFieldType" label="Select Field Type" labelExpression="Field Type" helpExpression="Select type of this field" valueExpression="aql:self.type" candidatesExpression="aql:self.ancestors(crudrest::PluginCreator).repository.fieldType" candidateDisplayExpression="aql:candidate.key">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::Field key" labelExpression="Key" helpExpression="Unique key for this field" isEnabledExpression="aql:self.eClass().getEStructuralFeature('key').changeable" valueExpression="aql:self.key">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::Field label" labelExpression="Label" helpExpression="Label or title of this filed" isEnabledExpression="aql:self.eClass().getEStructuralFeature('label').changeable" valueExpression="aql:self.label">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="crudrest::Field index" labelExpression="Is Indexed" helpExpression="If cheked this field in db willbe indexed!" isEnabledExpression="aql:self.eClass().getEStructuralFeature('index').changeable" valueExpression="aql:self.index">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="index" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="crudrest::Field unique" labelExpression="Is Unique" helpExpression="If cheked this field in db willbe defined as unique!" isEnabledExpression="aql:self.eClass().getEStructuralFeature('unique').changeable" valueExpression="aql:self.unique">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="unique" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="crudrest::Field required" labelExpression="Is Required" helpExpression="Is this field required to fill" isEnabledExpression="aql:self.eClass().getEStructuralFeature('required').changeable" valueExpression="aql:self.required">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="required" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <style toggleStyle="NONE"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="relationDbClicked" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='ws']/@subContainerMappings[name='entity']/@subNodeMappings[name='relation']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Config Relationship">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                  </initialOperation>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                  </initialOperation>
+                </buttons>
+                <page name="Default Page" domainClass="crudrest::Relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.1/@ownedTools[name='relationDbClicked']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="RelationProperties" labelExpression="Please select type and obtain other properties for this field" domainClass="crudrest::Relation" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:SelectDescription" name="selectFieldType" label="Select Field Type" labelExpression="Target Entity" helpExpression="Select target entity for relationship" valueExpression="aql:self.entity" candidatesExpression="aql:self.ancestors(crudrest::PluginWebService).eContents(crudrest::Entity)->select(entity : crudrest::Entity | entity&lt;>self.eContainer())" candidateDisplayExpression="service:candidate.getEntityLabel()">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="entity" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:SelectDescription" name="selectOpposite" label="Select Opposite" labelExpression="Opposite" helpExpression="Select opposite relation if this relation is bidirectional" valueExpression="aql:self.opposite" candidatesExpression="aql:self.entity.eContents(crudrest::FieldBase)->filter(crudrest::Relation)->select(relation : crudrest::Relation | relation&lt;>self)" candidateDisplayExpression="service:candidate.getFieldLabel()">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="opposite" valueExpression="var:newValue"/>
+                        <subModelOperations xsi:type="tool_1:Let" variableName="thisRelation" valueExpression="var:self"/>
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:opposite">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="opposite" valueExpression="var:thisRelation"/>
+                        </subModelOperations>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::Field key" labelExpression="Key" helpExpression="Unique key for this field" isEnabledExpression="aql:self.eClass().getEStructuralFeature('key').changeable" valueExpression="aql:self.key">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::Field label" labelExpression="Label" helpExpression="Label or title of this filed" isEnabledExpression="aql:self.eClass().getEStructuralFeature('label').changeable" valueExpression="aql:self.label">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="crudrest::Field index" labelExpression="Is Indexed" helpExpression="If cheked this field in db willbe indexed!" isEnabledExpression="aql:self.eClass().getEStructuralFeature('index').changeable" valueExpression="aql:self.index">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="index" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="crudrest::Field unique" labelExpression="Is Unique" helpExpression="If cheked this field in db willbe defined as unique!" isEnabledExpression="aql:self.eClass().getEStructuralFeature('unique').changeable" valueExpression="aql:self.unique">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="unique" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="crudrest::Field required" labelExpression="Is Required" helpExpression="Is this field required to fill" isEnabledExpression="aql:self.eClass().getEStructuralFeature('required').changeable" valueExpression="aql:self.required">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="required" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="crudrest::Relation many" labelExpression="Many" helpExpression="Relation target has more than one tuple" valueExpression="aql:self.many">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="many" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <style toggleStyle="NONE"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="entityDbClicked" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='ws']/@subContainerMappings[name='entity']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="sddfg">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation/>
+                </buttons>
+                <page name="EntityPage" domainClass="crudrest::Entity" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.1/@ownedTools[name='entityDbClicked']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="EntityGroup" domainClass="crudrest::Entity" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:TextDescription" name="crudrest::Entity key" labelExpression="Key" helpExpression="Unique key for this entity" isEnabledExpression="aql:self.eClass().getEStructuralFeature('key').changeable" valueExpression="aql:self.key">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
+                    </initialOperation>
+                    <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('key').lowerBound = 1">
+                      <style>
+                        <labelFontFormat>bold</labelFontFormat>
+                      </style>
+                    </conditionalStyles>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::Entity label" labelExpression="Label" helpExpression="A label or title for this entity" isEnabledExpression="aql:self.eClass().getEStructuralFeature('label').changeable" valueExpression="aql:self.label">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="label" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::Entity labelPlural" labelExpression="Plural label" helpExpression="Label or title in plural mode" isEnabledExpression="aql:self.eClass().getEStructuralFeature('labelPlural').changeable" valueExpression="aql:self.labelPlural">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="labelPlural" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextAreaDescription" name="titleScript" labelExpression="Title Script" helpExpression="A PHP script code to calculate title" valueExpression="aql:self.titleScript">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="titleScript" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <style barStyle="NO_TITLE" toggleStyle="NONE"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="extWSDbClicked" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='ws']/@subNodeMappings[name='extendWS']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Web-Service Method">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation/>
+                </buttons>
+                <page name="Default Page" domainClass="crudrest::WebserviceFunction" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.1/@ownedTools[name='extWSDbClicked']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="Default Group" labelExpression="Group" domainClass="crudrest::WebserviceFunction" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:RadioDescription" name="crudrest::WebserviceFunction method" labelExpression="Method" helpExpression="Http Method" isEnabledExpression="aql:self.eClass().getEStructuralFeature('method').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('method').eType.getEEnumLiteralByLiteral(self.method.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('method').eType.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="5">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="method" valueExpression="aql:newValue.instance"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::WebserviceFunction name" labelExpression="Method Name" helpExpression="A unique name for this api method" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="crudrest::WebserviceFunction checkAceessControl" labelExpression="Implement AC Codes" helpExpression="Implement Access-Controll Codes" isEnabledExpression="aql:self.ancestors(crudrest::CrudRestPlugin).hasAccessControl" valueExpression="aql:self.checkAceessControl">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="checkAceessControl" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <style barStyle="NO_TITLE" toggleStyle="NONE"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="gui" label="Graphical user interface">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="guiCreation" label="GUI" containerMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']" iconPath="/crudrest/icons/theme-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::PluginGUI" referenceName="gui">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::Layout" referenceName="reusableLayout" variableName="layout_fill">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Fill"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="col_lg" valueExpression="12"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::Layout" referenceName="reusableLayout" variableName="layout_half">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Half"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="col_md " valueExpression="6"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::Layout" referenceName="reusableLayout" variableName="layout_half">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Quarter"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="col_md " valueExpression="3"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::Menu" referenceName="menu">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="aql:self.ancestors(crudrest::CrudRestPlugin)->first().name"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="slug" valueExpression="aql:self.ancestors(crudrest::CrudRestPlugin)->first().detail.prefix"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="CreatePage" label="New Page" containerMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']/@subContainerMappings[name='pages']/@subContainerMappings[name='pageContainer']" iconPath="/crudrest/icons/page-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::UIPage" referenceName="page" variableName="pageInstance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:pageInstance">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="service:getPageWizardTitle()">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" isEnabledExpression="service:pageInstance.checkPageIsValid()" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:pageInstance">
+                            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::List" referenceName="list" variableName="listInstance">
+                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:listInstance">
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="listColumns" valueExpression="service:pageInstance.getPageEntityFields()"/>
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="sortableColumns" valueExpression="service:pageInstance.getPageEntityFields()"/>
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="searchableColumns" valueExpression="aql:Sequence{}"/>
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="itemsPerPage" valueExpression="10"/>
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="bulkAction" valueExpression="aql:Sequence{}"/>
+                              </subModelOperations>
+                            </subModelOperations>
+                            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::Form" referenceName="form" variableName="formInstance">
+                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:formInstance">
+                                <subModelOperations xsi:type="tool_1:For" expression="service:pageInstance.getPageEntityFields()" iteratorName="field">
+                                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:formInstance">
+                                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::FieldLayout" referenceName="fieldLayout" variableName="fieldLayoutInstance">
+                                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:fieldLayoutInstance">
+                                        <subModelOperations xsi:type="tool_1:SetValue" featureName="field" valueExpression="var:field"/>
+                                        <subModelOperations xsi:type="tool_1:SetValue" featureName="layout" valueExpression="aql:self.ancestors(crudrest::PluginGUI)->first().reusableLayout->first()"/>
+                                      </subModelOperations>
+                                    </subModelOperations>
+                                  </subModelOperations>
+                                </subModelOperations>
+                              </subModelOperations>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </buttons>
+                      <page name="pagePageWhenCreate" labelExpression="Please select an Entity and Title for this page" domainClass="crudrest::UIPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='CreatePage']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.0 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.1" indented="true"/>
+                      <groups name="PageGroupWhenCreate" domainClass="crudrest::UIPage" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:TextDescription" name="crudrest::UIPage key" labelExpression="Key:" helpExpression="A unique key for this page" isEnabledExpression="aql:self.eClass().getEStructuralFeature('key').changeable" valueExpression="aql:self.key">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
+                          </initialOperation>
+                          <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('key').lowerBound = 1">
+                            <style>
+                              <labelFontFormat>bold</labelFontFormat>
+                            </style>
+                          </conditionalStyles>
+                        </controls>
+                        <controls xsi:type="properties:SelectDescription" name="selectEntity" label="Select Entity" labelExpression="Entity:" valueExpression="aql:self.entity" candidatesExpression="aql:self.ancestors(crudrest::CrudRestPlugin).serviceProvider.entityModel" candidateDisplayExpression="aql:candidate.label">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                              <subModelOperations xsi:type="tool_1:SetValue" featureName="entity" valueExpression="var:newValue"/>
+                            </firstModelOperations>
+                          </initialOperation>
+                        </controls>
+                        <controls xsi:type="properties:TextDescription" name="crudrest::UIPage overrideTitle" labelExpression="Override Title" helpExpression="Show this value instead of Entity Plural Label" isEnabledExpression="aql:self.eClass().getEStructuralFeature('overrideTitle').changeable" valueExpression="aql:self.overrideTitle">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:SetValue" featureName="overrideTitle" valueExpression="var:newValue"/>
+                          </initialOperation>
+                        </controls>
+                        <style barStyle="NO_TITLE" toggleStyle="NONE" expandedByDefault="true"/>
+                      </groups>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="layoutCreation" label="New Layout" nodeMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']/@subContainerMappings[name='reuseableLayout']/@subNodeMappings[name='layout']" iconPath="/crudrest/icons/layout-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::Layout" referenceName="reusableLayout">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newLayout"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="menuCreation" label="Admin Root Menu" containerMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']/@subContainerMappings[name='menus']" iconPath="/crudrest/icons/menu2-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::Menu" referenceName="menu">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="aql:self.ancestors(crudrest::CrudRestPlugin)->first().name"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="menuItemCreation" label="New Menu Item" nodeMappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']/@subContainerMappings[name='menus']/@subNodeMappings[name='menuItem']" iconPath="/crudrest/icons/menu-16.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::MenuItem" referenceName="items"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="buildDbClick">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Build WordpressPlugin">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                      <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="buildAction" id="BuildAction"/>
+                      <subModelOperations xsi:type="tool_1:ExternalJavaActionCall" name=" callBuildAction" precondition="service:" action="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='buildDbClick']/@initialOperation/@firstModelOperations/@buttons.1/@initialOperation/@firstModelOperations/@subModelOperations.0"/>
+                    </firstModelOperations>
+                  </initialOperation>
+                </buttons>
+                <page name="Default Page" labelExpression="Start Building?" domainClass="crudrest::CrudRestPlugin" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='buildDbClick']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="Default Group" labelExpression="Group" domainClass="crudrest::CrudRestPlugin" semanticCandidateExpression="var:self">
+                  <style barStyle="NO_TITLE" toggleStyle="NONE" expandedByDefault="true"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="pageDbClick" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']/@subContainerMappings[name='pages']/@subContainerMappings[name='pageContainer']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="service:getPageWizardTitle()">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="pagePage" labelExpression="Please select an Entity and Title for this page" domainClass="crudrest::UIPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pageDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.0 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.1" indented="true"/>
+                  <groups name="PageGroup" domainClass="crudrest::UIPage" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:TextDescription" name="crudrest::UIPage key" labelExpression="Key:" helpExpression="A unique key for this page" isEnabledExpression="aql:self.eClass().getEStructuralFeature('key').changeable" valueExpression="aql:self.key">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
+                      </initialOperation>
+                      <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('key').lowerBound = 1">
+                        <style>
+                          <labelFontFormat>bold</labelFontFormat>
+                        </style>
+                      </conditionalStyles>
+                    </controls>
+                    <controls xsi:type="properties:SelectDescription" name="selectEntity" label="Select Entity" labelExpression="Entity:" valueExpression="aql:self.entity" candidatesExpression="aql:self.ancestors(crudrest::CrudRestPlugin).serviceProvider.entityModel" candidateDisplayExpression="aql:candidate.label">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="entity" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:TextDescription" name="crudrest::UIPage overrideTitle" labelExpression="Override Title" helpExpression="Show this value instead of Entity Plural Label" isEnabledExpression="aql:self.eClass().getEStructuralFeature('overrideTitle').changeable" valueExpression="aql:self.overrideTitle">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:SetValue" featureName="overrideTitle" valueExpression="var:newValue"/>
+                      </initialOperation>
+                    </controls>
+                    <style barStyle="NO_TITLE" toggleStyle="NONE" expandedByDefault="true"/>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="MenuDbClicked" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']/@subContainerMappings[name='menus']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Config Menu">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation/>
+                </buttons>
+                <page name="ConfigMenuPage" domainClass="crudrest::Menu" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='MenuDbClicked']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="ConfigMenuGroup" labelExpression="Group" domainClass="crudrest::Menu" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:TextDescription" name="crudrest::Menu title" labelExpression="Menu Title" helpExpression="Title of Plugin root menu on admin panel" valueExpression="aql:self.title">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="var:newValue"/>
+                    </initialOperation>
+                    <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('title').lowerBound = 1">
+                      <style>
+                        <labelFontFormat>bold</labelFontFormat>
+                      </style>
+                    </conditionalStyles>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::Menu slug" labelExpression="Slug" helpExpression="A unique part of url reffer to this menu" isEnabledExpression="aql:self.eClass().getEStructuralFeature('slug').changeable" valueExpression="aql:self.slug">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="slug" valueExpression="var:newValue"/>
+                    </initialOperation>
+                    <conditionalStyles preconditionExpression="aql:self.eClass().getEStructuralFeature('slug').lowerBound = 1">
+                      <style>
+                        <labelFontFormat>bold</labelFontFormat>
+                      </style>
+                    </conditionalStyles>
+                  </controls>
+                  <controls xsi:type="properties:SelectDescription" name="selectIcon" labelExpression="Icon Class" valueExpression="aql:self.icon" candidatesExpression="service:getIcons()" candidateDisplayExpression="aql:candidate">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="icon" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <style barStyle="NO_TITLE" toggleStyle="NONE"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="menuItemDbClick" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']/@subContainerMappings[name='menus']/@subNodeMappings[name='menuItem']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Config Menu">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation/>
+                </buttons>
+                <page name="Default Page" domainClass="crudrest::MenuItem" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='menuItemDbClick']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="MenuProperties" labelExpression="Select Page and Title for menu" domainClass="crudrest::MenuItem" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:SelectDescription" name="selectPage" label="Select Page" labelExpression="Select Page:" valueExpression="aql:self.page" candidatesExpression="aql:self.ancestors(crudrest::CrudRestPlugin).gui.page" candidateDisplayExpression="service:getPageTitle(candidate)">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="page" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::Menu overrideTitle" labelExpression="Override Title" helpExpression="This title will be replaced with page title" isEnabledExpression="aql:self.eClass().getEStructuralFeature('overrideTitle').changeable" valueExpression="aql:self.overrideTitle">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="overrideTitle" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <style toggleStyle="NONE"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="layoutDbClick" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']/@subContainerMappings[name='reuseableLayout']/@subNodeMappings[name='layout']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Customize Layout">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation/>
+                </buttons>
+                <page name="customizeLayout" label="Customize Layout" domainClass="crudrest::Layout" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='layoutDbClick']/@initialOperation/@firstModelOperations/@groups.0 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='layoutDbClick']/@initialOperation/@firstModelOperations/@groups.1 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='layoutDbClick']/@initialOperation/@firstModelOperations/@groups.2"/>
+                <groups name="ClassAndStyle" labelExpression="Custom class &amp;&amp; style" domainClass="crudrest::Layout" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:TextDescription" name="name" labelExpression="Name" helpExpression="Select an uniqe name for this layout" valueExpression="feature:name">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="class" labelExpression="Class" helpExpression="This classes will be added to element class property" isEnabledExpression="aql:self.eClass().getEStructuralFeature('class').changeable" valueExpression="aql:self.class">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="class" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextAreaDescription" name="style" labelExpression="Style" helpExpression="This styles will be added to element style property" lineCount="3" valueExpression="feature:style">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="style" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <style toggleStyle="NONE"/>
+                </groups>
+                <groups name="BootstrapLayout" labelExpression="set Bootstrap responsive layout" domainClass="crudrest::Layout" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:TextAreaDescription" name="help" labelExpression="*Note:" helpExpression="Guidance!" isEnabledExpression="service:getFalse()" valueExpression="service:getLayoutDescription()"/>
+                  <controls xsi:type="properties:SelectDescription" name="xs" labelExpression="col-xs (Extra Small)" helpExpression="Element width in Extra-Small Dispalys" valueExpression="feature:col_xs" candidatesExpression="service:getOneToTowelveList()" candidateDisplayExpression="aql:candidate.toString()">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="col_xs" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:SelectDescription" name="sm" labelExpression="col-sm (Small)" helpExpression="Element width in Small Dispalys" valueExpression="feature:col_sm" candidatesExpression="service:getOneToTowelveList()" candidateDisplayExpression="aql:candidate.toString()">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="col_sm" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:SelectDescription" name="md" labelExpression="col-md (Medium)" helpExpression="Element width in Medium Dispalys" valueExpression="feature:col_md" candidatesExpression="service:getOneToTowelveList()" candidateDisplayExpression="aql:candidate.toString()">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="col_md" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:SelectDescription" name="lg" labelExpression="col-lg (Large)" helpExpression="Element width in Large Dispalys" valueExpression="feature:col_lg" candidatesExpression="service:getOneToTowelveList()" candidateDisplayExpression="aql:candidate.toString()">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="col_lg" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:SelectDescription" name="xl" labelExpression="col-xl (Extra Large)" helpExpression="Element width in Extra Large Dispalys" valueExpression="feature:col_xl" candidatesExpression="service:getOneToTowelveList()" candidateDisplayExpression="aql:candidate.toString()">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="col_xl" valueExpression="var:newValue"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <style/>
+                </groups>
+                <groups name="LayoutResult" labelExpression="Result Preview" domainClass="crudrest::Layout" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:TextAreaDescription" name="help" labelExpression="Result:" helpExpression="Result Preview" isEnabledExpression="service:getFalse()" lineCount="2" valueExpression="service:getLayoutResult()"/>
+                  <style barStyle="NO_TITLE" toggleStyle="NONE"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="pagelistDbClick" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']/@subContainerMappings[name='pages']/@subContainerMappings[name='pageContainer']/@subNodeMappings[name='listNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Let" variableName="page" valueExpression="aql:self.eContainer()"/>
+                <subModelOperations xsi:type="tool_1:Let" variableName="selectedBulk" valueExpression="aql:self.bulkAction->first()"/>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="service:page.getPageListTitle()">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="ListPage" domainClass="crudrest::List" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.0 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.1 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.2 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.3 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.5 //@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pagelistDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.2/@groups.4"/>
+                  <groups name="listProperties" labelExpression="Properties" domainClass="crudrest::List">
+                    <controls xsi:type="properties:ContainerDescription">
+                      <controls xsi:type="properties:CheckboxDescription" name="crudrest::List showCreateButton" labelExpression="Show Create Button" valueExpression="aql:self.showCreateButton">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="showCreateButton" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:CheckboxDescription" name="crudrest::List showEditButton" labelExpression="Show Edit Button" valueExpression="aql:self.showEditButton">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="showEditButton" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:CheckboxDescription" name="crudrest::List showSearchBox" labelExpression="Show Search box" valueExpression="aql:self.showSearchBox">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="showSearchBox" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:CheckboxDescription" name="crudrest::List showViewDetailButton" labelExpression="Show View Detail Button" valueExpression="aql:self.showViewDetailButton">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="showViewDetailButton" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:CheckboxDescription" name="crudrest::List showDeleteButton" labelExpression="Show Delete Button" valueExpression="aql:self.showDeleteButton">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="showDeleteButton" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:TextDescription" name="crudrest::List itemsPerPage" labelExpression="Items Per Page" valueExpression="aql:self.itemsPerPage">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="itemsPerPage" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+                    </controls>
+                    <style toggleStyle="NONE" expandedByDefault="true"/>
+                  </groups>
+                  <groups name="visibleFieldsGroup" labelExpression="Visible Columns" domainClass="crudrest::List" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:ContainerDescription">
+                      <controls xsi:type="properties:LabelDescription" name="note" labelExpression="Note:" displayExpression="All fields will be shown If selected list be empty"/>
+                    </controls>
+                    <controls xsi:type="properties:ContainerDescription" name="listVisibleFieldsCon">
+                      <controls xsi:type="properties:ListDescription" name="columns" labelExpression="Source Fields" helpExpression="All accessible fields to show as column in list view" valueExpression="service:page.getPageEntityFields()" displayExpression="service:getFieldLabel(value)">
+                        <onClickOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                            <subModelOperations xsi:type="tool_1:Let" variableName="currentValues" valueExpression="aql:self.listColumns"/>
+                            <subModelOperations xsi:type="tool_1:Let" variableName="newValues" valueExpression="service:addFieldToList(onClickEventKind,selection,currentValues)"/>
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                              <subModelOperations xsi:type="tool_1:SetValue" featureName="listColumns" valueExpression="var:newValues"/>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </onClickOperation>
+                      </controls>
+                      <controls xsi:type="properties:ListDescription" name="selected" labelExpression="Columns" helpExpression="This Columns will be visible in list view" valueExpression="aql:self.listColumns" displayExpression="service:getFieldLabel(value)">
+                        <onClickOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                            <subModelOperations xsi:type="tool_1:Let" variableName="currentValues" valueExpression="aql:listColumns"/>
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                              <subModelOperations xsi:type="tool_1:Unset" featureName="listColumns" elementExpression="service:removeFieldFromList(onClickEventKind,selection,currentValues)"/>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </onClickOperation>
+                      </controls>
+                      <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+                    </controls>
+                    <style/>
+                  </groups>
+                  <groups name="sortableFieldsGroup" labelExpression="Sortable Columns" domainClass="crudrest::List" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:ContainerDescription">
+                      <controls xsi:type="properties:ListDescription" name="columnsforSort" labelExpression="Columns" helpExpression="All accessible fields to set as sortable" valueExpression="aql:self.listColumns" displayExpression="service:getFieldLabel(value)">
+                        <onClickOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                            <subModelOperations xsi:type="tool_1:Let" variableName="currentValues" valueExpression="aql:self.sortableColumns"/>
+                            <subModelOperations xsi:type="tool_1:Let" variableName="newValues" valueExpression="service:addFieldToList(onClickEventKind,selection,currentValues)"/>
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                              <subModelOperations xsi:type="tool_1:SetValue" featureName="sortableColumns" valueExpression="var:newValues"/>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </onClickOperation>
+                      </controls>
+                      <controls xsi:type="properties:ListDescription" name="sortable" labelExpression="Sortable" helpExpression="This Columns will be sortable in list view" valueExpression="aql:self.sortableColumns" displayExpression="service:getFieldLabel(value)">
+                        <onClickOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                            <subModelOperations xsi:type="tool_1:Let" variableName="currentValues" valueExpression="aql:sortableColumns"/>
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                              <subModelOperations xsi:type="tool_1:Unset" featureName="sortableColumns" elementExpression="service:removeFieldFromList(onClickEventKind,selection,currentValues)"/>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </onClickOperation>
+                      </controls>
+                      <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+                    </controls>
+                    <style/>
+                  </groups>
+                  <groups name="searchableFieldsGroup" labelExpression="Searchable Fields" domainClass="crudrest::List">
+                    <controls xsi:type="properties:ContainerDescription">
+                      <controls xsi:type="properties:ListDescription" name="columnsSerachable" labelExpression="Source Fields" helpExpression="All accessible fields to bo searchable" valueExpression="service:page.getPageEntityFields()" displayExpression="service:getFieldLabel(value)">
+                        <onClickOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                            <subModelOperations xsi:type="tool_1:Let" variableName="currentValues" valueExpression="aql:listColumns"/>
+                            <subModelOperations xsi:type="tool_1:Let" variableName="newValues" valueExpression="service:addFieldToList(onClickEventKind,selection,currentValues)"/>
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                              <subModelOperations xsi:type="tool_1:SetValue" featureName="searchableColumns" valueExpression="var:newValues"/>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </onClickOperation>
+                      </controls>
+                      <controls xsi:type="properties:ListDescription" name="searchable" labelExpression="Searchable" helpExpression="This Columns will be sortable in list view" valueExpression="aql:self.searchableColumns" displayExpression="service:getFieldLabel(value)">
+                        <onClickOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                            <subModelOperations xsi:type="tool_1:Let" variableName="currentValues" valueExpression="aql:list.searchableColumns"/>
+                            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.list">
+                              <subModelOperations xsi:type="tool_1:Unset" featureName="searchableColumns" elementExpression="service:removeFieldFromList(onClickEventKind,selection,currentValues)"/>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </onClickOperation>
+                      </controls>
+                      <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+                    </controls>
+                    <style/>
+                  </groups>
+                  <groups name="extendWhere" labelExpression="Advance" domainClass="crudrest::List">
+                    <controls xsi:type="properties:TextAreaDescription" name="crudrest::List extendWhereClause" labelExpression="Extend Where Clause" helpExpression="SQL expression (AND with other conditions!)" lineCount="2" valueExpression="aql:self.extendWhereClause">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="extendWhereClause" valueExpression="var:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                    <style/>
+                  </groups>
+                  <groups name="bulkActions" labelExpression="Bulk Actions" domainClass="crudrest::List">
+                    <controls xsi:type="properties:ContainerDescription" name="bulk">
+                      <controls xsi:type="properties:TextDescription" name="bulkActionKey" labelExpression="Key" helpExpression="A unique key for action" valueExpression="aql:selectedBulk.key">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:selectedBulk">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:TextDescription" name="bulkTitle" labelExpression="Title" helpExpression="Bulk action title" valueExpression="aql:selectedBulk.title">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:selectedBulk">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:SelectDescription" name="selectIcon" labelExpression="Icon" helpExpression="Icon class for action" valueExpression="aql:selectedBulk.icon" candidatesExpression="service:getIcons()" candidateDisplayExpression="aql:candidate">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:selectedBulk">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="icon" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:ContainerDescription" name="bulkBtns">
+                        <controls xsi:type="properties:ButtonDescription" name="createBulk" helpExpression="Create new bulk action for this list" buttonLabelExpression="New Bulk Action">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::BulkAction" referenceName="bulkAction" variableName="newBulk">
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="key" valueExpression="new_key"/>
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="title" valueExpression="New Action Bulk"/>
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="icon" valueExpression="admin-generic"/>
+                              </subModelOperations>
+                              <subModelOperations xsi:type="tool_1:Let" variableName="selectedBulk" valueExpression="var:newBulk"/>
+                            </firstModelOperations>
+                          </initialOperation>
+                        </controls>
+                        <controls xsi:type="properties:ButtonDescription" name="deleteBulk" helpExpression="Remove selected bulk action" buttonLabelExpression="Remove">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                              <subModelOperations xsi:type="tool_1:Unset" featureName="bulkAction" elementExpression="var:selectedBulk"/>
+                              <subModelOperations xsi:type="tool_1:Let" variableName="selectedBulk" valueExpression="aql:self.bulkAction->first()"/>
+                            </firstModelOperations>
+                          </initialOperation>
+                        </controls>
+                        <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+                      </controls>
+                      <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+                    </controls>
+                    <controls xsi:type="properties:ListDescription" name="entityFields" labelExpression="Bulk Actions" valueExpression="aql:self.bulkAction" displayExpression="aql:value.key+ '= {title: &quot;'+value.title+'&quot; , icon: &quot;'+value.icon+'&quot;}'">
+                      <onClickOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                          <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:onClickEventKind='DOUBLE_CLICK' or onClickEventKind='SINGLE_CLICK'">
+                            <subModelOperations xsi:type="tool_1:Let" variableName="selectedBulk" valueExpression="aql:selection->first()"/>
+                          </subModelOperations>
+                        </firstModelOperations>
+                      </onClickOperation>
+                    </controls>
+                    <style/>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="pageFormDbClick" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']/@subContainerMappings[name='pages']/@subContainerMappings[name='pageContainer']/@subNodeMappings[name='FormNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Let" variableName="page" valueExpression="aql:self.ancestors()->first()"/>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="service:getPageFormTitle(page)">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="pageForm" domainClass="crudrest::Form" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='pageFormDbClick']/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0"/>
+                  <groups name="formGroup" labelExpression="sfsrgSDAsdd" domainClass="crudrest::Form">
+                    <controls xsi:type="properties:ContainerDescription">
+                      <controls xsi:type="properties:LabelDescription" labelExpression="Note:" displayExpression="Select visible fields and obtain theirs layout"/>
+                    </controls>
+                    <controls xsi:type="properties:ContainerDescription">
+                      <controls xsi:type="properties:ListDescription" name="entityFields" labelExpression="Source Fields" helpExpression="All accessible fields to bo searchable" valueExpression="service:page.getPageEntityFields()" displayExpression="service:getFieldLabel(value)">
+                        <onClickOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                            <subModelOperations xsi:type="tool_1:Let" variableName="currentValues" valueExpression="aql:self.fieldLayout"/>
+                            <subModelOperations xsi:type="tool_1:If" conditionExpression="service:canAddFieldToForm(onClickEventKind,selection, currentValues)">
+                              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="crudrest::FieldLayout" referenceName="fieldLayout" variableName="layoutInstance">
+                                <subModelOperations xsi:type="tool_1:SetValue" featureName="field" valueExpression="service:getFirstItemFromList(selection)"/>
+                              </subModelOperations>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </onClickOperation>
+                      </controls>
+                      <controls xsi:type="properties:ListDescription" name="fieldLayouts" labelExpression="Form Fields" helpExpression="This fields will be accessible in form view" valueExpression="aql:self.fieldLayout" displayExpression="service:getFieldLayoutLabel(value)">
+                        <onClickOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                            <subModelOperations xsi:type="tool_1:If" conditionExpression="service:canRemoveFieldForm(onClickEventKind,selection)">
+                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                                <subModelOperations xsi:type="tool_1:Unset" featureName="fieldLayout" elementExpression="aql:selection"/>
+                              </subModelOperations>
+                            </subModelOperations>
+                          </firstModelOperations>
+                        </onClickOperation>
+                      </controls>
+                      <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+                    </controls>
+                    <controls xsi:type="properties:ContainerDescription">
+                      <controls xsi:type="properties:RadioDescription" name="rdbLayout" labelExpression="Layout" helpExpression="Select a layout for selected field" isEnabledExpression="service:notNullselectedFormField()" valueExpression="service:getSelectedFormFieldLayout()" candidatesExpression="aql:self.ancestors(crudrest::PluginGUI).reusableLayout" candidateDisplayExpression="service:getLayoutLabel(candidate)" numberOfColumns="1">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:getSelectedFormField()">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="layout" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <layout xsi:type="properties:GridLayoutDescription"/>
+                    </controls>
+                    <style barStyle="NO_TITLE" toggleStyle="NONE" expandedByDefault="true"/>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="uiDbClick" mappings="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@containerMappings[name='wpp']/@subContainerMappings[name='gui']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="User Interface">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation/>
+                </buttons>
+                <page name="uiPage" domainClass="crudrest::PluginGUI" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CrudRestWPPViewpoint']/@ownedRepresentations[name='CrudRestWPP']/@defaultLayer/@toolSections.2/@ownedTools[name='uiDbClick']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="uiGroup" labelExpression="Group" domainClass="crudrest::PluginGUI" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginGUI class" labelExpression="Class" helpExpression="Overall css class" isEnabledExpression="aql:self.eClass().getEStructuralFeature('class').changeable" valueExpression="aql:self.class">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="class" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="crudrest::PluginGUI style" labelExpression="Style" helpExpression="Overall css style" isEnabledExpression="aql:self.eClass().getEStructuralFeature('style').changeable" valueExpression="aql:self.style">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="style" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <style barStyle="NO_TITLE" toggleStyle="NONE"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="crudrest.Services"/>
+  </ownedViewpoints>
+</description:Group>

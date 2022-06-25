@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/wpcrudrest/src" modelPluginID="wpcrudrest" modelName="crudrest"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>crudrest.ecore</foreignModel>
+  <genPackages prefix="crudrest" disposableProviderFactory="true" ecorePackage="crudrest.ecore#/">
+    <genEnums documentation="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods"
+        typeSafeEnumCompatible="false" ecoreEnum="crudrest.ecore#//HttpMethod">
+      <genEnumLiterals ecoreEnumLiteral="crudrest.ecore#//HttpMethod/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="crudrest.ecore#//HttpMethod/POST"/>
+      <genEnumLiterals ecoreEnumLiteral="crudrest.ecore#//HttpMethod/PUT"/>
+      <genEnumLiterals ecoreEnumLiteral="crudrest.ecore#//HttpMethod/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="crudrest.ecore#//HttpMethod/PATCH"/>
+      <genEnumLiterals ecoreEnumLiteral="crudrest.ecore#//HttpMethod/HEAD"/>
+      <genEnumLiterals ecoreEnumLiteral="crudrest.ecore#//HttpMethod/OPTIONS"/>
+    </genEnums>
+    <genClasses ecoreClass="crudrest.ecore#//PluginCreator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//PluginCreator/plugin"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//PluginCreator/repository"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//CrudRestPlugin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//CrudRestPlugin/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//CrudRestPlugin/detail"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//CrudRestPlugin/gui"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//CrudRestPlugin/hasAccessControl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//CrudRestPlugin/serviceProvider"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//PluginDetail">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/prefix"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/dbVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/pluginURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/authorURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/license"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/licenseURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/textDomain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/domainPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/directory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/minVersionWP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/minVersionPHP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/updateURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginDetail/network"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//PluginWebService">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//PluginWebService/extend"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//PluginWebService/entityModel"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//WebserviceFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//WebserviceFunction/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//WebserviceFunction/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//WebserviceFunction/checkAccessControl"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Entity/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Entity/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Entity/labelPlural"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//Entity/titleScript"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//Entity/fields"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//Entity/relations"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//Field">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//Field/type"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//Relation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//Relation/entity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Relation/many"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//Relation/opposite"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//PluginGUI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginGUI/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//PluginGUI/style"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//PluginGUI/menu"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//PluginGUI/page"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//PluginGUI/reusableLayout"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//Layout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Layout/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Layout/col_xs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Layout/col_sm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Layout/col_md"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Layout/col_lg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Layout/col_xl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Layout/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Layout/style"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//Menu">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//Menu/items"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Menu/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Menu/slug"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//Menu/icon"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//MenuItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//MenuItem/page"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//MenuItem/overrideTitle"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//UIPage" labelFeature="#//crudrest/UIPage/key">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//UIPage/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//UIPage/entity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//UIPage/form"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//UIPage/list"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//UIPage/overrideTitle"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//Form">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//Form/fieldLayout"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//FieldLayout">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//FieldLayout/field"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//FieldLayout/layout"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//List">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//List/showCreateButton"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//List/showEditButton"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//List/showSearchBox"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//List/showViewDetailButton"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//List/showDeleteButton"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//List/showIdCol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//List/itemsPerPage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//List/listColumns"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//List/sortableColumns"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference crudrest.ecore#//List/searchableColumns"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//List/extendWhereClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//List/bulkAction"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//BulkAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//BulkAction/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//BulkAction/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//BulkAction/icon"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//FieldBase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldBase/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldBase/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldBase/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldBase/unique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldBase/required"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//FieldTypeRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//FieldTypeRepository/fieldType"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//FieldType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldType/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//FieldType/config"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//FieldType/input"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldType/adapterFromDB"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldType/adapterToDB"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//DBFieldConfig">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//DBFieldConfig/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//DBFieldConfig/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//DBFieldConfig/searchAdapter"/>
+    </genClasses>
+    <genClasses ecoreClass="crudrest.ecore#//VueElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//VueElement/tag"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//VueElement/urlJs"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//VueElement/urlCss"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//VueElement/params"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//VueElement/validation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//VueElement/component"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,54 @@
+[comment encoding = UTF-8 /]
+[module service('http://crudrest.msde.ui.ac.ir')/]
+[comment][module service('http://www.eclipse.org/uml2/5.0.0/UML')/][/comment]
+[query public getPrefix(plg : CrudRestPlugin) : String= 
+invoke('crudrest.Services', 'getPrefix(org.eclipse.emf.ecore.EObject)',Sequence{plg}) 
+/]
+[query public getDirectory(plg : CrudRestPlugin) : String= 
+invoke('crudrest.Services', 'getDirectory(org.eclipse.emf.ecore.EObject)',Sequence{plg})  
+/]
+[query public isNotEmpty(o : oclstdlib::OclAny) : oclstdlib::Boolean= 
+invoke('crudrest.Services', 'notEmpty(java.lang.Object)',Sequence{o}) 
+/]
+[query public getCopyrightComment(plg : CrudRestPlugin) : String= 
+invoke('crudrest.Services', 'getCopyrightComment(org.eclipse.emf.ecore.EObject)',Sequence{plg}) 
+/]
+[query public getCopyrightComment(plg : CrudRestPlugin, since: String) : String= 
+invoke('crudrest.Services', 'getCopyrightComment(org.eclipse.emf.ecore.EObject,java.lang.String)',Sequence{plg,since}) 
+/]
+[query public getLanguagesDirectory(plg : CrudRestPlugin) : String= 
+invoke('crudrest.Services', 'getLanguagesDirectory(org.eclipse.emf.ecore.EObject)',Sequence{plg}) 
+/]
+[query public getMenuItemTitle(item : MenuItem) : String= 
+invoke('crudrest.Services', 'getMenuTitle(org.eclipse.emf.ecore.EObject)',Sequence{item}) 
+/]
+[query public getPageTitle(page : UIPage) : String= 
+invoke('crudrest.Services', 'getPageTitle(org.eclipse.emf.ecore.EObject)',Sequence{page}) 
+/]
+[query public getSortableFields(list : List) : FieldBase= 
+invoke('crudrest.Services', 'getSortableFields(org.eclipse.emf.ecore.EObject)',Sequence{list}) 
+/]
+[query public getLayoutCalss(l : Layout) : String= 
+invoke('crudrest.Services', 'getLayoutCalss(org.eclipse.emf.ecore.EObject)',Sequence{l}) 
+/]
+[query public getInt(l : OclAny , k: String) : Integer= 
+invoke('crudrest.Services', 'getInt(org.eclipse.emf.ecore.EObject,java.lang.String)',Sequence{l,k}) 
+/]
+[query public getString(l : OclAny , k: String) : String= 
+invoke('crudrest.Services', 'getString(org.eclipse.emf.ecore.EObject,java.lang.String)',Sequence{l,k}) 
+/]
+[query public getCreateTableList(ws : PluginWebService ,prefix: String, indent: String) : Sequence(String)= 
+invoke('crudrest.Services', 'getCreateTableList(crudrest.PluginWebService,java.lang.String,java.lang.String)',Sequence{ws,prefix,indent}) 
+/]
+[query public getRelationJoinTabel(r : Relation) : String= 
+invoke('crudrest.Services', 'getRelationJoinTabel(crudrest.Relation)',Sequence{r}) 
+/]
+[query public getRelationJoinTargetKey(r : Relation) : String= 
+invoke('crudrest.Services', 'getRelationJoinTargetKey(crudrest.Relation)',Sequence{r}) 
+/]
+[query public getRelationJoinSourceKey(r : Relation) : String= 
+invoke('crudrest.Services', 'getRelationJoinSourceKey(crudrest.Relation)',Sequence{r}) 
+/]
+[query public getAllTables(ws : PluginWebService) : Sequence(String)= 
+invoke('crudrest.Services', 'getAllTables()',Sequence{}) 
+/]
