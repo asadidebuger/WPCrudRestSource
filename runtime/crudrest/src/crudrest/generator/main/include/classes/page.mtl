@@ -1,0 +1,48 @@
+[comment encoding = Cp1256 /]
+[module page('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[template public page(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+
+[file (directory+'/includes/'+ prefix +'_Page.php', false, 'UTF-8')]
+<?php
+/**
+ * Class for Page configuration.
+ *
+[getCopyrightComment()/]
+ */
+include_once '[prefix/]_Models.php';
+include_once '[prefix/]_FormView.php';
+include_once '[prefix/]_ListView.php';
+class [prefix/]_Page {
+
+  public $key,$title,$entity_key,$listView,$formView;
+
+  public function __construct($key,$entity_key,$title)
+  {
+	$this->key=$key;
+    $this->entity_key=$entity_key;
+    $this->title=$title;
+  }
+  public function set_formView($fieldsLayouts){
+    $this->formView=new [prefix/]_FormView($this->entity_key,$fieldsLayouts);
+  }
+  public function set_listView($columns,$sortableColumns,$searchableColumns,$props=null,$bulkActions=null,$where=null){
+    $this->listView=new [prefix/]_ListView($this->entity_key,$this->title,$columns,$sortableColumns,$searchableColumns,$props,$bulkActions,$where);
+  }
+  public function renderList(){
+	if (array_key_exists('id',$_REQUEST) && $_REQUEST['["id"]'/]) include  [prefix/]_PATH.'admin/partials/[prefix/]-admin-page-form.php';
+	else include  [prefix/]_PATH.'admin/partials/[prefix/]-admin-page-list.php';
+  }
+  public function get_form_view():[prefix/]_FormView{
+    return $this->formView;
+  }
+  public function get_list_view():[prefix/]_ListView{
+    return $this->listView;
+  }
+  public function get_entity():[prefix/]_Entity{
+	return [prefix/]_Models::get_entity($this->entity_key);
+  }
+}
+[/file]
+
+[/template]

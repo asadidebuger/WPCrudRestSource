@@ -1,0 +1,70 @@
+[comment encoding = Cp1256 /]
+[module entity('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[template public entity(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+
+[file (directory+'/includes/'+ prefix +'_Entity.php', false, 'UTF-8')]
+<?php
+/**
+ * Class for entity.
+ *
+[getCopyrightComment()/]
+ */
+
+include_once '[prefix/]_FieldBase.php';
+include_once '[prefix/]_Field.php';
+include_once '[prefix/]_Relation.php';
+include_once '[prefix/]_field_type.php';
+class [prefix/]_Entity {
+  public $fields=['[]'/];
+  public $relations=['[]'/];
+  public $key, $label='', $plural='', $title_script='';
+
+  public function __construct($key,$label,$plural,$title_script=null)
+  {
+    $this->key=$key;
+    $this->label=$label;
+    $this->plural=$plural;
+	$this->title_script=$title_script;
+  }
+  public function get_all_fields_key():array{
+    $all=array();
+    foreach ($this->fields as $key=>$field) ['$all[$key]'/]=$key;
+    foreach ($this->relations as $key=>$field) ['$all[$key]'/]=$key;
+    return $all;
+  }
+  public function get_in_title_fields_key():array{
+	$fields=$this->get_all_fields_key();
+	$fields_to_select= array();
+	foreach( $fields as $field ) {
+	  if (strpos($this->title_script, $field) != false) {
+		['$fields_to_select[]=$field;'/]
+	  }
+	}
+	return $fields_to_select;
+  }
+  public function add_field($key,$field){
+    $this->fields['[$key]'/]=$field;
+  }
+  public function set_fields($fields){
+	$this->fields=$fields;
+  }
+  public function add_relation($key,$relation){
+	$this->relations['[$key]'/]=$relation;
+  }
+  public function get_relation($key): ?[prefix/]_Relation{
+	if (array_key_exists($key, $this->relations)) return $this->relations['[$key]'/];
+	return null;
+  }
+  public function get_field($key): ?[prefix/]_FieldBase{
+	if (array_key_exists($key, $this->fields)) return $this->fields['[$key]'/];
+	if (array_key_exists($key, $this->relations)) return $this->relations['[$key]'/];
+	return null;
+  }
+  public function get_field_type($key): ?[prefix/]_field_type{
+	return [prefix/]_field_type::get($this->get_field($key)->type);
+  }
+}
+[/file]
+
+[/template]
