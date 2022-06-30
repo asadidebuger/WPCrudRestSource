@@ -1,0 +1,335 @@
+[comment encoding = Cp1256 /]
+[module pageController('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service/]
+[template public pageController(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+[for(entity:crudrest::Entity|plg.serviceProvider.entityModel)]
+[file (directory+'/ws/'+ prefix +'_controller_'+entity.key+'.php', false, 'UTF-8')]
+<?php
+
+ /**
+ * Controller class for "[entity.key/]" REST webservice.
+ *
+[plg.getCopyrightComment(plg,'4.7.0')/]
+ */
+
+require_once('[prefix/]_controller.php');
+
+class [prefix +'_controller_'+entity.key/] extends  [prefix/]_controller {
+
+  public function __construct() {
+	parent::__construct('[entity.key/]','[entity.key/]',null,1);
+  }
+ 
+}
+
+[/file]
+[/for]
+
+[for(page:crudrest::UIPage|plg.gui.page)]
+[file (directory+'/ws/'+ prefix +'_controller_page_'+page.key+'.php', false, 'UTF-8')]
+<?php
+
+ /**
+ * Controller class for "[page.key/]" Page REST webservice.
+ *
+[plg.getCopyrightComment(plg,'4.7.0')/]
+ */
+
+require_once('[prefix/]_controller.php');
+
+class [prefix +'_controller_page_'+page.key/] extends [prefix/]_controller {
+
+  public function __construct() {
+	parent::__construct('page_[page.key/]','[page.entity.key/]','[page.key/]',1);
+  }
+[for(bulk:crudrest::BulkAction|page.list.bulkAction)]
+
+  public function bulk_action_[bulk.key/]( $request,$items ) {
+	
+	return new WP_REST_Response( array('count'=>count($items),'message'=>__('Action done!')), 200 );
+  }
+[/for]
+}
+
+[/file]
+[/for]
+
+[file (directory+'/ws/'+ prefix +'_page_controller.php', false, 'UTF-8')]
+<?php
+
+ /**
+ * Controller class for Page model meta REST webservice.
+ *
+[plg.getCopyrightComment(plg,'4.7.0')/]
+ */
+class [prefix +'_page_controller'/] extends WP_REST_Controller {
+
+ /**
+ * Register the routes for the objects of the controller.
+ */
+  public function register_routes() {
+
+	$version = '1';
+	$namespace = '[prefix/]/v' . $version;
+	$base = 'page';
+
+	register_rest_route( $namespace, '/' . $base.'['/(?P<page_key>[a-zA-Z0-9]+)'/]', array(
+		array(
+			'methods'             => WP_REST_Server::READABLE,
+			'callback'            => array( $this, 'get_item' ),
+			'permission_callback' => array( $this, 'get_item_permissions_check' ),
+			'args'                => array(
+
+			),
+		),
+	) );
+
+	register_rest_route( $namespace, '/' . $base, array(
+		array(
+			'methods'             => WP_REST_Server::READABLE,
+			'callback'            => array( $this, 'get_items' ),
+			'permission_callback' => array( $this, 'get_items_permissions_check' ),
+			'args'                => array(
+
+			),
+		),
+	) );
+
+	register_rest_route( $namespace, '/admin-menu/['(?P<slug>[a-zA-Z0-9]+)'/]', array(
+		array(
+			'methods'             => WP_REST_Server::READABLE,
+			'callback'            => array( $this, 'get_admin_menu' ),
+			'permission_callback' => array( $this, 'get_items_permissions_check' ),
+			'args'                => array(
+
+			),
+		),
+	) );
+
+  }
+
+  /**
+   * Get a collection of items
+   *
+   * @param WP_REST_Request $request Full data about the request.
+   * @return WP_Error|WP_REST_Response
+   */
+  public function get_items( $request ) {
+	return new WP_REST_Response( array('pages'=>[prefix/]_Models::get_pages()), 200 );
+  }
+
+  /**
+   * Get one item from the collection
+   *
+   * @param WP_REST_Request $request Full data about the request.
+   * @return WP_Error|WP_REST_Response
+   */
+  public function get_item( $request ) {
+	//get parameters from request
+	$params = $request->get_params();
+	//$slugs=explode('_',$params['[\'page_key\']'/]) ;
+	$item = [prefix/]_Models::get_page(['$params[\'page_key\']'/]);
+	$item->entity=[prefix/]_Models::get_entity($item->entity_key);
+	foreach ($item->entity->relations as $key=>$relation ){
+	  $relation->title_script=[prefix/]_Models::get_entity($relation->entity)->title_script;
+//	  $relation->entity=[prefix/]_Models::get_entity($relation->entity);
+	}
+	$data = $this->prepare_item_for_response( $item, $request );
+	return new WP_REST_Response( $data, 200 );
+  }
+
+  public function get_admin_menu( $request ) {
+	//get parameters from request
+	$params = $request->get_params();
+	$slug=['$params[\'slug\']'/];
+	$admin_menus = [prefix/]_Models::get_admin_menus();
+	$items=array();
+	foreach ($admin_menus as $slug => $menu){
+	  ['$items[$slug]=array(\'title\'=>$menu[\'title\'],\'icon\'=>$menu[\'icon\'],\'sub\'=>array());'/]
+	  ['foreach ($menu[\'sub\'] as $itemSlug => $menuItem) {'/]
+[if(plg.hasAccessControl)]
+		['if (current_user_can(\''+prefix+'_page_\'.$menuItem[\'page_key\'].\'_list\')) $items[$slug][\'sub\'][$itemSlug]=$menuItem;'/]
+[else]
+		['$items[$slug][\'sub\'][$itemSlug]=$menuItem;'/]
+[/if]
+	  }
+	}
+
+	return new WP_REST_Response( $items, 200 );
+  }
+
+  /**
+   * Check if a given request has access to get items
+   *
+   * @param WP_REST_Request $request Full data about the request.
+   * @return WP_Error|bool
+   */
+  public function get_items_permissions_check( $request ) {
+	return true;
+	//return current_user_can( 'edit_something' );
+  }
+
+  /**
+   * Check if a given request has access to get a specific item
+   *
+   * @param WP_REST_Request $request Full data about the request.
+   * @return WP_Error|bool
+   */
+  public function get_item_permissions_check( $request ) {
+	return $this->get_items_permissions_check( $request );
+  }
+
+  /**
+   * Prepare the item for the REST response
+   *
+   * @param mixed $item WordPress representation of the item.
+   * @param WP_REST_Request $request Request object.
+   * @return mixed
+   */
+  public function prepare_item_for_response( $item, $request ) {
+	return array($item->key=> (array)$item);
+  }
+
+}
+
+[/file]
+
+
+[file (directory+'/ws/'+ prefix +'_extend_controller.php', false, 'UTF-8')]
+<?php
+
+ /**
+ * Controller class for extend REST webservice.
+ *
+[plg.getCopyrightComment(plg,'4.7.0')/]
+ */
+class [prefix/]_extend_controller extends WP_REST_Controller {
+
+ /**
+ * Register the routes for the objects of the controller.
+ */
+  public function register_routes() {
+	$namespace = '[prefix/]';
+	$base = 'extend';
+[for(extend:WebserviceFunction|plg.serviceProvider.eContents(WebserviceFunction))]
+	register_rest_route( $namespace, '/v1/' . $base.'[extend.name.toLowerCase() /]', array(
+		array(
+			'methods'             => array('[extend.method /]'),
+			'callback'            => array( $this, '[extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase() /]' ),
+[if(extend.checkAccessControl)]
+			'permission_callback' => array( $this, '[extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase() /]_permission_check' ),
+[/if]
+		),
+	) );
+	
+[/for]
+  }
+
+[for(extend:WebserviceFunction|plg.serviceProvider.eContents(WebserviceFunction))]
+
+  /**
+   * [extend.method/] [extend.name/]
+   *
+   * @param WP_REST_Request $request Full data about the request.
+   * @return WP_Error|WP_REST_Response
+   */
+  public function [extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase() /]( $request ) {
+	$data = array();
+	return new WP_REST_Response( $data , 200 );
+  }
+[if(extend.checkAccessControl)]
+
+  /**
+   * Check if a given request has access to [extend.method/] [extend.name.toLowerCase()/]
+   *
+   * @param WP_REST_Request $request Full data about the request.
+   * @return WP_Error|bool
+   */
+  public function [extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase() /]_permission_check( $request ) {
+	return current_user_can('[prefix+'_ws_'+extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase()/]');
+  }
+[/if]
+ 
+[/for]
+}
+
+[/file]
+[if(plg.hasAccessControl)]
+[file (directory+'/ws/'+ prefix +'_options_controller.php', false, 'UTF-8')]
+<?php
+
+ /**
+ * Controller class for options REST webservice.
+ *
+[plg.getCopyrightComment(plg,'4.7.0')/]
+ */
+class [prefix/]_options_controller extends WP_REST_Controller {
+
+ /**
+ * Register the routes for the objects of the controller.
+ */
+  public function register_routes() {
+	$namespace = '[prefix/]';
+	$base = 'options';
+
+	register_rest_route( $namespace, '/v1/'.$base, array(
+		array(
+			'methods'             => array('GET'),
+			'callback'            => array( $this, 'get_meta' ),
+			'permission_callback' => array( $this, 'permission_check' ),
+		),
+		array(
+			'methods'             => array('POST'),
+			'callback'            => array( $this, 'save' ),
+			'permission_callback' => array( $this, 'permission_check' ),
+		),
+	) );
+	
+  }
+
+
+  /**
+   * 
+   *
+   * @param WP_REST_Request $request Full data about the request.
+   * @return WP_Error|WP_REST_Response
+   */
+  public function get_meta( $request ) {
+	global $wp_roles;
+	$roles = $wp_roles->roles;
+	$caps= array('create'=>__('Create'),'list'=>__('List'), 'view'=>__('View'), 'delete'=>__('Remove'), 'edit'=>__('Edit'));
+	$extends= array([for(extend:crudrest::WebserviceFunction|plg.serviceProvider.extend)][if(extend.checkAccessControl)]'[extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase()/]', [/if][/for]);
+	$data = array('pages'=>[prefix/]_Models::get_pages(),'entities'=>[prefix/]_Models::get_entities(), 'roles'=>$roles,'caps'=>$caps, 'extends'=>$extends);
+	return new WP_REST_Response( $data , 200 );
+  }
+
+  public function save( $request ) {
+	$my_roles=$request->get_json_params();
+	global $wp_roles;
+	foreach ($my_roles as $key=>$caps){
+	  $role = $wp_roles->get_role($key);
+	  foreach ($caps as $ckey=>$cap)
+	  {
+		$role->add_cap($ckey,$cap==true);
+	  }
+	}
+	return new WP_REST_Response( 'OK' , 200 );
+  }
+
+  /**
+   * Check if a given request has access to plugin Options
+   *
+   * @param WP_REST_Request $request Full data about the request.
+   * @return WP_Error|bool
+   */
+  public function permission_check( $request ) {
+	$user = wp_get_current_user();
+	$allowed_roles = array('administrator');
+	return count(array_intersect($allowed_roles, $user->roles ))>0;
+  }
+ 
+}
+
+[/file]
+[/if]
+[/template]

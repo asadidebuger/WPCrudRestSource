@@ -1,0 +1,28 @@
+[comment encoding = Cp1256 /]
+[module field('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[template public field(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+
+[file (directory+'/includes/'+ prefix +'_Field.php', false, 'UTF-8')]
+<?php
+/**
+ * Class for Entity's Fields.
+ *
+[getCopyrightComment()/]
+ */
+include_once '[prefix/]_FieldBase.php';
+
+class [prefix/]_Field extends [prefix/]_FieldBase
+{
+  
+  public function __construct($key,$type,$label=null,$index=false,$unique=false,$required=false)
+  {
+   
+	parent::__construct($key,$type,$label??$key,$index,$unique,$required);
+
+  }
+
+}
+[/file]
+
+[/template]

@@ -1,0 +1,1214 @@
+<?xml version="1.0" encoding="Cp1256"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="pageController" nsURI="crudrest::generator::main::webservice::pageController" startHeaderPosition="31" endHeaderPosition="86">
+    <input>
+      <takesTypesFrom href="http://crudrest.msde.ui.ac.ir#/"/>
+    </input>
+    <imports href="../service.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="pageController" visibility="Public">
+      <body xsi:type="mtl:ForBlock">
+        <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?php&#xD;&#xA;&#xD;&#xA; /**&#xD;&#xA; * Controller class for &quot;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="page" referredVariable="/0/pageController/%/page">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//UIPage/key"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot; Page REST webservice.&#xD;&#xA; *&#xD;&#xA;"/>
+          <body xsi:type="mtl:QueryInvocation">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <definition href="../service.emtl#/0/getCopyrightComment.1"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/pageController/plg">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="4.7.0">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA; */&#xD;&#xA;&#xD;&#xA;require_once('"/>
+          <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_controller.php');&#xD;&#xA;&#xD;&#xA;class "/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_controller_page_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="page" referredVariable="/0/pageController/%/page">
+                <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//UIPage/key"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" extends "/>
+          <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_controller {&#xD;&#xA;&#xD;&#xA;  public function __construct() {&#xD;&#xA;&#x9;parent::__construct('page_"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="page" referredVariable="/0/pageController/%/page">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//UIPage/key"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="','"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//Entity"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="page" referredVariable="/0/pageController/%/page">
+                <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://crudrest.msde.ui.ac.ir#//UIPage/entity"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//Entity/key"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="','"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="page" referredVariable="/0/pageController/%/page">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//UIPage/key"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="',1);&#xD;&#xA;  }&#xD;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;  public function bulk_action_"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="bulk" referredVariable="/0/pageController/%/%/%.15/bulk">
+                <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//BulkAction"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//BulkAction/key"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="( $request,$items ) {&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;return new WP_REST_Response( array('count'=>count($items),'message'=>__('Action done!')), 200 );&#xD;&#xA;  }&#xD;&#xA;"/>
+            <loopVariable name="bulk">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//BulkAction"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/6/OrderedSet(BulkAction)">
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//List"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="page" referredVariable="/0/pageController/%/page">
+                  <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://crudrest.msde.ui.ac.ir#//UIPage/list"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://crudrest.msde.ui.ac.ir#//List/bulkAction"/>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="}&#xD;&#xA;&#xD;&#xA;"/>
+          <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="directory" referredVariable="/0/pageController/directory">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    </source>
+                    <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/ws/">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    </argument>
+                  </source>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_controller_page_">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+              </source>
+              <argument xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="page" referredVariable="/0/pageController/%/page">
+                  <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//UIPage/key"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".php">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </fileUrl>
+          <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </charset>
+        </body>
+        <loopVariable name="page">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+        </loopVariable>
+        <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/6/OrderedSet(UIPage)">
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//PluginGUI"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/pageController/plg">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin/gui"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://crudrest.msde.ui.ac.ir#//PluginGUI/page"/>
+        </iterSet>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?php&#xD;&#xA;&#xD;&#xA; /**&#xD;&#xA; * Controller class for Page model meta REST webservice.&#xD;&#xA; *&#xD;&#xA;"/>
+        <body xsi:type="mtl:QueryInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="../service.emtl#/0/getCopyrightComment.1"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/pageController/plg">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+          </argument>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="4.7.0">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA; */&#xD;&#xA;class "/>
+        <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_page_controller">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" extends WP_REST_Controller {&#xD;&#xA;&#xD;&#xA; /**&#xD;&#xA; * Register the routes for the objects of the controller.&#xD;&#xA; */&#xD;&#xA;  public function register_routes() {&#xD;&#xA;&#xD;&#xA;&#x9;$version = '1';&#xD;&#xA;&#x9;$namespace = '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/v' . $version;&#xD;&#xA;&#x9;$base = 'page';&#xD;&#xA;&#xD;&#xA;&#x9;register_rest_route( $namespace, '/' . $base.'"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/(?P&lt;page_key>[a-zA-Z0-9]+)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="', array(&#xD;&#xA;&#x9;&#x9;array(&#xD;&#xA;&#x9;&#x9;&#x9;'methods'             => WP_REST_Server::READABLE,&#xD;&#xA;&#x9;&#x9;&#x9;'callback'            => array( $this, 'get_item' ),&#xD;&#xA;&#x9;&#x9;&#x9;'permission_callback' => array( $this, 'get_item_permissions_check' ),&#xD;&#xA;&#x9;&#x9;&#x9;'args'                => array(&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;) );&#xD;&#xA;&#xD;&#xA;&#x9;register_rest_route( $namespace, '/' . $base, array(&#xD;&#xA;&#x9;&#x9;array(&#xD;&#xA;&#x9;&#x9;&#x9;'methods'             => WP_REST_Server::READABLE,&#xD;&#xA;&#x9;&#x9;&#x9;'callback'            => array( $this, 'get_items' ),&#xD;&#xA;&#x9;&#x9;&#x9;'permission_callback' => array( $this, 'get_items_permissions_check' ),&#xD;&#xA;&#x9;&#x9;&#x9;'args'                => array(&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;) );&#xD;&#xA;&#xD;&#xA;&#x9;register_rest_route( $namespace, '/admin-menu/"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(?P&lt;slug>[a-zA-Z0-9]+)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="', array(&#xD;&#xA;&#x9;&#x9;array(&#xD;&#xA;&#x9;&#x9;&#x9;'methods'             => WP_REST_Server::READABLE,&#xD;&#xA;&#x9;&#x9;&#x9;'callback'            => array( $this, 'get_admin_menu' ),&#xD;&#xA;&#x9;&#x9;&#x9;'permission_callback' => array( $this, 'get_items_permissions_check' ),&#xD;&#xA;&#x9;&#x9;&#x9;'args'                => array(&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;) );&#xD;&#xA;&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Get a collection of items&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|WP_REST_Response&#xD;&#xA;   */&#xD;&#xA;  public function get_items( $request ) {&#xD;&#xA;&#x9;return new WP_REST_Response( array('pages'=>"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_pages()), 200 );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Get one item from the collection&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|WP_REST_Response&#xD;&#xA;   */&#xD;&#xA;  public function get_item( $request ) {&#xD;&#xA;&#x9;//get parameters from request&#xD;&#xA;&#x9;$params = $request->get_params();&#xD;&#xA;&#x9;//$slugs=explode('_',$params"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="['page_key']">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=") ;&#xD;&#xA;&#x9;$item = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_page("/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$params['page_key']">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xD;&#xA;&#x9;$item->entity="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($item->entity_key);&#xD;&#xA;&#x9;foreach ($item->entity->relations as $key=>$relation ){&#xD;&#xA;&#x9;  $relation->title_script="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($relation->entity)->title_script;&#xD;&#xA;//&#x9;  $relation->entity="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($relation->entity);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;$data = $this->prepare_item_for_response( $item, $request );&#xD;&#xA;&#x9;return new WP_REST_Response( $data, 200 );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  public function get_admin_menu( $request ) {&#xD;&#xA;&#x9;//get parameters from request&#xD;&#xA;&#x9;$params = $request->get_params();&#xD;&#xA;&#x9;$slug="/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$params['slug']">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xD;&#xA;&#x9;$admin_menus = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_admin_menus();&#xD;&#xA;&#x9;$items=array();&#xD;&#xA;&#x9;foreach ($admin_menus as $slug => $menu){&#xD;&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$items[$slug]=array('title'=>$menu['title'],'icon'=>$menu['icon'],'sub'=>array());">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="foreach ($menu['sub'] as $itemSlug => $menuItem) {">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="if (current_user_can('">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </source>
+              <argument xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_page_'.$menuItem['page_key'].'_list')) $items[$slug]['sub'][$itemSlug]=$menuItem;">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+          <ifExpr xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/pageController/plg">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin/hasAccessControl"/>
+          </ifExpr>
+          <else>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$items[$slug]['sub'][$itemSlug]=$menuItem;">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+          </else>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;  }&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;return new WP_REST_Response( $items, 200 );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Check if a given request has access to get items&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|bool&#xD;&#xA;   */&#xD;&#xA;  public function get_items_permissions_check( $request ) {&#xD;&#xA;&#x9;return true;&#xD;&#xA;&#x9;//return current_user_can( 'edit_something' );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Check if a given request has access to get a specific item&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|bool&#xD;&#xA;   */&#xD;&#xA;  public function get_item_permissions_check( $request ) {&#xD;&#xA;&#x9;return $this->get_items_permissions_check( $request );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Prepare the item for the REST response&#xD;&#xA;   *&#xD;&#xA;   * @param mixed $item WordPress representation of the item.&#xD;&#xA;   * @param WP_REST_Request $request Request object.&#xD;&#xA;   * @return mixed&#xD;&#xA;   */&#xD;&#xA;  public function prepare_item_for_response( $item, $request ) {&#xD;&#xA;&#x9;return array($item->key=> (array)$item);&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="directory" referredVariable="/0/pageController/directory">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/ws/">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/pageController/prefix">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_page_controller.php">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <parameter name="plg">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </parameter>
+      <parameter name="directory">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="prefix">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="td">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="pageController">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/pageController"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+        <eParameters name="directory">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="td">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getCopyrightComment">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../service.emtl#/0/getCopyrightComment.1"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+        <eParameters name="since">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_CrudRestPlugin_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_MenuItem_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_UIPage_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_List_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//List"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_Layout_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_PluginWebService_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_Relation_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(UIPage)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(BulkAction)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//BulkAction"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//BulkAction"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//BulkAction"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/pageController">
+      <details key="start" value="136"/>
+      <details key="end" value="5238"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/pageController/%">
+      <details key="start" value="235"/>
+      <details key="end" value="995"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/pageController/%/%">
+      <details key="start" value="278"/>
+      <details key="end" value="987"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/pageController/%/%/%">
+      <details key="start" value="366"/>
+      <details key="end" value="406"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/pageController/%/%/%.1">
+      <details key="start" value="407"/>
+      <details key="end" value="415"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/pageController/%/%/%.1/page">
+      <details key="start" value="407"/>
+      <details key="end" value="411"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/pageController/%/%/%.2">
+      <details key="start" value="417"/>
+      <details key="end" value="446"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/pageController/%/%/%.3">
+      <details key="start" value="447"/>
+      <details key="end" value="483"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/pageController/%/%/%.3/plg">
+      <details key="start" value="471"/>
+      <details key="end" value="474"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/pageController/%/%/%.3/%">
+      <details key="start" value="475"/>
+      <details key="end" value="482"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/pageController/%/%/%.4">
+      <details key="start" value="485"/>
+      <details key="end" value="508"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/pageController/%/%/prefix">
+      <details key="start" value="509"/>
+      <details key="end" value="515"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/pageController/%/%/%.5">
+      <details key="start" value="517"/>
+      <details key="end" value="545"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/pageController/%/%/%.6">
+      <details key="start" value="546"/>
+      <details key="end" value="582"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/pageController/%/%/%.6/%">
+      <details key="start" value="546"/>
+      <details key="end" value="573"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/pageController/%/%/%.6/%/prefix">
+      <details key="start" value="546"/>
+      <details key="end" value="552"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/pageController/%/%/%.6/%/%">
+      <details key="start" value="554"/>
+      <details key="end" value="573"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/pageController/%/%/%.6/%.1">
+      <details key="start" value="574"/>
+      <details key="end" value="582"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/pageController/%/%/%.6/%.1/page">
+      <details key="start" value="574"/>
+      <details key="end" value="578"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/pageController/%/%/%.7">
+      <details key="start" value="584"/>
+      <details key="end" value="593"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/pageController/%/%/prefix.1">
+      <details key="start" value="594"/>
+      <details key="end" value="600"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/pageController/%/%/%.8">
+      <details key="start" value="602"/>
+      <details key="end" value="681"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/pageController/%/%/%.9">
+      <details key="start" value="682"/>
+      <details key="end" value="690"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/pageController/%/%/%.9/page">
+      <details key="start" value="682"/>
+      <details key="end" value="686"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/pageController/%/%/%.10">
+      <details key="start" value="692"/>
+      <details key="end" value="695"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/pageController/%/%/%.11">
+      <details key="start" value="696"/>
+      <details key="end" value="711"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/pageController/%/%/%.11/%">
+      <details key="start" value="696"/>
+      <details key="end" value="707"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/pageController/%/%/%.11/%/page">
+      <details key="start" value="696"/>
+      <details key="end" value="700"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/pageController/%/%/%.12">
+      <details key="start" value="713"/>
+      <details key="end" value="716"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/pageController/%/%/%.13">
+      <details key="start" value="717"/>
+      <details key="end" value="725"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/pageController/%/%/%.13/page">
+      <details key="start" value="717"/>
+      <details key="end" value="721"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/pageController/%/%/%.14">
+      <details key="start" value="727"/>
+      <details key="end" value="739"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/pageController/%/%/%.15">
+      <details key="start" value="739"/>
+      <details key="end" value="973"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/pageController/%/%/%.15/%">
+      <details key="start" value="794"/>
+      <details key="end" value="826"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/pageController/%/%/%.15/%.1">
+      <details key="start" value="827"/>
+      <details key="end" value="835"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/pageController/%/%/%.15/%.1/bulk">
+      <details key="start" value="827"/>
+      <details key="end" value="831"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/pageController/%/%/%.15/%.2">
+      <details key="start" value="837"/>
+      <details key="end" value="967"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/pageController/%/%/%.15/bulk">
+      <details key="start" value="744"/>
+      <details key="end" value="769"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/pageController/%/%/%.15/%.3">
+      <details key="start" value="770"/>
+      <details key="end" value="790"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/pageController/%/%/%.15/%.3/%">
+      <details key="start" value="770"/>
+      <details key="end" value="779"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/pageController/%/%/%.15/%.3/%/page">
+      <details key="start" value="770"/>
+      <details key="end" value="774"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/pageController/%/%/%.16">
+      <details key="start" value="975"/>
+      <details key="end" value="980"/>
+      <details key="line" value="29"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/pageController/%/%/%.17">
+      <details key="start" value="285"/>
+      <details key="end" value="346"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/pageController/%/%/%.17/%">
+      <details key="start" value="285"/>
+      <details key="end" value="339"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/pageController/%/%/%.17/%/%">
+      <details key="start" value="285"/>
+      <details key="end" value="330"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/pageController/%/%/%.17/%/%/%">
+      <details key="start" value="285"/>
+      <details key="end" value="309"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/pageController/%/%/%.17/%/%/%/%">
+      <details key="start" value="285"/>
+      <details key="end" value="301"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/pageController/%/%/%.17/%/%/%/%/directory">
+      <details key="start" value="285"/>
+      <details key="end" value="294"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/pageController/%/%/%.17/%/%/%/%/%">
+      <details key="start" value="295"/>
+      <details key="end" value="301"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/pageController/%/%/%.17/%/%/%/prefix">
+      <details key="start" value="303"/>
+      <details key="end" value="309"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/pageController/%/%/%.17/%/%/%.1">
+      <details key="start" value="311"/>
+      <details key="end" value="330"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/pageController/%/%/%.17/%/%.1">
+      <details key="start" value="331"/>
+      <details key="end" value="339"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/pageController/%/%/%.17/%/%.1/page">
+      <details key="start" value="331"/>
+      <details key="end" value="335"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/pageController/%/%/%.17/%.1">
+      <details key="start" value="340"/>
+      <details key="end" value="346"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/pageController/%/%/%.18">
+      <details key="start" value="355"/>
+      <details key="end" value="362"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/pageController/%/page">
+      <details key="start" value="240"/>
+      <details key="end" value="261"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/pageController/%/%.1">
+      <details key="start" value="262"/>
+      <details key="end" value="274"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/pageController/%/%.1/%">
+      <details key="start" value="262"/>
+      <details key="end" value="269"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/pageController/%/%.1/%/plg">
+      <details key="start" value="262"/>
+      <details key="end" value="265"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/pageController/%.1">
+      <details key="start" value="997"/>
+      <details key="end" value="999"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/pageController/%.2">
+      <details key="start" value="999"/>
+      <details key="end" value="5223"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/pageController/%.2/%">
+      <details key="start" value="1074"/>
+      <details key="end" value="1151"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/pageController/%.2/%.1">
+      <details key="start" value="1152"/>
+      <details key="end" value="1188"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/pageController/%.2/%.1/plg">
+      <details key="start" value="1176"/>
+      <details key="end" value="1179"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/pageController/%.2/%.1/%">
+      <details key="start" value="1180"/>
+      <details key="end" value="1187"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/pageController/%.2/%.2">
+      <details key="start" value="1190"/>
+      <details key="end" value="1203"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/pageController/%.2/%.3">
+      <details key="start" value="1204"/>
+      <details key="end" value="1230"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/pageController/%.2/%.3/prefix">
+      <details key="start" value="1204"/>
+      <details key="end" value="1210"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/pageController/%.2/%.3/%">
+      <details key="start" value="1212"/>
+      <details key="end" value="1230"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/pageController/%.2/%.4">
+      <details key="start" value="1232"/>
+      <details key="end" value="1409"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/pageController/%.2/prefix">
+      <details key="start" value="1410"/>
+      <details key="end" value="1416"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/pageController/%.2/%.5">
+      <details key="start" value="1418"/>
+      <details key="end" value="1502"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/pageController/%.2/%.6">
+      <details key="start" value="1503"/>
+      <details key="end" value="1532"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/pageController/%.2/%.7">
+      <details key="start" value="1534"/>
+      <details key="end" value="2163"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/pageController/%.2/%.8">
+      <details key="start" value="2164"/>
+      <details key="end" value="2188"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/pageController/%.2/%.9">
+      <details key="start" value="2190"/>
+      <details key="end" value="2719"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/pageController/%.2/prefix.1">
+      <details key="start" value="2720"/>
+      <details key="end" value="2726"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/pageController/%.2/%.10">
+      <details key="start" value="2728"/>
+      <details key="end" value="3071"/>
+      <details key="line" value="95"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/pageController/%.2/%.11">
+      <details key="start" value="3072"/>
+      <details key="end" value="3088"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/pageController/%.2/%.12">
+      <details key="start" value="3090"/>
+      <details key="end" value="3104"/>
+      <details key="line" value="107"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/pageController/%.2/prefix.2">
+      <details key="start" value="3105"/>
+      <details key="end" value="3111"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/pageController/%.2/%.13">
+      <details key="start" value="3113"/>
+      <details key="end" value="3131"/>
+      <details key="line" value="108"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/pageController/%.2/%.14">
+      <details key="start" value="3132"/>
+      <details key="end" value="3155"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/pageController/%.2/%.15">
+      <details key="start" value="3157"/>
+      <details key="end" value="3176"/>
+      <details key="line" value="108"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/pageController/%.2/prefix.3">
+      <details key="start" value="3177"/>
+      <details key="end" value="3183"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/pageController/%.2/%.16">
+      <details key="start" value="3185"/>
+      <details key="end" value="3311"/>
+      <details key="line" value="109"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/pageController/%.2/prefix.4">
+      <details key="start" value="3312"/>
+      <details key="end" value="3318"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/pageController/%.2/%.17">
+      <details key="start" value="3320"/>
+      <details key="end" value="3398"/>
+      <details key="line" value="111"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/pageController/%.2/prefix.5">
+      <details key="start" value="3399"/>
+      <details key="end" value="3405"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/pageController/%.2/%.18">
+      <details key="start" value="3407"/>
+      <details key="end" value="3690"/>
+      <details key="line" value="112"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/pageController/%.2/%.19">
+      <details key="start" value="3691"/>
+      <details key="end" value="3710"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/pageController/%.2/%.20">
+      <details key="start" value="3712"/>
+      <details key="end" value="3731"/>
+      <details key="line" value="121"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/pageController/%.2/prefix.6">
+      <details key="start" value="3732"/>
+      <details key="end" value="3738"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/pageController/%.2/%.21">
+      <details key="start" value="3740"/>
+      <details key="end" value="3834"/>
+      <details key="line" value="122"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/pageController/%.2/%.22">
+      <details key="start" value="3835"/>
+      <details key="end" value="3929"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/pageController/%.2/%.23">
+      <details key="start" value="3931"/>
+      <details key="end" value="3936"/>
+      <details key="line" value="126"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/pageController/%.2/%.24">
+      <details key="start" value="3937"/>
+      <details key="end" value="3991"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/pageController/%.2/%.25">
+      <details key="start" value="3993"/>
+      <details key="end" value="3995"/>
+      <details key="line" value="127"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/pageController/%.2/%.26">
+      <details key="start" value="3995"/>
+      <details key="end" value="4220"/>
+      <details key="line" value="127"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/pageController/%.2/%.26/%">
+      <details key="start" value="4023"/>
+      <details key="end" value="4025"/>
+      <details key="line" value="128"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/pageController/%.2/%.26/%.1">
+      <details key="start" value="4026"/>
+      <details key="end" value="4150"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/pageController/%.2/%.26/%.1/%">
+      <details key="start" value="4026"/>
+      <details key="end" value="4058"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/pageController/%.2/%.26/%.1/%/%">
+      <details key="start" value="4026"/>
+      <details key="end" value="4051"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/pageController/%.2/%.26/%.1/%/prefix">
+      <details key="start" value="4052"/>
+      <details key="end" value="4058"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/pageController/%.2/%.26/%.1/%.1">
+      <details key="start" value="4059"/>
+      <details key="end" value="4150"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/pageController/%.2/%.26/%.2">
+      <details key="start" value="4152"/>
+      <details key="end" value="4154"/>
+      <details key="line" value="129"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/pageController/%.2/%.26/%.3">
+      <details key="start" value="3998"/>
+      <details key="end" value="4020"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/pageController/%.2/%.26/%.3/plg">
+      <details key="start" value="3999"/>
+      <details key="end" value="4002"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/pageController/%.2/%.26/%.4">
+      <details key="start" value="4154"/>
+      <details key="end" value="4215"/>
+      <details key="line" value="129"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/pageController/%.2/%.26/%.4/%">
+      <details key="start" value="4162"/>
+      <details key="end" value="4164"/>
+      <details key="line" value="130"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/pageController/%.2/%.26/%.4/%.1">
+      <details key="start" value="4165"/>
+      <details key="end" value="4211"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/pageController/%.2/%.26/%.4/%.2">
+      <details key="start" value="4213"/>
+      <details key="end" value="4215"/>
+      <details key="line" value="131"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/pageController/%.2/%.27">
+      <details key="start" value="4222"/>
+      <details key="end" value="5216"/>
+      <details key="line" value="132"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/pageController/%.2/%.28">
+      <details key="start" value="1006"/>
+      <details key="end" value="1054"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/pageController/%.2/%.28/%">
+      <details key="start" value="1006"/>
+      <details key="end" value="1030"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/pageController/%.2/%.28/%/%">
+      <details key="start" value="1006"/>
+      <details key="end" value="1022"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/pageController/%.2/%.28/%/%/directory">
+      <details key="start" value="1006"/>
+      <details key="end" value="1015"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/pageController/%.2/%.28/%/%/%">
+      <details key="start" value="1016"/>
+      <details key="end" value="1022"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/pageController/%.2/%.28/%/prefix">
+      <details key="start" value="1024"/>
+      <details key="end" value="1030"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/pageController/%.2/%.28/%.1">
+      <details key="start" value="1032"/>
+      <details key="end" value="1054"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/pageController/%.2/%.29">
+      <details key="start" value="1063"/>
+      <details key="end" value="1070"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/pageController/%.3">
+      <details key="start" value="5225"/>
+      <details key="end" value="5227"/>
+      <details key="line" value="173"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/pageController/plg">
+      <details key="start" value="168"/>
+      <details key="end" value="188"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/pageController/directory">
+      <details key="start" value="189"/>
+      <details key="end" value="205"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/pageController/prefix">
+      <details key="start" value="207"/>
+      <details key="end" value="220"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/pageController/td">
+      <details key="start" value="222"/>
+      <details key="end" value="231"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

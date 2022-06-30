@@ -1,0 +1,1389 @@
+<?xml version="1.0" encoding="Cp1256"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="controller" nsURI="crudrest::generator::main::webservice::controller" startHeaderPosition="31" endHeaderPosition="82">
+    <input>
+      <takesTypesFrom href="http://crudrest.msde.ui.ac.ir#/"/>
+    </input>
+    <imports href="../service.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="controller" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?php&#xD;&#xA;&#xD;&#xA; /**&#xD;&#xA; * Base Controller class for REST webservice.&#xD;&#xA; *&#xD;&#xA;"/>
+        <body xsi:type="mtl:QueryInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="../service.emtl#/0/getCopyrightComment.1"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/controller/plg">
+            <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+          </argument>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="4.7.0">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA; */ &#xD;&#xA;class "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_controller extends WP_REST_Controller {&#xD;&#xA;&#xD;&#xA;  protected $key='';&#xD;&#xA;  protected $entity_key='';&#xD;&#xA;  protected $page_key='';&#xD;&#xA;  protected $version=1;&#xD;&#xA;&#xD;&#xA;  public function __construct($key, $entity_key, $page_key='',$version=1) {&#xD;&#xA;&#x9;$this->key = $key;&#xD;&#xA;&#x9;$this->entity_key = $entity_key;&#xD;&#xA;&#x9;$this->page_key = $page_key;&#xD;&#xA;&#x9;$this->version = $version;&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA; /**&#xD;&#xA; * Register the routes for the objects of the controller.&#xD;&#xA; */&#xD;&#xA;  public function register_routes() {&#xD;&#xA;&#xD;&#xA;&#x9;$version = $this->version;&#xD;&#xA;&#x9;$namespace = '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/v' . $version; //wp-json/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/.$this->version;&#xD;&#xA;&#x9;$base = $this->key;&#xD;&#xA;&#xD;&#xA;&#x9;register_rest_route( $namespace, '/' . $base, array(&#xD;&#xA;&#x9;&#x9;array(&#xD;&#xA;&#x9;&#x9;&#x9;'methods'             => WP_REST_Server::READABLE,&#xD;&#xA;&#x9;&#x9;&#x9;'callback'            => array( $this, 'get_items' ),&#xD;&#xA;&#x9;&#x9;&#x9;'permission_callback' => array( $this, 'get_items_permissions_check' ),&#xD;&#xA;&#x9;&#x9;&#x9;'args'                => $this->get_collection_params(),&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;array(&#xD;&#xA;&#x9;&#x9;&#x9;'methods'             => WP_REST_Server::CREATABLE,&#xD;&#xA;&#x9;&#x9;&#x9;'callback'            => array( $this, 'create_item' ),&#xD;&#xA;&#x9;&#x9;&#x9;'permission_callback' => array( $this, 'create_item_permissions_check' ),&#xD;&#xA;&#x9;&#x9;&#x9;'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::CREATABLE ),&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;) );&#xD;&#xA;&#x9;register_rest_route( $namespace, '/mini/' . $base, array(&#xD;&#xA;&#x9;&#x9;array(&#xD;&#xA;&#x9;&#x9;&#x9;'methods'             => WP_REST_Server::READABLE,&#xD;&#xA;&#x9;&#x9;&#x9;'callback'            => array( $this, 'get_items_mini' ),&#xD;&#xA;&#x9;&#x9;&#x9;'permission_callback' => array( $this, 'get_items_permissions_check' ),&#xD;&#xA;&#x9;&#x9;&#x9;'args'                => $this->get_collection_params(),&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;) );&#xD;&#xA;&#x9;register_rest_route( $namespace, '/' . $base . '"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/(?P&lt;id>[\d]+)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="', array(&#xD;&#xA;&#x9;&#x9;array(&#xD;&#xA;&#x9;&#x9;&#x9;'methods'             => WP_REST_Server::READABLE,&#xD;&#xA;&#x9;&#x9;&#x9;'callback'            => array( $this, 'get_item' ),&#xD;&#xA;&#x9;&#x9;&#x9;'permission_callback' => array( $this, 'get_item_permissions_check' ),&#xD;&#xA;&#x9;&#x9;&#x9;'args'                => $this->get_item_params(),&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;array(&#xD;&#xA;&#x9;&#x9;&#x9;'methods'             => WP_REST_Server::EDITABLE,&#xD;&#xA;&#x9;&#x9;&#x9;'callback'            => array( $this, 'update_item' ),&#xD;&#xA;&#x9;&#x9;&#x9;'permission_callback' => array( $this, 'update_item_permissions_check' ),&#xD;&#xA;&#x9;&#x9;&#x9;'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::EDITABLE ),&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;array(&#xD;&#xA;&#x9;&#x9;&#x9;'methods'             => WP_REST_Server::DELETABLE,&#xD;&#xA;&#x9;&#x9;&#x9;'callback'            => array( $this, 'delete_item' ),&#xD;&#xA;&#x9;&#x9;&#x9;'permission_callback' => array( $this, 'delete_item_permissions_check' ),&#xD;&#xA;&#x9;&#x9;&#x9;'args'                => array(&#x9;),&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;) );&#xD;&#xA;&#xD;&#xA;&#x9;register_rest_route( $namespace, '/' . $base . '"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/bulk/(?P&lt;key>[a-zA-Z0-9]+)/">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="', array(&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;array(&#xD;&#xA;&#x9;&#x9;&#x9;'methods'             => WP_REST_Server::EDITABLE,&#xD;&#xA;&#x9;&#x9;&#x9;'callback'            => array( $this, 'bulk_action' ),&#xD;&#xA;&#x9;&#x9;&#x9;'permission_callback' => array( $this, 'bulk_action_permissions_check' ),&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;) );&#xD;&#xA;&#x9;register_rest_route( $namespace, '/' . $base . '/schema', array(&#xD;&#xA;&#x9;&#x9;'methods'  => WP_REST_Server::READABLE,&#xD;&#xA;&#x9;&#x9;'callback' => array( $this, 'get_public_item_schema' ),&#xD;&#xA;&#x9;) );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Retrieves the item's schema, conforming to JSON Schema.&#xD;&#xA;   *&#xD;&#xA;   * @since 4.7.0&#xD;&#xA;   *&#xD;&#xA;   * @return array Item schema data.&#xD;&#xA;   */&#xD;&#xA;  public function get_item_schema() {&#xD;&#xA;&#x9;return $this->add_additional_fields_schema( array() );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Get a collection of items&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|WP_REST_Response&#xD;&#xA;   */&#xD;&#xA;  public function get_items( $request ) {&#xD;&#xA;&#x9;include_once "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_PATH.'includes/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db.php';&#xD;&#xA;&#x9;$page=$request->get_param('page');&#xD;&#xA;&#x9;$per_page=$request->get_param('per_page');&#xD;&#xA;&#x9;$search=$request->get_param('search');&#xD;&#xA;&#x9;$sort=$request->get_param('sort');&#xD;&#xA;&#x9;$select=$request->get_param('select');&#xD;&#xA;&#x9;$where=null;&#xD;&#xA;&#x9;$db="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db::get_db();&#xD;&#xA;&#xD;&#xA;&#x9;if ($this->page_key) {&#xD;&#xA;&#x9;&#x9;$list="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_page($this->page_key)->listView;&#xD;&#xA;&#x9;  &#x9;$where=$list->where;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;$result = $db->fetch_data($this->entity_key, explode(',',$select),$search,$where,$sort,$per_page,$per_page*($page-1));&#xD;&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$items=$result[&quot;items&quot;];">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;$data = array();&#xD;&#xA;&#x9;foreach( $items as $item ) {&#xD;&#xA;&#x9;  $itemdata = $this->prepare_item_for_response( $item, $request );&#xD;&#xA;&#x9;  $data"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = $this->prepare_response_for_collection( $itemdata );&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$result[&quot;items&quot;]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="=$data;&#xD;&#xA;&#x9;return new WP_REST_Response( $result, 200 );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  public function get_items_mini( $request ) {&#xD;&#xA;&#x9;include_once "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_PATH.'includes/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db.php';&#xD;&#xA;&#x9;$db="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db::get_db();&#xD;&#xA;&#x9;$entity= "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($this->entity_key);&#xD;&#xA;&#x9;$fields_to_select= $entity->get_in_title_fields_key();&#xD;&#xA;&#x9;$result = $db->fetch_data($this->entity_key,$fields_to_select);&#xD;&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$items=$result[&quot;items&quot;];">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;$data = array();&#xD;&#xA;&#x9;foreach( $items as $item ) {&#xD;&#xA;&#x9;  $itemdata = $this->prepare_item_for_response( $item, $request );&#xD;&#xA;&#x9;  $data"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = $this->prepare_response_for_collection( $itemdata );&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$result[&quot;items&quot;]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="=$data;&#xD;&#xA;&#x9;return new WP_REST_Response( $result, 200 );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Get one item from the collection&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|WP_REST_Response&#xD;&#xA;   */&#xD;&#xA;  public function get_item( $request ) {&#xD;&#xA;&#x9;include_once "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_PATH.'includes/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db.php';&#xD;&#xA;&#x9;$id = $request->get_param('id');&#xD;&#xA;&#x9;$select = $request->get_param('select');&#xD;&#xA;&#x9;$db="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db::get_db();&#xD;&#xA;&#x9;$result =$db->fetch_data($this->entity_key,explode(',',$select),null,&quot;{$this->entity_key}.id=$id&quot;,null,1,0);&#xD;&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$data = $this->prepare_item_for_response( $result[&quot;items&quot;][0], $request );">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;return new WP_REST_Response( $data, 200 );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Create one item from the collection&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|WP_REST_Response&#xD;&#xA;   */&#xD;&#xA;  public function create_item( $request ) {&#xD;&#xA;&#x9;include_once "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_PATH.'includes/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db.php';&#xD;&#xA;&#x9;$db="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db::get_db();&#xD;&#xA;&#x9;$item = $this->prepare_item_for_database( $request );&#xD;&#xA;&#x9;$id=$db->mutation_item($item,$this->entity_key);&#xD;&#xA;&#x9;return new WP_REST_Response( array('id'=>$id), 200 );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Update one item from the collection&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|WP_REST_Response&#xD;&#xA;   */&#xD;&#xA;  public function update_item( $request ) {&#xD;&#xA;&#x9;include_once "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_PATH.'includes/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db.php';&#xD;&#xA;&#x9;$db="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db::get_db();&#xD;&#xA;&#x9;$item = $this->prepare_item_for_database( $request );&#xD;&#xA;&#x9;$id=$db->mutation_item($item,$this->entity_key);&#xD;&#xA;&#x9;return new WP_REST_Response( array('id'=>$id), 200 );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Delete one item from the collection&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|WP_REST_Response&#xD;&#xA;   */&#xD;&#xA;  public function delete_item( $request ) {&#xD;&#xA;&#x9;include_once "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_PATH.'includes/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db.php';&#xD;&#xA;&#x9;$db="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db::get_db();&#xD;&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$id=$request->get_json_params()[&quot;id&quot;]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xD;&#xA;&#x9;if (!$id) return new WP_Error('cant-delete', __('not permit!','"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="'),  array( 'status' => 400 )  );&#xD;&#xA;&#x9;$result=$db->delete_item($id,$this->entity_key);&#xD;&#xA;&#x9;return new WP_REST_Response( array('id'=>$result), 200 );&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  public function permissions_check( $request ) {&#xD;&#xA;&#x9;//return true;// &lt;--use to make readable by all&#xD;&#xA;"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;if ($this->page_key) $key='"/>
+          <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_page_'.$this->page_key;&#xD;&#xA;&#x9;else $key='"/>
+          <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_ws_'.$this->entity_key;&#xD;&#xA;&#x9;$attr=$request->get_attributes();&#xD;&#xA;&#x9;$clbk= "/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$attr['callback'][1]">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xD;&#xA;&#x9;switch ($clbk){&#xD;&#xA;&#x9;  case 'get_item':$key.='_view';&#xD;&#xA;&#x9;&#x9;break;&#xD;&#xA;&#x9;  case 'get_items_mini':&#xD;&#xA;&#x9;  case 'get_items':$key.='_list';&#xD;&#xA;&#x9;&#x9;break;&#xD;&#xA;&#x9;  case 'create_item':$key.='_create';&#xD;&#xA;&#x9;&#x9;break;&#xD;&#xA;&#x9;  case 'update_item':$key.='_edit';&#xD;&#xA;&#x9;&#x9;break;&#xD;&#xA;&#x9;  case 'delete_item':$key.='_delete';&#xD;&#xA;&#x9;&#x9;break;&#xD;&#xA;&#x9;  case 'bulk_action': $key='"/>
+          <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_bulk_'.$this->page_key.'_'.$request->get_param('key');&#xD;&#xA;&#x9;&#x9;break;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;return current_user_can($key);&#xD;&#xA;&#x9;&#xD;&#xA;"/>
+          <ifExpr xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/controller/plg">
+              <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin/hasAccessControl"/>
+          </ifExpr>
+          <else>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;return true; &#xD;&#xA;"/>
+          </else>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Check if a given request has access to get items&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|bool&#xD;&#xA;   */&#xD;&#xA;  public function get_items_permissions_check( $request ) {&#xD;&#xA;&#x9;return $this->permissions_check($request);&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Check if a given request has access to get a specific item&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|bool&#xD;&#xA;   */&#xD;&#xA;  public function get_item_permissions_check( $request ) {&#xD;&#xA;&#x9;return $this->permissions_check($request);&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Check if a given request has access to create items&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|bool&#xD;&#xA;   */&#xD;&#xA;  public function create_item_permissions_check( $request ) {&#xD;&#xA;&#x9;return $this->permissions_check($request);&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Check if a given request has access to update a specific item&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|bool&#xD;&#xA;   */&#xD;&#xA;  public function update_item_permissions_check( $request ) {&#xD;&#xA;&#x9;return  $this->permissions_check($request);&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Check if a given request has access to delete a specific item&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Full data about the request.&#xD;&#xA;   * @return WP_Error|bool&#xD;&#xA;   */&#xD;&#xA;  public function delete_item_permissions_check( $request ) {&#xD;&#xA;&#x9;return $this->permissions_check($request);&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Prepare the item for create or update operation&#xD;&#xA;   *&#xD;&#xA;   * @param WP_REST_Request $request Request object&#xD;&#xA;   * @return WP_Error|object $prepared_item&#xD;&#xA;   */&#xD;&#xA;  protected function prepare_item_for_database( $request ) {&#xD;&#xA;    $item= $request->get_json_params();&#xD;&#xA;    $prepared_item=array();&#xD;&#xA;    $entity="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($this->entity_key);&#xD;&#xA;    foreach ($item as $key=>$value){&#xD;&#xA;      if ($key=='id'){&#xD;&#xA;&#x9;&#x9;$prepared_item"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="['id']">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="=$value;&#xD;&#xA;        continue;&#xD;&#xA;      }&#xD;&#xA;      $field_type=$entity->get_field_type($key);&#xD;&#xA;      "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$prepared_item[$key]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="=$field_type->to_db($item,$key,$value);&#xD;&#xA;&#x9;}&#xD;&#xA;    return $prepared_item;&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;  /**&#xD;&#xA;   * Prepare the item for the REST response&#xD;&#xA;   *&#xD;&#xA;   * @param mixed $item WordPress representation of the item.&#xD;&#xA;   * @param WP_REST_Request $request Request object.&#xD;&#xA;   * @return mixed&#xD;&#xA;   */&#xD;&#xA;  public function prepare_item_for_response( $item, $request ) {&#xD;&#xA;&#x9;$prepared_item=array();&#xD;&#xA;&#x9;$entity="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($this->entity_key);&#xD;&#xA;&#x9;foreach ($item as $key=>$value){&#xD;&#xA;&#x9;  if ($key=='id'){&#xD;&#xA;&#x9;&#x9;$prepared_item"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="['id']">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="=$value;&#xD;&#xA;&#x9;&#x9;continue;&#xD;&#xA;&#x9;  }&#xD;&#xA;&#x9;  $field_type=$entity->get_field_type($key);&#xD;&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$prepared_item[$key]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="=$field_type->from_db($item,$key,$value);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;return $prepared_item;&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;  public function bulk_action( $request ) {&#xD;&#xA;&#x9;$key= $request->get_param('key');&#xD;&#xA;&#x9;$items= $request->get_json_params();&#xD;&#xA;&#x9;$func=&quot;bulk_action_$key&quot;;&#xD;&#xA;&#x9;if(method_exists($this, $func)){&#xD;&#xA;&#x9;  $result = call_user_func(array($this, $func),$request,$items);&#xD;&#xA;&#x9;  return $result;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;return new WP_Error('not exist', __('Action not exist','"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="'),  array( 'status' => 404 )  );&#xD;&#xA;  }&#xD;&#xA;  public function bulk_action_delete( $request,$items ) {&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;include_once "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_PATH.'includes/"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db.php';&#xD;&#xA;&#x9;$db="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_db::get_db();&#xD;&#xA;&#xD;&#xA;&#x9;global $wpdb;&#xD;&#xA;&#x9;$page="/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_page($this->page_key);&#xD;&#xA;&#x9;$ids=array();&#xD;&#xA;&#x9;foreach ($items as $key=>$item){&#xD;&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$ids[]=$db->delete_item($item[&quot;id&quot;],$page->entity_key);">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;return new WP_REST_Response( array('count'=>count($ids),'ids'=>$ids,'message'=>__('Selected items removed!')), 200 );&#xD;&#xA;  }&#xD;&#xA;  public function bulk_action_permissions_check( $request ) {&#xD;&#xA;&#x9;return $this->permissions_check($request);;&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * Retrieves the query params for the collections.&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @since 4.7.0&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @return array Query parameters for the collection.&#xD;&#xA;&#x9; */&#xD;&#xA;  public function get_collection_params()&#xD;&#xA;  {&#xD;&#xA;&#x9;$params = parent::get_collection_params();&#xD;&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$params[&quot;sort&quot;] = array(">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;'description' => __('List orderby','"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="td" referredVariable="/0/controller/td">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="'),&#xD;&#xA;&#x9;&#x9;'type' => 'string',&#xD;&#xA;&#x9;&#x9;'sanitize_callback' => 'sanitize_text_field',&#xD;&#xA;&#x9;&#x9;'validate_callback' => 'rest_validate_request_arg',&#xD;&#xA;&#x9;);&#xD;&#xA;&#xD;&#xA;&#x9;if($this->page_key) {&#xD;&#xA;&#x9;  $page = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_page($this->page_key);&#xD;&#xA;&#x9;  $select=$page->get_list_view()->columns;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else {&#xD;&#xA;&#x9;  $entity= "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($this->entity_key);&#xD;&#xA;&#x9;  $select=$entity->get_all_fields_key();&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$params[&quot;select&quot;] = array(">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;'description' => __('Select fields for projection separate by `,`','"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="td" referredVariable="/0/controller/td">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="'),&#xD;&#xA;&#x9;&#x9;'type' => 'string',&#xD;&#xA;&#x9;&#x9;'default'=> implode(&quot;,&quot;,$select),&#xD;&#xA;&#x9;&#x9;'sanitize_callback' => 'sanitize_text_field',&#xD;&#xA;&#x9;&#x9;'validate_callback' => 'rest_validate_request_arg',&#xD;&#xA;&#x9;);&#xD;&#xA;&#x9;return $params;&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * Retrieves the query params for the item.&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @since 4.7.0&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @return array Query parameters for the collection.&#xD;&#xA;&#x9; */&#xD;&#xA;  public function get_item_params()&#xD;&#xA;  {&#xD;&#xA;&#x9;if ($this->page_key) {&#xD;&#xA;&#x9;  $page = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_page($this->page_key);&#xD;&#xA;&#x9;  $layouts=$page->get_form_view()->fieldsLayouts;&#xD;&#xA;&#x9;  $select=array();&#xD;&#xA;&#x9;  "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="foreach ($layouts as $key=>$val) $select[$key]=$key;">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;} else {&#xD;&#xA;&#x9;  $entity = "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_entity($this->entity_key);&#xD;&#xA;&#x9;  $select = $entity->get_all_fields_key();&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;$params = array(&#xD;&#xA;&#x9;&#x9;&quot;id&quot; => array(&#xD;&#xA;&#x9;&#x9;&#x9;'description' => __('Item id', '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="td" referredVariable="/0/controller/td">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="'),&#xD;&#xA;&#x9;&#x9;&#x9;'type' => 'integer',&#xD;&#xA;&#x9;&#x9;&#x9;'default' => 0,&#xD;&#xA;&#x9;&#x9;&#x9;'minimum' => 1,&#xD;&#xA;&#x9;&#x9;&#x9;'sanitize_callback' => 'absint',&#xD;&#xA;&#x9;&#x9;&#x9;'validate_callback' => 'rest_validate_request_arg',&#xD;&#xA;&#x9;&#x9;),&#xD;&#xA;&#x9;&#x9;'select' => array(&#xD;&#xA;&#x9;&#x9;&#x9;'description' => __('Select fields for projection separate by `,`', '"/>
+        <body xsi:type="ocl.ecore:VariableExp" name="td" referredVariable="/0/controller/td">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="'),&#xD;&#xA;&#x9;&#x9;&#x9;'type' => 'string',&#xD;&#xA;&#x9;&#x9;&#x9;'default' => implode(&quot;,&quot;, $select),&#xD;&#xA;&#x9;&#x9;&#x9;'sanitize_callback' => 'sanitize_text_field',&#xD;&#xA;&#x9;&#x9;&#x9;'validate_callback' => 'rest_validate_request_arg',&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#xD;&#xA;&#x9;);&#xD;&#xA;&#x9;return $params;&#xD;&#xA;  }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="directory" referredVariable="/0/controller/directory">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/ws/">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/controller/prefix">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_controller.php">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="plg">
+        <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </parameter>
+      <parameter name="directory">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="prefix">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="td">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="controller">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/controller"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+        <eParameters name="directory">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="prefix">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="td">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getCopyrightComment">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../service.emtl#/0/getCopyrightComment.1"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="plg">
+          <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+        </eParameters>
+        <eParameters name="since">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_CrudRestPlugin_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_MenuItem_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_UIPage_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//UIPage"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_List_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//List"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_Layout_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//Layout"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_PluginWebService_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//PluginWebService"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="crudrest_Relation_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://crudrest.msde.ui.ac.ir#//Relation"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/controller">
+      <details key="start" value="132"/>
+      <details key="end" value="14073"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/controller/%">
+      <details key="start" value="227"/>
+      <details key="end" value="14060"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/controller/%/%">
+      <details key="start" value="297"/>
+      <details key="end" value="363"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/controller/%/%.1">
+      <details key="start" value="364"/>
+      <details key="end" value="400"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/controller/%/%.1/plg">
+      <details key="start" value="388"/>
+      <details key="end" value="391"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/controller/%/%.1/%">
+      <details key="start" value="392"/>
+      <details key="end" value="399"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/controller/%/%.2">
+      <details key="start" value="402"/>
+      <details key="end" value="416"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/controller/%/prefix">
+      <details key="start" value="417"/>
+      <details key="end" value="423"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/controller/%/%.3">
+      <details key="start" value="425"/>
+      <details key="end" value="929"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/controller/%/prefix.1">
+      <details key="start" value="930"/>
+      <details key="end" value="936"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/controller/%/%.4">
+      <details key="start" value="938"/>
+      <details key="end" value="964"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/controller/%/prefix.2">
+      <details key="start" value="965"/>
+      <details key="end" value="971"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/controller/%/%.5">
+      <details key="start" value="973"/>
+      <details key="end" value="2041"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/controller/%/%.6">
+      <details key="start" value="2042"/>
+      <details key="end" value="2059"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/controller/%/%.7">
+      <details key="start" value="2061"/>
+      <details key="end" value="2945"/>
+      <details key="line" value="58"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/controller/%/%.8">
+      <details key="start" value="2946"/>
+      <details key="end" value="2976"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/controller/%/%.9">
+      <details key="start" value="2978"/>
+      <details key="end" value="3856"/>
+      <details key="line" value="79"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/controller/%/prefix.3">
+      <details key="start" value="3857"/>
+      <details key="end" value="3863"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/controller/%/%.10">
+      <details key="start" value="3865"/>
+      <details key="end" value="3881"/>
+      <details key="line" value="112"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/controller/%/prefix.4">
+      <details key="start" value="3882"/>
+      <details key="end" value="3888"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/controller/%/%.11">
+      <details key="start" value="3890"/>
+      <details key="end" value="4122"/>
+      <details key="line" value="112"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/controller/%/prefix.5">
+      <details key="start" value="4123"/>
+      <details key="end" value="4129"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/controller/%/%.12">
+      <details key="start" value="4131"/>
+      <details key="end" value="4182"/>
+      <details key="line" value="119"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/controller/%/prefix.6">
+      <details key="start" value="4183"/>
+      <details key="end" value="4189"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/controller/%/%.13">
+      <details key="start" value="4191"/>
+      <details key="end" value="4390"/>
+      <details key="line" value="122"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/controller/%/%.14">
+      <details key="start" value="4391"/>
+      <details key="end" value="4417"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/controller/%/%.15">
+      <details key="start" value="4419"/>
+      <details key="end" value="4548"/>
+      <details key="line" value="127"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/controller/%/%.16">
+      <details key="start" value="4549"/>
+      <details key="end" value="4553"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/controller/%/%.17">
+      <details key="start" value="4555"/>
+      <details key="end" value="4617"/>
+      <details key="line" value="130"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/controller/%/%.18">
+      <details key="start" value="4618"/>
+      <details key="end" value="4636"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/controller/%/%.19">
+      <details key="start" value="4638"/>
+      <details key="end" value="4763"/>
+      <details key="line" value="132"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/controller/%/prefix.7">
+      <details key="start" value="4764"/>
+      <details key="end" value="4770"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/controller/%/%.20">
+      <details key="start" value="4772"/>
+      <details key="end" value="4788"/>
+      <details key="line" value="137"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/controller/%/prefix.8">
+      <details key="start" value="4789"/>
+      <details key="end" value="4795"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/controller/%/%.21">
+      <details key="start" value="4797"/>
+      <details key="end" value="4813"/>
+      <details key="line" value="137"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/controller/%/prefix.9">
+      <details key="start" value="4814"/>
+      <details key="end" value="4820"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/controller/%/%.22">
+      <details key="start" value="4822"/>
+      <details key="end" value="4848"/>
+      <details key="line" value="138"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/controller/%/prefix.10">
+      <details key="start" value="4849"/>
+      <details key="end" value="4855"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/controller/%/%.23">
+      <details key="start" value="4857"/>
+      <details key="end" value="5022"/>
+      <details key="line" value="139"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/controller/%/%.24">
+      <details key="start" value="5023"/>
+      <details key="end" value="5049"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/controller/%/%.25">
+      <details key="start" value="5051"/>
+      <details key="end" value="5180"/>
+      <details key="line" value="143"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/controller/%/%.26">
+      <details key="start" value="5181"/>
+      <details key="end" value="5185"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/controller/%/%.27">
+      <details key="start" value="5187"/>
+      <details key="end" value="5249"/>
+      <details key="line" value="146"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/controller/%/%.28">
+      <details key="start" value="5250"/>
+      <details key="end" value="5268"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/controller/%/%.29">
+      <details key="start" value="5270"/>
+      <details key="end" value="5555"/>
+      <details key="line" value="148"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/controller/%/prefix.11">
+      <details key="start" value="5556"/>
+      <details key="end" value="5562"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/controller/%/%.30">
+      <details key="start" value="5564"/>
+      <details key="end" value="5580"/>
+      <details key="line" value="159"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/controller/%/prefix.12">
+      <details key="start" value="5581"/>
+      <details key="end" value="5587"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/controller/%/%.31">
+      <details key="start" value="5589"/>
+      <details key="end" value="5683"/>
+      <details key="line" value="159"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/controller/%/prefix.13">
+      <details key="start" value="5684"/>
+      <details key="end" value="5690"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/controller/%/%.32">
+      <details key="start" value="5692"/>
+      <details key="end" value="5820"/>
+      <details key="line" value="162"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/controller/%/%.33">
+      <details key="start" value="5821"/>
+      <details key="end" value="5897"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/controller/%/%.34">
+      <details key="start" value="5899"/>
+      <details key="end" value="6181"/>
+      <details key="line" value="165"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/controller/%/prefix.14">
+      <details key="start" value="6182"/>
+      <details key="end" value="6188"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/controller/%/%.35">
+      <details key="start" value="6190"/>
+      <details key="end" value="6206"/>
+      <details key="line" value="175"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/controller/%/prefix.15">
+      <details key="start" value="6207"/>
+      <details key="end" value="6213"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/controller/%/%.36">
+      <details key="start" value="6215"/>
+      <details key="end" value="6231"/>
+      <details key="line" value="175"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/controller/%/prefix.16">
+      <details key="start" value="6232"/>
+      <details key="end" value="6238"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/controller/%/%.37">
+      <details key="start" value="6240"/>
+      <details key="end" value="6654"/>
+      <details key="line" value="176"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/controller/%/prefix.17">
+      <details key="start" value="6655"/>
+      <details key="end" value="6661"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/controller/%/%.38">
+      <details key="start" value="6663"/>
+      <details key="end" value="6679"/>
+      <details key="line" value="189"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/controller/%/prefix.18">
+      <details key="start" value="6680"/>
+      <details key="end" value="6686"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/controller/%/%.39">
+      <details key="start" value="6688"/>
+      <details key="end" value="6704"/>
+      <details key="line" value="189"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/controller/%/prefix.19">
+      <details key="start" value="6705"/>
+      <details key="end" value="6711"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/controller/%/%.40">
+      <details key="start" value="6713"/>
+      <details key="end" value="7127"/>
+      <details key="line" value="190"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/controller/%/prefix.20">
+      <details key="start" value="7128"/>
+      <details key="end" value="7134"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/controller/%/%.41">
+      <details key="start" value="7136"/>
+      <details key="end" value="7152"/>
+      <details key="line" value="203"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/controller/%/prefix.21">
+      <details key="start" value="7153"/>
+      <details key="end" value="7159"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/controller/%/%.42">
+      <details key="start" value="7161"/>
+      <details key="end" value="7177"/>
+      <details key="line" value="203"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/controller/%/prefix.22">
+      <details key="start" value="7178"/>
+      <details key="end" value="7184"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/controller/%/%.43">
+      <details key="start" value="7186"/>
+      <details key="end" value="7203"/>
+      <details key="line" value="204"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/controller/%/%.44">
+      <details key="start" value="7204"/>
+      <details key="end" value="7243"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/controller/%/%.45">
+      <details key="start" value="7245"/>
+      <details key="end" value="7312"/>
+      <details key="line" value="205"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/controller/%/prefix.23">
+      <details key="start" value="7313"/>
+      <details key="end" value="7319"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/controller/%/%.46">
+      <details key="start" value="7321"/>
+      <details key="end" value="7575"/>
+      <details key="line" value="206"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/controller/%/%.47">
+      <details key="start" value="7575"/>
+      <details key="end" value="8245"/>
+      <details key="line" value="213"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/controller/%/%.47/%">
+      <details key="start" value="7603"/>
+      <details key="end" value="7631"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/controller/%/%.47/prefix">
+      <details key="start" value="7632"/>
+      <details key="end" value="7638"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/controller/%/%.47/%.1">
+      <details key="start" value="7640"/>
+      <details key="end" value="7678"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/controller/%/%.47/prefix.1">
+      <details key="start" value="7679"/>
+      <details key="end" value="7685"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/controller/%/%.47/%.2">
+      <details key="start" value="7687"/>
+      <details key="end" value="7757"/>
+      <details key="line" value="215"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/controller/%/%.47/%.3">
+      <details key="start" value="7758"/>
+      <details key="end" value="7782"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/controller/%/%.47/%.4">
+      <details key="start" value="7784"/>
+      <details key="end" value="8100"/>
+      <details key="line" value="217"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/controller/%/%.47/prefix.2">
+      <details key="start" value="8101"/>
+      <details key="end" value="8107"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/controller/%/%.47/%.5">
+      <details key="start" value="8109"/>
+      <details key="end" value="8216"/>
+      <details key="line" value="230"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/controller/%/%.47/%.6">
+      <details key="start" value="7578"/>
+      <details key="end" value="7600"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/controller/%/%.47/%.6/plg">
+      <details key="start" value="7579"/>
+      <details key="end" value="7582"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/controller/%/%.47/%.7">
+      <details key="start" value="8216"/>
+      <details key="end" value="8240"/>
+      <details key="line" value="235"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/controller/%/%.47/%.7/%">
+      <details key="start" value="8224"/>
+      <details key="end" value="8240"/>
+      <details key="line" value="236"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/controller/%/%.48">
+      <details key="start" value="8247"/>
+      <details key="end" value="10030"/>
+      <details key="line" value="238"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/controller/%/prefix.24">
+      <details key="start" value="10031"/>
+      <details key="end" value="10037"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/controller/%/%.49">
+      <details key="start" value="10039"/>
+      <details key="end" value="10158"/>
+      <details key="line" value="299"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/controller/%/%.50">
+      <details key="start" value="10159"/>
+      <details key="end" value="10169"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/controller/%/%.51">
+      <details key="start" value="10171"/>
+      <details key="end" value="10265"/>
+      <details key="line" value="302"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/controller/%/%.52">
+      <details key="start" value="10266"/>
+      <details key="end" value="10288"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/controller/%/%.53">
+      <details key="start" value="10290"/>
+      <details key="end" value="10673"/>
+      <details key="line" value="306"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/controller/%/prefix.25">
+      <details key="start" value="10674"/>
+      <details key="end" value="10680"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/controller/%/%.54">
+      <details key="start" value="10682"/>
+      <details key="end" value="10795"/>
+      <details key="line" value="320"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/controller/%/%.55">
+      <details key="start" value="10796"/>
+      <details key="end" value="10806"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/controller/%/%.56">
+      <details key="start" value="10808"/>
+      <details key="end" value="10887"/>
+      <details key="line" value="323"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/controller/%/%.57">
+      <details key="start" value="10888"/>
+      <details key="end" value="10910"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/controller/%/%.58">
+      <details key="start" value="10912"/>
+      <details key="end" value="11324"/>
+      <details key="line" value="327"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/controller/%/prefix.26">
+      <details key="start" value="11325"/>
+      <details key="end" value="11331"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/controller/%/%.59">
+      <details key="start" value="11333"/>
+      <details key="end" value="11450"/>
+      <details key="line" value="341"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/controller/%/prefix.27">
+      <details key="start" value="11451"/>
+      <details key="end" value="11457"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/controller/%/%.60">
+      <details key="start" value="11459"/>
+      <details key="end" value="11475"/>
+      <details key="line" value="346"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/controller/%/prefix.28">
+      <details key="start" value="11476"/>
+      <details key="end" value="11482"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/controller/%/%.61">
+      <details key="start" value="11484"/>
+      <details key="end" value="11500"/>
+      <details key="line" value="346"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/controller/%/prefix.29">
+      <details key="start" value="11501"/>
+      <details key="end" value="11507"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/controller/%/%.62">
+      <details key="start" value="11509"/>
+      <details key="end" value="11550"/>
+      <details key="line" value="347"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/controller/%/prefix.30">
+      <details key="start" value="11551"/>
+      <details key="end" value="11557"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/controller/%/%.63">
+      <details key="start" value="11559"/>
+      <details key="end" value="11650"/>
+      <details key="line" value="350"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/controller/%/%.64">
+      <details key="start" value="11651"/>
+      <details key="end" value="11708"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/controller/%/%.65">
+      <details key="start" value="11710"/>
+      <details key="end" value="12200"/>
+      <details key="line" value="354"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/controller/%/%.66">
+      <details key="start" value="12201"/>
+      <details key="end" value="12227"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/controller/%/%.67">
+      <details key="start" value="12229"/>
+      <details key="end" value="12269"/>
+      <details key="line" value="372"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/controller/%/td">
+      <details key="start" value="12270"/>
+      <details key="end" value="12272"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/controller/%/%.68">
+      <details key="start" value="12274"/>
+      <details key="end" value="12448"/>
+      <details key="line" value="372"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/controller/%/prefix.31">
+      <details key="start" value="12449"/>
+      <details key="end" value="12455"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/controller/%/%.69">
+      <details key="start" value="12457"/>
+      <details key="end" value="12564"/>
+      <details key="line" value="379"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/controller/%/prefix.32">
+      <details key="start" value="12565"/>
+      <details key="end" value="12571"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/controller/%/%.70">
+      <details key="start" value="12573"/>
+      <details key="end" value="12662"/>
+      <details key="line" value="383"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/controller/%/%.71">
+      <details key="start" value="12663"/>
+      <details key="end" value="12691"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/controller/%/%.72">
+      <details key="start" value="12693"/>
+      <details key="end" value="12765"/>
+      <details key="line" value="387"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/controller/%/td.1">
+      <details key="start" value="12766"/>
+      <details key="end" value="12768"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/controller/%/%.73">
+      <details key="start" value="12770"/>
+      <details key="end" value="13189"/>
+      <details key="line" value="387"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/controller/%/prefix.33">
+      <details key="start" value="13190"/>
+      <details key="end" value="13196"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/controller/%/%.74">
+      <details key="start" value="13198"/>
+      <details key="end" value="13311"/>
+      <details key="line" value="406"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/controller/%/%.75">
+      <details key="start" value="13312"/>
+      <details key="end" value="13366"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/controller/%/%.76">
+      <details key="start" value="13368"/>
+      <details key="end" value="13394"/>
+      <details key="line" value="410"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/controller/%/prefix.34">
+      <details key="start" value="13395"/>
+      <details key="end" value="13401"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/controller/%/%.77">
+      <details key="start" value="13403"/>
+      <details key="end" value="13565"/>
+      <details key="line" value="411"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/controller/%/td.2">
+      <details key="start" value="13566"/>
+      <details key="end" value="13568"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/controller/%/%.78">
+      <details key="start" value="13570"/>
+      <details key="end" value="13833"/>
+      <details key="line" value="416"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/controller/%/td.3">
+      <details key="start" value="13834"/>
+      <details key="end" value="13836"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/controller/%/%.79">
+      <details key="start" value="13838"/>
+      <details key="end" value="14053"/>
+      <details key="line" value="424"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/controller/%/%.80">
+      <details key="start" value="234"/>
+      <details key="end" value="277"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/controller/%/%.80/%">
+      <details key="start" value="234"/>
+      <details key="end" value="258"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/controller/%/%.80/%/%">
+      <details key="start" value="234"/>
+      <details key="end" value="250"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/controller/%/%.80/%/%/directory">
+      <details key="start" value="234"/>
+      <details key="end" value="243"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/controller/%/%.80/%/%/%">
+      <details key="start" value="244"/>
+      <details key="end" value="250"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/controller/%/%.80/%/prefix">
+      <details key="start" value="252"/>
+      <details key="end" value="258"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/controller/%/%.80/%.1">
+      <details key="start" value="260"/>
+      <details key="end" value="277"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/controller/%/%.81">
+      <details key="start" value="286"/>
+      <details key="end" value="293"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/controller/plg">
+      <details key="start" value="160"/>
+      <details key="end" value="180"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/controller/directory">
+      <details key="start" value="181"/>
+      <details key="end" value="197"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/controller/prefix">
+      <details key="start" value="199"/>
+      <details key="end" value="212"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/controller/td">
+      <details key="start" value="214"/>
+      <details key="end" value="223"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

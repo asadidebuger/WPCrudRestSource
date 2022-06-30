@@ -1,0 +1,42 @@
+[comment encoding = Cp1256 /]
+[module fieldBase('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[template public fieldBase(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+
+[file (directory+'/includes/'+ prefix +'_FieldBase.php', false, 'UTF-8')]
+<?php
+/**
+ * Base class for Fields and Relations.
+ *
+[getCopyrightComment()/]
+ */
+
+class [prefix/]_FieldBase
+{
+  public $key;
+  public $label='';
+  public $index=false;
+  public $unique=false;
+  public $required=false;
+  public $type='';
+[comment]  public $visible=true;
+  public $sortable=true;
+  public $searchable=true;[/comment]
+
+  public function __construct($key,$type,$label,$index,$unique,$required)
+  {
+    $this->key=$key;
+	$this->type=$type;
+    $this->label=$label;
+    $this->index=$index;
+    $this->unique=$unique;
+    $this->required=$required;
+  }
+  public function getFieldType(): microhrm_field_type
+  {
+     return microhrm_field_type::get($this->type);
+  }
+}
+[/file]
+
+[/template]

@@ -1,0 +1,27 @@
+[comment encoding = Cp1256 /]
+[module entityController('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service/]
+[template public entityController(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+[for(entity:crudrest::Entity|plg.serviceProvider.entityModel)]
+[file (directory+'/ws/'+ prefix +'_controller_'+entity.key+'.php', false, 'UTF-8')]
+<?php
+
+ /**
+ * Controller class for "[entity.key/]" REST webservice.
+ *
+[plg.getCopyrightComment(plg,'4.7.0')/]
+ */
+
+require_once('[prefix/]_controller.php');
+
+class [prefix +'_controller_'+entity.key/] extends  [prefix/]_controller {
+
+  public function __construct() {
+	parent::__construct('[entity.key/]','[entity.key/]',null,1);
+  }
+ 
+}
+
+[/file]
+[/for]
+[/template]

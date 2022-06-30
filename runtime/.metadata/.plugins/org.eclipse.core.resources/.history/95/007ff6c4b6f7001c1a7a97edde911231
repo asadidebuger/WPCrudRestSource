@@ -1,0 +1,120 @@
+[comment encoding = Cp1256 /]
+[module fieldType('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[template public fieldType(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+[let creator : PluginCreator = plg.ancestors(crudrest::PluginCreator)->first()]
+[file (directory+'/includes/'+ prefix +'_field_type.php', false, 'UTF-8')]
+<?php
+/**
+ * 
+[getCopyrightComment()/]
+ */
+
+class [prefix/]_field_type {
+
+  public $key,$tag,$url_js,$url_css,$from_db_func,$to_db_func,$get_props_func,$component,$db_field_type,$db_field_expression;
+  
+  public function __construct($key,$tag,$db_field_type,$db_field_expression)
+  {
+    $this->key=$key;
+    $this->db_field_type=$db_field_type;
+    $this->db_field_expression=$db_field_expression;
+    $this->tag=$tag;
+    $this->get_props_func=function ($page,$field,$key){return "label=\"$field->label\" :style=\"page.formView.fieldsLayouts.$field->key.style\" v-model=\"item.$key\"";};
+  }
+  public function get_params($page,$field,$key):string
+  {
+	if (!$this->get_props_func) return '';
+	return $this->get_props_func->call($this,$page,$field,$key);
+  }
+  public function to_db($item,$key,$value)
+  {
+    if (!$this->to_db_func) return $value;
+	return $this->to_db_func->call($this,$item,$key,$value);
+  }
+  public function from_db($item,$key,$value)
+  {
+    if (!$this->from_db_func) return $value;
+	return $this->from_db_func->call($this,$item,$key,$value);
+  }
+  private static $field_types=array();
+  public static function init()
+  {
+	if (count(self::$field_types)>0)return;
+
+	$relation=new [prefix/]_field_type('relation','v-autocomplete');
+	$relation->get_props_func=function ($page,$field,$key){
+	  return "label=\"$field->label\"
+				  :style=\"page.formView.fieldsLayouts.$field->key.style\"
+				  v-model=\"item.$key\"
+				  :items=\"rData.$key\"
+				  :loading=\"!rData.$key\"
+				  :item-text=\"(item)=>resolveRelationTitle('$key',item)\"
+				  :item-value=\"(item)=>item.id\"
+				  :multiple=\"page.entity.relations.$key.many \"
+				  :clearable=\"true\"
+				  :disabled=\"mode==='view'\"";
+	};
+	$relation->from_db_func=function($item,$key,$value){
+		 return $value;
+	};
+	$relation->to_db_func=function($item,$key,$value){
+	  if(is_array($value)){
+	    if (array_key_exists('id',$value)) ['return $value["id"]?(int)$value["id"]:""'/];
+	    $ids=array();
+	    foreach ($value as $val){
+		  ['if(is_array($val))$ids[]=(int)$val["id"];'/]
+		  ['else $ids[]=(int)$val;'/]
+		}
+	    return $ids;
+	  }
+		return $value?(int)$value:'';;
+	};
+	self::$field_types['[\'relation\']'/]=$relation;
+  }
+
+  public static function get($key):[prefix/]_field_type {
+    self::init();
+    return self::$field_types['[$key]'/];
+  }
+
+[/file]
+[for (fieldType : FieldType|creator.repository.fieldType)]
+
+[file (directory+'/includes/fieldtype/'+ prefix +'_'+fieldType.key+'.php', false, 'UTF-8')]
+<?php
+/**
+ * 
+[getCopyrightComment()/]
+ */
+
+	$[fieldType.key/]=new [prefix/]_field_type('[fieldType.key/]','[fieldType.input.tag/]','[fieldType.config.type/]','[fieldType.config.expression/]');
+[if(fieldType.input.urlJs.isNotEmpty() )]
+	$[fieldType.key/]->url_js="[fieldType.input.urlJs/]";
+[/if]
+[if(fieldType.input.component.isNotEmpty() )]
+	$[fieldType.key/]->component="[fieldType.input.component/]";
+[/if]
+[if(fieldType.input.urlCss.isNotEmpty() )]
+	$[fieldType.key/]->url_css="[fieldType.input.urlCss/]";
+[/if]
+[if(fieldType.input.params.isNotEmpty())]
+	$[fieldType.key/]->get_props_func=function ($page,$field,$key){
+	   [fieldType.input.params/]
+	};
+[/if]
+	[if (fieldType.adapterFromDB.isNotEmpty())]
+	$[fieldType.key/]->from_db_func=function($item,$key,$value){ 
+		 [fieldType.adapterFromDB/] 
+	};[/if]
+
+	[if (fieldType.adapterToDB.isNotEmpty())] 
+	$[fieldType.key/]->to_db_func=function($item,$key,$value){ 
+		 [fieldType.adapterToDB/] 
+	};[/if]
+
+	self::$field_types['[\''+fieldType.key+'\']'/]=$[fieldType.key/];
+[/file]
+[/for]
+[/let]
+[/template]

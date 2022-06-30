@@ -1,0 +1,104 @@
+[comment encoding = Cp1256 /]
+[module fieldType('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[template public fieldType(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+[let creator : PluginCreator = plg.ancestors(crudrest::PluginCreator)->first()]
+[file (directory+'/includes/'+ prefix +'_field_type.php', false, 'UTF-8')]
+<?php
+/**
+ * 
+[getCopyrightComment()/]
+ */
+[for (fieldType : FieldType|creator.repository.fieldType)]
+require_once('fieldtype/[prefix/]_field_type_[fieldType.key/].php');
+[/for]
+
+class [prefix/]_field_type {
+
+  public $key,$tag,$url_js,$url_css,$from_db_func,$to_db_func,$get_props_func,$component,$db_field_type,$db_field_expression;
+  
+  public function __construct($key,$tag,$db_field_type,$db_field_expression)
+  {
+    $this->key=$key;
+    $this->db_field_type=$db_field_type;
+    $this->db_field_expression=$db_field_expression;
+    $this->tag=$tag;
+    $this->get_props_func=function ($page,$field,$key){return "label=\"$field->label\" :style=\"page.formView.fieldsLayouts.$field->key.style\" v-model=\"item.$key\"";};
+  }
+  public function get_params($page,$field,$key):string
+  {
+	if (!$this->get_props_func) return '';
+	return $this->get_props_func->call($this,$page,$field,$key);
+  }
+  public function to_db($item,$key,$value)
+  {
+    if (!$this->to_db_func) return $value;
+	return $this->to_db_func->call($this,$item,$key,$value);
+  }
+  public function from_db($item,$key,$value)
+  {
+    if (!$this->from_db_func) return $value;
+	return $this->from_db_func->call($this,$item,$key,$value);
+  }
+  private static $field_types=array();
+  public static function init()
+  {
+	if (count(self::$field_types)>0)return;
+[for (fieldType : FieldType|creator.repository.fieldType)]
+	self::$field_types['[\''+fieldType.key+'\']'/]=new [prefix/]_field_type_[fieldType.key/]();
+[/for]
+  }
+  public static function get($key):[prefix/]_field_type {
+    self::init();
+    return self::$field_types['[$key]'/];
+  }
+}
+[/file]
+
+[for (fieldType : FieldType|creator.repository.fieldType)]
+
+[file (directory+'/includes/fieldtype/'+ prefix +'_field_type_'+fieldType.key+'.php', false, 'UTF-8')]
+<?php
+/**
+ * 
+[plg.getCopyrightComment()/]
+ */
+
+class microhrm_field_type_[fieldType.key/] extends microhrm_field_type {
+    public function __construct() {
+        parent::__construct('[fieldType.key/]','[fieldType.input.tag/]','[fieldType.config.type/]','[fieldType.config.expression/]');
+[if(fieldType.input.urlJs.isNotEmpty() )]
+		$this->url_js="[fieldType.input.urlJs/]";
+[/if]
+[if(fieldType.input.component.isNotEmpty() )]
+		$this->component="[fieldType.input.component/]";
+[/if]
+[if(fieldType.input.urlCss.isNotEmpty() )]
+		$this->url_css="[fieldType.input.urlCss/]";
+[/if]
+    }
+[if(fieldType.input.params.isNotEmpty())]
+	public function get_props_func($page,$field,$key){
+	   [fieldType.input.params/]
+	}
+[/if]
+[if (fieldType.adapterFromDB.isNotEmpty())]
+	public function from_db_func($item,$key,$value){ 
+	 [fieldType.adapterFromDB/] 
+	}
+[/if]
+[if (fieldType.adapterToDB.isNotEmpty())] 
+	public function to_db_func($item,$key,$value){ 
+	 [fieldType.adapterToDB/] 
+	}
+[/if]
+[if (fieldType.adapterSearch.isNotEmpty())]
+	public function get_search_expression($key,$value){ 
+	 [fieldType.adapterSearch/] 
+	}
+[/if]
+}
+[/file]
+[/for]
+[/let]
+[/template]

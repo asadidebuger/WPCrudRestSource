@@ -1,0 +1,216 @@
+[comment encoding = Cp1256 /]
+[module plugin('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service/]
+[template public plugin(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+
+[file (directory+'/includes/'+ prefix +'_activator.php', false, 'UTF-8')]
+<?php
+/**
+ * Fired during plugin activation.
+ *
+ * This class defines all code necessary to run during the plugin's activation.
+ *
+[getCopyrightComment()/]
+ */
+class [prefix/]_Activator {
+
+	/**
+	 * Short Description. (use period)
+	 *
+	 * Long Description.
+	 *
+	 * @since    1.0.0
+	 */
+	public static function activate() {
+
+	}
+
+}
+[/file]
+
+[file (directory+'/includes/'+ prefix +'_deactivator.php', false, 'UTF-8')]
+<?php
+/**
+ * Fired during plugin deactivation.
+ *
+ * This class defines all code necessary to run during the plugin's deactivation.
+ *
+[getCopyrightComment()/]
+ */
+class [prefix/]_Deactivator {
+
+	/**
+	 * Short Description. (use period)
+	 *
+	 * Long Description.
+	 *
+	 * @since    1.0.0
+	 */
+	public static function deactivate() {
+
+	}
+
+}
+[/file]
+[file (directory+'/includes/'+ prefix +'_i18n.php', false, 'UTF-8')]
+<?php
+
+/**
+ * Define the internationalization functionality.
+ *
+ * Loads and defines the internationalization files for this plugin
+ * so that it is ready for translation.
+ *
+[getCopyrightComment()/]
+ */
+class [prefix/]_i18n {
+
+
+	/**
+	 * Load the plugin text domain for translation.
+	 *
+	 * @since    1.0.0
+	 */
+	public function load_plugin_textdomain() {
+
+		load_plugin_textdomain(
+			'[prefix/]',
+			false,
+			dirname( dirname( plugin_basename( __FILE__ ) ) ) .'/[getLanguagesDirectory()/]/'
+		);
+	}
+}
+[/file]
+[file (directory+'/includes/'+ prefix +'_loader.php', false, 'UTF-8')]
+<?php
+
+/**
+ * Register all actions and filters for the plugin.
+ *
+ * Maintain a list of all hooks that are registered throughout
+ * the plugin, and register them with the WordPress API. Call the
+ * run function to execute the list of actions and filters.
+ *
+[getCopyrightComment()/]
+ */
+class [prefix/]_Loader {
+
+	/**
+	 * The array of actions registered with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      array    $actions    The actions registered with WordPress to fire when the plugin loads.
+	 */
+	protected $actions;
+
+	/**
+	 * The array of filters registered with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      array    $filters    The filters registered with WordPress to fire when the plugin loads.
+	 */
+	protected $filters;
+
+	/**
+	 * Initialize the collections used to maintain the actions and filters.
+	 *
+	 * @since    1.0.0
+	 */
+	public function __construct() {
+
+		$this->actions = array();
+		$this->filters = array();
+
+	}
+
+	/**
+	 * Add a new action to the collection to be registered with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @param    string               $hook             The name of the WordPress action that is being registered.
+	 * @param    object               $component        A reference to the instance of the object on which the action is defined.
+	 * @param    string               $callback         The name of the function definition on the $component.
+	 * @param    int                  $priority         Optional. The priority at which the function should be fired. Default is 10.
+	 * @param    int                  $accepted_args    Optional. The number of arguments that should be passed to the $callback. Default is 1.
+	 */
+	public function add_action( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
+		$this->actions = $this->add( $this->actions, $hook, $component, $callback, $priority, $accepted_args );
+	}
+
+
+  public function add_menu($page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '', $position = null){
+//	  echo 'ewewewe'.add_menu_page;
+	add_menu_page(__($page_title, '[td/]'), __( $menu_title, '[prefix/]'), $capability, $menu_slug, $function,$icon_url,$position);
+  }
+
+  public function add_submenu_page($parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function = '', $position = null){
+	add_submenu_page($parent_slug,__($page_title, '[prefix/]'),__( $menu_title, '[prefix/]'),$capability, $menu_slug, $function, $position);
+  }
+
+
+  /**
+	 * Add a new filter to the collection to be registered with WordPress.
+	 *
+	 * @since    1.0.0
+	 * @param    string               $hook             The name of the WordPress filter that is being registered.
+	 * @param    object               $component        A reference to the instance of the object on which the filter is defined.
+	 * @param    string               $callback         The name of the function definition on the $component.
+	 * @param    int                  $priority         Optional. The priority at which the function should be fired. Default is 10.
+	 * @param    int                  $accepted_args    Optional. The number of arguments that should be passed to the $callback. Default is 1
+	 */
+	public function add_filter( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
+		$this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority, $accepted_args );
+	}
+
+	/**
+	 * A utility function that is used to register the actions and hooks into a single
+	 * collection.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @param    array                $hooks            The collection of hooks that is being registered (that is, actions or filters).
+	 * @param    string               $hook             The name of the WordPress filter that is being registered.
+	 * @param    object               $component        A reference to the instance of the object on which the filter is defined.
+	 * @param    string               $callback         The name of the function definition on the $component.
+	 * @param    int                  $priority         The priority at which the function should be fired.
+	 * @param    int                  $accepted_args    The number of arguments that should be passed to the $callback.
+	 * @return   array                                  The collection of actions and filters registered with WordPress.
+	 */
+	private function add( $hooks, $hook, $component, $callback, $priority, $accepted_args ) {
+
+		$hooks ['[]'/] = array(
+			'hook'          => $hook,
+			'component'     => $component,
+			'callback'      => $callback,
+			'priority'      => $priority,
+			'accepted_args' => $accepted_args
+		);
+
+		return $hooks;
+
+	}
+
+	/**
+	 * Register the filters and actions with WordPress.
+	 *
+	 * @since    1.0.0
+	 */
+	public function run() {
+
+		foreach ( $this->filters as $hook ) {
+			add_filter( $hook['['/]'hook'[']'/], array( $hook['['/]'component'[']'/], $hook['['/]'callback'[']'/] ), $hook['['/]'priority'[']'/], $hook['['/]'accepted_args'[']'/] );
+		}
+
+		foreach ( $this->actions as $hook ) {
+			add_action( $hook['['/]'hook'[']'/], array( $hook['['/]'component'[']'/], $hook['['/]'callback'[']'/] ), $hook['['/]'priority'[']'/], $hook['['/]'accepted_args'[']'/] );
+		}
+
+	}
+
+}
+
+[/file]
+
+[/template]

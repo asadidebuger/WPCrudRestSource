@@ -1,0 +1,67 @@
+[comment encoding = Cp1256 /]
+[module extendController('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service/]
+[template public extendController(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+
+
+[file (directory+'/ws/'+ prefix +'_extend_controller.php', false, 'UTF-8')]
+<?php
+
+ /**
+ * Controller class for extend REST webservice.
+ *
+[plg.getCopyrightComment(plg,'4.7.0')/]
+ */
+class [prefix/]_extend_controller extends WP_REST_Controller {
+
+ /**
+ * Register the routes for the objects of the controller.
+ */
+  public function register_routes() {
+	$namespace = '[prefix/]';
+	$base = 'extend';
+[for(extend:WebserviceFunction|plg.serviceProvider.eContents(WebserviceFunction))]
+	register_rest_route( $namespace, '/v1/' . $base.'[extend.name.toLowerCase() /]', array(
+		array(
+			'methods'             => array('[extend.method /]'),
+			'callback'            => array( $this, '[extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase() /]' ),
+[if(extend.checkAccessControl)]
+			'permission_callback' => array( $this, '[extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase() /]_permission_check' ),
+[/if]
+		),
+	) );
+	
+[/for]
+  }
+
+[for(extend:WebserviceFunction|plg.serviceProvider.eContents(WebserviceFunction))]
+
+  /**
+   * [extend.method/] [extend.name/]
+   *
+   * @param WP_REST_Request $request Full data about the request.
+   * @return WP_Error|WP_REST_Response
+   */
+  public function [extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase() /]( $request ) {
+	$data = array();
+	return new WP_REST_Response( $data , 200 );
+  }
+[if(extend.checkAccessControl)]
+
+  /**
+   * Check if a given request has access to [extend.method/] [extend.name.toLowerCase()/]
+   *
+   * @param WP_REST_Request $request Full data about the request.
+   * @return WP_Error|bool
+   */
+  public function [extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase() /]_permission_check( $request ) {
+	return current_user_can('[prefix+'_ws_'+extend.method.toString().toLowerCase()+'_'+extend.name.toLowerCase()/]');
+  }
+[/if]
+ 
+[/for]
+}
+
+[/file]
+
+[/template]

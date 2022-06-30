@@ -1,0 +1,26 @@
+[comment encoding = Cp1256 /]
+[module classes('http://crudrest.msde.ui.ac.ir')/]
+
+[import crudrest::generator::main::include::classes::prerequest/]
+[import crudrest::generator::main::include::classes::listView/]
+[import crudrest::generator::main::include::classes::formView/]
+[import crudrest::generator::main::include::classes::page/]
+[import crudrest::generator::main::include::classes::entity/]
+[import crudrest::generator::main::include::classes::fieldBase/]
+[import crudrest::generator::main::include::classes::field/]
+[import crudrest::generator::main::include::classes::relation/]
+[import crudrest::generator::main::include::classes::fieldType/]
+
+[template public classes(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+	[prerequest(directory,prefix,td)/]
+	[listView(directory,prefix,td)/]
+	[formView(directory,prefix,td)/]
+	[page(directory,prefix,td)/]
+	[entity(directory,prefix,td)/]
+	[fieldBase(directory,prefix,td)/]
+	[field(directory,prefix,td)/]
+	[relation(directory,prefix,td)/]
+	[fieldType(directory,prefix,td)/]
+
+
+[/template]

@@ -1,0 +1,29 @@
+[comment encoding = Cp1256 /]
+[module formView('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[template public formView(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+
+[file (directory+'/includes/'+ prefix +'_FormView.php', false, 'UTF-8')]
+<?php
+/**
+ * Class for page detiale mode (form view) configuration.
+ *
+[getCopyrightComment()/]
+ */
+include_once '[prefix/]_Models.php';
+
+class [prefix/]_FormView {
+
+  public $fieldsLayouts=['[]'/];
+  public $entity_key;
+
+  public function __construct($entity_key,$fieldsLayouts)
+  {
+    $this->entity_key=$entity_key;
+    $this->fieldsLayouts=$fieldsLayouts;
+   
+  }
+}
+[/file]
+
+[/template]

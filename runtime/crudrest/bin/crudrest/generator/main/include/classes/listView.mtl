@@ -1,0 +1,42 @@
+[comment encoding = Cp1256 /]
+[module listView('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[template public listView(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+[file (directory+'/includes/'+ prefix +'_ListView.php', false, 'UTF-8')]
+<?php
+/**
+ * Class for ListView (grid view) configuration.
+ *
+[getCopyrightComment()/]
+ */
+include_once '[prefix/]_Models.php';
+include_once '[prefix/]_Field.php';
+include_once '[prefix/]_Relation.php';
+class [prefix/]_ListView {
+  public $props= array('createButton'=>true,'editButton'=>true,'searchBox'=>true,'detailButton'=>false,'deleteButton'=>true,'itemsPerPage'=>10);
+  public $columns= array();
+  public $searchable= array();
+  public $sortable= array();
+  public $bulk= array();
+  public $entity_key,$title,$where;
+
+  public function __construct($entity_key,$title,$columns,$sortableColumns,$searchableColumns,$props=null,$bulkActions=null,$where=null)
+  {
+    if ($props!=null)$this->props=$props;
+    if($bulkActions!=null) $this->bulk=$bulkActions;
+    else if ($bulkActions==null&&$this->props['[\'deleteButton\']'/])$this->bulk=['[\'delete\'=>[\'title\'=>\'Remove All\',\'icon\'=>\'trash\']]'/]; 
+    $this->entity_key=$entity_key;
+    $this->title=$title;
+    $this->props=$props;
+    $this->columns=$columns;
+    $this->sortable=$sortableColumns;
+    $this->searchable=$searchableColumns;
+    $this->where=$where;
+  }
+ 
+  public function getEntity(){
+	return [prefix/]_Models::get_entity($this->entity_key);
+  }
+}
+[/file]
+[/template]

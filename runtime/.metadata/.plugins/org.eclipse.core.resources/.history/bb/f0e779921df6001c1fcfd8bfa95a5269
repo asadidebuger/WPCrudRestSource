@@ -1,0 +1,7 @@
+[comment encoding = Cp1256 /]
+[module classes('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[import crudrest::generator::main::include::db /]
+[template public classes(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+
+[/template]

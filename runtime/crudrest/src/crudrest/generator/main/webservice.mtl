@@ -1,0 +1,18 @@
+[comment encoding = Cp1256 /]
+[module webservice('http://crudrest.msde.ui.ac.ir')/]
+
+[import crudrest::generator::main::webservice::ws/]
+[import crudrest::generator::main::webservice::controller/]
+[import crudrest::generator::main::webservice::entityController/]
+[import crudrest::generator::main::webservice::pageController/]
+[import crudrest::generator::main::webservice::extendController/]
+[import crudrest::generator::main::webservice::optionsController/]
+
+[template public webservice(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+	[ws(directory,prefix,td)/]
+	[controller(directory,prefix,td)/]
+	[entityController(directory,prefix,td)/]
+	[pageController(directory,prefix,td)/]
+	[extendController(directory,prefix,td)/]
+	[optionsController(directory,prefix,td)/]
+[/template]
