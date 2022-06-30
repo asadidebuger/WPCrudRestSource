@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crudrest:PluginCreator xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:crudrest="http://crudrest.msde.ui.ac.ir">
   <plugin name="Micro HRM" hasAccessControl="true">
-    <detail prefix="microhrm" description="simple hrm system" dbVersion="4" author="Mohammadreza Asadi" authorURI="http://microsign.ir" license="MIT" textDomain="microhrm" directory="microhrm"/>
+    <detail prefix="microhrm" description="simple hrm system" dbVersion="5" author="Mohammadreza Asadi" authorURI="http://microsign.ir" license="MIT" textDomain="microhrm" directory="microhrm"/>
     <gui>
-      <menu title="Micro HRM" slug="microhrm">
+      <menu title="Micro HRM" slug="microhrm" icon="admin-users">
         <items page="//@plugin/@gui/@page.0"/>
         <items page="//@plugin/@gui/@page.8"/>
         <items page="//@plugin/@gui/@page.1"/>
@@ -233,7 +233,7 @@
         <fields key="end" label="End" required="true">
           <type href="FieldTypeRepo.crudrest#datetime"/>
         </fields>
-        <relations key="person" label="People" entity="person" many="true"/>
+        <relations key="person" label="People" entity="employee" many="true" opposite="//@plugin/@serviceProvider/@entityModel.8/@relations.2"/>
       </entityModel>
       <entityModel key="asset" label="Asset" labelPlural="Assets" titleScript="item.title">
         <fields key="title" label="Title" index="true" required="true">

@@ -145,11 +145,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference crudrest.ecore#//FieldType/input"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldType/adapterFromDB"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldType/adapterToDB"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute crudrest.ecore#//FieldType/adapterSearch"/>
     </genClasses>
     <genClasses ecoreClass="crudrest.ecore#//DBFieldConfig">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//DBFieldConfig/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//DBFieldConfig/expression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//DBFieldConfig/searchAdapter"/>
     </genClasses>
     <genClasses ecoreClass="crudrest.ecore#//VueElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute crudrest.ecore#//VueElement/tag"/>

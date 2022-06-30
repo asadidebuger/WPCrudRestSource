@@ -10,7 +10,7 @@
 include_once 'microhrm_Models.php';
 
 class microhrm_db {
-	private $version= 4 ;
+	private $version= 5 ;
 	 
 	//Models instance static field
 	private static $db=null;
@@ -48,7 +48,6 @@ class microhrm_db {
 				`father` INT(11) UNSIGNED,
 				`building_employ` INT(11) UNSIGNED,
 				`shift_employe` INT(11) UNSIGNED,
-				`insurance_person` INT(11) UNSIGNED,
 				`blood` INT(11) UNSIGNED,
 				UNIQUE KEY(`mobile`))");
 		$wpdb->query("CREATE TABLE {$wpdb->prefix}microhrm_blood (
@@ -120,8 +119,8 @@ class microhrm_db {
 				`edu` INT(11) UNSIGNED);");
 		$wpdb->query("CREATE TABLE {$wpdb->prefix}microhrm_m_employee_insurance (
 				`id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-				`employee` INT(11) UNSIGNED,
-				`insurance_person` INT(11) UNSIGNED);");
+				`insurance` INT(11) UNSIGNED,
+				`employee` INT(11) UNSIGNED);");
 		$wpdb->query("CREATE TABLE {$wpdb->prefix}microhrm_m_building_employee (
 				`id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 				`employee` INT(11) UNSIGNED,
@@ -157,10 +156,10 @@ class microhrm_db {
 		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_building");
 		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_shift");
 		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_insurance");
+		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_m_employee_insurance");
 		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_asset");
 		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_assetCat");
 		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_employee");
-		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_m_employee_insurance");
 		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_m_building_employee");
 		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_m_ability_employee");
 		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}microhrm_ability");
@@ -269,8 +268,8 @@ class microhrm_db {
 	if ($search){
 	  foreach ($fields as $key) {
 		$field = $entity->get_field($key);
-		if ($field->type != 'text' && $field->type != 'nationalCode') continue;
-		$searchWhere[] = "$primary_alias.$key LIKE '%$search%'";
+		if (!$field->getFieldType()->get_search_expression) continue;
+		$searchWhere[] =$field->getFieldType()->get_search_expression("$primary_alias.$key",$search) ;
 	  }
 	  $searchWhere=implode(' OR ',$searchWhere);
 	  if($searchWhere){

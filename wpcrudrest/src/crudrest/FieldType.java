@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link crudrest.FieldType#getInput <em>Input</em>}</li>
  *   <li>{@link crudrest.FieldType#getAdapterFromDB <em>Adapter From DB</em>}</li>
  *   <li>{@link crudrest.FieldType#getAdapterToDB <em>Adapter To DB</em>}</li>
+ *   <li>{@link crudrest.FieldType#getAdapterSearch <em>Adapter Search</em>}</li>
  * </ul>
  *
  * @see crudrest.crudrestPackage#getFieldType()
@@ -134,5 +135,27 @@ public interface FieldType extends EObject {
 	 * @generated
 	 */
 	void setAdapterToDB(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Adapter Search</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Adapter Search</em>' attribute.
+	 * @see #setAdapterSearch(String)
+	 * @see crudrest.crudrestPackage#getFieldType_AdapterSearch()
+	 * @model
+	 * @generated
+	 */
+	String getAdapterSearch();
+
+	/**
+	 * Sets the value of the '{@link crudrest.FieldType#getAdapterSearch <em>Adapter Search</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Adapter Search</em>' attribute.
+	 * @see #getAdapterSearch()
+	 * @generated
+	 */
+	void setAdapterSearch(String value);
 
 } // FieldType

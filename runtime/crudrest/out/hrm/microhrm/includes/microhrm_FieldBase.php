@@ -25,4 +25,8 @@ class microhrm_FieldBase
     $this->unique=$unique;
     $this->required=$required;
   }
+  public function getFieldType(): microhrm_field_type
+  {
+     return microhrm_field_type::get($this->type);
+  }
 }

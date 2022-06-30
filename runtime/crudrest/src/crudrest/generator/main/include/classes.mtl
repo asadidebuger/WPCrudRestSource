@@ -2,6 +2,7 @@
 [module classes('http://crudrest.msde.ui.ac.ir')/]
 
 [import crudrest::generator::main::include::classes::prerequest/]
+[import crudrest::generator::main::include::classes::plugin/]
 [import crudrest::generator::main::include::classes::listView/]
 [import crudrest::generator::main::include::classes::formView/]
 [import crudrest::generator::main::include::classes::page/]
@@ -13,6 +14,7 @@
 
 [template public classes(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
 	[prerequest(directory,prefix,td)/]
+	[plugin(directory,prefix,td)/]
 	[listView(directory,prefix,td)/]
 	[formView(directory,prefix,td)/]
 	[page(directory,prefix,td)/]

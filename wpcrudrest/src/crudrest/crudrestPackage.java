@@ -1509,13 +1509,22 @@ public interface crudrestPackage extends EPackage {
 	int FIELD_TYPE__ADAPTER_TO_DB = 4;
 
 	/**
+	 * The feature id for the '<em><b>Adapter Search</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_TYPE__ADAPTER_SEARCH = 5;
+
+	/**
 	 * The number of structural features of the '<em>Field Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_TYPE_FEATURE_COUNT = 5;
+	int FIELD_TYPE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Field Type</em>' class.
@@ -1555,22 +1564,13 @@ public interface crudrestPackage extends EPackage {
 	int DB_FIELD_CONFIG__EXPRESSION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Search Adapter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_FIELD_CONFIG__SEARCH_ADAPTER = 2;
-
-	/**
 	 * The number of structural features of the '<em>DB Field Config</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DB_FIELD_CONFIG_FEATURE_COUNT = 3;
+	int DB_FIELD_CONFIG_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>DB Field Config</em>' class.
@@ -2876,6 +2876,17 @@ public interface crudrestPackage extends EPackage {
 	EAttribute getFieldType_AdapterToDB();
 
 	/**
+	 * Returns the meta object for the attribute '{@link crudrest.FieldType#getAdapterSearch <em>Adapter Search</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Adapter Search</em>'.
+	 * @see crudrest.FieldType#getAdapterSearch()
+	 * @see #getFieldType()
+	 * @generated
+	 */
+	EAttribute getFieldType_AdapterSearch();
+
+	/**
 	 * Returns the meta object for class '{@link crudrest.DBFieldConfig <em>DB Field Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2906,17 +2917,6 @@ public interface crudrestPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDBFieldConfig_Expression();
-
-	/**
-	 * Returns the meta object for the attribute '{@link crudrest.DBFieldConfig#getSearchAdapter <em>Search Adapter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Search Adapter</em>'.
-	 * @see crudrest.DBFieldConfig#getSearchAdapter()
-	 * @see #getDBFieldConfig()
-	 * @generated
-	 */
-	EAttribute getDBFieldConfig_SearchAdapter();
 
 	/**
 	 * Returns the meta object for class '{@link crudrest.VueElement <em>Vue Element</em>}'.
@@ -3956,6 +3956,14 @@ public interface crudrestPackage extends EPackage {
 		EAttribute FIELD_TYPE__ADAPTER_TO_DB = eINSTANCE.getFieldType_AdapterToDB();
 
 		/**
+		 * The meta object literal for the '<em><b>Adapter Search</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FIELD_TYPE__ADAPTER_SEARCH = eINSTANCE.getFieldType_AdapterSearch();
+
+		/**
 		 * The meta object literal for the '{@link crudrest.impl.DBFieldConfigImpl <em>DB Field Config</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3980,14 +3988,6 @@ public interface crudrestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DB_FIELD_CONFIG__EXPRESSION = eINSTANCE.getDBFieldConfig_Expression();
-
-		/**
-		 * The meta object literal for the '<em><b>Search Adapter</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DB_FIELD_CONFIG__SEARCH_ADAPTER = eINSTANCE.getDBFieldConfig_SearchAdapter();
 
 		/**
 		 * The meta object literal for the '{@link crudrest.impl.VueElementImpl <em>Vue Element</em>}' class.

@@ -66,6 +66,7 @@ public class FieldTypeItemProvider
 			addKeyPropertyDescriptor(object);
 			addAdapterFromDBPropertyDescriptor(object);
 			addAdapterToDBPropertyDescriptor(object);
+			addAdapterSearchPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -128,6 +129,28 @@ public class FieldTypeItemProvider
 				 getString("_UI_FieldType_adapterToDB_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_FieldType_adapterToDB_feature", "_UI_FieldType_type"),
 				 crudrestPackage.Literals.FIELD_TYPE__ADAPTER_TO_DB,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Adapter Search feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAdapterSearchPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FieldType_adapterSearch_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FieldType_adapterSearch_feature", "_UI_FieldType_type"),
+				 crudrestPackage.Literals.FIELD_TYPE__ADAPTER_SEARCH,
 				 true,
 				 true,
 				 false,
@@ -208,6 +231,7 @@ public class FieldTypeItemProvider
 			case crudrestPackage.FIELD_TYPE__KEY:
 			case crudrestPackage.FIELD_TYPE__ADAPTER_FROM_DB:
 			case crudrestPackage.FIELD_TYPE__ADAPTER_TO_DB:
+			case crudrestPackage.FIELD_TYPE__ADAPTER_SEARCH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case crudrestPackage.FIELD_TYPE__CONFIG:

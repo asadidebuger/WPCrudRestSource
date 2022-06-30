@@ -9,14 +9,19 @@
  * 
 [getCopyrightComment()/]
  */
+[for (fieldType : FieldType|creator.repository.fieldType)]
+require_once('fieldtype/[prefix/]_field_type_[fieldType.key/].php');
+[/for]
 
 class [prefix/]_field_type {
 
-  public $key,$tag,$url_js,$url_css,$from_db_func,$to_db_func,$get_props_func,$component;
+  public $key,$tag,$url_js,$url_css,$from_db_func,$to_db_func,$get_props_func,$component,$db_field_type,$db_field_expression;
   
-  public function __construct($key,$tag)
+  public function __construct($key,$tag,$db_field_type,$db_field_expression)
   {
     $this->key=$key;
+    $this->db_field_type=$db_field_type;
+    $this->db_field_expression=$db_field_expression;
     $this->tag=$tag;
     $this->get_props_func=function ($page,$field,$key){return "label=\"$field->label\" :style=\"page.formView.fieldsLayouts.$field->key.style\" v-model=\"item.$key\"";};
   }
@@ -39,73 +44,61 @@ class [prefix/]_field_type {
   public static function init()
   {
 	if (count(self::$field_types)>0)return;
-
-	$relation=new [prefix/]_field_type('relation','v-autocomplete');
-	$relation->get_props_func=function ($page,$field,$key){
-	  return "label=\"$field->label\"
-				  :style=\"page.formView.fieldsLayouts.$field->key.style\"
-				  v-model=\"item.$key\"
-				  :items=\"rData.$key\"
-				  :loading=\"!rData.$key\"
-				  :item-text=\"(item)=>resolveRelationTitle('$key',item)\"
-				  :item-value=\"(item)=>item.id\"
-				  :multiple=\"page.entity.relations.$key.many \"
-				  :clearable=\"true\"
-				  :disabled=\"mode==='view'\"";
-	};
-	$relation->from_db_func=function($item,$key,$value){
-		 return $value;
-	};
-	$relation->to_db_func=function($item,$key,$value){
-	  if(is_array($value)){
-	    if (array_key_exists('id',$value)) ['return $value["id"]?(int)$value["id"]:""'/];
-	    $ids=array();
-	    foreach ($value as $val){
-		  ['if(is_array($val))$ids[]=(int)$val["id"];'/]
-		  ['else $ids[]=(int)$val;'/]
-		}
-	    return $ids;
-	  }
-		return $value?(int)$value:'';;
-	};
-	self::$field_types['[\'relation\']'/]=$relation;
 [for (fieldType : FieldType|creator.repository.fieldType)]
-
-	$[fieldType.key/]=new [prefix/]_field_type('[fieldType.key/]','[fieldType.input.tag/]');
-[if(fieldType.input.urlJs.isNotEmpty() )]
-	$[fieldType.key/]->url_js="[fieldType.input.urlJs/]";
-[/if]
-[if(fieldType.input.component.isNotEmpty() )]
-	$[fieldType.key/]->component="[fieldType.input.component/]";
-[/if]
-[if(fieldType.input.urlCss.isNotEmpty() )]
-	$[fieldType.key/]->url_css="[fieldType.input.urlCss/]";
-[/if]
-[if(fieldType.input.params.isNotEmpty())]
-	$[fieldType.key/]->get_props_func=function ($page,$field,$key){
-	   [fieldType.input.params/]
-	};
-[/if]
-	[if (fieldType.adapterFromDB.isNotEmpty())]
-	$[fieldType.key/]->from_db_func=function($item,$key,$value){ 
-		 [fieldType.adapterFromDB/] 
-	};[/if]
-
-	[if (fieldType.adapterToDB.isNotEmpty())] 
-	$[fieldType.key/]->to_db_func=function($item,$key,$value){ 
-		 [fieldType.adapterToDB/] 
-	};[/if]
-
-	self::$field_types['[\''+fieldType.key+'\']'/]=$[fieldType.key/];
+	self::$field_types['[\''+fieldType.key+'\']'/]=new [prefix/]_field_type_[fieldType.key/]();
 [/for]
   }
-
   public static function get($key):[prefix/]_field_type {
     self::init();
     return self::$field_types['[$key]'/];
   }
-
 }
 [/file]
+
+[for (fieldType : FieldType|creator.repository.fieldType)]
+
+[file (directory+'/includes/fieldtype/'+ prefix +'_field_type_'+fieldType.key+'.php', false, 'UTF-8')]
+<?php
+/**
+ * 
+[plg.getCopyrightComment()/]
+ */
+
+class microhrm_field_type_[fieldType.key/] extends microhrm_field_type {
+    public function __construct() {
+        parent::__construct('[fieldType.key/]','[fieldType.input.tag/]','[fieldType.config.type/]','[fieldType.config.expression/]');
+[if(fieldType.input.urlJs.isNotEmpty() )]
+		$this->url_js="[fieldType.input.urlJs/]";
+[/if]
+[if(fieldType.input.component.isNotEmpty() )]
+		$this->component="[fieldType.input.component/]";
+[/if]
+[if(fieldType.input.urlCss.isNotEmpty() )]
+		$this->url_css="[fieldType.input.urlCss/]";
+[/if]
+    }
+[if(fieldType.input.params.isNotEmpty())]
+	public function get_props_func($page,$field,$key){
+	   [fieldType.input.params/]
+	}
+[/if]
+[if (fieldType.adapterFromDB.isNotEmpty())]
+	public function from_db_func($item,$key,$value){ 
+	 [fieldType.adapterFromDB/] 
+	}
+[/if]
+[if (fieldType.adapterToDB.isNotEmpty())] 
+	public function to_db_func($item,$key,$value){ 
+	 [fieldType.adapterToDB/] 
+	}
+[/if]
+[if (fieldType.adapterSearch.isNotEmpty())]
+	public function get_search_expression($key,$value){ 
+	 [fieldType.adapterSearch/] 
+	}
+[/if]
+}
+[/file]
+[/for]
 [/let]
 [/template]

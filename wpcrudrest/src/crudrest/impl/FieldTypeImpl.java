@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link crudrest.impl.FieldTypeImpl#getInput <em>Input</em>}</li>
  *   <li>{@link crudrest.impl.FieldTypeImpl#getAdapterFromDB <em>Adapter From DB</em>}</li>
  *   <li>{@link crudrest.impl.FieldTypeImpl#getAdapterToDB <em>Adapter To DB</em>}</li>
+ *   <li>{@link crudrest.impl.FieldTypeImpl#getAdapterSearch <em>Adapter Search</em>}</li>
  * </ul>
  *
  * @generated
@@ -113,6 +114,26 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
 	 * @ordered
 	 */
 	protected String adapterToDB = ADAPTER_TO_DB_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAdapterSearch() <em>Adapter Search</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAdapterSearch()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ADAPTER_SEARCH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAdapterSearch() <em>Adapter Search</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAdapterSearch()
+	 * @generated
+	 * @ordered
+	 */
+	protected String adapterSearch = ADAPTER_SEARCH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -287,6 +308,27 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getAdapterSearch() {
+		return adapterSearch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAdapterSearch(String newAdapterSearch) {
+		String oldAdapterSearch = adapterSearch;
+		adapterSearch = newAdapterSearch;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, crudrestPackage.FIELD_TYPE__ADAPTER_SEARCH, oldAdapterSearch, adapterSearch));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -316,6 +358,8 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
 				return getAdapterFromDB();
 			case crudrestPackage.FIELD_TYPE__ADAPTER_TO_DB:
 				return getAdapterToDB();
+			case crudrestPackage.FIELD_TYPE__ADAPTER_SEARCH:
+				return getAdapterSearch();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -342,6 +386,9 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
 				return;
 			case crudrestPackage.FIELD_TYPE__ADAPTER_TO_DB:
 				setAdapterToDB((String)newValue);
+				return;
+			case crudrestPackage.FIELD_TYPE__ADAPTER_SEARCH:
+				setAdapterSearch((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -370,6 +417,9 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
 			case crudrestPackage.FIELD_TYPE__ADAPTER_TO_DB:
 				setAdapterToDB(ADAPTER_TO_DB_EDEFAULT);
 				return;
+			case crudrestPackage.FIELD_TYPE__ADAPTER_SEARCH:
+				setAdapterSearch(ADAPTER_SEARCH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -392,6 +442,8 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
 				return ADAPTER_FROM_DB_EDEFAULT == null ? adapterFromDB != null : !ADAPTER_FROM_DB_EDEFAULT.equals(adapterFromDB);
 			case crudrestPackage.FIELD_TYPE__ADAPTER_TO_DB:
 				return ADAPTER_TO_DB_EDEFAULT == null ? adapterToDB != null : !ADAPTER_TO_DB_EDEFAULT.equals(adapterToDB);
+			case crudrestPackage.FIELD_TYPE__ADAPTER_SEARCH:
+				return ADAPTER_SEARCH_EDEFAULT == null ? adapterSearch != null : !ADAPTER_SEARCH_EDEFAULT.equals(adapterSearch);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -412,6 +464,8 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
 		result.append(adapterFromDB);
 		result.append(", adapterToDB: ");
 		result.append(adapterToDB);
+		result.append(", adapterSearch: ");
+		result.append(adapterSearch);
 		result.append(')');
 		return result.toString();
 	}

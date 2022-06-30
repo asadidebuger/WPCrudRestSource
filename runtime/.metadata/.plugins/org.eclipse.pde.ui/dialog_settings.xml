@@ -15,4 +15,15 @@
 			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 		</section>
 	</section>
+	<section name="editBundleContainerWizard">
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+	</section>
+	<section name="pde_compiler_errorwarnings_block">
+		<item key="0" value="false"/>
+		<item key="1" value="false"/>
+		<item key="2" value="false"/>
+		<item key="3" value="true"/>
+		<item key="4" value="false"/>
+	</section>
 </section>

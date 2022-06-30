@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="Cp1256"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="frontResources" nsURI="crudrest::generator::main::front::frontResources" startHeaderPosition="30" endHeaderPosition="85">
+  <mtl:Module name="frontResources" nsURI="crudrest::generator::main::front::frontResources" startHeaderPosition="31" endHeaderPosition="86">
     <input>
       <takesTypesFrom href="http://crudrest.msde.ui.ac.ir#/"/>
     </input>
     <imports href="../service.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="frontResources" visibility="Public">
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" &#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" &#xD;&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(function( $ ) {&#xA;&#x9;'use strict';&#xA;&#xA;&#x9;/**&#xA;&#x9; * All of the code for your public-facing JavaScript source&#xA;&#x9; * should reside in this file.&#xA;&#x9; *&#xA;&#x9; * Note: It has been assumed you will write jQuery code here, so the&#xA;&#x9; * $ function reference has been prepared for usage within the scope&#xA;&#x9; * of this function.&#xA;&#x9; *&#xA;&#x9; * This enables you to define handlers, for when the DOM is ready:&#xA;&#x9; *&#xA;&#x9; * $(function() {&#xA;&#x9; *&#xA;&#x9; * });&#xA;&#x9; *&#xA;&#x9; * When the window is loaded:&#xA;&#x9; *&#xA;&#x9; * $( window ).load(function() {&#xA;&#x9; *&#xA;&#x9; * });&#xA;&#x9; *&#xA;&#x9; * ...and/or other possibilities.&#xA;&#x9; *&#xA;&#x9; * Ideally, it is not considered best practise to attach more than a&#xA;&#x9; * single DOM-ready or window-load handler for a particular page.&#xA;&#x9; * Although scripts in the WordPress core, Plugins and Themes may be&#xA;&#x9; * practising this, we should strive to set a better example in our own work.&#xA;&#x9; */&#xA;&#xA;})( jQuery );&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(function( $ ) {&#xD;&#xA;&#x9;'use strict';&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * All of the code for your public-facing JavaScript source&#xD;&#xA;&#x9; * should reside in this file.&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * Note: It has been assumed you will write jQuery code here, so the&#xD;&#xA;&#x9; * $ function reference has been prepared for usage within the scope&#xD;&#xA;&#x9; * of this function.&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * This enables you to define handlers, for when the DOM is ready:&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * $(function() {&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * });&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * When the window is loaded:&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * $( window ).load(function() {&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * });&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * ...and/or other possibilities.&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * Ideally, it is not considered best practise to attach more than a&#xD;&#xA;&#x9; * single DOM-ready or window-load handler for a particular page.&#xD;&#xA;&#x9; * Although scripts in the WordPress core, Plugins and Themes may be&#xD;&#xA;&#x9; * practising this, we should strive to set a better example in our own work.&#xD;&#xA;&#x9; */&#xD;&#xA;&#xD;&#xA;})( jQuery );&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -34,9 +34,9 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/**&#xA; * All of the CSS for your public-facing functionality should be&#xA; * included in this file.&#xA; */&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/**&#xD;&#xA; * All of the CSS for your public-facing functionality should be&#xD;&#xA; * included in this file.&#xD;&#xA; */&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -62,7 +62,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <parameter name="plg">
         <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
       </parameter>
@@ -209,143 +209,143 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/frontResources">
-      <details key="start" value="133"/>
-      <details key="end" value="1343"/>
+      <details key="start" value="136"/>
+      <details key="end" value="1390"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/frontResources/%">
-      <details key="start" value="231"/>
-      <details key="end" value="233"/>
+      <details key="start" value="235"/>
+      <details key="end" value="238"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/frontResources/%.1">
-      <details key="start" value="233"/>
-      <details key="end" value="1149"/>
+      <details key="start" value="238"/>
+      <details key="end" value="1187"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/frontResources/%.1/%">
-      <details key="start" value="304"/>
-      <details key="end" value="1142"/>
+      <details key="start" value="310"/>
+      <details key="end" value="1180"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/frontResources/%.1/%.1">
-      <details key="start" value="240"/>
-      <details key="end" value="285"/>
+      <details key="start" value="245"/>
+      <details key="end" value="290"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/frontResources/%.1/%.1/%">
-      <details key="start" value="240"/>
-      <details key="end" value="271"/>
+      <details key="start" value="245"/>
+      <details key="end" value="276"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/frontResources/%.1/%.1/%/%">
-      <details key="start" value="240"/>
-      <details key="end" value="263"/>
+      <details key="start" value="245"/>
+      <details key="end" value="268"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/frontResources/%.1/%.1/%/%/directory">
-      <details key="start" value="240"/>
-      <details key="end" value="249"/>
+      <details key="start" value="245"/>
+      <details key="end" value="254"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/frontResources/%.1/%.1/%/%/%">
-      <details key="start" value="250"/>
-      <details key="end" value="263"/>
+      <details key="start" value="255"/>
+      <details key="end" value="268"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/frontResources/%.1/%.1/%/prefix">
-      <details key="start" value="265"/>
-      <details key="end" value="271"/>
+      <details key="start" value="270"/>
+      <details key="end" value="276"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/frontResources/%.1/%.1/%.1">
-      <details key="start" value="273"/>
-      <details key="end" value="285"/>
+      <details key="start" value="278"/>
+      <details key="end" value="290"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/frontResources/%.1/%.2">
-      <details key="start" value="294"/>
-      <details key="end" value="301"/>
+      <details key="start" value="299"/>
+      <details key="end" value="306"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/frontResources/%.2">
-      <details key="start" value="1150"/>
-      <details key="end" value="1151"/>
+      <details key="start" value="1189"/>
+      <details key="end" value="1191"/>
       <details key="line" value="40"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/frontResources/%.3">
-      <details key="start" value="1151"/>
-      <details key="end" value="1330"/>
+      <details key="start" value="1191"/>
+      <details key="end" value="1375"/>
       <details key="line" value="41"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/frontResources/%.3/%">
-      <details key="start" value="1224"/>
-      <details key="end" value="1323"/>
+      <details key="start" value="1265"/>
+      <details key="end" value="1368"/>
       <details key="line" value="42"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/frontResources/%.3/%.1">
-      <details key="start" value="1158"/>
-      <details key="end" value="1205"/>
+      <details key="start" value="1198"/>
+      <details key="end" value="1245"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/frontResources/%.3/%.1/%">
-      <details key="start" value="1158"/>
-      <details key="end" value="1190"/>
+      <details key="start" value="1198"/>
+      <details key="end" value="1230"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/frontResources/%.3/%.1/%/%">
-      <details key="start" value="1158"/>
-      <details key="end" value="1182"/>
+      <details key="start" value="1198"/>
+      <details key="end" value="1222"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/frontResources/%.3/%.1/%/%/directory">
-      <details key="start" value="1158"/>
-      <details key="end" value="1167"/>
+      <details key="start" value="1198"/>
+      <details key="end" value="1207"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/frontResources/%.3/%.1/%/%/%">
-      <details key="start" value="1168"/>
-      <details key="end" value="1182"/>
+      <details key="start" value="1208"/>
+      <details key="end" value="1222"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/frontResources/%.3/%.1/%/prefix">
-      <details key="start" value="1184"/>
-      <details key="end" value="1190"/>
+      <details key="start" value="1224"/>
+      <details key="end" value="1230"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/frontResources/%.3/%.1/%.1">
-      <details key="start" value="1192"/>
-      <details key="end" value="1205"/>
+      <details key="start" value="1232"/>
+      <details key="end" value="1245"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/frontResources/%.3/%.2">
-      <details key="start" value="1214"/>
-      <details key="end" value="1221"/>
+      <details key="start" value="1254"/>
+      <details key="end" value="1261"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/frontResources/%.4">
-      <details key="start" value="1331"/>
-      <details key="end" value="1332"/>
+      <details key="start" value="1377"/>
+      <details key="end" value="1379"/>
       <details key="line" value="47"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/frontResources/plg">
-      <details key="start" value="165"/>
-      <details key="end" value="185"/>
+      <details key="start" value="168"/>
+      <details key="end" value="188"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/frontResources/directory">
-      <details key="start" value="186"/>
-      <details key="end" value="202"/>
+      <details key="start" value="189"/>
+      <details key="end" value="205"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/frontResources/prefix">
-      <details key="start" value="204"/>
-      <details key="end" value="217"/>
+      <details key="start" value="207"/>
+      <details key="end" value="220"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/frontResources/td">
-      <details key="start" value="219"/>
-      <details key="end" value="228"/>
+      <details key="start" value="222"/>
+      <details key="end" value="231"/>
       <details key="line" value="4"/>
     </eAnnotations>
   </ecore:EAnnotation>

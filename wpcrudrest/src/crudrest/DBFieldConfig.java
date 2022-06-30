@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link crudrest.DBFieldConfig#getType <em>Type</em>}</li>
  *   <li>{@link crudrest.DBFieldConfig#getExpression <em>Expression</em>}</li>
- *   <li>{@link crudrest.DBFieldConfig#getSearchAdapter <em>Search Adapter</em>}</li>
  * </ul>
  *
  * @see crudrest.crudrestPackage#getDBFieldConfig()
@@ -68,27 +67,5 @@ public interface DBFieldConfig extends EObject {
 	 * @generated
 	 */
 	void setExpression(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Search Adapter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Search Adapter</em>' attribute.
-	 * @see #setSearchAdapter(String)
-	 * @see crudrest.crudrestPackage#getDBFieldConfig_SearchAdapter()
-	 * @model
-	 * @generated
-	 */
-	String getSearchAdapter();
-
-	/**
-	 * Sets the value of the '{@link crudrest.DBFieldConfig#getSearchAdapter <em>Search Adapter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Search Adapter</em>' attribute.
-	 * @see #getSearchAdapter()
-	 * @generated
-	 */
-	void setSearchAdapter(String value);
 
 } // DBFieldConfig

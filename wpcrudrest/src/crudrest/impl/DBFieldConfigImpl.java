@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link crudrest.impl.DBFieldConfigImpl#getType <em>Type</em>}</li>
  *   <li>{@link crudrest.impl.DBFieldConfigImpl#getExpression <em>Expression</em>}</li>
- *   <li>{@link crudrest.impl.DBFieldConfigImpl#getSearchAdapter <em>Search Adapter</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,26 +66,6 @@ public class DBFieldConfigImpl extends MinimalEObjectImpl.Container implements D
 	 * @ordered
 	 */
 	protected String expression = EXPRESSION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSearchAdapter() <em>Search Adapter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSearchAdapter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SEARCH_ADAPTER_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSearchAdapter() <em>Search Adapter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSearchAdapter()
-	 * @generated
-	 * @ordered
-	 */
-	protected String searchAdapter = SEARCH_ADAPTER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,27 +133,6 @@ public class DBFieldConfigImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSearchAdapter() {
-		return searchAdapter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSearchAdapter(String newSearchAdapter) {
-		String oldSearchAdapter = searchAdapter;
-		searchAdapter = newSearchAdapter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, crudrestPackage.DB_FIELD_CONFIG__SEARCH_ADAPTER, oldSearchAdapter, searchAdapter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -182,8 +140,6 @@ public class DBFieldConfigImpl extends MinimalEObjectImpl.Container implements D
 				return getType();
 			case crudrestPackage.DB_FIELD_CONFIG__EXPRESSION:
 				return getExpression();
-			case crudrestPackage.DB_FIELD_CONFIG__SEARCH_ADAPTER:
-				return getSearchAdapter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,9 +157,6 @@ public class DBFieldConfigImpl extends MinimalEObjectImpl.Container implements D
 				return;
 			case crudrestPackage.DB_FIELD_CONFIG__EXPRESSION:
 				setExpression((String)newValue);
-				return;
-			case crudrestPackage.DB_FIELD_CONFIG__SEARCH_ADAPTER:
-				setSearchAdapter((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,9 +176,6 @@ public class DBFieldConfigImpl extends MinimalEObjectImpl.Container implements D
 			case crudrestPackage.DB_FIELD_CONFIG__EXPRESSION:
 				setExpression(EXPRESSION_EDEFAULT);
 				return;
-			case crudrestPackage.DB_FIELD_CONFIG__SEARCH_ADAPTER:
-				setSearchAdapter(SEARCH_ADAPTER_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -242,8 +192,6 @@ public class DBFieldConfigImpl extends MinimalEObjectImpl.Container implements D
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case crudrestPackage.DB_FIELD_CONFIG__EXPRESSION:
 				return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
-			case crudrestPackage.DB_FIELD_CONFIG__SEARCH_ADAPTER:
-				return SEARCH_ADAPTER_EDEFAULT == null ? searchAdapter != null : !SEARCH_ADAPTER_EDEFAULT.equals(searchAdapter);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -262,8 +210,6 @@ public class DBFieldConfigImpl extends MinimalEObjectImpl.Container implements D
 		result.append(type);
 		result.append(", expression: ");
 		result.append(expression);
-		result.append(", searchAdapter: ");
-		result.append(searchAdapter);
 		result.append(')');
 		return result.toString();
 	}

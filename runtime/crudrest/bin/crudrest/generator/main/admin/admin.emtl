@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="Cp1256"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="admin" nsURI="crudrest::generator::main::admin::admin" startHeaderPosition="30" endHeaderPosition="76">
+  <mtl:Module name="admin" nsURI="crudrest::generator::main::admin::admin" startHeaderPosition="31" endHeaderPosition="77">
     <input>
       <takesTypesFrom href="http://crudrest.msde.ui.ac.ir#/"/>
     </input>
     <imports href="../service.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="admin" visibility="Public">
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?php // Silence is golden&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?php // Silence is golden&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:VariableExp" name="directory" referredVariable="/0/admin/directory">
@@ -22,9 +22,9 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?php&#xA;&#xA;/**&#xA; * The admin-specific functionality of the plugin.&#xA; *&#xA; * Defines the plugin name, version, and two examples hooks for how to&#xA; * enqueue the admin-specific stylesheet and JavaScript.&#xA; *&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?php&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * The admin-specific functionality of the plugin.&#xD;&#xA; *&#xD;&#xA; * Defines the plugin name, version, and two examples hooks for how to&#xD;&#xA; * enqueue the admin-specific stylesheet and JavaScript.&#xD;&#xA; *&#xD;&#xA;"/>
         <body xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="../service.emtl#/0/getCopyrightComment"/>
@@ -32,7 +32,7 @@
             <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA; */&#xA;require "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA; */&#xD;&#xA;require "/>
         <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
@@ -40,7 +40,7 @@
         <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_admin_menu_page.php';&#xA;require "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_admin_menu_page.php';&#xD;&#xA;require "/>
         <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
@@ -48,19 +48,19 @@
         <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Page.php';&#xA;&#xA;class "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Page.php';&#xD;&#xA;&#xD;&#xA;class "/>
         <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Admin {&#xA;&#xA;&#xA;&#x9;private $plg;&#xA;&#xA;&#x9;/**&#xA;&#x9; * The ID of this plugin.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; * @access   private&#xA;&#x9; * @var      string    $plugin_name    The ID of this plugin.&#xA;&#x9; */&#xA;&#x9;private $plugin_name;&#xA;&#xA;&#x9;/**&#xA;&#x9; * The version of this plugin.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; * @access   private&#xA;&#x9; * @var      string    $version    The current version of this plugin.&#xA;&#x9; */&#xA;&#x9;private $version;&#xA;&#xA;&#x9;/**&#xA;&#x9; * Initialize the class and set its properties.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; * @param      string    $plugin_name       The name of this plugin.&#xA;&#x9; * @param      string    $version    The version of this plugin.&#xA;&#x9; */&#xA;&#x9;public function __construct($plg, $plugin_name, $version ) {&#xA;&#xA;&#x9;&#x9;$this->plg=$plg;&#xA;&#x9;&#x9;$this->plugin_name = $plugin_name;&#xA;&#x9;&#x9;$this->version = $version;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * Register the stylesheets for the admin area.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; */&#xA;&#x9;public function enqueue_styles() {&#xA;&#xA;&#x9;&#x9;/**&#xA;&#x9;&#x9; * This function is provided for demonstration purposes only.&#xA;&#x9;&#x9; *&#xA;&#x9;&#x9; * An instance of this class should be passed to the run() function&#xA;&#x9;&#x9; * defined in Plugin_Name_Loader as all of the hooks are defined&#xA;&#x9;&#x9; * in that particular class.&#xA;&#x9;&#x9; *&#xA;&#x9;&#x9; * The Plugin_Name_Loader will then create the relationship&#xA;&#x9;&#x9; * between the defined hooks and the functions defined in this&#xA;&#x9;&#x9; * class.&#xA;&#x9;&#x9; */&#xA;&#xA;&#x9;&#x9;wp_enqueue_style( 'Roboto', 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900', array(), false, 'all' );&#xA;&#x9;&#x9;wp_enqueue_style( 'materialdesignicons', 'https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css', array(), false, 'all' );&#xA;&#x9;&#x9;wp_enqueue_style( 'vuetify', 'https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css', array(), false, 'all' );&#xA;&#x9;&#x9;wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Admin {&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;private $plg;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * The ID of this plugin.&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @since    1.0.0&#xD;&#xA;&#x9; * @access   private&#xD;&#xA;&#x9; * @var      string    $plugin_name    The ID of this plugin.&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private $plugin_name;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * The version of this plugin.&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @since    1.0.0&#xD;&#xA;&#x9; * @access   private&#xD;&#xA;&#x9; * @var      string    $version    The current version of this plugin.&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private $version;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * Initialize the class and set its properties.&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @since    1.0.0&#xD;&#xA;&#x9; * @param      string    $plugin_name       The name of this plugin.&#xD;&#xA;&#x9; * @param      string    $version    The version of this plugin.&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public function __construct($plg, $plugin_name, $version ) {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;$this->plg=$plg;&#xD;&#xA;&#x9;&#x9;$this->plugin_name = $plugin_name;&#xD;&#xA;&#x9;&#x9;$this->version = $version;&#xD;&#xA;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * Register the stylesheets for the admin area.&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @since    1.0.0&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public function enqueue_styles() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;/**&#xD;&#xA;&#x9;&#x9; * This function is provided for demonstration purposes only.&#xD;&#xA;&#x9;&#x9; *&#xD;&#xA;&#x9;&#x9; * An instance of this class should be passed to the run() function&#xD;&#xA;&#x9;&#x9; * defined in Plugin_Name_Loader as all of the hooks are defined&#xD;&#xA;&#x9;&#x9; * in that particular class.&#xD;&#xA;&#x9;&#x9; *&#xD;&#xA;&#x9;&#x9; * The Plugin_Name_Loader will then create the relationship&#xD;&#xA;&#x9;&#x9; * between the defined hooks and the functions defined in this&#xD;&#xA;&#x9;&#x9; * class.&#xD;&#xA;&#x9;&#x9; */&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;wp_enqueue_style( 'Roboto', 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900', array(), false, 'all' );&#xD;&#xA;&#x9;&#x9;wp_enqueue_style( 'materialdesignicons', 'https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css', array(), false, 'all' );&#xD;&#xA;&#x9;&#x9;wp_enqueue_style( 'vuetify', 'https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css', array(), false, 'all' );&#xD;&#xA;&#x9;&#x9;wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/"/>
         <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="-admin.css', array(), $this->version, 'all' );&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * Register the JavaScript for the admin area.&#xA;&#x9; *&#xA;&#x9; * @since    1.0.0&#xA;&#x9; */&#xA;&#x9;public function enqueue_scripts() {&#xA;&#xA;&#x9;&#x9;/**&#xA;&#x9;&#x9; * This function is provided for demonstration purposes only.&#xA;&#x9;&#x9; *&#xA;&#x9;&#x9; * An instance of this class should be passed to the run() function&#xA;&#x9;&#x9; * defined in Plugin_Name_Loader as all of the hooks are defined&#xA;&#x9;&#x9; * in that particular class.&#xA;&#x9;&#x9; *&#xA;&#x9;&#x9; * The Plugin_Name_Loader will then create the relationship&#xA;&#x9;&#x9; * between the defined hooks and the functions defined in this&#xA;&#x9;&#x9; * class.&#xA;&#x9;&#x9; */&#xA;&#xA;&#x9;&#x9;wp_enqueue_script('vue','https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.min.js');&#xA;&#x9;&#x9;wp_enqueue_script('vuetify','https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.js');&#xA;&#x9;&#x9;wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="-admin.css', array(), $this->version, 'all' );&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * Register the JavaScript for the admin area.&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @since    1.0.0&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public function enqueue_scripts() {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;/**&#xD;&#xA;&#x9;&#x9; * This function is provided for demonstration purposes only.&#xD;&#xA;&#x9;&#x9; *&#xD;&#xA;&#x9;&#x9; * An instance of this class should be passed to the run() function&#xD;&#xA;&#x9;&#x9; * defined in Plugin_Name_Loader as all of the hooks are defined&#xD;&#xA;&#x9;&#x9; * in that particular class.&#xD;&#xA;&#x9;&#x9; *&#xD;&#xA;&#x9;&#x9; * The Plugin_Name_Loader will then create the relationship&#xD;&#xA;&#x9;&#x9; * between the defined hooks and the functions defined in this&#xD;&#xA;&#x9;&#x9; * class.&#xD;&#xA;&#x9;&#x9; */&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;wp_enqueue_script('vue','https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.min.js');&#xD;&#xA;&#x9;&#x9;wp_enqueue_script('vuetify','https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.js');&#xD;&#xA;&#x9;&#x9;wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/"/>
         <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="-admin.js', array( 'jquery' ), $this->version, false );&#xA;&#x9;}&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="-admin.js', array( 'jquery' ), $this->version, false );&#xD;&#xA;&#x9;}&#xD;&#xA;"/>
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:ForBlock">
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;public function handle_page_"/>
@@ -71,7 +71,7 @@
               </source>
               <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//Menu/slug"/>
             </body>
-            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(){&#xA;&#x9;&#x9;$page=new "/>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(){&#xD;&#xA;&#x9;&#x9;$page=new "/>
             <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             </body>
@@ -83,7 +83,7 @@
               </source>
               <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//Menu/slug"/>
             </body>
-            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="');&#xA;&#x9;&#x9;$page->render();&#xA;&#x9;}&#xA;"/>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="');&#xD;&#xA;&#x9;&#x9;$page->render();&#xD;&#xA;&#x9;}&#xD;&#xA;"/>
             <body xsi:type="mtl:ForBlock">
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;public function handle_page_"/>
               <body xsi:type="ocl.ecore:PropertyCallExp">
@@ -105,7 +105,7 @@
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//UIPage/key"/>
               </body>
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(){&#xA;&#x9;&#x9;$page="/>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(){&#xD;&#xA;&#x9;&#x9;$page="/>
               <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               </body>
@@ -121,7 +121,7 @@
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//UIPage/key"/>
               </body>
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="');&#xA;&#x9;&#x9;$page->renderList();&#xA;&#x9;}&#xA;"/>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="');&#xD;&#xA;&#x9;&#x9;$page->renderList();&#xD;&#xA;&#x9;}&#xD;&#xA;"/>
               <loopVariable name="item">
                 <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//MenuItem"/>
               </loopVariable>
@@ -179,7 +179,7 @@
           </ifExpr>
         </body>
         <body xsi:type="mtl:IfBlock">
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;public function handle_options_page(){&#xA;&#x9;&#x9;require "/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;public function handle_options_page(){&#xD;&#xA;&#x9;&#x9;require "/>
           <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
@@ -187,7 +187,7 @@
           <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_admin_options_page.php';&#xA;&#x9;&#x9;$options_page=new "/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_admin_options_page.php';&#xD;&#xA;&#x9;&#x9;$options_page=new "/>
           <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
@@ -207,7 +207,7 @@
           <body xsi:type="ocl.ecore:VariableExp" name="td" referredVariable="/0/admin/td">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="'));&#xA;&#x9;&#x9;$options_page->render();&#xA;&#xA;&#x9;}&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="'));&#xD;&#xA;&#x9;&#x9;$options_page->render();&#xD;&#xA;&#xD;&#xA;&#x9;}&#xD;&#xA;"/>
           <ifExpr xsi:type="ocl.ecore:PropertyCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
             <source xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/admin/plg">
@@ -216,7 +216,7 @@
             <referredProperty xsi:type="ecore:EAttribute" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin/hasAccessControl"/>
           </ifExpr>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;public function add_menu()&#xA;&#x9;  {&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;public function add_menu()&#xD;&#xA;&#x9;  {&#xD;&#xA;"/>
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;add_options_page( __('"/>
           <body xsi:type="ocl.ecore:PropertyCallExp">
@@ -246,7 +246,7 @@
           <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="', array($this,'handle_options_page'));&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="', array($this,'handle_options_page'));&#xD;&#xA;"/>
           <ifExpr xsi:type="ocl.ecore:PropertyCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
             <source xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/admin/plg">
@@ -259,7 +259,7 @@
         <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_admin_menus();&#xA;&#x9;&#x9;foreach ($admin_menus as $slug => $menu){&#xA;&#x9;&#x9;  add_menu_page("/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Models::get_admin_menus();&#xD;&#xA;&#x9;&#x9;foreach ($admin_menus as $slug => $menu){&#xD;&#xA;&#x9;&#x9;  add_menu_page("/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$menu['title'], $menu['title']">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
@@ -267,11 +267,11 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$menu['icon']">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;&#x9;&#x9;  foreach ($menu"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xD;&#xA;&#x9;&#x9;  foreach ($menu"/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="['sub']">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" as $itemSlug => $menuItem) {&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" as $itemSlug => $menuItem) {&#xD;&#xA;"/>
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;if (current_user_can('"/>
           <body xsi:type="ocl.ecore:VariableExp" name="prefix" referredVariable="/0/admin/prefix">
@@ -281,7 +281,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="['page_key']">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".'_list'))&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".'_list'))&#xD;&#xA;"/>
           <ifExpr xsi:type="ocl.ecore:PropertyCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
             <source xsi:type="ocl.ecore:VariableExp" name="plg" referredVariable="/0/admin/plg">
@@ -298,7 +298,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="$menuItem['title']">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", 'activate_plugins',$slug.'-'.$itemSlug , array($this,'handle_page_'.$slug.'_'.$itemSlug));&#xA;&#x9;&#x9;  }&#xA;&#x9;&#x9;}&#xA;&#x9;  }&#xA;&#xA;}&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", 'activate_plugins',$slug.'-'.$itemSlug , array($this,'handle_page_'.$slug.'_'.$itemSlug));&#xD;&#xA;&#x9;&#x9;  }&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;  }&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -324,7 +324,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <parameter name="plg">
         <eType xsi:type="ecore:EClass" href="http://crudrest.msde.ui.ac.ir#//CrudRestPlugin"/>
       </parameter>
@@ -629,63 +629,63 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/admin">
-      <details key="start" value="124"/>
-      <details key="end" value="4866"/>
+      <details key="start" value="127"/>
+      <details key="end" value="5018"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/admin/%">
-      <details key="start" value="213"/>
-      <details key="end" value="214"/>
+      <details key="start" value="217"/>
+      <details key="end" value="219"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/admin/%.1">
-      <details key="start" value="214"/>
-      <details key="end" value="302"/>
+      <details key="start" value="219"/>
+      <details key="end" value="309"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/admin/%.1/%">
-      <details key="start" value="268"/>
-      <details key="end" value="295"/>
+      <details key="start" value="274"/>
+      <details key="end" value="302"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/admin/%.1/%.1">
-      <details key="start" value="221"/>
-      <details key="end" value="249"/>
+      <details key="start" value="226"/>
+      <details key="end" value="254"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/admin/%.1/%.1/directory">
-      <details key="start" value="221"/>
-      <details key="end" value="230"/>
+      <details key="start" value="226"/>
+      <details key="end" value="235"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/admin/%.1/%.1/%">
-      <details key="start" value="231"/>
-      <details key="end" value="249"/>
+      <details key="start" value="236"/>
+      <details key="end" value="254"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/admin/%.1/%.2">
-      <details key="start" value="258"/>
-      <details key="end" value="265"/>
+      <details key="start" value="263"/>
+      <details key="end" value="270"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/admin/%.2">
-      <details key="start" value="303"/>
-      <details key="end" value="304"/>
+      <details key="start" value="311"/>
+      <details key="end" value="313"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/admin/%.3">
-      <details key="start" value="304"/>
-      <details key="end" value="4852"/>
+      <details key="start" value="313"/>
+      <details key="end" value="5001"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/admin/%.3/%">
-      <details key="start" value="371"/>
-      <details key="end" value="567"/>
+      <details key="start" value="381"/>
+      <details key="end" value="585"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/admin/%.3/%.1">
-      <details key="start" value="568"/>
-      <details key="end" value="589"/>
+      <details key="start" value="586"/>
+      <details key="end" value="607"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/admin/%.3/%.1/self">
@@ -694,253 +694,253 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/admin/%.3/%.2">
-      <details key="start" value="591"/>
-      <details key="end" value="604"/>
+      <details key="start" value="609"/>
+      <details key="end" value="624"/>
       <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/admin/%.3/prefix">
-      <details key="start" value="605"/>
-      <details key="end" value="611"/>
+      <details key="start" value="625"/>
+      <details key="end" value="631"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/admin/%.3/%.3">
-      <details key="start" value="613"/>
-      <details key="end" value="626"/>
+      <details key="start" value="633"/>
+      <details key="end" value="646"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/admin/%.3/prefix.1">
-      <details key="start" value="627"/>
-      <details key="end" value="633"/>
+      <details key="start" value="647"/>
+      <details key="end" value="653"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/admin/%.3/%.4">
-      <details key="start" value="635"/>
-      <details key="end" value="666"/>
+      <details key="start" value="655"/>
+      <details key="end" value="687"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/admin/%.3/prefix.2">
-      <details key="start" value="667"/>
-      <details key="end" value="673"/>
+      <details key="start" value="688"/>
+      <details key="end" value="694"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/admin/%.3/%.5">
-      <details key="start" value="675"/>
-      <details key="end" value="691"/>
+      <details key="start" value="696"/>
+      <details key="end" value="712"/>
       <details key="line" value="22"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/admin/%.3/prefix.3">
-      <details key="start" value="692"/>
-      <details key="end" value="698"/>
+      <details key="start" value="713"/>
+      <details key="end" value="719"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/admin/%.3/%.6">
-      <details key="start" value="700"/>
-      <details key="end" value="719"/>
+      <details key="start" value="721"/>
+      <details key="end" value="742"/>
       <details key="line" value="22"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/admin/%.3/prefix.4">
-      <details key="start" value="720"/>
-      <details key="end" value="726"/>
+      <details key="start" value="743"/>
+      <details key="end" value="749"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/admin/%.3/%.7">
-      <details key="start" value="728"/>
-      <details key="end" value="2461"/>
+      <details key="start" value="751"/>
+      <details key="end" value="2544"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/admin/%.3/prefix.5">
-      <details key="start" value="2462"/>
-      <details key="end" value="2468"/>
+      <details key="start" value="2545"/>
+      <details key="end" value="2551"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/admin/%.3/%.8">
-      <details key="start" value="2470"/>
-      <details key="end" value="3287"/>
+      <details key="start" value="2553"/>
+      <details key="end" value="3394"/>
       <details key="line" value="84"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/admin/%.3/prefix.6">
-      <details key="start" value="3288"/>
-      <details key="end" value="3294"/>
+      <details key="start" value="3395"/>
+      <details key="end" value="3401"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/admin/%.3/%.9">
-      <details key="start" value="3296"/>
-      <details key="end" value="3355"/>
+      <details key="start" value="3403"/>
+      <details key="end" value="3464"/>
       <details key="line" value="108"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/admin/%.3/%.10">
-      <details key="start" value="3355"/>
-      <details key="end" value="3734"/>
+      <details key="start" value="3464"/>
+      <details key="end" value="3856"/>
       <details key="line" value="110"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/admin/%.3/%.10/%">
-      <details key="start" value="3385"/>
-      <details key="end" value="3728"/>
+      <details key="start" value="3495"/>
+      <details key="end" value="3849"/>
       <details key="line" value="111"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/admin/%.3/%.10/%/%">
-      <details key="start" value="3415"/>
-      <details key="end" value="3444"/>
+      <details key="start" value="3526"/>
+      <details key="end" value="3555"/>
       <details key="line" value="112"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/admin/%.3/%.10/%/%.1">
-      <details key="start" value="3445"/>
-      <details key="end" value="3454"/>
+      <details key="start" value="3556"/>
+      <details key="end" value="3565"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.32" references="/0/admin/%.3/%.10/%/%.1/menu">
-      <details key="start" value="3445"/>
-      <details key="end" value="3449"/>
+      <details key="start" value="3556"/>
+      <details key="end" value="3560"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.33" references="/0/admin/%.3/%.10/%/%.2">
-      <details key="start" value="3456"/>
-      <details key="end" value="3472"/>
+      <details key="start" value="3567"/>
+      <details key="end" value="3584"/>
       <details key="line" value="112"/>
     </eAnnotations>
     <eAnnotations source="positions.34" references="/0/admin/%.3/%.10/%/prefix">
-      <details key="start" value="3473"/>
-      <details key="end" value="3479"/>
+      <details key="start" value="3585"/>
+      <details key="end" value="3591"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.35" references="/0/admin/%.3/%.10/%/%.3">
-      <details key="start" value="3481"/>
-      <details key="end" value="3499"/>
+      <details key="start" value="3593"/>
+      <details key="end" value="3611"/>
       <details key="line" value="113"/>
     </eAnnotations>
     <eAnnotations source="positions.36" references="/0/admin/%.3/%.10/%/%.4">
-      <details key="start" value="3500"/>
-      <details key="end" value="3509"/>
+      <details key="start" value="3612"/>
+      <details key="end" value="3621"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.37" references="/0/admin/%.3/%.10/%/%.4/menu">
-      <details key="start" value="3500"/>
-      <details key="end" value="3504"/>
+      <details key="start" value="3612"/>
+      <details key="end" value="3616"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.38" references="/0/admin/%.3/%.10/%/%.5">
-      <details key="start" value="3511"/>
-      <details key="end" value="3537"/>
+      <details key="start" value="3623"/>
+      <details key="end" value="3652"/>
       <details key="line" value="113"/>
     </eAnnotations>
     <eAnnotations source="positions.39" references="/0/admin/%.3/%.10/%/%.6">
-      <details key="start" value="3538"/>
-      <details key="end" value="3721"/>
+      <details key="start" value="3653"/>
+      <details key="end" value="3841"/>
       <details key="line" value="116"/>
     </eAnnotations>
     <eAnnotations source="positions.40" references="/0/admin/%.3/%.10/%/%.6/%">
-      <details key="start" value="3570"/>
-      <details key="end" value="3599"/>
+      <details key="start" value="3686"/>
+      <details key="end" value="3715"/>
       <details key="line" value="117"/>
     </eAnnotations>
     <eAnnotations source="positions.41" references="/0/admin/%.3/%.10/%/%.6/%.1">
-      <details key="start" value="3600"/>
-      <details key="end" value="3609"/>
+      <details key="start" value="3716"/>
+      <details key="end" value="3725"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.42" references="/0/admin/%.3/%.10/%/%.6/%.1/menu">
-      <details key="start" value="3600"/>
-      <details key="end" value="3604"/>
+      <details key="start" value="3716"/>
+      <details key="end" value="3720"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.43" references="/0/admin/%.3/%.10/%/%.6/%.2">
-      <details key="start" value="3611"/>
-      <details key="end" value="3612"/>
+      <details key="start" value="3727"/>
+      <details key="end" value="3728"/>
       <details key="line" value="117"/>
     </eAnnotations>
     <eAnnotations source="positions.44" references="/0/admin/%.3/%.10/%/%.6/%.3">
-      <details key="start" value="3613"/>
-      <details key="end" value="3626"/>
+      <details key="start" value="3729"/>
+      <details key="end" value="3742"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.45" references="/0/admin/%.3/%.10/%/%.6/%.3/%">
-      <details key="start" value="3613"/>
-      <details key="end" value="3622"/>
+      <details key="start" value="3729"/>
+      <details key="end" value="3738"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.46" references="/0/admin/%.3/%.10/%/%.6/%.3/%/item">
-      <details key="start" value="3613"/>
-      <details key="end" value="3617"/>
+      <details key="start" value="3729"/>
+      <details key="end" value="3733"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.47" references="/0/admin/%.3/%.10/%/%.6/%.4">
-      <details key="start" value="3628"/>
-      <details key="end" value="3640"/>
+      <details key="start" value="3744"/>
+      <details key="end" value="3757"/>
       <details key="line" value="117"/>
     </eAnnotations>
     <eAnnotations source="positions.48" references="/0/admin/%.3/%.10/%/%.6/prefix">
-      <details key="start" value="3641"/>
-      <details key="end" value="3647"/>
+      <details key="start" value="3758"/>
+      <details key="end" value="3764"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.49" references="/0/admin/%.3/%.10/%/%.6/%.5">
-      <details key="start" value="3649"/>
-      <details key="end" value="3668"/>
+      <details key="start" value="3766"/>
+      <details key="end" value="3785"/>
       <details key="line" value="118"/>
     </eAnnotations>
     <eAnnotations source="positions.50" references="/0/admin/%.3/%.10/%/%.6/%.6">
-      <details key="start" value="3669"/>
-      <details key="end" value="3682"/>
+      <details key="start" value="3786"/>
+      <details key="end" value="3799"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.51" references="/0/admin/%.3/%.10/%/%.6/%.6/%">
-      <details key="start" value="3669"/>
-      <details key="end" value="3678"/>
+      <details key="start" value="3786"/>
+      <details key="end" value="3795"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.52" references="/0/admin/%.3/%.10/%/%.6/%.6/%/item">
-      <details key="start" value="3669"/>
-      <details key="end" value="3673"/>
+      <details key="start" value="3786"/>
+      <details key="end" value="3790"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.53" references="/0/admin/%.3/%.10/%/%.6/%.7">
-      <details key="start" value="3684"/>
-      <details key="end" value="3714"/>
+      <details key="start" value="3801"/>
+      <details key="end" value="3834"/>
       <details key="line" value="118"/>
     </eAnnotations>
     <eAnnotations source="positions.54" references="/0/admin/%.3/%.10/%/%.6/item">
-      <details key="start" value="3543"/>
-      <details key="end" value="3556"/>
+      <details key="start" value="3658"/>
+      <details key="end" value="3671"/>
       <details key="line" value="116"/>
     </eAnnotations>
     <eAnnotations source="positions.55" references="/0/admin/%.3/%.10/%/%.6/%.8">
-      <details key="start" value="3557"/>
-      <details key="end" value="3567"/>
+      <details key="start" value="3672"/>
+      <details key="end" value="3682"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.56" references="/0/admin/%.3/%.10/%/%.6/%.8/menu">
-      <details key="start" value="3557"/>
-      <details key="end" value="3561"/>
+      <details key="start" value="3672"/>
+      <details key="end" value="3676"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.57" references="/0/admin/%.3/%.10/%/menu">
-      <details key="start" value="3390"/>
-      <details key="end" value="3399"/>
+      <details key="start" value="3500"/>
+      <details key="end" value="3509"/>
       <details key="line" value="111"/>
     </eAnnotations>
     <eAnnotations source="positions.58" references="/0/admin/%.3/%.10/%/%.7">
-      <details key="start" value="3400"/>
-      <details key="end" value="3412"/>
+      <details key="start" value="3510"/>
+      <details key="end" value="3522"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.59" references="/0/admin/%.3/%.10/%/%.7/%">
-      <details key="start" value="3400"/>
-      <details key="end" value="3407"/>
+      <details key="start" value="3510"/>
+      <details key="end" value="3517"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.60" references="/0/admin/%.3/%.10/%/%.7/%/plg">
-      <details key="start" value="3400"/>
-      <details key="end" value="3403"/>
+      <details key="start" value="3510"/>
+      <details key="end" value="3513"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.61" references="/0/admin/%.3/%.10/%.1">
-      <details key="start" value="3359"/>
-      <details key="end" value="3383"/>
+      <details key="start" value="3468"/>
+      <details key="end" value="3492"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.62" references="/0/admin/%.3/%.10/%.1/%">
-      <details key="start" value="3360"/>
-      <details key="end" value="3380"/>
+      <details key="start" value="3469"/>
+      <details key="end" value="3489"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.63" references="/0/admin/%.3/%.10/%.1/%/%">
@@ -949,368 +949,368 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.64" references="/0/admin/%.3/%.10/%.1/%/%/%/%">
-      <details key="start" value="3360"/>
-      <details key="end" value="3372"/>
+      <details key="start" value="3469"/>
+      <details key="end" value="3481"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.65" references="/0/admin/%.3/%.10/%.1/%/%/%/%/%">
-      <details key="start" value="3360"/>
-      <details key="end" value="3367"/>
+      <details key="start" value="3469"/>
+      <details key="end" value="3476"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.66" references="/0/admin/%.3/%.10/%.1/%/%/%/%/%/plg">
-      <details key="start" value="3360"/>
-      <details key="end" value="3363"/>
+      <details key="start" value="3469"/>
+      <details key="end" value="3472"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.67" references="/0/admin/%.3/%.10/%.1/%.1">
-      <details key="start" value="3381"/>
-      <details key="end" value="3382"/>
+      <details key="start" value="3490"/>
+      <details key="end" value="3491"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.68" references="/0/admin/%.3/%.11">
-      <details key="start" value="3735"/>
-      <details key="end" value="4010"/>
+      <details key="start" value="3858"/>
+      <details key="end" value="4140"/>
       <details key="line" value="124"/>
     </eAnnotations>
     <eAnnotations source="positions.69" references="/0/admin/%.3/%.11/%">
-      <details key="start" value="3762"/>
-      <details key="end" value="3812"/>
+      <details key="start" value="3886"/>
+      <details key="end" value="3937"/>
       <details key="line" value="125"/>
     </eAnnotations>
     <eAnnotations source="positions.70" references="/0/admin/%.3/%.11/prefix">
-      <details key="start" value="3813"/>
-      <details key="end" value="3819"/>
+      <details key="start" value="3938"/>
+      <details key="end" value="3944"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.71" references="/0/admin/%.3/%.11/%.1">
-      <details key="start" value="3821"/>
-      <details key="end" value="3834"/>
+      <details key="start" value="3946"/>
+      <details key="end" value="3959"/>
       <details key="line" value="126"/>
     </eAnnotations>
     <eAnnotations source="positions.72" references="/0/admin/%.3/%.11/prefix.1">
-      <details key="start" value="3835"/>
-      <details key="end" value="3841"/>
+      <details key="start" value="3960"/>
+      <details key="end" value="3966"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.73" references="/0/admin/%.3/%.11/%.2">
-      <details key="start" value="3843"/>
-      <details key="end" value="3889"/>
+      <details key="start" value="3968"/>
+      <details key="end" value="4015"/>
       <details key="line" value="126"/>
     </eAnnotations>
     <eAnnotations source="positions.74" references="/0/admin/%.3/%.11/prefix.2">
-      <details key="start" value="3890"/>
-      <details key="end" value="3896"/>
+      <details key="start" value="4016"/>
+      <details key="end" value="4022"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.75" references="/0/admin/%.3/%.11/%.3">
-      <details key="start" value="3898"/>
-      <details key="end" value="3927"/>
+      <details key="start" value="4024"/>
+      <details key="end" value="4053"/>
       <details key="line" value="127"/>
     </eAnnotations>
     <eAnnotations source="positions.76" references="/0/admin/%.3/%.11/prefix.3">
-      <details key="start" value="3928"/>
-      <details key="end" value="3934"/>
+      <details key="start" value="4054"/>
+      <details key="end" value="4060"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.77" references="/0/admin/%.3/%.11/%.4">
-      <details key="start" value="3936"/>
-      <details key="end" value="3942"/>
+      <details key="start" value="4062"/>
+      <details key="end" value="4068"/>
       <details key="line" value="127"/>
     </eAnnotations>
     <eAnnotations source="positions.78" references="/0/admin/%.3/%.11/%.5">
-      <details key="start" value="3943"/>
-      <details key="end" value="3951"/>
+      <details key="start" value="4069"/>
+      <details key="end" value="4077"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.79" references="/0/admin/%.3/%.11/%.5/plg">
-      <details key="start" value="3943"/>
-      <details key="end" value="3946"/>
+      <details key="start" value="4069"/>
+      <details key="end" value="4072"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.80" references="/0/admin/%.3/%.11/%.6">
-      <details key="start" value="3953"/>
-      <details key="end" value="3964"/>
+      <details key="start" value="4079"/>
+      <details key="end" value="4090"/>
       <details key="line" value="127"/>
     </eAnnotations>
     <eAnnotations source="positions.81" references="/0/admin/%.3/%.11/td">
-      <details key="start" value="3965"/>
-      <details key="end" value="3967"/>
+      <details key="start" value="4091"/>
+      <details key="end" value="4093"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.82" references="/0/admin/%.3/%.11/%.7">
-      <details key="start" value="3969"/>
-      <details key="end" value="4005"/>
+      <details key="start" value="4095"/>
+      <details key="end" value="4135"/>
       <details key="line" value="127"/>
     </eAnnotations>
     <eAnnotations source="positions.83" references="/0/admin/%.3/%.11/%.8">
-      <details key="start" value="3738"/>
-      <details key="end" value="3760"/>
+      <details key="start" value="3861"/>
+      <details key="end" value="3883"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.84" references="/0/admin/%.3/%.11/%.8/plg">
-      <details key="start" value="3739"/>
-      <details key="end" value="3742"/>
+      <details key="start" value="3862"/>
+      <details key="end" value="3865"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.85" references="/0/admin/%.3/%.12">
-      <details key="start" value="4011"/>
-      <details key="end" value="4044"/>
+      <details key="start" value="4142"/>
+      <details key="end" value="4177"/>
       <details key="line" value="132"/>
     </eAnnotations>
     <eAnnotations source="positions.86" references="/0/admin/%.3/%.13">
-      <details key="start" value="4044"/>
-      <details key="end" value="4236"/>
+      <details key="start" value="4177"/>
+      <details key="end" value="4371"/>
       <details key="line" value="134"/>
     </eAnnotations>
     <eAnnotations source="positions.87" references="/0/admin/%.3/%.13/%">
-      <details key="start" value="4071"/>
-      <details key="end" value="4095"/>
+      <details key="start" value="4205"/>
+      <details key="end" value="4229"/>
       <details key="line" value="135"/>
     </eAnnotations>
     <eAnnotations source="positions.88" references="/0/admin/%.3/%.13/%.1">
-      <details key="start" value="4096"/>
-      <details key="end" value="4104"/>
+      <details key="start" value="4230"/>
+      <details key="end" value="4238"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.89" references="/0/admin/%.3/%.13/%.1/plg">
-      <details key="start" value="4096"/>
-      <details key="end" value="4099"/>
+      <details key="start" value="4230"/>
+      <details key="end" value="4233"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.90" references="/0/admin/%.3/%.13/%.2">
-      <details key="start" value="4106"/>
-      <details key="end" value="4118"/>
+      <details key="start" value="4240"/>
+      <details key="end" value="4252"/>
       <details key="line" value="135"/>
     </eAnnotations>
     <eAnnotations source="positions.91" references="/0/admin/%.3/%.13/td">
-      <details key="start" value="4119"/>
-      <details key="end" value="4121"/>
+      <details key="start" value="4253"/>
+      <details key="end" value="4255"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.92" references="/0/admin/%.3/%.13/%.3">
-      <details key="start" value="4123"/>
-      <details key="end" value="4131"/>
+      <details key="start" value="4257"/>
+      <details key="end" value="4265"/>
       <details key="line" value="135"/>
     </eAnnotations>
     <eAnnotations source="positions.93" references="/0/admin/%.3/%.13/%.4">
-      <details key="start" value="4132"/>
-      <details key="end" value="4140"/>
+      <details key="start" value="4266"/>
+      <details key="end" value="4274"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.94" references="/0/admin/%.3/%.13/%.4/plg">
-      <details key="start" value="4132"/>
-      <details key="end" value="4135"/>
+      <details key="start" value="4266"/>
+      <details key="end" value="4269"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.95" references="/0/admin/%.3/%.13/%.5">
-      <details key="start" value="4142"/>
-      <details key="end" value="4146"/>
+      <details key="start" value="4276"/>
+      <details key="end" value="4280"/>
       <details key="line" value="135"/>
     </eAnnotations>
     <eAnnotations source="positions.96" references="/0/admin/%.3/%.13/td.1">
-      <details key="start" value="4147"/>
-      <details key="end" value="4149"/>
+      <details key="start" value="4281"/>
+      <details key="end" value="4283"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.97" references="/0/admin/%.3/%.13/%.6">
-      <details key="start" value="4151"/>
-      <details key="end" value="4182"/>
+      <details key="start" value="4285"/>
+      <details key="end" value="4316"/>
       <details key="line" value="135"/>
     </eAnnotations>
     <eAnnotations source="positions.98" references="/0/admin/%.3/%.13/prefix">
-      <details key="start" value="4183"/>
-      <details key="end" value="4189"/>
+      <details key="start" value="4317"/>
+      <details key="end" value="4323"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.99" references="/0/admin/%.3/%.13/%.7">
-      <details key="start" value="4191"/>
-      <details key="end" value="4231"/>
+      <details key="start" value="4325"/>
+      <details key="end" value="4366"/>
       <details key="line" value="135"/>
     </eAnnotations>
     <eAnnotations source="positions.100" references="/0/admin/%.3/%.13/%.8">
-      <details key="start" value="4047"/>
-      <details key="end" value="4069"/>
+      <details key="start" value="4180"/>
+      <details key="end" value="4202"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.101" references="/0/admin/%.3/%.13/%.8/plg">
-      <details key="start" value="4048"/>
-      <details key="end" value="4051"/>
+      <details key="start" value="4181"/>
+      <details key="end" value="4184"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.102" references="/0/admin/%.3/%.14">
-      <details key="start" value="4237"/>
-      <details key="end" value="4252"/>
+      <details key="start" value="4373"/>
+      <details key="end" value="4388"/>
       <details key="line" value="137"/>
     </eAnnotations>
     <eAnnotations source="positions.103" references="/0/admin/%.3/prefix.7">
-      <details key="start" value="4253"/>
-      <details key="end" value="4259"/>
+      <details key="start" value="4389"/>
+      <details key="end" value="4395"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.104" references="/0/admin/%.3/%.15">
-      <details key="start" value="4261"/>
-      <details key="end" value="4351"/>
+      <details key="start" value="4397"/>
+      <details key="end" value="4489"/>
       <details key="line" value="137"/>
     </eAnnotations>
     <eAnnotations source="positions.105" references="/0/admin/%.3/%.16">
-      <details key="start" value="4352"/>
-      <details key="end" value="4388"/>
+      <details key="start" value="4490"/>
+      <details key="end" value="4526"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.106" references="/0/admin/%.3/%.17">
-      <details key="start" value="4390"/>
-      <details key="end" value="4451"/>
+      <details key="start" value="4528"/>
+      <details key="end" value="4589"/>
       <details key="line" value="139"/>
     </eAnnotations>
     <eAnnotations source="positions.107" references="/0/admin/%.3/%.18">
-      <details key="start" value="4452"/>
-      <details key="end" value="4469"/>
+      <details key="start" value="4590"/>
+      <details key="end" value="4607"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.108" references="/0/admin/%.3/%.19">
-      <details key="start" value="4471"/>
-      <details key="end" value="4492"/>
+      <details key="start" value="4609"/>
+      <details key="end" value="4631"/>
       <details key="line" value="139"/>
     </eAnnotations>
     <eAnnotations source="positions.109" references="/0/admin/%.3/%.20">
-      <details key="start" value="4493"/>
-      <details key="end" value="4504"/>
+      <details key="start" value="4632"/>
+      <details key="end" value="4643"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.110" references="/0/admin/%.3/%.21">
-      <details key="start" value="4506"/>
-      <details key="end" value="4536"/>
+      <details key="start" value="4645"/>
+      <details key="end" value="4676"/>
       <details key="line" value="140"/>
     </eAnnotations>
     <eAnnotations source="positions.111" references="/0/admin/%.3/%.22">
-      <details key="start" value="4536"/>
-      <details key="end" value="4649"/>
+      <details key="start" value="4676"/>
+      <details key="end" value="4791"/>
       <details key="line" value="141"/>
     </eAnnotations>
     <eAnnotations source="positions.112" references="/0/admin/%.3/%.22/%">
-      <details key="start" value="4563"/>
-      <details key="end" value="4588"/>
+      <details key="start" value="4704"/>
+      <details key="end" value="4729"/>
       <details key="line" value="142"/>
     </eAnnotations>
     <eAnnotations source="positions.113" references="/0/admin/%.3/%.22/prefix">
-      <details key="start" value="4589"/>
-      <details key="end" value="4595"/>
+      <details key="start" value="4730"/>
+      <details key="end" value="4736"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.114" references="/0/admin/%.3/%.22/%.1">
-      <details key="start" value="4597"/>
-      <details key="end" value="4614"/>
+      <details key="start" value="4738"/>
+      <details key="end" value="4755"/>
       <details key="line" value="142"/>
     </eAnnotations>
     <eAnnotations source="positions.115" references="/0/admin/%.3/%.22/%.2">
-      <details key="start" value="4615"/>
-      <details key="end" value="4631"/>
+      <details key="start" value="4756"/>
+      <details key="end" value="4772"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.116" references="/0/admin/%.3/%.22/%.3">
-      <details key="start" value="4633"/>
-      <details key="end" value="4644"/>
+      <details key="start" value="4774"/>
+      <details key="end" value="4786"/>
       <details key="line" value="142"/>
     </eAnnotations>
     <eAnnotations source="positions.117" references="/0/admin/%.3/%.22/%.4">
-      <details key="start" value="4539"/>
-      <details key="end" value="4561"/>
+      <details key="start" value="4679"/>
+      <details key="end" value="4701"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.118" references="/0/admin/%.3/%.22/%.4/plg">
-      <details key="start" value="4540"/>
-      <details key="end" value="4543"/>
+      <details key="start" value="4680"/>
+      <details key="end" value="4683"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.119" references="/0/admin/%.3/%.23">
-      <details key="start" value="4650"/>
-      <details key="end" value="4678"/>
+      <details key="start" value="4793"/>
+      <details key="end" value="4821"/>
       <details key="line" value="144"/>
     </eAnnotations>
     <eAnnotations source="positions.120" references="/0/admin/%.3/%.24">
-      <details key="start" value="4679"/>
-      <details key="end" value="4705"/>
+      <details key="start" value="4822"/>
+      <details key="end" value="4848"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.121" references="/0/admin/%.3/%.25">
-      <details key="start" value="4707"/>
-      <details key="end" value="4709"/>
+      <details key="start" value="4850"/>
+      <details key="end" value="4852"/>
       <details key="line" value="144"/>
     </eAnnotations>
     <eAnnotations source="positions.122" references="/0/admin/%.3/%.26">
-      <details key="start" value="4710"/>
-      <details key="end" value="4732"/>
+      <details key="start" value="4853"/>
+      <details key="end" value="4875"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.123" references="/0/admin/%.3/%.27">
-      <details key="start" value="4734"/>
-      <details key="end" value="4845"/>
+      <details key="start" value="4877"/>
+      <details key="end" value="4994"/>
       <details key="line" value="144"/>
     </eAnnotations>
     <eAnnotations source="positions.124" references="/0/admin/%.3/%.28">
-      <details key="start" value="311"/>
-      <details key="end" value="352"/>
+      <details key="start" value="320"/>
+      <details key="end" value="361"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.125" references="/0/admin/%.3/%.28/%">
-      <details key="start" value="311"/>
-      <details key="end" value="338"/>
+      <details key="start" value="320"/>
+      <details key="end" value="347"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.126" references="/0/admin/%.3/%.28/%/%">
-      <details key="start" value="311"/>
-      <details key="end" value="330"/>
+      <details key="start" value="320"/>
+      <details key="end" value="339"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.127" references="/0/admin/%.3/%.28/%/%/directory">
-      <details key="start" value="311"/>
-      <details key="end" value="320"/>
+      <details key="start" value="320"/>
+      <details key="end" value="329"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.128" references="/0/admin/%.3/%.28/%/%/%">
-      <details key="start" value="321"/>
-      <details key="end" value="330"/>
+      <details key="start" value="330"/>
+      <details key="end" value="339"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.129" references="/0/admin/%.3/%.28/%/prefix">
-      <details key="start" value="332"/>
-      <details key="end" value="338"/>
+      <details key="start" value="341"/>
+      <details key="end" value="347"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.130" references="/0/admin/%.3/%.28/%.1">
-      <details key="start" value="340"/>
-      <details key="end" value="352"/>
+      <details key="start" value="349"/>
+      <details key="end" value="361"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.131" references="/0/admin/%.3/%.29">
-      <details key="start" value="361"/>
-      <details key="end" value="368"/>
+      <details key="start" value="370"/>
+      <details key="end" value="377"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.132" references="/0/admin/%.4">
-      <details key="start" value="4853"/>
-      <details key="end" value="4854"/>
+      <details key="start" value="5003"/>
+      <details key="end" value="5005"/>
       <details key="line" value="151"/>
     </eAnnotations>
     <eAnnotations source="positions.133" references="/0/admin/plg">
-      <details key="start" value="147"/>
-      <details key="end" value="167"/>
+      <details key="start" value="150"/>
+      <details key="end" value="170"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.134" references="/0/admin/directory">
-      <details key="start" value="168"/>
-      <details key="end" value="184"/>
+      <details key="start" value="171"/>
+      <details key="end" value="187"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.135" references="/0/admin/prefix">
-      <details key="start" value="186"/>
-      <details key="end" value="199"/>
+      <details key="start" value="189"/>
+      <details key="end" value="202"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.136" references="/0/admin/td">
-      <details key="start" value="201"/>
-      <details key="end" value="210"/>
+      <details key="start" value="204"/>
+      <details key="end" value="213"/>
       <details key="line" value="4"/>
     </eAnnotations>
   </ecore:EAnnotation>

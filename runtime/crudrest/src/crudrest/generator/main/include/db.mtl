@@ -167,8 +167,8 @@ class [prefix/]_db {
 	if ($search){
 	  foreach ($fields as $key) {
 		$field = $entity->get_field($key);
-		if ($field->type != 'text' && $field->type != 'nationalCode') continue;
-		['$searchWhere[]'/] = "$primary_alias.$key LIKE '%$search%'";
+		if (!$field->getFieldType()->get_search_expression) continue;
+		['$searchWhere[]'/] =$field->getFieldType()->get_search_expression("$primary_alias.$key",$search) ;
 	  }
 	  $searchWhere=implode(' OR ',$searchWhere);
 	  if($searchWhere){

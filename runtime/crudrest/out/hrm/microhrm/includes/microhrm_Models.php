@@ -138,7 +138,7 @@ class microhrm_Models {
 
 		// "insurance" Relations
 			
-		$insurance_person=new microhrm_Relation('person','person','','person','id','insurance_person',__('People','microhrm'),true,false,false,false);
+		$insurance_person=new microhrm_Relation('person','employee','insurance','m_employee_insurance','id','insurance',__('People','microhrm'),true,false,false,false);
 
 		// "insurance" Entity
 		$insurance_title_script= 'item.title';
@@ -560,7 +560,7 @@ WHEREPUSH;
 
 	public static function get_admin_menus():array{
 		$menus=[
-			'microhrm'=>['title'=>__('Micro HRM','microhrm'), 'icon'=>null, 'sub'=>[
+			'microhrm'=>['title'=>__('Micro HRM','microhrm'), 'icon'=>'dashicons-admin-users', 'sub'=>[
 				'personPage'=>['title'=>__('People','microhrm'), 'pageTitle'=>__('People','microhrm'),'page_key'=>'personPage'],
 				'employee'=>['title'=>__('Employees','microhrm'), 'pageTitle'=>__('Employees','microhrm'),'page_key'=>'employee'],
 				'blood'=>['title'=>__('Blood Groups','microhrm'), 'pageTitle'=>__('Blood Groups','microhrm'),'page_key'=>'blood'],

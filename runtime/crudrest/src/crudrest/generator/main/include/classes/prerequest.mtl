@@ -2,6 +2,9 @@
 [module prerequest('http://crudrest.msde.ui.ac.ir')/]
 [import crudrest::generator::main::service /]
 [template public prerequest(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+[file (directory+'/includes/index.php', false, 'UTF-8')]
+<?php // Silence is golden
+[/file]
 
 [file (directory+'/includes/'+ prefix +'_activator.php', false, 'UTF-8')]
 <?php

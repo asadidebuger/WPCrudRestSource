@@ -5,14 +5,30 @@
  * @package    microhrm
  * @author     Mohammadreza Asadi	http://microsign.ir
  */
+require_once('fieldtype/microhrm_field_type_id.php');
+require_once('fieldtype/microhrm_field_type_relation.php');
+require_once('fieldtype/microhrm_field_type_text.php');
+require_once('fieldtype/microhrm_field_type_int.php');
+require_once('fieldtype/microhrm_field_type_checkBox.php');
+require_once('fieldtype/microhrm_field_type_gender.php');
+require_once('fieldtype/microhrm_field_type_date.php');
+require_once('fieldtype/microhrm_field_type_datetime.php');
+require_once('fieldtype/microhrm_field_type_time.php');
+require_once('fieldtype/microhrm_field_type_nationalCode.php');
+require_once('fieldtype/microhrm_field_type_mobile.php');
+require_once('fieldtype/microhrm_field_type_title.php');
+require_once('fieldtype/microhrm_field_type_email.php');
+require_once('fieldtype/microhrm_field_type_phone.php');
 
 class microhrm_field_type {
 
-  public $key,$tag,$url_js,$url_css,$from_db_func,$to_db_func,$get_props_func,$component;
+  public $key,$tag,$url_js,$url_css,$from_db_func,$to_db_func,$get_props_func,$component,$db_field_type,$db_field_expression;
   
-  public function __construct($key,$tag)
+  public function __construct($key,$tag,$db_field_type,$db_field_expression)
   {
     $this->key=$key;
+    $this->db_field_type=$db_field_type;
+    $this->db_field_expression=$db_field_expression;
     $this->tag=$tag;
     $this->get_props_func=function ($page,$field,$key){return "label=\"$field->label\" :style=\"page.formView.fieldsLayouts.$field->key.style\" v-model=\"item.$key\"";};
   }
@@ -35,327 +51,23 @@ class microhrm_field_type {
   public static function init()
   {
 	if (count(self::$field_types)>0)return;
-
-	$relation=new microhrm_field_type('relation','v-autocomplete');
-	$relation->get_props_func=function ($page,$field,$key){
-	  return "label=\"$field->label\"
-				  :style=\"page.formView.fieldsLayouts.$field->key.style\"
-				  v-model=\"item.$key\"
-				  :items=\"rData.$key\"
-				  :loading=\"!rData.$key\"
-				  :item-text=\"(item)=>resolveRelationTitle('$key',item)\"
-				  :item-value=\"(item)=>item.id\"
-				  :multiple=\"page.entity.relations.$key.many \"
-				  :clearable=\"true\"
-				  :disabled=\"mode==='view'\"";
-	};
-	$relation->from_db_func=function($item,$key,$value){
-		 return $value;
-	};
-	$relation->to_db_func=function($item,$key,$value){
-	  if(is_array($value)){
-	    if (array_key_exists('id',$value)) return $value["id"]?(int)$value["id"]:"";
-	    $ids=array();
-	    foreach ($value as $val){
-		  if(is_array($val))$ids[]=(int)$val["id"];
-		  else $ids[]=(int)$val;
-		}
-	    return $ids;
-	  }
-		return $value?(int)$value:'';;
-	};
-	self::$field_types['relation']=$relation;
-
-	$text=new microhrm_field_type('text','v-text-field');
-	$text->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$rules.=']"';
-return  "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			:clearable=\"true\"
-			:disabled=\"mode==='view'\"
-			$rules
-			";
-	};
-
-
-	self::$field_types['text']=$text;
-
-	$int=new microhrm_field_type('int','v-text-field');
-	$int->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$invalid=__('is invalid!');
-$rules.= "v => !v || /[0-9]+/.test(v) || '$field->label $invalid',";
-$rules.=']"';
-
-return  "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			:clearable=\"true\"
-			:disabled=\"mode==='view'\"
-			type=\"number\"
-			$rules
-			";
-	};
-
-
-	self::$field_types['int']=$int;
-
-	$checkBox=new microhrm_field_type('checkBox','v-checkbox');
-	$checkBox->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => v!==null || '$field->label $is_required',";
-}
-$rules.=']"';
-return  "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			:disabled=\"mode==='view'\"
-			$rules
-			";
-	};
-	$checkBox->from_db_func=function($item,$key,$value){ 
-		 if (!$value)return '';
-return $value==1?true:false; 
-	};
-	$checkBox->to_db_func=function($item,$key,$value){ 
-		 if (!$value) return null;
-return $value==true? 1:2; 
-	};
-	self::$field_types['checkBox']=$checkBox;
-
-	$gender=new microhrm_field_type('gender','v-select');
-	$gender->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$rules.=']"';
-return "label=\"$field->label\"
-					:style=\"page.formView.fieldsLayouts.$field->key.style\"
-					v-model=\"item.$key\"
-					:items=\"['Male','Female']\"
-					:multiple=\"false\"
-					:clearable=\"true\"
-					:disabled=\"mode==='view'\"
-					$rules";
-	};
-	$gender->from_db_func=function($item,$key,$value){ 
-		 if (!$value)return '';
-return $value==1?'Male':'Female'; 
-	};
-	$gender->to_db_func=function($item,$key,$value){ 
-		 if (!$value) return null;
-return $value=='Male'? 1:2; 
-	};
-	self::$field_types['gender']=$gender;
-
-	$date=new microhrm_field_type('date','date-picker');
-	$date->url_js="https://cdn.jsdelivr.net/npm/moment,https://cdn.jsdelivr.net/npm/moment-jalaali@0.9.2/build/moment-jalaali.js,https://cdn.jsdelivr.net/npm/vue-persian-datetime-picker@2.10.4/dist/vue-persian-datetime-picker.umd.min.js";
-	$date->component="DatePicker: VuePersianDatetimePicker";
-	$date->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$rules.=']"';
-return "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			format=\"YYYY/MM/DD\"
-			:clearable=\"true\"
-			locale=\"en,fa\"
-			:disabled=\"mode==='view'\"
-			auto-submit
-			:locale-config=\"{ fa: {  displayFormat: 'jYYYY/jMM/jDD', lang: { label: 'شمسی' } },  en: { displayFormat: 'YYYY/MM/DD', lang: { label: 'Gregorian' } }  }\"
-			$rules";
-	};
-	$date->from_db_func=function($item,$key,$value){ 
-		 if($value=='0000-00-00') return null;
-return $value; 
-	};
-
-	self::$field_types['date']=$date;
-
-	$datetime=new microhrm_field_type('datetime','date-picker');
-	$datetime->url_js="https://cdn.jsdelivr.net/npm/moment,https://cdn.jsdelivr.net/npm/moment-jalaali@0.9.2/build/moment-jalaali.js,https://cdn.jsdelivr.net/npm/vue-persian-datetime-picker@2.10.4/dist/vue-persian-datetime-picker.umd.min.js";
-	$datetime->component="DatePicker: VuePersianDatetimePicker";
-	$datetime->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$rules.=']"';
-return "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			type=\"datetime\"
-			format=\"YYYY/MM/DD HH:mm:ss\"
-			:clearable=\"true\"
-			locale=\"en,fa\"
-			:disabled=\"mode==='view'\"
-			auto-submit
-			:locale-config=\"{ fa: {  displayFormat: 'jYYYY/jMM/jDD HH:mm:ss', lang: { label: 'شمسی' } },  en: { displayFormat: 'YYYY/MM/DD HH:mm:ss', lang: { label: 'Gregorian' } }  }\"
-			$rules";
-	};
-	$datetime->from_db_func=function($item,$key,$value){ 
-		 if($value=='0000-00-00 00:00:00') return null;
-return $value; 
-	};
-
-	self::$field_types['datetime']=$datetime;
-
-	$time=new microhrm_field_type('time','date-picker');
-	$time->url_js="https://cdn.jsdelivr.net/npm/moment,https://cdn.jsdelivr.net/npm/moment-jalaali@0.9.2/build/moment-jalaali.js,https://cdn.jsdelivr.net/npm/vue-persian-datetime-picker@2.10.4/dist/vue-persian-datetime-picker.umd.min.js";
-	$time->component="DatePicker: VuePersianDatetimePicker";
-	$time->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$rules.=']"';
-return "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			type=\"time\"
-			format=\"HH:mm:ss\"
-			:clearable=\"true\"
-			locale=\"en,fa\"
-			:disabled=\"mode==='view'\"
-			auto-submit
-			:locale-config=\"{ fa: { lang: { label: 'شمسی' } },  en: { lang: { label: 'Gregorian' } }  }\"
-			$rules";
-	};
-	$time->from_db_func=function($item,$key,$value){ 
-		 if($value=='00:00:00') return null;
-return $value; 
-	};
-
-	self::$field_types['time']=$time;
-
-	$nationalCode=new microhrm_field_type('nationalCode','v-text-field');
-	$nationalCode->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$invalid=__('is invalid!');
-$rules.= "v => !v || /^[0-9]{10,10}$/.test(v) || '$field->label $invalid',";
-$rules.=']"';
-return  "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			:clearable=\"true\"
-			:disabled=\"mode==='view'\"
-			$rules ";
-	};
-
-
-	self::$field_types['nationalCode']=$nationalCode;
-
-	$mobile=new microhrm_field_type('mobile','v-text-field');
-	$mobile->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$invalid=__('is invalid!');
-$rules.= "v => !v || /^09\d{9}$/.test(v) || '$field->label $invalid',";
-$rules.=']"';
-return  "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			:clearable=\"true\"
-			:disabled=\"mode==='view'\"
-			$rules ";
-	};
-
-
-	self::$field_types['mobile']=$mobile;
-
-	$title=new microhrm_field_type('title','v-text-field');
-	$title->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$rules.=']"';
-return  "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			:clearable=\"true\"
-			:disabled=\"mode==='view'\"
-			$rules
-			";
-	};
-
-
-	self::$field_types['title']=$title;
-
-	$email=new microhrm_field_type('email','v-text-field');
-	$email->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$invalid=__('is invalid!');
-$rules.= "v => !v || /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || '$field->label $invalid',";
-$rules.=']"';
-return  "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			:clearable=\"true\"
-			:disabled=\"mode==='view'\"
-			$rules ";
-	};
-
-
-	self::$field_types['email']=$email;
-
-	$phone=new microhrm_field_type('phone','v-text-field');
-	$phone->get_props_func=function ($page,$field,$key){
-	   $rules=':rules="[';
-if($field->required){
-$is_required=__('is required!');
-$rules.= "v => !!v || '$field->label $is_required',";
-}
-$invalid=__('is invalid!');
-$rules.= "v => !v || /^\+?\d{5,13}$/.test(v) || '$field->label $invalid',";
-$rules.=']"';
-return  "label=\"$field->label\"
-			:style=\"page.formView.fieldsLayouts.$field->key.style\"
-		 	v-model=\"item.$key\"
-			:clearable=\"true\"
-			:disabled=\"mode==='view'\"
-			$rules ";
-	};
-
-
-	self::$field_types['phone']=$phone;
+	self::$field_types['id']=new microhrm_field_type_id();
+	self::$field_types['relation']=new microhrm_field_type_relation();
+	self::$field_types['text']=new microhrm_field_type_text();
+	self::$field_types['int']=new microhrm_field_type_int();
+	self::$field_types['checkBox']=new microhrm_field_type_checkBox();
+	self::$field_types['gender']=new microhrm_field_type_gender();
+	self::$field_types['date']=new microhrm_field_type_date();
+	self::$field_types['datetime']=new microhrm_field_type_datetime();
+	self::$field_types['time']=new microhrm_field_type_time();
+	self::$field_types['nationalCode']=new microhrm_field_type_nationalCode();
+	self::$field_types['mobile']=new microhrm_field_type_mobile();
+	self::$field_types['title']=new microhrm_field_type_title();
+	self::$field_types['email']=new microhrm_field_type_email();
+	self::$field_types['phone']=new microhrm_field_type_phone();
   }
-
   public static function get($key):microhrm_field_type {
     self::init();
     return self::$field_types[$key];
   }
-
 }

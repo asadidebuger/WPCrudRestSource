@@ -1269,6 +1269,15 @@ public class crudrestPackageImpl extends EPackageImpl implements crudrestPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFieldType_AdapterSearch() {
+		return (EAttribute)fieldTypeEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDBFieldConfig() {
 		return dbFieldConfigEClass;
 	}
@@ -1289,15 +1298,6 @@ public class crudrestPackageImpl extends EPackageImpl implements crudrestPackage
 	 */
 	public EAttribute getDBFieldConfig_Expression() {
 		return (EAttribute)dbFieldConfigEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDBFieldConfig_SearchAdapter() {
-		return (EAttribute)dbFieldConfigEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1530,11 +1530,11 @@ public class crudrestPackageImpl extends EPackageImpl implements crudrestPackage
 		createEReference(fieldTypeEClass, FIELD_TYPE__INPUT);
 		createEAttribute(fieldTypeEClass, FIELD_TYPE__ADAPTER_FROM_DB);
 		createEAttribute(fieldTypeEClass, FIELD_TYPE__ADAPTER_TO_DB);
+		createEAttribute(fieldTypeEClass, FIELD_TYPE__ADAPTER_SEARCH);
 
 		dbFieldConfigEClass = createEClass(DB_FIELD_CONFIG);
 		createEAttribute(dbFieldConfigEClass, DB_FIELD_CONFIG__TYPE);
 		createEAttribute(dbFieldConfigEClass, DB_FIELD_CONFIG__EXPRESSION);
-		createEAttribute(dbFieldConfigEClass, DB_FIELD_CONFIG__SEARCH_ADAPTER);
 
 		vueElementEClass = createEClass(VUE_ELEMENT);
 		createEAttribute(vueElementEClass, VUE_ELEMENT__TAG);
@@ -1711,11 +1711,11 @@ public class crudrestPackageImpl extends EPackageImpl implements crudrestPackage
 		initEReference(getFieldType_Input(), this.getVueElement(), null, "input", null, 1, 1, FieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFieldType_AdapterFromDB(), ecorePackage.getEString(), "adapterFromDB", null, 0, 1, FieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFieldType_AdapterToDB(), ecorePackage.getEString(), "adapterToDB", null, 0, 1, FieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFieldType_AdapterSearch(), ecorePackage.getEString(), "adapterSearch", null, 0, 1, FieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dbFieldConfigEClass, DBFieldConfig.class, "DBFieldConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDBFieldConfig_Type(), ecorePackage.getEString(), "type", "VARCHAR", 1, 1, DBFieldConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDBFieldConfig_Expression(), ecorePackage.getEString(), "expression", "", 0, 1, DBFieldConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDBFieldConfig_SearchAdapter(), ecorePackage.getEString(), "searchAdapter", null, 0, 1, DBFieldConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vueElementEClass, VueElement.class, "VueElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVueElement_Tag(), ecorePackage.getEString(), "tag", null, 0, 1, VueElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
