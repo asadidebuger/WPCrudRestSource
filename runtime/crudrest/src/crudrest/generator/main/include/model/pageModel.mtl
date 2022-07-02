@@ -1,0 +1,30 @@
+[comment encoding = Cp1256 /]
+[module pageModel('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[template public pageModel(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+[file (directory+'/includes/model/page/index.php', false, 'UTF-8')]
+<?php // Silence is golden
+[/file]
+[for(page:UIPage|plg.gui.page)]
+[file (directory+'/includes/model/page/'+ page.key +'.php', false, 'UTF-8')]
+<?php
+/**
+ * Fired during plugin activation.
+[plg.getCopyrightComment()/]
+ */
+	$page=new [prefix/]_Page('[page.key/]','[page.entity.key/]',__('[page.getPageTitle()/]','[td/]'));
+	$columns=array([for(col:FieldBase|page.list.listColumns)]'[col.key/]',[/for]);
+	$sortable=array([for(col:FieldBase|page.list.sortableColumns)]'[col.key/]',[/for]);
+	$searchable=array([for(col:FieldBase|page.list.searchableColumns)]'[col.key/]',[/for]);
+	$props=['[\'createButton\'=>'+page.list.showCreateButton+',\'editButton\'=>'+page.list.showEditButton+',\'searchBox\'=>'+page.list.showSearchBox+',\'detailButton\'=>'+page.list.showViewDetailButton+',\'deleteButton\'=>'+page.list.showDeleteButton+',\'itemsPerPage\'=>'+page.list.itemsPerPage+']'/];
+	$bulkActions=array([for(bulk:BulkAction|page.list.bulkAction)]['\''+bulk.key+'\'=>[\'title\'=>__(\''+bulk.title+'\',\''+td+'\'), \'icon\'=>\''+bulk.icon+'\']'/],[/for]);
+	$where= <<<WHEREPUSH
+[page.list.extendWhereClause/] 
+WHEREPUSH;
+		$page->set_listView($columns,$sortable,$searchable,$props,$bulkActions,trim($where));
+		$page->set_formView(array([for(fl:FieldLayout|page.form.fieldLayout)] '[fl.field.key/]'=>array('class'=>'[fl.layout.getLayoutCalss()/]',
+		'col'=>array('xs'=>[fl.layout.getInt('col_xs')/],'sm'=>[fl.layout.getInt('col_sm')/],'md'=>[fl.layout.getInt('col_md')/],'lg'=>[fl.layout.getInt('col_lg')/], 'xl'=>[fl.layout.getInt('col_xl')/]), 'style'=>'[fl.layout.getString('style')/]'), [/for]));
+	return $page;
+[/file]
+[/for]
+[/template]

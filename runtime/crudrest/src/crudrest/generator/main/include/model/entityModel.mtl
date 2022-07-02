@@ -1,0 +1,41 @@
+[comment encoding = Cp1256 /]
+[module entityModel('http://crudrest.msde.ui.ac.ir')/]
+[import crudrest::generator::main::service /]
+[template public entityModel(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+[file (directory+'/includes/model/entity/index.php', false, 'UTF-8')]
+<?php // Silence is golden
+[/file]
+
+[for (entity : Entity|plg.serviceProvider.entityModel)]
+[file (directory+'/includes/model/entity/'+ entity.key +'.php', false, 'UTF-8')]
+<?php
+/**
+[plg.getCopyrightComment()/]
+ */
+
+	// "[entity.key/]" Fields
+[for (field : crudrest::Field|entity.eContents(crudrest::Field))]
+	$[entity.key+'_'+field.key/]=new [prefix/]_Field('[field.key/]','[field.type.key/]',__('[field.label/]','[td/]'),[field.index/],[field.unique/],[field.required/]);
+[/for]
+
+[if(entity.eContents(crudrest::Relation)->size()>0)]
+	// "[entity.key/]" Relations
+	[for (relation : Relation|entity.eContents(crudrest::Relation))]
+		
+	$[entity.key+'_'+relation.key/]=new [prefix/]_Relation('[relation.key/]','[relation.entity.key/]','[relation.opposite.getString('key')/]','[relation.getRelationJoinTabel()/]','[relation.getRelationJoinSourceKey()/]','[relation.getRelationJoinTargetKey()/]',__('[relation.label/]','[td/]'),[relation.many/],[relation.index/],[relation.unique/],[relation.required/]);
+	[/for]
+[/if]
+
+	// "[entity.key/]" Entity
+	$[entity.key/]_title_script= '[entity.getString('titleScript').replaceAll('\'', '\\\\'+'\'') /]';
+	$[entity.key/]=new [prefix/]_Entity('[entity.key/]',__('[entity.label/]','[td/]'),__('[entity.labelPlural/]','[td/]'), $[entity.key/]_title_script);
+[for (field : Field|entity.eContents(crudrest::Field))]
+	$[entity.key/]->add_field('[field.key/]',$[entity.key+'_'+field.key/]);
+[/for]
+[for (relation : Relation|entity.eContents(crudrest::Relation))]
+	$[entity.key/]->add_relation('[relation.key/]',$[entity.key+'_'+relation.key/]);
+[/for]
+	return $[entity.key/];
+[/file]
+[/for]
+[/template]
