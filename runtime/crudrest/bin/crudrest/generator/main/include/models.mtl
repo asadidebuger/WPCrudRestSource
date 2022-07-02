@@ -1,12 +1,22 @@
 [comment encoding = Cp1256 /]
 [module models('http://crudrest.msde.ui.ac.ir')/]
 [import crudrest::generator::main::service /]
+[import crudrest::generator::main::include::model::entityModel/]
+[import crudrest::generator::main::include::model::pageModel/]
+[import crudrest::generator::main::include::model::menuModel/]
 [template public models(plg : CrudRestPlugin,directory:String, prefix:String, td:String)]
+
+[file (directory+'/includes/model/index.php', false, 'UTF-8')]
+<?php // Silence is golden
+[/file]
+
+[entityModel(directory,prefix,td)/]
+[pageModel(directory,prefix,td)/]
+[menuModel(directory,prefix,td)/]
 
 [file (directory+'/includes/'+ prefix +'_Models.php', false, 'UTF-8')]
 <?php
 /**
- * Fired during plugin activation.
 [getCopyrightComment()/]
  */
 include_once '[prefix/]_Field.php';
@@ -25,66 +35,22 @@ class [prefix/]_Models {
 	private $entities=['[]'/];
 	private $pages=['[]'/];
 	
-
 [for (entity : Entity|plg.serviceProvider.entityModel)]
 	private function get_entity_[entity.key/](){
-		// "[entity.key/]" Fields
-	[for (field : crudrest::Field|entity.eContents(crudrest::Field))]
-		$[entity.key+'_'+field.key/]=new [prefix/]_Field('[field.key/]','[field.type.key/]',__('[field.label/]','[td/]'),[field.index/],[field.unique/],[field.required/]);
-	[/for]
-
-	[if(entity.eContents(crudrest::Relation)->size()>0)]
-		// "[entity.key/]" Relations
-		[for (relation : Relation|entity.eContents(crudrest::Relation))]
-			
-		$[entity.key+'_'+relation.key/]=new [prefix/]_Relation('[relation.key/]','[relation.entity.key/]','[relation.opposite.getString('key')/]','[relation.getRelationJoinTabel()/]','[relation.getRelationJoinSourceKey()/]','[relation.getRelationJoinTargetKey()/]',__('[relation.label/]','[td/]'),[relation.many/],[relation.index/],[relation.unique/],[relation.required/]);
-		[/for]
-	[/if]
-
-		// "[entity.key/]" Entity
-		$[entity.key/]_title_script= '[entity.getString('titleScript').replaceAll('\'', '\\\\'+'\'') /]';
-		$[entity.key/]=new [prefix/]_Entity('[entity.key/]',__('[entity.label/]','[td/]'),__('[entity.labelPlural/]','[td/]'), $[entity.key/]_title_script);
-	[for (field : Field|entity.eContents(crudrest::Field))]
-		$[entity.key/]->add_field('[field.key/]',$[entity.key+'_'+field.key/]);
-	[/for]
-	[for (relation : Relation|entity.eContents(crudrest::Relation))]
-		$[entity.key/]->add_relation('[relation.key/]',$[entity.key+'_'+relation.key/]);
-	[/for]
-
-		return $[entity.key/];
+		return include 'model/entity/[entity.key/].php';
 	}
 [/for]
-
 [for(page:UIPage|plg.gui.page)]
 	public function get_page_[page.key/](){
-		$page=new [prefix/]_Page('[page.key/]','[page.entity.key/]',__('[page.getPageTitle()/]','[td/]'));
-		$columns=array([for(col:FieldBase|page.list.listColumns)]'[col.key/]',[/for]);
-		$sortable=array([for(col:FieldBase|page.list.sortableColumns)]'[col.key/]',[/for]);
-		$searchable=array([for(col:FieldBase|page.list.searchableColumns)]'[col.key/]',[/for]);
-		$props=['[\'createButton\'=>'+page.list.showCreateButton+',\'editButton\'=>'+page.list.showEditButton+',\'searchBox\'=>'+page.list.showSearchBox+',\'detailButton\'=>'+page.list.showViewDetailButton+',\'deleteButton\'=>'+page.list.showDeleteButton+',\'itemsPerPage\'=>'+page.list.itemsPerPage+']'/];
-		$bulkActions=array([for(bulk:BulkAction|page.list.bulkAction)]['\''+bulk.key+'\'=>[\'title\'=>__(\''+bulk.title+'\',\''+td+'\'), \'icon\'=>\''+bulk.icon+'\']'/],[/for]);
-		$where= <<<WHEREPUSH
-[page.list.extendWhereClause/] 
-WHEREPUSH;
-		$page->set_listView($columns,$sortable,$searchable,$props,$bulkActions,trim($where));
-		$page->set_formView(array([for(fl:FieldLayout|page.form.fieldLayout)] '[fl.field.key/]'=>array('class'=>'[fl.layout.getLayoutCalss()/]',
-			'col'=>array('xs'=>[fl.layout.getInt('col_xs')/],'sm'=>[fl.layout.getInt('col_sm')/],'md'=>[fl.layout.getInt('col_md')/],'lg'=>[fl.layout.getInt('col_lg')/], 'xl'=>[fl.layout.getInt('col_xl')/]), 'style'=>'[fl.layout.getString('style')/]'), [/for]));
-		return $page;
+		return include 'model/page/[page.key/].php';
 	}
 [/for]
-
 	public static function get_admin_menus():array{
-		$menus=['['/]
+		$menus=array();
 [if (plg.gui.menu.isNotEmpty())]
 [for(menu:Menu|plg.gui.menu)]
-			'[menu.slug+'\'=>[\'title\'=>__(\''+menu.title+'\',\''+td+'\'), \'icon\'=>'/][if (menu.icon.oclIsUndefined())]null[else]'dashicons-[menu.icon/]'[/if], 'sub'=>['['/]
-	[for(item:MenuItem|menu.items)]
-				['\''+item.page.key+'\'=>[\'title\'=>__(\''+item.getMenuItemTitle()+'\',\''+td+'\'), \'pageTitle\'=>__(\''+item.page.getPageTitle()+'\',\''+td+'\'),\'page_key\'=>\''+item.page.key+'\'],'/]
-	[/for]
-					[']'/],
-				[']'/],
+			$menus['[\''+menu.slug+'\']'/]= include 'model/menu/[menu.slug/].php';
 [/for]		
-			[']'/];
 [/if]
 		return $menus;
 	}

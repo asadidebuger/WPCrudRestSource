@@ -47,7 +47,7 @@ class microhrm_field_type {
     if (!$this->from_db_func) return $value;
 	return $this->from_db_func->call($this,$item,$key,$value);
   }
-  private static $field_types=array();
+  private static array $field_types=array();
   public static function init()
   {
 	if (count(self::$field_types)>0)return;
