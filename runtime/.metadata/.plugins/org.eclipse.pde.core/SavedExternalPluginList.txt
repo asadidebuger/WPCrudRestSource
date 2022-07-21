@@ -1,4 +1,4 @@
-# List of external plug-in models previously loaded. Timestamp: 1657546649422
+# List of external plug-in models previously loaded. Timestamp: 1658403751036
 file:/C:/Program%20Files/eclipse/plugins/com.google.gson_2.8.9.v20220111-1409.jar
 file:/C:/Program%20Files/eclipse/plugins/com.google.guava_30.1.0.v20210127-2300.jar
 file:/C:/Program%20Files/eclipse/plugins/com.google.inject_5.0.1.v20210324-2015.jar
@@ -9,6 +9,8 @@ file:/C:/Program%20Files/eclipse/plugins/com.jcraft.jsch_0.1.55.v20190404-1902.j
 file:/C:/Program%20Files/eclipse/plugins/com.sun.el_2.2.0.v201303151357.jar
 file:/C:/Program%20Files/eclipse/plugins/com.sun.jna_5.8.0.v20210503-0343.jar
 file:/C:/Program%20Files/eclipse/plugins/com.sun.jna.platform_5.8.0.v20210406-1004.jar
+file:/C:/Program%20Files/eclipse/dropins/crudrest_1.0.0.202207191606.jar
+file:/C:/Program%20Files/eclipse/dropins/crudrest.ui_1.0.0.202207191606.jar
 file:/C:/Program%20Files/eclipse/plugins/io.github.classgraph_4.8.138.v20211212-1642.jar
 file:/C:/Program%20Files/eclipse/plugins/jakarta.el_4.0.0.v20210105-0527.jar
 file:/C:/Program%20Files/eclipse/plugins/jakarta.enterprise.cdi-api_2.0.2.jar

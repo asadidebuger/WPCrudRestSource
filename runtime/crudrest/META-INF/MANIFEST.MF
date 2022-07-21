@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: crudrest;singleton:=true
+Bundle-SymbolicName: crudrest.design;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: crudrest.Activator
 Bundle-Localization: plugin
@@ -26,5 +26,5 @@ Require-Bundle:
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-12
 Bundle-Vendor: %providerName
-Automatic-Module-Name: crudrest
+Automatic-Module-Name: crudrest.design
 Export-Package: crudrest, crudrest.generator.main

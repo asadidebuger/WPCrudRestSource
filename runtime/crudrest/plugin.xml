@@ -3,7 +3,7 @@
 <plugin>
   <extension point="org.eclipse.sirius.componentization">
     <component class="crudrest.Activator"
-               id="crudrest"
+               id="crudrest.design"
 	       name="crudrest">
     </component>
   </extension>
